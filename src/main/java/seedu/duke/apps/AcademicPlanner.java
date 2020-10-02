@@ -1,11 +1,10 @@
-package apps;
+package seedu.duke.apps;
 
-import moduledata.ModuleInitializer;
-import objects.Module;
-import objects.Person;
-import org.apache.commons.lang3.builder.ToStringBuilder;
+import seedu.duke.moduledata.ModuleInitializer;
+import seedu.duke.objects.Module;
+import seedu.duke.objects.Person;
+
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Scanner;
 

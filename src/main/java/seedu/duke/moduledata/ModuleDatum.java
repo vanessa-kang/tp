@@ -1,4 +1,4 @@
-package moduledata;
+package seedu.duke.moduledata;
 
 import java.util.ArrayList;
 import java.util.HashMap;
