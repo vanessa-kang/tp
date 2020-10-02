@@ -1,4 +1,4 @@
-package objects;
+package seedu.duke.objects;
 
 import java.util.ArrayList;
 import java.util.HashMap;
