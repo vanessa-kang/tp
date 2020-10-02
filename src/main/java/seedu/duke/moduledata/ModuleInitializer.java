@@ -1,4 +1,4 @@
-package moduledata;
+package seedu.duke.moduledata;
 
 import com.google.gson.Gson;
 
