@@ -27,6 +27,7 @@ public class ModuleInitializer {
     public Map<String, Integer> getModuleMap() {
         return this.moduleMap;
     }
+
     public ModuleDatum[] getModuleFullDetails() {
         return this.moduleFullDetails;
     }

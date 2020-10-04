@@ -52,9 +52,9 @@ public class CapCalculator {
      * Prints out current CAP and number of graded MCs.
      */
     private void printCurrentCAP() {
-        double currentCAP = person.getCurrentTotalMCxGrade() / (double) person.getCurrentMCAfterSU();
+        double currentCAP = person.getCurrentTotalMcxGrade() / (double) person.getCurrentMcAfterSU();
         System.out.println("Your current now CAP is: " + formatCAPToString(currentCAP));
-        System.out.println("Number of graded MCs taken is: " + person.getCurrentMCAfterSU());
+        System.out.println("Number of graded MCs taken is: " + person.getCurrentMcAfterSU());
     }
 
     /**
@@ -80,9 +80,9 @@ public class CapCalculator {
      * Calculate what should be the user's minimum CAP in order to achieve user's target CAP.
      */
     private void calculateResults(double targetCAP,int targetGradedMC) {
-        int totalMCToTarget = person.getCurrentMCAfterSU() + targetGradedMC;
+        int totalMCToTarget = person.getCurrentMcAfterSU() + targetGradedMC;
         double targetCAPxTargetMC = (double) totalMCToTarget * targetCAP;
-        double neededCAP = (targetCAPxTargetMC - person.getCurrentTotalMCxGrade()) / (double) targetGradedMC;
+        double neededCAP = (targetCAPxTargetMC - person.getCurrentTotalMcxGrade()) / (double) targetGradedMC;
 
         if (neededCAP <= 5) {
             System.out.println("You should achieve a minimum CAP of " + formatCAPToString(neededCAP) + " for your next "

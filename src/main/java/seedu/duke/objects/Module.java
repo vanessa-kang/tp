@@ -2,19 +2,19 @@ package seedu.duke.objects;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-public class Module implements Comparable<Module>{
+public class Module implements Comparable<Module> {
     private String moduleCode;
     private int semesterIndex; // 1 to 8
     private String grade;
     private int moduleCredit;
-    private double CAP;
+    private double cap;
 
-    public Module (String moduleCode, int semesterIndex, String grade, int moduleCredit) {
+    public Module(String moduleCode, int semesterIndex, String grade, int moduleCredit) {
         setModuleCode(moduleCode);
         setSemesterIndex(semesterIndex);
         setGrade(grade);
         setModuleCredit(moduleCredit);
-        setCAP(grade);
+        setCap(grade);
     }
 
     public String getModuleCode() {
@@ -47,41 +47,41 @@ public class Module implements Comparable<Module>{
 
     public void setGrade(String grade) {
         this.grade = grade;
-        setCAP(grade);
+        setCap(grade);
     }
 
-    public void setCAP(String grade) {
+    public void setCap(String grade) {
         switch (grade.toUpperCase()) {
         case "A+":
         case "A":
-            this.CAP = 5.00;
+            this.cap = 5.00;
             break;
         case "A-":
-            this.CAP = 4.50;
+            this.cap = 4.50;
             break;
         case "B+":
-            this.CAP = 4.00;
+            this.cap = 4.00;
             break;
         case "B":
-            this.CAP = 3.50;
+            this.cap = 3.50;
             break;
         case "B-":
-            this.CAP = 3.00;
+            this.cap = 3.00;
             break;
         case "C+":
-            this.CAP = 2.50;
+            this.cap = 2.50;
             break;
         case "C":
-            this.CAP = 2.00;
+            this.cap = 2.00;
             break;
         case "D+":
-            this.CAP = 1.50;
+            this.cap = 1.50;
             break;
         case "D":
-            this.CAP = 1.00;
+            this.cap = 1.00;
             break;
         case "F":
-            this.CAP = 0.00;
+            this.cap = 0.00;
             break;
         case "CS":           //Completed Satisfactorily
             //Fallthrough
@@ -104,21 +104,21 @@ public class Module implements Comparable<Module>{
         case "EXE":         //Exempted
             //Fallthrough
         case "NT":           //Not taken
-            this.CAP = -1.00;
+            this.cap = -1.00;
             break;
         default:
-            this.CAP = 0.00;
+            this.cap = 0.00;
             break;
         }
     }
 
-    public double getCAP() {
-        return CAP;
+    public double getCap() {
+        return cap;
     }
 
     @Override
     public int compareTo(Module module) {
-        return (Double.compare(this.getCAP(), module.getCAP()));
+        return (Double.compare(this.getCap(), module.getCap()));
     }
 
     @Override
