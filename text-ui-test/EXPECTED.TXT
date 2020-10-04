@@ -1,9 +1,2 @@
-Hello from
- ____        _        
-|  _ \ _   _| | _____ 
-| | | | | | | |/ / _ \
-| |_| | |_| |   <  __/
-|____/ \__,_|_|\_\___|
-
-What is your name?
-Hello James Gosling
+Module loaded... Checking for CS1010 validity...
+{"additionalProperties":{},"attributes":[true,false,false,false,false,false,false,false,false],"corequisite":"","department":"Computer Science","faculty":"Computing","moduleCode":"CS1010","moduleCredit":4,"preclusion":"CS1010E, CS1010J, CS1010S, CS1010X, CS1010XCP, CS1101S","prerequisite":"","semester":[1,2],"title":"Programming Methodology"}

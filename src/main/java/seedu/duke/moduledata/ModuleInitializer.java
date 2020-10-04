@@ -15,7 +15,7 @@ public class ModuleInitializer {
     public ModuleInitializer() {
         Gson gson = new Gson();
 
-        InputStream in = ModuleInitializer.class.getResourceAsStream("/moduleData.json");
+        InputStream in = ModuleInitializer.class.getResourceAsStream("/ModuleData.json");
         Reader jsonReader = new InputStreamReader(in);
         moduleFullDetails = gson.fromJson(jsonReader, ModuleDatum[].class);
 
