@@ -133,14 +133,14 @@ public class AcademicPlanner {
     }
 
     /**
-     * Update Cap after every change in current module list
+     * Update Cap after every change in current module list.
      *
      * @param type An int storing the type of function calling update cap
      * @param currentModule A Module object storing current module
      * @param caps An optional number of double storing old cap and new cap (If you send in old, must send in new also)
      */
     // Look into throwing error and short circuiting this command
-    private void updateCap(int type, Module currentModule, double ...caps) {
+    private void updateCap(int type, Module currentModule, double... caps) {
         // Caps is an array, 0 being oldCap, 1 being newCap
         if (type == FROM_ADD) {
             //Incrementing total MC regardless of SU
