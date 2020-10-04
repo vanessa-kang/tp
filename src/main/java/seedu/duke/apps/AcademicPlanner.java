@@ -10,23 +10,23 @@ import java.util.Scanner;
 
 public class AcademicPlanner {
 
-    private final int STARTING_SEMESTER_INDEX = 1;
-    private final int FINAL_SEMESTER_INDEX = 10;
-    private final String EXITING_CURRENT_COMMAND = "Exiting current command back to Academic Planner Main Menu.";
-    private final String ERROR_INVALID_COMMAND = "INVALID COMMAND";
-    private final String ERROR_INVALID_SEMESTER_INDEX = "INVALID SEMESTER INDEX";
-    private final String ERROR_INVALID_GRADE = "INVALID GRADE VALUE";
-    private final String ERROR_NOT_OFFERED = " IS NOT OFFERED BY NUS";
-    private final String ERROR_DUPLICATE_MOD = "You already have this mod on your calendar!";
-    private final String ERROR_NOT_ADDED = "You have not added this module into your list yet";
-    private final String ERROR_EDIT_OPTION = "Number entered does not correspond to any feature";
-    private final String WELCOME_MESSAGE = "\nWelcome to Academic Planner!";
-    private final String ADD_COMMAND = "ADD";
-    private final String EDIT_COMMAND = "EDIT";
-    private final String REMOVE_COMMAND = "REMOVE";
-    private final String VIEW_COMMAND = "VIEW";
-    private final String EXIT_COMMAND = "EXIT";
-    private final String COMMANDS_LIST = "Available commands are: \n"
+    private static final int STARTING_SEMESTER_INDEX = 1;
+    private static final int FINAL_SEMESTER_INDEX = 10;
+    private static final String EXITING_CURRENT_COMMAND = "Exiting current command back to Academic Planner Main Menu.";
+    private static final String ERROR_INVALID_COMMAND = "INVALID COMMAND";
+    private static final String ERROR_INVALID_SEMESTER_INDEX = "INVALID SEMESTER INDEX";
+    private static final String ERROR_INVALID_GRADE = "INVALID GRADE VALUE";
+    private static final String ERROR_NOT_OFFERED = " IS NOT OFFERED BY NUS";
+    private static final String ERROR_DUPLICATE_MOD = "You already have this mod on your calendar!";
+    private static final String ERROR_NOT_ADDED = "You have not added this module into your list yet";
+    private static final String ERROR_EDIT_OPTION = "Number entered does not correspond to any feature";
+    private static final String WELCOME_MESSAGE = "\nWelcome to Academic Planner!";
+    private static final String ADD_COMMAND = "ADD";
+    private static final String EDIT_COMMAND = "EDIT";
+    private static final String REMOVE_COMMAND = "REMOVE";
+    private static final String VIEW_COMMAND = "VIEW";
+    private static final String EXIT_COMMAND = "EXIT";
+    private static final String COMMANDS_LIST = "Available commands are: \n"
             + "  add <module code>\n"
             + "  edit <module code>\n"
             + "  remove <module code>\n"
