@@ -17,11 +17,11 @@ public class CapCalculator {
     private final String CURRENT_COMMAND = "CURRENT";
     private final String SET_TARGET_COMMAND = "SET TARGET";
     private final String EXIT_MESSAGE = "EXITING CAPCALC";
-    private final String WELCOME_MESSAGE = "Welcome to CAP Calculator! Commands available are:\n" +
-            "  Current\n" +
-            "  Set target\n" +
-            "To exit CAP Calculator, use command: \"exit\"\n\n" +
-            "Initializing your CAP...";
+    private final String WELCOME_MESSAGE = "Welcome to CAP Calculator! Commands available are:\n"
+            + "  Current\n"
+            + "  Set target\n"
+            + "To exit CAP Calculator, use command: \"exit\"\n\n"
+            + "Initializing your CAP...";
 
     public CapCalculator(Person currentPerson) {
         this.person = currentPerson;
@@ -40,7 +40,7 @@ public class CapCalculator {
                 printCurrentCAP();
             } else if (input.equals(SET_TARGET_COMMAND)) {
                 setTargetCAP();
-            }else {
+            } else {
                 System.out.println(ERROR_INVALID_COMMAND);
             }
             input = scanner.nextLine().toUpperCase();
@@ -49,7 +49,7 @@ public class CapCalculator {
     }
 
     /**
-     * Prints out current CAP and number of graded MCs
+     * Prints out current CAP and number of graded MCs.
      */
     private void printCurrentCAP() {
         double currentCAP = person.getCurrentTotalMCxGrade() / (double) person.getCurrentMCAfterSU();
@@ -70,7 +70,7 @@ public class CapCalculator {
             int targetGradedMC = Integer.parseInt(in.nextLine());
 
             calculateResults(targetCAP, targetGradedMC);
-        } catch(NullPointerException e) {
+        } catch (NullPointerException e) {
             System.out.println(ERROR_INVALID_COMMAND);
             System.out.println(AWAIT_COMMAND);
         }
@@ -85,16 +85,16 @@ public class CapCalculator {
         double neededCAP = (targetCAPxTargetMC - person.getCurrentTotalMCxGrade()) / (double) targetGradedMC;
 
         if (neededCAP <= 5) {
-            System.out.println("You should achieve a minimum CAP of " + formatCAPToString(neededCAP) + " for your next " +
-                    targetGradedMC + " MCs to achieve your target CAP of " + targetCAP + ".");
+            System.out.println("You should achieve a minimum CAP of " + formatCAPToString(neededCAP) + " for your next "
+                    + targetGradedMC + " MCs to achieve your target CAP of " + targetCAP + ".");
         } else {
-            System.out.println("OOPS!! Looks like you are not able to achieve your target CAP of " + targetCAP +
-                    " with you target MCs of " + targetGradedMC + ".");
+            System.out.println("OOPS!! Looks like you are not able to achieve your target CAP of " + targetCAP
+                    + " with you target MCs of " + targetGradedMC + ".");
         }
     }
 
     /**
-     * Returns CAP score as a string
+     * Returns CAP score as a string.
      *
      * @param academicPoint academic point to parse
      * @return string of academic point
