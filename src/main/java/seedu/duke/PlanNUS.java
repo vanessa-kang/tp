@@ -3,7 +3,7 @@ package seedu.duke;
 import seedu.duke.moduledata.ModuleDatum;
 import seedu.duke.moduledata.ModuleInitializer;
 
-public class PlanNUS {
+public class PlanNus {
     /**
      * Main entry-point for the java.duke.Duke application.
      */
