@@ -25,13 +25,13 @@ public class AcademicPlanner {
     private final String REMOVE_COMMAND = "REMOVE";
     private final String VIEW_COMMAND = "VIEW";
     private final String EXIT_COMMAND = "EXIT";
-    private final String COMMANDS_LIST = "Available commands are: \n" +
-            "  add <module code>\n" +
-            "  edit <module code>\n" +
-            "  remove <module code>\n" +
-            "  view\n" +
-            "  exit\n" +
-            "Type a command to continue...";
+    private final String COMMANDS_LIST = "Available commands are: \n"
+            + "  add <module code>\n"
+            + "  edit <module code>\n"
+            + "  remove <module code>\n"
+            + "  view\n"
+            + "  exit\n"
+            + "Type a command to continue...";
 
     private ModuleInitializer allModules;
     private ArrayList<Module> modulesList;
@@ -97,7 +97,7 @@ public class AcademicPlanner {
                     return;
                 }
 
-                System.out.println("Grade received for " + moduleCode.toUpperCase() +"?");
+                System.out.println("Grade received for " + moduleCode.toUpperCase() + "?");
                 String gradeValue = in.nextLine();
                 if (!checkValidGrade(gradeValue)) {
                     System.out.println(ERROR_INVALID_GRADE);
@@ -262,7 +262,7 @@ public class AcademicPlanner {
     }
 
     /**
-     * Returns tru if module is in the user's academic calendar
+     * Returns true if module is in the user's academic calendar,
      * else returns false.
      *
      * @param moduleCode moduleCode to check
@@ -273,13 +273,13 @@ public class AcademicPlanner {
     }
 
     /**
-     * Returns true if semsesterIndex is a valid semesterIndex
+     * Returns true if semsesterIndex is a valid semesterIndex,
      * else returns false
      *
      * @param semesterIndex semesterIndex to check
      * @return false
      */
-    private boolean checkValidSemester (int semesterIndex) {
+    private boolean checkValidSemester(int semesterIndex) {
         return (semesterIndex >= STARTING_SEMESTER_INDEX && semesterIndex <= FINAL_SEMESTER_INDEX);
     }
 
@@ -342,7 +342,7 @@ public class AcademicPlanner {
     }
 
     /**
-     * Function to return module credits for module code
+     * Function to return module credits for module code.
      *
      * @param moduleCode string of module code
      * @return int of module credit
