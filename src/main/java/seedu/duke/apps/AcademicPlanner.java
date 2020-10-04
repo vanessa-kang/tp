@@ -262,7 +262,7 @@ public class AcademicPlanner {
     }
 
     /**
-     * Returns tru if module is in the user's academic calendar
+     * Returns true if module is in the user's academic calendar
      * else returns false.
      *
      * @param moduleCode moduleCode to check
