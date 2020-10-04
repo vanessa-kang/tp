@@ -8,6 +8,8 @@ import java.util.Map;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
+import static org.apache.commons.lang3.builder.ToStringStyle.JSON_STYLE;
+
 //    "moduleCode",
 //    "title",
 //    "moduleCredit",
@@ -84,7 +86,7 @@ public class ModuleDatum {
 
     @Override
     public String toString() {
-        return ToStringBuilder.reflectionToString(this);
+        return ToStringBuilder.reflectionToString(this, JSON_STYLE);
     }
 
     @Override
