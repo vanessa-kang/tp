@@ -1,0 +1,119 @@
+package seedu.duke.apps;
+
+import seedu.duke.objects.Person;
+
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+public class CapCalculator {
+    private final Person person;
+    private final DecimalFormat formatFinalCap = new DecimalFormat("#.##");
+
+    //CONSTANTS
+    private static final String ERROR_INVALID_COMMAND = "INVALID COMMAND";
+    private static final String AWAIT_COMMAND = "Type a command to continue...";
+    private static final String EXIT_COMMAND = "EXIT";
+    private static final String CURRENT_COMMAND = "CURRENT";
+    private static final String SET_TARGET_COMMAND = "SET TARGET";
+    private static final String EXIT_MESSAGE = "EXITING CAPCALC";
+    private static final String WELCOME_MESSAGE = "Welcome to CAP Calculator! Commands available are:\n"
+            + "  Current\n"
+            + "  Set target\n"
+            + "To exit CAP Calculator, use command: \"exit\"\n\n"
+            + "Initializing your CAP...";
+
+    public CapCalculator(Person currentPerson) {
+        this.person = currentPerson;
+    }
+
+    //Main Function
+    public void capCalculator() {
+        System.out.println(WELCOME_MESSAGE);
+        System.out.println(AWAIT_COMMAND);
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine().toUpperCase();
+        formatFinalCap.setRoundingMode(RoundingMode.UP);
+
+        while (!input.equals(EXIT_COMMAND)) {
+            if (input.equals(CURRENT_COMMAND)) {
+                printCurrentCap();
+            } else if (input.equals(SET_TARGET_COMMAND)) {
+                setTargetCap();
+            } else {
+                System.out.println(ERROR_INVALID_COMMAND);
+            }
+            input = scanner.nextLine().toUpperCase();
+        }
+        System.out.println(EXIT_MESSAGE);
+    }
+
+    /**
+     * Prints out current CAP and number of graded MCs.
+     */
+    private void printCurrentCap() {
+        double currentCap = person.getCurrentTotalMcxGrade() / (double) person.getCurrentMcAfterSU();
+        System.out.println("Your current now CAP is: " + formatCapToString(currentCap));
+        System.out.println("Number of graded MCs taken is: " + person.getCurrentMcAfterSU());
+    }
+
+    /**
+     * Allow the user to set the target CAP that user want to achieve in the next given MCs.
+     */
+    private void setTargetCap() {
+        Scanner in = new Scanner(System.in);
+        try {
+            System.out.println("What is your target CAP?");
+            double targetCap = Double.parseDouble(in.nextLine());
+
+            System.out.println("How many graded MCs you are taking to achieve the target CAP?");
+            int targetGradedMC = Integer.parseInt(in.nextLine());
+
+            calculateResults(targetCap, targetGradedMC);
+        } catch (NullPointerException e) {
+            System.out.println(ERROR_INVALID_COMMAND);
+            System.out.println(AWAIT_COMMAND);
+        }
+    }
+
+    /**
+     * Calculate what should be the user's minimum CAP in order to achieve user's target CAP.
+     */
+    private void calculateResults(double targetCap,int targetGradedMC) {
+        int totalMcToTarget = person.getCurrentMcAfterSU() + targetGradedMC;
+        double targetCapxTargetMC = (double) totalMcToTarget * targetCap;
+        double neededCap = (targetCapxTargetMC - person.getCurrentTotalMcxGrade()) / (double) targetGradedMC;
+
+        if (neededCap <= 5) {
+            System.out.println("You should achieve a minimum CAP of " + formatCapToString(neededCap) + " for your next "
+                    + targetGradedMC + " MCs to achieve your target CAP of " + targetCap + ".");
+        } else {
+            System.out.println("OOPS!! Looks like you are not able to achieve your target CAP of " + targetCap
+                    + " with you target MCs of " + targetGradedMC + ".");
+        }
+    }
+
+    /**
+     * Returns CAP score as a string.
+     *
+     * @param academicPoint academic point to parse
+     * @return string of academic point
+     */
+    private String formatCapToString(double academicPoint) {
+        if (isNaN(academicPoint)) {
+            return "0";
+        }
+        return formatFinalCap.format(academicPoint);
+    }
+
+    /**
+     * Returns true if CAP is NaN
+     * else returns false.
+     *
+     * @param academicPoint academic point to check
+     * @return boolean
+     */
+    public boolean isNaN(double academicPoint) {
+        return (academicPoint != academicPoint);
+    }
+}

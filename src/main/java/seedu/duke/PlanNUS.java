@@ -1,7 +1,12 @@
-import moduledata.ModuleDatum;
-import moduledata.ModuleInitializer;
+package seedu.duke;
 
-public class Main {
+import seedu.duke.moduledata.ModuleDatum;
+import seedu.duke.moduledata.ModuleInitializer;
+
+public class PlanNus {
+    /**
+     * Main entry-point for the java.duke.Duke application.
+     */
     public static void main(String[] args) {
         ModuleInitializer allModules =  new ModuleInitializer();
         Integer idx = allModules.getModuleMap().get("CS1010");

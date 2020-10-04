@@ -1,4 +1,4 @@
-package moduledata;
+package seedu.duke.moduledata;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -96,6 +96,10 @@ public class ModuleDatum {
             return false;
         }
         ModuleDatum rhs = ((ModuleDatum) other);
-        return new EqualsBuilder().append(moduleCode, rhs.moduleCode).append(title, rhs.title).append(moduleCredit, rhs.moduleCredit).append(department, rhs.department).append(faculty, rhs.faculty).append(semester, rhs.semester).append(preclusion, rhs.preclusion).append(attributes, rhs.attributes).append(prerequisite, rhs.prerequisite).append(corequisite, rhs.corequisite).append(additionalProperties, rhs.additionalProperties).isEquals();
+        return new EqualsBuilder().append(moduleCode, rhs.moduleCode).append(title, rhs.title)
+                .append(moduleCredit, rhs.moduleCredit).append(department, rhs.department)
+                .append(faculty, rhs.faculty).append(semester, rhs.semester).append(preclusion, rhs.preclusion)
+                .append(attributes, rhs.attributes).append(prerequisite, rhs.prerequisite)
+                .append(corequisite, rhs.corequisite).append(additionalProperties, rhs.additionalProperties).isEquals();
     }
 }

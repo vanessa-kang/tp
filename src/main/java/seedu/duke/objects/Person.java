@@ -1,4 +1,4 @@
-package objects;
+package seedu.duke.objects;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,18 +8,18 @@ public class Person {
     private String personName;
 
     //Variables needed for CAP Calculation
-    private double currentTotalMCxGrade;
-    private int currentMC;
-    private int currentMCAfterSU;
+    private double currentTotalMcxGrade;
+    private int currentMc;
+    private int currentMcAfterSU;
 
     //Variables needed for Academic Planner
     private ArrayList<Module> modulesList;
     private HashMap<String,Module> modulesAddedMap;
 
     public Person(String personName) {
-        this.currentTotalMCxGrade = 0.0;
-        this.currentMC = 0;
-        this.currentMCAfterSU = 0;
+        this.currentTotalMcxGrade = 0.0;
+        this.currentMc = 0;
+        this.currentMcAfterSU = 0;
         this.personName = personName;
         this.modulesList = new ArrayList<>();
         this.modulesAddedMap = new HashMap<>();
@@ -29,28 +29,28 @@ public class Person {
         return personName;
     }
 
-    public double getCurrentTotalMCxGrade() {
-        return currentTotalMCxGrade;
+    public double getCurrentTotalMcxGrade() {
+        return currentTotalMcxGrade;
     }
 
-    public void setCurrentTotalMCxGrade(double currentTotalMCxGrade) {
-        this.currentTotalMCxGrade = currentTotalMCxGrade;
+    public void setCurrentTotalMcxGrade(double currentTotalMcxGrade) {
+        this.currentTotalMcxGrade = currentTotalMcxGrade;
     }
 
-    public int getCurrentMC() {
-        return currentMC;
+    public int getCurrentMc() {
+        return currentMc;
     }
 
-    public void setCurrentMC(int currentMC) {
-        this.currentMC = currentMC;
+    public void setCurrentMc(int currentMc) {
+        this.currentMc = currentMc;
     }
 
-    public int getCurrentMCAfterSU() {
-        return currentMCAfterSU;
+    public int getCurrentMcAfterSU() {
+        return currentMcAfterSU;
     }
 
-    public void setCurrentMCAfterSU(int currentMCAfterSU) {
-        this.currentMCAfterSU = currentMCAfterSU;
+    public void setCurrentMcAfterSU(int currentMcAfterSU) {
+        this.currentMcAfterSU = currentMcAfterSU;
     }
 
     public ArrayList<Module> getModulesList() {

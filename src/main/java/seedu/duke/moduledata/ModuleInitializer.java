@@ -1,4 +1,4 @@
-package moduledata;
+package seedu.duke.moduledata;
 
 import com.google.gson.Gson;
 
@@ -27,6 +27,7 @@ public class ModuleInitializer {
     public Map<String, Integer> getModuleMap() {
         return this.moduleMap;
     }
+
     public ModuleDatum[] getModuleFullDetails() {
         return this.moduleFullDetails;
     }
