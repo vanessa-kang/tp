@@ -2,12 +2,11 @@ package seedu.duke;
 
 import seedu.duke.moduledata.ModuleDatum;
 import seedu.duke.moduledata.ModuleInitializer;
-
 import java.util.Scanner;
 
 public class Duke {
     /**
-     * Main entry-point for the java.duke.Duke application.
+     * Main entry-point for the PlanNus application.
      */
     public static void main(String[] args) {
         ModuleInitializer allModules =  new ModuleInitializer();
