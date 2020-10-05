@@ -4,17 +4,24 @@ import seedu.duke.exceptions.AcademicException;
 import seedu.duke.moduledata.ModuleInitializer;
 import seedu.duke.objects.Module;
 import seedu.duke.objects.Person;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class AcademicPlanner {
+
     private static final int STARTING_SEMESTER_INDEX = 1;
     private static final int FINAL_SEMESTER_INDEX = 10;
+    private static final int COMMAND_INDEX = 0;
+    private static final int MODULE_CODE_INDEX = 1;
     private static final int FROM_ADD = 1;
     private static final int FROM_EDIT = 2;
     private static final int FROM_REMOVE = 3;
+    private static final String COMMAND_REGEX = " ";
+    private static final String EDIT_SEMESTER = "1";
+    private static final String EDIT_GRADE = "2";
+    private static final String PROMPT_NEW_SEMESTER_VALUE = "Enter the new semester value: ";
+    private static final String PROMPT_NEW_GRADE = "Enter the new grade: ";
     private static final String EXITING_CURRENT_COMMAND = "Exiting current command back to Academic Planner Main Menu.";
     private static final String ERROR_INVALID_COMMAND = "INVALID COMMAND";
     private static final String ERROR_INVALID_SEMESTER_INDEX = "INVALID SEMESTER INDEX";
@@ -29,6 +36,7 @@ public class AcademicPlanner {
     private static final String REMOVE_COMMAND = "REMOVE";
     private static final String VIEW_COMMAND = "VIEW";
     private static final String EXIT_COMMAND = "EXIT";
+    private static final String EXIT_MESSAGE = "Thank you for using Academic Planner!";
     private static final String COMMANDS_LIST = "Available commands are: \n"
             + "  add <module code>\n"
             + "  edit <module code>\n"
@@ -36,11 +44,13 @@ public class AcademicPlanner {
             + "  view\n"
             + "  exit\n"
             + "Type a command to continue...";
-
-    private ModuleInitializer allModules;
-    private ArrayList<Module> modulesList;
-    private HashMap<String,Module> modulesAddedMap;
-    private Person currentPerson;
+    public static final String PROMPT_EDIT_CHOICES = "Enter the number corresponding to the feature you wish to edit:\n"
+            + "1) Semester\n"
+            + "2) Grade";
+    private final ModuleInitializer allModules;
+    private final ArrayList<Module> modulesList;
+    private final HashMap<String,Module> modulesAddedMap;
+    private final Person currentPerson;
 
     public AcademicPlanner(ModuleInitializer allModules, Person currentPerson) {
         this.allModules = allModules;
@@ -60,28 +70,34 @@ public class AcademicPlanner {
         String fullInput = scanner.nextLine().toUpperCase();
         String[] inputs = fullInput.split(" ");
 
-        while (!inputs[0].equals(EXIT_COMMAND)) {
-            if (inputs[0].equals(ADD_COMMAND)) {
-                try {
-                    addModule(scanner, inputs[1]);
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
+        while (!inputs[COMMAND_INDEX].equals(EXIT_COMMAND)) {
+            try {
+                switch (inputs[COMMAND_INDEX]) {
+                case ADD_COMMAND:
+                    addModule(scanner, inputs[MODULE_CODE_INDEX]);
+                    break;
+                case EDIT_COMMAND:
+                    editModule(scanner, inputs[MODULE_CODE_INDEX]);
+                    break;
+                case REMOVE_COMMAND:
+                    removeModule(inputs[MODULE_CODE_INDEX]);
+                    break;
+                case VIEW_COMMAND:
+                    // printCalendar();
+                    break;
+                default:
+                    System.out.println(ERROR_INVALID_COMMAND);
+                    System.out.println(EXITING_CURRENT_COMMAND);
                 }
-            } else if (inputs[0].equals(EDIT_COMMAND)) {
-                editModule(scanner, inputs[1]);
-            } else if (inputs[0].equals(REMOVE_COMMAND)) {
-                removeModule(inputs[1]);
-            } else if (inputs[0].equals(VIEW_COMMAND)) {
-                // printCalendar();
-            } else {
+            } catch (AcademicException e) {
                 System.out.println(ERROR_INVALID_COMMAND);
                 System.out.println(EXITING_CURRENT_COMMAND);
             }
             printCommandsList();
             fullInput = scanner.nextLine().toUpperCase();
-            inputs = fullInput.split(" ");
+            inputs = fullInput.split(COMMAND_REGEX);
         }
-        System.out.println("Thank you for using Academic Planner!");
+        System.out.println(EXIT_MESSAGE);
     }
 
     /**
@@ -89,14 +105,16 @@ public class AcademicPlanner {
      * else does not add module into user's academic calendar.
      * Validates user's input semester and grade.
      * If either is invalid, does not add module into user's academic calendar.
+     *
+     * @param in scanner class
+     * @param moduleCode string of module code
      */
     private void addModule(Scanner in, String moduleCode) throws AcademicException {
-        if (!checkIfModOfferedByNus(moduleCode)) {
+        if (!isModOfferedByNus(moduleCode)) {
             throw new AcademicException(moduleCode + ERROR_NOT_OFFERED);
         }
 
-        //Rename this
-        if (checkIfModTaken(moduleCode)) {
+        if (isModTakenByUser(moduleCode)) {
             throw new AcademicException(ERROR_DUPLICATE_MOD);
         }
 
@@ -110,24 +128,33 @@ public class AcademicPlanner {
             throw new AcademicException(ERROR_INVALID_COMMAND);
         }
 
-        if (!checkValidSemester(semesterValue)) {
+        if (!isValidSemester(semesterValue)) {
             throw new AcademicException(ERROR_INVALID_SEMESTER_INDEX);
         }
 
         System.out.println("Grade received for " + moduleCode.toUpperCase() + "?");
         String gradeValue = in.nextLine();
 
-        if (!checkValidGrade(gradeValue)) {
+        if (!isValidGrade(gradeValue)) {
             throw new AcademicException(ERROR_INVALID_GRADE);
         }
-
         int moduleCredit = getModuleCreditForModule(moduleCode);
+        addModuleToUser(moduleCode, semesterValue, gradeValue, moduleCredit);
+    }
+
+    /**
+     * Creates a new instance of a module of the parameters and adds it into the hashmap and array list of user modules.
+     *
+     * @param moduleCode module to be added
+     * @param semesterValue semester that module is taken in
+     * @param gradeValue grade achieved for module
+     * @param moduleCredit module's credit weightage
+     */
+    private void addModuleToUser(String moduleCode, int semesterValue, String gradeValue, int moduleCredit) {
         Module newModuleToAdd = new Module(moduleCode, semesterValue, gradeValue, moduleCredit);
         modulesList.add(newModuleToAdd);
         modulesAddedMap.put(moduleCode, newModuleToAdd);
-
         updateCap(FROM_ADD, newModuleToAdd);
-
         System.out.println(newModuleToAdd.getModuleCode()
                 + " added into Semester " + semesterValue + ".");
     }
@@ -139,7 +166,7 @@ public class AcademicPlanner {
      * @param currentModule A Module object storing current module
      * @param caps An optional number of double storing old cap and new cap (If you send in old, must send in new also)
      */
-    // Look into throwing error and short circuiting this command
+    //TODO Look into throwing error and short circuiting this command
     private void updateCap(int type, Module currentModule, double... caps) {
         // Caps is an array, 0 being oldCap, 1 being newCap
         if (type == FROM_ADD) {
@@ -197,74 +224,104 @@ public class AcademicPlanner {
     /**
      * Allows user to edit the module entry of his academic calendar.
      * Parameters allowed to change are semesterIndex or Grade.
+     *
+     * @param in scanner
+     * @param moduleCode module code to edit
      */
-    private void editModule(Scanner in, String moduleCode) {
+    private void editModule(Scanner in, String moduleCode) throws AcademicException {
         try {
-            if (checkIfModTaken(moduleCode)) {
-                System.out.println("Enter the number corresponding to the feature you wish to edit:"
-                        + "\n1) Semester\n2) Grade");
+            if (isModTakenByUser(moduleCode)) {
+                System.out.println(PROMPT_EDIT_CHOICES);
                 String choice = in.nextLine();
 
-                if (choice.equals("1")) {
-                    System.out.println("Enter the new semester value: ");
-                    String newValue = in.nextLine();
-
-                    if (!checkValidSemester(Integer.parseInt(newValue))) {
-                        System.out.println(ERROR_INVALID_SEMESTER_INDEX);
-                        System.out.println(EXITING_CURRENT_COMMAND);
-                        return;
-                    }
-
-                    for (Module item : modulesList) {
-                        if (item.getModuleCode().equals(moduleCode)) {
-                            item.setSemesterIndex(Integer.parseInt(newValue));
-                            break;
-                        }
-                    }
-
-                    modulesAddedMap.get(moduleCode).setSemesterIndex(Integer.parseInt(newValue));
-                    System.out.println("Semester for " + moduleCode + " successfully updated!");
-
-                } else if (choice.equals("2")) {
-                    System.out.println("Enter the new grade: ");
-                    String gradeValue = in.nextLine().toUpperCase();
-
-                    if (!checkValidGrade(gradeValue)) {
-                        System.out.println(ERROR_INVALID_GRADE);
-                        System.out.println(EXITING_CURRENT_COMMAND);
-                        return;
-                    }
-
-                    double oldCap;
-                    double newCap;
-
-                    System.out.println(moduleCode);
-
-                    for (Module item : modulesList) {
-                        if (item.getModuleCode().equals(moduleCode)) {
-                            oldCap = item.getCap();
-                            item.setGrade(gradeValue);
-                            newCap = item.getCap();
-
-                            updateCap(FROM_EDIT, item, oldCap, newCap);
-
-                            break;
-                        }
-                    }
-                    modulesAddedMap.get(moduleCode).setGrade(gradeValue);
-
-                    System.out.println("Grade for " + moduleCode + " successfully updated!");
+                if (choice.equals(EDIT_SEMESTER)) {
+                    editModuleSemester(in, moduleCode);
+                } else if (choice.equals(EDIT_GRADE)) {
+                    editModuleGrade(in, moduleCode);
                 } else {
-                    System.out.println(ERROR_EDIT_OPTION);
-                    System.out.println(EXITING_CURRENT_COMMAND);
+                    throw new AcademicException(ERROR_EDIT_OPTION);
                 }
             } else {
-                System.out.println(ERROR_NOT_ADDED);
-                System.out.println(EXITING_CURRENT_COMMAND);
+                throw new AcademicException(ERROR_NOT_ADDED);
             }
         } catch (Exception e) {
-            System.out.println(ERROR_INVALID_COMMAND);
-            System.out.println(EXITING_CURRENT_COMMAND);
+            throw new AcademicException(ERROR_INVALID_COMMAND);
+        }
+    }
+
+    /**
+     * Changes the current grade of module to the input of the user.
+     * Module must exist in user's list and hashmap
+     *
+     * @param in scanner
+     * @param moduleCode code of module to edit the grade
+     * @throws AcademicException invalid grade
+     */
+    private void editModuleGrade(Scanner in, String moduleCode) throws AcademicException {
+        System.out.println(PROMPT_NEW_GRADE);
+        String gradeValue = in.nextLine().toUpperCase();
+
+        if (!isValidGrade(gradeValue)) {
+            throw new AcademicException(ERROR_INVALID_GRADE);
+        }
+
+        System.out.println(moduleCode);
+        updateModuleGrade(moduleCode, gradeValue);
+        System.out.println("Grade for " + moduleCode + " successfully updated!");
+    }
+
+    /**
+     * Updates user's module with new grade and updates user's Cap.
+     *
+     * @param moduleCode module to edit
+     * @param gradeValue grade to edit to
+     */
+    private void updateModuleGrade(String moduleCode, String gradeValue) {
+        for (Module item : modulesList) {
+            if (item.getModuleCode().equals(moduleCode)) {
+                double oldCap = item.getCap();
+                item.setGrade(gradeValue);
+                double newCap = item.getCap();
+                updateCap(FROM_EDIT, item, oldCap, newCap);
+                break;
+            }
+        }
+        modulesAddedMap.get(moduleCode).setGrade(gradeValue);
+    }
+
+    /**
+     * Edits module semester taken when module is in user's list.
+     * Module must exist in user's module list and hashmap.
+     *
+     * @param in scanner
+     * @param moduleCode module to edit
+     * @throws AcademicException invalid semester index
+     */
+    private void editModuleSemester(Scanner in, String moduleCode) throws AcademicException {
+        System.out.println(PROMPT_NEW_SEMESTER_VALUE);
+        String newValue = in.nextLine();
+
+        if (!isValidSemester(Integer.parseInt(newValue))) {
+            throw new AcademicException(ERROR_INVALID_SEMESTER_INDEX);
+        }
+
+        updateModuleSemester(moduleCode, newValue);
+        modulesAddedMap.get(moduleCode).setSemesterIndex(Integer.parseInt(newValue));
+        System.out.println("Semester for " + moduleCode + " successfully updated!");
+    }
+
+    /**
+     * Finds the module and updates the semester taken.
+     *
+     * @param moduleCode module to edit
+     * @param newValue new semester index
+     */
+    private void updateModuleSemester(String moduleCode, String newValue) {
+        for (Module item : modulesList) {
+            if (item.getModuleCode().equals(moduleCode)) {
+                item.setSemesterIndex(Integer.parseInt(newValue));
+                return;
+            }
         }
     }
 
@@ -272,37 +329,44 @@ public class AcademicPlanner {
      * Removes moduleCode from user's academic calendar if it exists,
      * else prompts user of error.
      */
-    private void removeModule(String moduleCode) {
+    private void removeModule(String moduleCode) throws AcademicException {
         try {
-            if (checkIfModTaken(moduleCode)) {
+            if (isModTakenByUser(moduleCode)) {
                 modulesAddedMap.remove(moduleCode);
-                for (Module item : modulesList) {
-                    if (item.getModuleCode().equals(moduleCode)) {
-                        System.out.println(item.getModuleCode() + " has been removed from the list");
-
-                        updateCap(FROM_REMOVE, item);
-
-                        modulesList.remove(item);
-                        break;
-                    }
-                }
+                removeModuleFromUserModuleList(moduleCode);
             } else {
-                System.out.println(ERROR_NOT_ADDED);
-                System.out.println(EXITING_CURRENT_COMMAND);
+                throw new AcademicException(ERROR_NOT_ADDED);
             }
         } catch (Exception e) {
             System.out.println(ERROR_INVALID_COMMAND);
             System.out.println(EXITING_CURRENT_COMMAND);
         }
     }
-    
+
+    /**
+     * Removes module from user's module list.
+     * Module must exist in user's module list.
+     *
+     * @param moduleCode module to remove.
+     */
+    private void removeModuleFromUserModuleList(String moduleCode) {
+        for (Module item : modulesList) {
+            if (item.getModuleCode().equals(moduleCode)) {
+                System.out.println(item.getModuleCode() + " has been removed from the list");
+                updateCap(FROM_REMOVE, item);
+                modulesList.remove(item);
+                return;
+            }
+        }
+    }
+
     /**
      * Returns true if module code is offered by NUS,
      * else returns false.
      * @param moduleCode input module code
      * @return boolean of module code in ModuleDatum
      */
-    private boolean checkIfModOfferedByNus(String moduleCode) {
+    private boolean isModOfferedByNus(String moduleCode) {
         return (allModules.getModuleMap().get(moduleCode) > -1);
     }
 
@@ -313,7 +377,7 @@ public class AcademicPlanner {
      * @param moduleCode moduleCode to check
      * @return boolean
      */
-    private boolean checkIfModTaken(String moduleCode) {
+    private boolean isModTakenByUser(String moduleCode) {
         return (modulesAddedMap.containsKey(moduleCode));
     }
 
@@ -324,7 +388,7 @@ public class AcademicPlanner {
      * @param semesterIndex semesterIndex to check
      * @return false
      */
-    private boolean checkValidSemester(int semesterIndex) {
+    private boolean isValidSemester(int semesterIndex) {
         return (semesterIndex >= STARTING_SEMESTER_INDEX && semesterIndex <= FINAL_SEMESTER_INDEX);
     }
 
@@ -335,7 +399,7 @@ public class AcademicPlanner {
      * @param grade grade to check
      * @return boolean
      */
-    private boolean checkValidGrade(String grade) {
+    private boolean isValidGrade(String grade) {
         switch (grade.toUpperCase()) {
         case "A+":
             //Fallthrough
