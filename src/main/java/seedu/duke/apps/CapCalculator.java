@@ -6,7 +6,7 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
-public class CapCalculator {
+public class CapCalculator extends App {
     private final Person person;
     private final DecimalFormat formatFinalCap = new DecimalFormat("#.##");
 

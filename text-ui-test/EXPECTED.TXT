@@ -1,2 +1,25 @@
-Module loaded... Checking for CS1010 validity...
-{"additionalProperties":{},"attributes":[true,false,false,false,false,false,false,false,false],"corequisite":"","department":"Computer Science","faculty":"Computing","moduleCode":"CS1010","moduleCredit":4,"preclusion":"CS1010E, CS1010J, CS1010S, CS1010X, CS1010XCP, CS1101S","prerequisite":"","semester":[1,2],"title":"Programming Methodology"}
+hello welcome to plannus
+
+Welcome to Academic Planner!
+Available commands are: 
+  add <module code>
+  edit <module code>
+  remove <module code>
+  view
+  exit
+Type a command to continue...
+Semester you plan to take CS1010?
+Grade received for CS1010?
+CS1010 added into Semester 2.
+Available commands are: 
+  add <module code>
+  edit <module code>
+  remove <module code>
+  view
+  exit
+Type a command to continue...
+Thank you for using Academic Planner!
+hello welcome back to plannus
+OOPS!!! I'm sorry, but I don't know what that means :-(
+hello welcome back to plannus
+bye bye
