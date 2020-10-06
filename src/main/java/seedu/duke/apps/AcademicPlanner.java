@@ -38,14 +38,14 @@ public class AcademicPlanner extends App {
     private static final String VIEW_COMMAND = "VIEW";
     private static final String EXIT_COMMAND = "EXIT";
     private static final String EXIT_MESSAGE = "Thank you for using Academic Planner!";
-    private static final String COMMANDS_LIST = "Available commands are: \n"
+    private static final String COMMANDS_LIST = "Available commands are:\n"
             + "  add <module code>\n"
             + "  edit <module code>\n"
             + "  remove <module code>\n"
             + "  view\n"
             + "  exit\n"
             + "Type a command to continue...";
-    private static final String VALID_GRADES = "Valid grades are: \n"
+    private static final String VALID_GRADES = "Valid grades are:\n"
             + "Letter Grades: A+, A, B+, B, B-, C+, C, D+, D, F\n"
             + "Special Grades: CS, CU, S, U, W, IC, IP, AUD, WU, EXE\n"
             + "If you have yet to have a grade for the module: NT";
