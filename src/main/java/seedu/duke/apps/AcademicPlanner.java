@@ -48,6 +48,7 @@ public class AcademicPlanner {
             + "Letter Grades: A+, A, B+, B, B-, C+, C, D+, D, F\n"
             + "Special Grades: CS, CU, S, U, W, IC, IP, AUD, WU, EXE\n"
             + "If you have yet to have a grade for the module: NT";
+    private static final String VALID_SEMESTERS = "Valid semesters are integers from 1 to 10, inclusive";
     public static final String PROMPT_EDIT_CHOICES = "Enter the number corresponding to the feature you wish to edit:\n"
             + "1) Semester\n"
             + "2) Grade";
@@ -124,6 +125,7 @@ public class AcademicPlanner {
         }
 
         System.out.println("Semester you plan to take " + moduleCode.toUpperCase() + "?");
+        System.out.println(VALID_SEMESTERS);
         String userInput = in.nextLine();
 
         int semesterValue;
