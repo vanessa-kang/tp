@@ -1,15 +1,16 @@
 package seedu.duke.apps;
 
 import seedu.duke.exceptions.AcademicException;
-import seedu.duke.moduledata.ModuleInitializer;
-import seedu.duke.objects.Module;
+import seedu.duke.objects.PartialModule;
 import seedu.duke.objects.Person;
+import seedu.duke.ui.Ui;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class AcademicPlanner {
-
+public class AcademicPlanner extends App {
+    //TODO might need to split this up into different commands
     private static final int STARTING_SEMESTER_INDEX = 1;
     private static final int FINAL_SEMESTER_INDEX = 10;
     private static final int COMMAND_INDEX = 0;
@@ -37,14 +38,14 @@ public class AcademicPlanner {
     private static final String VIEW_COMMAND = "VIEW";
     private static final String EXIT_COMMAND = "EXIT";
     private static final String EXIT_MESSAGE = "Thank you for using Academic Planner!";
-    private static final String COMMANDS_LIST = "Available commands are: \n"
+    private static final String COMMANDS_LIST = "Available commands are:\n"
             + "  add <module code>\n"
             + "  edit <module code>\n"
             + "  remove <module code>\n"
             + "  view\n"
             + "  exit\n"
             + "Type a command to continue...";
-    private static final String VALID_GRADES = "Valid grades are: \n"
+    private static final String VALID_GRADES = "Valid grades are:\n"
             + "Letter Grades: A+, A, B+, B, B-, C+, C, D+, D, F\n"
             + "Special Grades: CS, CU, S, U, W, IC, IP, AUD, WU, EXE\n"
             + "If you have yet to have a grade for the module: NT";
@@ -54,26 +55,30 @@ public class AcademicPlanner {
             + "2) Grade";
 
     private final ModuleInitializer allModules;
-    private final ArrayList<Module> modulesList;
-    private final HashMap<String,Module> modulesAddedMap;
+    private final ArrayList<PartialModule> modulesList;
+    private final HashMap<String, PartialModule> modulesAddedMap;
     private final Person currentPerson;
+    private Scanner scanner;
+    private Ui ui;
 
-    public AcademicPlanner(ModuleInitializer allModules, Person currentPerson) {
+    public AcademicPlanner(ModuleInitializer allModules, Person currentPerson, Ui ui) {
         this.allModules = allModules;
         this.modulesList = currentPerson.getModulesList();
         this.modulesAddedMap = currentPerson.getModulesAddedMap();
         this.currentPerson = currentPerson;
+        this.ui = ui;
+        this.scanner = ui.getScanner();
     }
 
     private void printCommandsList() {
         System.out.println(COMMANDS_LIST);
     }
 
-    public void planner() {
+    @Override
+    public void run() {
         System.out.println(WELCOME_MESSAGE);
         printCommandsList();
-        Scanner scanner = new Scanner(System.in);
-        String fullInput = scanner.nextLine().toUpperCase();
+        String fullInput = scanner.nextLine().toUpperCase();;
         String[] inputs = fullInput.split(" ");
 
         while (!inputs[COMMAND_INDEX].equals(EXIT_COMMAND)) {
@@ -107,7 +112,7 @@ public class AcademicPlanner {
     }
 
     /**
-     * Adds a module to the user's academic calendar if it exists in ModuleDatum,
+     * Adds a module to the user's academic calendar if it exists in FullModule,
      * else does not add module into user's academic calendar.
      * Validates user's input semester and grade.
      * If either is invalid, does not add module into user's academic calendar.
@@ -151,7 +156,8 @@ public class AcademicPlanner {
     }
 
     /**
-     * Creates a new instance of a module of the parameters and adds it into the hashmap and array list of user modules.
+     * Creates a new instance of a module of the parameters and adds it into the
+     * hashmap and array list of user modules.
      *
      * @param moduleCode module to be added
      * @param semesterValue semester that module is taken in
@@ -159,7 +165,7 @@ public class AcademicPlanner {
      * @param moduleCredit module's credit weightage
      */
     private void addModuleToUser(String moduleCode, int semesterValue, String gradeValue, int moduleCredit) {
-        Module newModuleToAdd = new Module(moduleCode, semesterValue, gradeValue, moduleCredit);
+        PartialModule newModuleToAdd = new PartialModule(moduleCode, semesterValue, gradeValue, moduleCredit);
         modulesList.add(newModuleToAdd);
         modulesAddedMap.put(moduleCode, newModuleToAdd);
         updateCap(FROM_ADD, newModuleToAdd);
@@ -171,11 +177,11 @@ public class AcademicPlanner {
      * Update Cap after every change in current module list.
      *
      * @param type An int storing the type of function calling update cap
-     * @param currentModule A Module object storing current module
+     * @param currentModule A PartialModule object storing current module
      * @param caps An optional number of double storing old cap and new cap (If you send in old, must send in new also)
      */
     //TODO Look into throwing error and short circuiting this command
-    private void updateCap(int type, Module currentModule, double... caps) {
+    private void updateCap(int type, PartialModule currentModule, double... caps) {
         // Caps is an array, 0 being oldCap, 1 being newCap
         if (type == FROM_ADD) {
             //Incrementing total MC regardless of SU
@@ -259,7 +265,7 @@ public class AcademicPlanner {
 
     /**
      * Changes the current grade of module to the input of the user.
-     * Module must exist in user's list and hashmap
+     * PartialModule must exist in user's list and hashmap
      *
      * @param in scanner
      * @param moduleCode code of module to edit the grade
@@ -285,7 +291,7 @@ public class AcademicPlanner {
      * @param gradeValue grade to edit to
      */
     private void updateModuleGrade(String moduleCode, String gradeValue) {
-        for (Module item : modulesList) {
+        for (PartialModule item : modulesList) {
             if (item.getModuleCode().equals(moduleCode)) {
                 double oldCap = item.getCap();
                 item.setGrade(gradeValue);
@@ -299,7 +305,7 @@ public class AcademicPlanner {
 
     /**
      * Edits module semester taken when module is in user's list.
-     * Module must exist in user's module list and hashmap.
+     * PartialModule must exist in user's module list and hashmap.
      *
      * @param in scanner
      * @param moduleCode module to edit
@@ -325,7 +331,7 @@ public class AcademicPlanner {
      * @param newValue new semester index
      */
     private void updateModuleSemester(String moduleCode, String newValue) {
-        for (Module item : modulesList) {
+        for (PartialModule item : modulesList) {
             if (item.getModuleCode().equals(moduleCode)) {
                 item.setSemesterIndex(Integer.parseInt(newValue));
                 return;
@@ -353,12 +359,12 @@ public class AcademicPlanner {
 
     /**
      * Removes module from user's module list.
-     * Module must exist in user's module list.
+     * PartialModule must exist in user's module list.
      *
      * @param moduleCode module to remove.
      */
     private void removeModuleFromUserModuleList(String moduleCode) {
-        for (Module item : modulesList) {
+        for (PartialModule item : modulesList) {
             if (item.getModuleCode().equals(moduleCode)) {
                 System.out.println(item.getModuleCode() + " has been removed from the list");
                 updateCap(FROM_REMOVE, item);
@@ -372,7 +378,7 @@ public class AcademicPlanner {
      * Returns true if module code is offered by NUS,
      * else returns false.
      * @param moduleCode input module code
-     * @return boolean of module code in ModuleDatum
+     * @return boolean of module code in FullModule
      */
     private boolean isModOfferedByNus(String moduleCode) {
         return (allModules.getModuleMap().get(moduleCode) > -1);

@@ -1,4 +1,4 @@
-package seedu.duke.moduledata;
+package seedu.duke.objects;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,7 +31,13 @@ import static org.apache.commons.lang3.builder.ToStringStyle.JSON_STYLE;
 //    "prerequisite",
 //    "corequisite"
 
-public class ModuleDatum {
+
+/**
+ * A class created to store the full data of each mod after JSON conversion.
+ *
+ * @author Khenus Tan
+ */
+public class FullModule {
     private String moduleCode;
     private String title;
     private Integer moduleCredit;
@@ -94,10 +100,10 @@ public class ModuleDatum {
         if (other == this) {
             return true;
         }
-        if ((other instanceof ModuleDatum) == false) {
+        if ((other instanceof FullModule) == false) {
             return false;
         }
-        ModuleDatum rhs = ((ModuleDatum) other);
+        FullModule rhs = ((FullModule) other);
         return new EqualsBuilder().append(moduleCode, rhs.moduleCode).append(title, rhs.title)
                 .append(moduleCredit, rhs.moduleCredit).append(department, rhs.department)
                 .append(faculty, rhs.faculty).append(semester, rhs.semester).append(preclusion, rhs.preclusion)
