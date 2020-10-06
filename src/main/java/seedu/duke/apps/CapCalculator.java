@@ -90,11 +90,11 @@ public class CapCalculator {
     /**
      * Checks if the target Cap given by the user is valid.
      *
-     * @param Cap Cap to be checked
+     * @param cap Cap to be checked
      * @throws InvalidCapException if the Cap given is greater than 5.00
      */
-    private void checkValidCap(double Cap) throws InvalidCapException {
-        if (Cap > MAXIMUM_CAP) {
+    private void checkValidCap(double cap) throws InvalidCapException {
+        if (cap > MAXIMUM_CAP) {
             throw new InvalidCapException(INVALID_CAP_MESSAGE);
         }
     }
@@ -102,11 +102,11 @@ public class CapCalculator {
     /**
      * Checks if the target Cap given by the user is valid.
      *
-     * @param MC Module credits to be checked
+     * @param credits Module credits to be checked
      * @throws InvalidCreditException if the module credit given is 0
      */
-    private void checkValidCredits(int MC) throws InvalidCreditException {
-        if (MC == 0) {
+    private void checkValidCredits(int credits) throws InvalidCreditException {
+        if (credits == 0) {
             throw new InvalidCreditException(INVALID_MC_MESSAGE);
         }
     }
