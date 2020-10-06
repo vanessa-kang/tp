@@ -1,17 +1,7 @@
 hello welcome to plannus
 
 Welcome to Academic Planner!
-Available commands are: 
-  add <module code>
-  edit <module code>
-  remove <module code>
-  view
-  exit
-Type a command to continue...
-Semester you plan to take CS1010?
-Grade received for CS1010?
-CS1010 added into Semester 2.
-Available commands are: 
+Available commands are:
   add <module code>
   edit <module code>
   remove <module code>
@@ -20,6 +10,5 @@ Available commands are:
 Type a command to continue...
 Thank you for using Academic Planner!
 hello welcome back to plannus
-OOPS!!! I'm sorry, but I don't know what that means :-(
 hello welcome back to plannus
 bye bye

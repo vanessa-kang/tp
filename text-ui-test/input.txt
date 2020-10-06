@@ -1,7 +1,3 @@
 acadplan
-add cs1010
-2
-A
 exit
-hi
 exit

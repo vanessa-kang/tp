@@ -3,13 +3,16 @@ package seedu.duke.apps;
 import seedu.duke.exceptions.InvalidCapException;
 import seedu.duke.exceptions.InvalidCreditException;
 import seedu.duke.objects.Person;
+import seedu.duke.ui.Ui;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class CapCalculator extends App {
-    private final Person person;
+    private Person person;
+    private Scanner scanner;
+    private Ui ui;
     private final DecimalFormat formatFinalCap = new DecimalFormat("#.##");
 
     //CONSTANTS
@@ -28,15 +31,16 @@ public class CapCalculator extends App {
             + "To exit CAP Calculator, use command: \"exit\"\n\n"
             + "Initializing your CAP...";
 
-    public CapCalculator(Person currentPerson) {
+    public CapCalculator(Person currentPerson, Ui ui) {
         this.person = currentPerson;
+        this.ui = ui;
+        this.scanner = ui.getScanner();
     }
 
     //Main Function
-    public void capCalculator() {
+    public void run() {
         System.out.println(WELCOME_MESSAGE);
         System.out.println(AWAIT_COMMAND);
-        Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine().toUpperCase();
         formatFinalCap.setRoundingMode(RoundingMode.UP);
 
@@ -66,14 +70,13 @@ public class CapCalculator extends App {
      * Allow the user to set the target CAP that user want to achieve in the next given MCs.
      */
     private void setTargetCap() {
-        Scanner in = new Scanner(System.in);
         try {
             System.out.println("What is your target CAP?");
-            double targetCap = Double.parseDouble(in.nextLine());
+            double targetCap = Double.parseDouble(scanner.nextLine());
             checkValidCap(targetCap);
 
             System.out.println("How many graded MCs you are taking to achieve the target CAP?");
-            int targetGradedMC = Integer.parseInt(in.nextLine());
+            int targetGradedMC = Integer.parseInt(scanner.nextLine());
             checkValidCredits(targetGradedMC);
 
             calculateResults(targetCap, targetGradedMC);

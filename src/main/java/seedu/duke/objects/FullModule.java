@@ -33,7 +33,7 @@ import static org.apache.commons.lang3.builder.ToStringStyle.JSON_STYLE;
 
 
 /**
- * A class created to store the full data of each mod after JSON conversion
+ * A class created to store the full data of each mod after JSON conversion.
  *
  * @author Khenus Tan
  */

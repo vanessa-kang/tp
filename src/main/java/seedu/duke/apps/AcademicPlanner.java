@@ -3,13 +3,13 @@ package seedu.duke.apps;
 import seedu.duke.exceptions.AcademicException;
 import seedu.duke.objects.PartialModule;
 import seedu.duke.objects.Person;
+import seedu.duke.ui.Ui;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class AcademicPlanner extends App {
-
-
     //TODO might need to split this up into different commands
     private static final int STARTING_SEMESTER_INDEX = 1;
     private static final int FINAL_SEMESTER_INDEX = 10;
@@ -58,31 +58,27 @@ public class AcademicPlanner extends App {
     private final ArrayList<PartialModule> modulesList;
     private final HashMap<String, PartialModule> modulesAddedMap;
     private final Person currentPerson;
+    private Scanner scanner;
+    private Ui ui;
 
-    public AcademicPlanner(ModuleInitializer allModules, Person currentPerson) {
+    public AcademicPlanner(ModuleInitializer allModules, Person currentPerson, Ui ui) {
         this.allModules = allModules;
         this.modulesList = currentPerson.getModulesList();
         this.modulesAddedMap = currentPerson.getModulesAddedMap();
         this.currentPerson = currentPerson;
+        this.ui = ui;
+        this.scanner = ui.getScanner();
     }
 
     private void printCommandsList() {
         System.out.println(COMMANDS_LIST);
     }
 
-    //TODO Update planner interface using parser
     @Override
     public void run() {
         System.out.println(WELCOME_MESSAGE);
         printCommandsList();
-        Scanner scanner = new Scanner(System.in);
-        String fullInput = null;
-
-        //TODO scanner error causing EOF, fix it (due to multiple declaration of scanner)
-        while (scanner.hasNextLine()) {
-            fullInput = scanner.nextLine().toUpperCase();
-        }
-        System.out.println("after getting");
+        String fullInput = scanner.nextLine().toUpperCase();;
         String[] inputs = fullInput.split(" ");
 
         while (!inputs[COMMAND_INDEX].equals(EXIT_COMMAND)) {

@@ -3,7 +3,9 @@ package seedu.duke.apps;
 public class App {
     boolean isExit = false;
 
-    public App() {}
+    public App() {
+
+    }
 
     public App(boolean isExitCommand) {
         this.isExit = isExitCommand;
@@ -13,5 +15,7 @@ public class App {
         return this.isExit;
     }
 
-    public void run() {}
+    public void run() {
+
+    }
 }
