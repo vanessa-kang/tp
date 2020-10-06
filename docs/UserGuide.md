@@ -87,13 +87,19 @@ Example 1 : `<MODULE_CODE>` is not offered by NUS.
 INSERT ERROR
 ```
 
-Example 2 : `<SEMESTER>` is out of range.
+Example 2 : `<MODULE_CODE>` is already in your Academic Planner.
 
 ```
 INSERT ERROR
 ```
 
-Example 3 : `<GRADE>` is not a valid grade.
+Example 3 : `<SEMESTER>` is out of range.
+
+```
+INSERT ERROR
+```
+
+Example 4 : `<GRADE>` is not a valid grade.
 
 ```
 INSERT ERROR
