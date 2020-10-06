@@ -44,9 +44,14 @@ public class AcademicPlanner {
             + "  view\n"
             + "  exit\n"
             + "Type a command to continue...";
+    private static final String VALID_GRADES = "Valid grades are: \n"
+            + "Letter Grades: A+, A, B+, B, B-, C+, C, D+, D, F\n"
+            + "Special Grades: CS, CU, S, U, W, IC, IP, AUD, WU, EXE\n"
+            + "If you have yet to have a grade for the module: NT";
     public static final String PROMPT_EDIT_CHOICES = "Enter the number corresponding to the feature you wish to edit:\n"
             + "1) Semester\n"
             + "2) Grade";
+
     private final ModuleInitializer allModules;
     private final ArrayList<Module> modulesList;
     private final HashMap<String,Module> modulesAddedMap;
@@ -133,6 +138,7 @@ public class AcademicPlanner {
         }
 
         System.out.println("Grade received for " + moduleCode.toUpperCase() + "?");
+        System.out.println(VALID_GRADES);
         String gradeValue = in.nextLine();
 
         if (!isValidGrade(gradeValue)) {
