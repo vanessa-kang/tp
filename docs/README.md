@@ -2,7 +2,7 @@
 
 #### Foreword
 
-plaNUS is a greenfield project which aims to solve the gap in undergraduate academic planning in NUS.
+PlaNUS is a greenfield project which aims to solve the gap in undergraduate academic planning in NUS.
 With the `Academic Calendar Planner`,plaNUS will be able to assist undergraduate students in forecasting their academic journey for their 4 or 5 years in NUS.
 With the `CAP Calulator` , plaNUS will be able to tell you your current CAP and forecast future grades needed to achieve your target CAP.
 
