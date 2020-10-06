@@ -81,9 +81,9 @@ public class CapCalculator {
             System.out.println(ERROR_INVALID_COMMAND);
             System.out.println(AWAIT_COMMAND);
         } catch (InvalidCapException e) {
-
+            System.out.println(e.getMessage());
         } catch (InvalidCreditException e) {
-
+            System.out.println(e.getMessage());
         }
     }
 
