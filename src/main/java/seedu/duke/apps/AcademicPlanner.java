@@ -39,20 +39,20 @@ public class AcademicPlanner extends App {
     private static final String EXIT_COMMAND = "EXIT";
     private static final String EXIT_MESSAGE = "Thank you for using Academic Planner!";
     private static final String COMMANDS_LIST = "Available commands are:\n"
-            + "  add <module code>\n"
-            + "  edit <module code>\n"
-            + "  remove <module code>\n"
-            + "  view\n"
-            + "  exit\n"
+            + "\tadd <module code>\n"
+            + "\tedit <module code>\n"
+            + "\tremove <module code>\n"
+            + "\tview\n"
+            + "\texit\n"
             + "Type a command to continue...";
     private static final String VALID_GRADES = "Valid grades are:\n"
-            + "Letter Grades: A+, A, B+, B, B-, C+, C, D+, D, F\n"
-            + "Special Grades: CS, CU, S, U, W, IC, IP, AUD, WU, EXE\n"
-            + "If you have yet to have a grade for the module: NT";
+            + "\tLetter Grades: A+, A, A-, B+, B, B-, C+, C, D+, D, F\n"
+            + "\tSpecial Grades: CS, CU, S, U, W, IC, IP, AUD, WU, EXE\n"
+            + "\tIf you have yet to have a grade for the module: NT";
     private static final String VALID_SEMESTERS = "Valid semesters are integers from 1 to 10, inclusive";
     public static final String PROMPT_EDIT_CHOICES = "Enter the number corresponding to the feature you wish to edit:\n"
-            + "1) Semester\n"
-            + "2) Grade";
+            + "\t1) Semester\n"
+            + "\t2) Grade";
 
     private final ModuleInitializer allModules;
     private final ArrayList<PartialModule> modulesList;
@@ -101,8 +101,12 @@ public class AcademicPlanner extends App {
                     System.out.println(EXITING_CURRENT_COMMAND);
                 }
             } catch (AcademicException e) {
-                System.out.println(ERROR_INVALID_COMMAND);
-                System.out.println(EXITING_CURRENT_COMMAND);
+                if (e.getMessage() == "") {
+                    System.out.println(ERROR_INVALID_COMMAND);
+                    System.out.println(EXITING_CURRENT_COMMAND);
+                } else {
+                    System.out.println(e.getMessage());
+                }
             }
             printCommandsList();
             fullInput = scanner.nextLine().toUpperCase();
@@ -381,7 +385,8 @@ public class AcademicPlanner extends App {
      * @return boolean of module code in FullModule
      */
     private boolean isModOfferedByNus(String moduleCode) {
-        return (allModules.getModuleMap().get(moduleCode) > -1);
+        boolean isOffered = allModules.getModuleMap().get(moduleCode) != null;
+        return (isOffered);
     }
 
     /**
