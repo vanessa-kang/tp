@@ -1,14 +1,9 @@
----
-layout: page
-title: User Guide
----
+# User Guide
 
 PlanNUS is a __desktop application for planning academic journey__ with modules offered by National University of Singapore (NUS). The __Command Line Interface (CLI)__ will be required for the program to work.
 
 * Table of Contents
 {:toc}
-
---------------------------------------------------------------------------------------------------------------------
 
 ## Quick Start
 
