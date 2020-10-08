@@ -1,29 +1,14 @@
-# User Guide
+---
+layout: page
+title: User Guide
+---
 
 PlanNUS is a __desktop application for planning academic journey__ with modules offered by National University of Singapore (NUS). The __Command Line Interface (CLI)__ will be required for the program to work.
 
+* Table of Contents
+{:toc}
 
-
-## Table of Contents
-
-- [Quick Start](#Quick Start)
-- [Features](#Features)
-  - [Academic Calendar Planner: `acadPlan`](#Academic Calendar Planner: `acadPlan`)
-    - [Adding a module into the calendar: `add`](#Adding a module into the calendar: `add`)
-    - [Removing an existing module in the calendar: `remove`](#Removing an existing module in the calendar: `remove`)
-    - [Editing an existing module in the calendar: `edit`](#Editing an existing module in the calendar: `edit`)
-    - [Printing the academic calendar: `view`](#Printing the academic calendar: `view`)
-  - [CAP calculator: `capCalc`](#CAP calculator: `capCalc`)
-    - [Printing current CAP and MCs taken: `current`](#Printing current CAP and MCs taken: `current`)
-    - [Configure current CAP and graded MCs: `set current`](#Configure current CAP and graded MCs: `set current`)
-    - [Set target CAP: `set target`](#Set target CAP: `set target`)
-    - [Make the module grade as S/U: `set SU`](#Make the module grade as S/U: `set SU`)
-  - [Exiting from a feature: `exit`](#Exiting from a feature)
-- [FAQ](#FAQ)
-- [Command Summary](#Command Summary)
-- [Appendix](#Appendix)
-
-
+--------------------------------------------------------------------------------------------------------------------
 
 ## Quick Start
 
