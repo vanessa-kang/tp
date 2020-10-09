@@ -10,12 +10,7 @@ import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class CapCalculator extends App {
-    private Person person;
-    private Scanner scanner;
-    private Ui ui;
-    private final DecimalFormat formatFinalCap = new DecimalFormat("#.##");
 
-    //CONSTANTS
     private static final double MAXIMUM_CAP = 5.00;
     private static final String ERROR_INVALID_COMMAND = "INVALID COMMAND";
     private static final String AWAIT_COMMAND = "Type a command to continue...";
@@ -26,10 +21,15 @@ public class CapCalculator extends App {
     private static final String INVALID_CAP_MESSAGE = "Your target CAP cannot be greater than the maximum CAP of 5!";
     private static final String INVALID_MC_MESSAGE = "Your target MC cannot be 0!";
     private static final String WELCOME_MESSAGE = "Welcome to CAP Calculator! Commands available are:\n"
-            + "  Current\n"
-            + "  Set target\n"
-            + "To exit CAP Calculator, use command: \"exit\"\n\n"
-            + "Initializing your CAP...";
+            + "\tCurrent\n"
+            + "\tSet target\n"
+            + "\tTo exit CAP Calculator, use command: \"exit\"\n\n"
+            + "\tInitializing your CAP...";
+
+    private Person person;
+    private Scanner scanner;
+    private Ui ui;
+    private final DecimalFormat formatFinalCap = new DecimalFormat("#.##");
 
     public CapCalculator(Person currentPerson, Ui ui) {
         this.person = currentPerson;
