@@ -13,8 +13,8 @@ public class Person {
     private int currentMcAfterSU;
 
     //Variables needed for Academic Planner
-    private ArrayList<Module> modulesList;
-    private HashMap<String,Module> modulesAddedMap;
+    private ArrayList<PartialModule> modulesList;
+    private HashMap<String, PartialModule> modulesAddedMap;
 
     public Person(String personName) {
         this.currentTotalMcxGrade = 0.0;
@@ -53,19 +53,19 @@ public class Person {
         this.currentMcAfterSU = currentMcAfterSU;
     }
 
-    public ArrayList<Module> getModulesList() {
+    public ArrayList<PartialModule> getModulesList() {
         return modulesList;
     }
 
-    public void setModulesList(ArrayList<Module> modulesList) {
+    public void setModulesList(ArrayList<PartialModule> modulesList) {
         this.modulesList = modulesList;
     }
 
-    public HashMap<String, Module> getModulesAddedMap() {
+    public HashMap<String, PartialModule> getModulesAddedMap() {
         return modulesAddedMap;
     }
 
-    public void setModulesAddedMap(HashMap<String, Module> modulesAddedMap) {
+    public void setModulesAddedMap(HashMap<String, PartialModule> modulesAddedMap) {
         this.modulesAddedMap = modulesAddedMap;
     }
 }

@@ -2,14 +2,14 @@ package seedu.duke.objects;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-public class Module implements Comparable<Module> {
+public class PartialModule implements Comparable<PartialModule> {
     private String moduleCode;
     private int semesterIndex; // 1 to 8
     private String grade;
     private int moduleCredit;
     private double cap;
 
-    public Module(String moduleCode, int semesterIndex, String grade, int moduleCredit) {
+    public PartialModule(String moduleCode, int semesterIndex, String grade, int moduleCredit) {
         setModuleCode(moduleCode);
         setSemesterIndex(semesterIndex);
         setGrade(grade);
@@ -117,7 +117,7 @@ public class Module implements Comparable<Module> {
     }
 
     @Override
-    public int compareTo(Module module) {
+    public int compareTo(PartialModule module) {
         return (Double.compare(this.getCap(), module.getCap()));
     }
 
