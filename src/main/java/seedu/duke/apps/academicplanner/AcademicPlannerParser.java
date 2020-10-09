@@ -32,7 +32,7 @@ public class AcademicPlannerParser {
             + "Type a command to continue...";
 
     public static Command parse(String userInput, ModuleInitializer allModules, Person currentPerson, Ui ui)
-    throws CommandParserException {
+        throws CommandParserException {
         String[] inputs = userInput.toUpperCase().split(" ");
         Scanner in = ui.getScanner();
 

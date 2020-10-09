@@ -26,13 +26,6 @@ public class AddModuleCommand extends Command {
     private Scanner in;
     private String moduleCode;
 
-    /**
-     *
-     * @param allModules ModuleInitializer
-     * @param currentPerson Person
-     * @param in Scanner
-     * @param moduleCode String
-     */
     public AddModuleCommand(ModuleInitializer allModules, Person currentPerson, Scanner in, String moduleCode) {
         this.addUtils = new AddUtils(allModules, currentPerson);
         this.moduleValidator = new ModuleValidator(allModules, currentPerson);
