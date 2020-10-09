@@ -19,13 +19,6 @@ Valid grades are:
 	Special Grades: CS, CU, S, U, W, IC, IP, AUD, WU, EXE
 	If you have yet to have a grade for the module: NT
 CS1010 added into Semester 2.
-Available commands are:
-	add <module code>
-	edit <module code>
-	remove <module code>
-	view
-	exit
-Type a command to continue...
 Thank you for using Academic Planner!
 Welcome back to PlanNUS Main Menu!
 	For academic planner, type <acadplan>
