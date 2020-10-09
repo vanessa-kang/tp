@@ -5,10 +5,8 @@ import org.junit.jupiter.api.Test;
 import seedu.duke.apps.ModuleInitializer;
 import seedu.duke.objects.PartialModule;
 import seedu.duke.objects.Person;
-
 import java.util.ArrayList;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class AddUtilsTest {
 
