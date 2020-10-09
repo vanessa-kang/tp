@@ -1,70 +1,33 @@
-package seedu.duke.commons;
+package seedu.duke.apps.capcalculator.commons;
 
-import seedu.duke.apps.ModuleInitializer;
-import seedu.duke.exceptions.AcademicPlannerParserException;
 import seedu.duke.objects.PartialModule;
 import seedu.duke.objects.Person;
-import seedu.duke.ui.Ui;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.text.DecimalFormat;
 
-public class AcademicPlannerCommon {
-
+public class CalculatorUtils {
     private static final int FROM_ADD = 1;
     private static final int FROM_EDIT = 2;
     private static final int FROM_REMOVE = 3;
+    private static final DecimalFormat formatFinalCap = new DecimalFormat("#.##");
+    protected static final double MAXIMUM_CAP = 5.00;
 
-    private ModuleInitializer allModules = new ModuleInitializer();
 
-    public AcademicPlannerCommon() {
+    private final Person currentPerson;
 
+    public CalculatorUtils(Person currentPerson) {
+        this.currentPerson = currentPerson;
     }
 
-    public static String getModuleCodeFromInput(String userInput) {
-        int moduleCodeStartIndex = userInput.indexOf("/m") + 1;
-        int moduleCodeEndIndex = userInput.indexOf("/") - 1;
-        return userInput.substring(moduleCodeStartIndex,moduleCodeEndIndex);
-    }
-
-    public static int getSemesterFromInput(String userInput) throws AcademicPlannerParserException {
-        int semesterStartIndex = userInput.indexOf("/s") + 1;
-        int semesterEndIndex = userInput.indexOf("/") - 1;
-        try {
-            int inputSemester = Integer.parseInt(userInput.substring(semesterStartIndex,semesterEndIndex));
-            return inputSemester;
-        } catch (Exception e) {
-            throw new AcademicPlannerParserException("Input semester is not an integer!");
-        }
-    }
-
-    public static String getGradeFromInput(String userInput) {
-        int gradeStartIndex = userInput.indexOf("/g");
-        return userInput.substring(gradeStartIndex);
-    }
-
-    public int getModuleCreditForModule(String moduleCode) {
-        int mapIndex = allModules.getModuleMap().get(moduleCode);
-        return allModules.getModuleFullDetails()[mapIndex].getModuleCredit();
-    }
-
-    public void addModuleToUser(String moduleCode, int semesterValue, String gradeValue, int moduleCredit,
-                                Person currentPerson, Ui ui) {
-        PartialModule newModuleToAdd = new PartialModule(moduleCode, semesterValue, gradeValue, moduleCredit);
-        ArrayList<PartialModule>  modulesList = currentPerson.getModulesList();
-        HashMap<String, PartialModule> modulesAddedMap = currentPerson.getModulesAddedMap();
-        modulesList.add(newModuleToAdd);
-        modulesAddedMap.put(moduleCode, newModuleToAdd);
-        updateCap(FROM_ADD, newModuleToAdd, currentPerson);
-        System.out.println(newModuleToAdd.getModuleCode()
-                + " added into Semester " + semesterValue + ".");
-    }
-
-    public void updateCap(int type, PartialModule currentModule,Person currentPerson, double... caps)  {
-
-        ArrayList<PartialModule>  modulesList = currentPerson.getModulesList();
-        HashMap<String, PartialModule> modulesAddedMap = currentPerson.getModulesAddedMap();
-
+    /**
+     * Update Cap after every change in current module list.
+     *
+     * @param type An int storing the type of function calling update cap
+     * @param currentModule A PartialModule object storing current module
+     * @param caps An optional number of double storing old cap and new cap (If you send in old, must send in new also)
+     */
+    //TODO Look into throwing error and short circuiting this command
+    public void updateCap(int type, PartialModule currentModule, double... caps) {
         // Caps is an array, 0 being oldCap, 1 being newCap
         if (type == FROM_ADD) {
             //Incrementing total MC regardless of SU
@@ -116,5 +79,29 @@ public class AcademicPlannerCommon {
                         + mcxGradeToSet);
             }
         }
+    }
+
+    /**
+     * Returns CAP score as a string.
+     *
+     * @param academicPoint academic point to parse
+     * @return string of academic point
+     */
+    public static String formatCapToString(double academicPoint) {
+        if (isNaN(academicPoint)) {
+            return "0";
+        }
+        return formatFinalCap.format(academicPoint);
+    }
+
+    /**
+     * Returns true if CAP is NaN
+     * else returns false.
+     *
+     * @param academicPoint academic point to check
+     * @return boolean
+     */
+    public static boolean isNaN(double academicPoint) {
+        return (academicPoint != academicPoint);
     }
 }
