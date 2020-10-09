@@ -1,8 +1,11 @@
 package seedu.duke.apps;
 
+import seedu.duke.commands.AcademicPlannerCommand;
 import seedu.duke.exceptions.AcademicException;
+import seedu.duke.exceptions.AcademicPlannerParserException;
 import seedu.duke.objects.PartialModule;
 import seedu.duke.objects.Person;
+import seedu.duke.parser.AcademicPlannerParser;
 import seedu.duke.ui.Ui;
 
 import java.util.ArrayList;
@@ -78,6 +81,19 @@ public class AcademicPlanner extends App {
     public void run() {
         System.out.println(WELCOME_MESSAGE);
         printCommandsList();
+        boolean isExit = false;
+
+        while (!isExit) {
+            try {
+                String userInput = ui.getScanner().nextLine();
+                AcademicPlannerCommand selectedCommand
+                        = AcademicPlannerParser.parse(userInput,allModules,currentPerson,ui);
+                selectedCommand.run();
+            } catch (AcademicPlannerParserException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
         String fullInput = scanner.nextLine().toUpperCase();;
         String[] inputs = fullInput.split(" ");
 
