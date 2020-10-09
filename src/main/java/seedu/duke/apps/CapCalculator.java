@@ -2,6 +2,7 @@ package seedu.duke.apps;
 
 import seedu.duke.exceptions.InvalidCapException;
 import seedu.duke.exceptions.InvalidCreditException;
+import seedu.duke.globalcommons.App;
 import seedu.duke.objects.Person;
 import seedu.duke.ui.Ui;
 

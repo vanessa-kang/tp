@@ -1,7 +1,7 @@
 package seedu.duke;
 
-import seedu.duke.apps.App;
 import seedu.duke.apps.ModuleInitializer;
+import seedu.duke.globalcommons.App;
 import seedu.duke.objects.Person;
 import seedu.duke.parser.AppParser;
 import seedu.duke.ui.Ui;
@@ -35,7 +35,7 @@ public class Duke {
                 String userInput = ui.getScanner().nextLine();
                 App selectedApp = AppParser.parse(userInput, allModules, currentPerson, ui);
                 selectedApp.run();
-                isExit = selectedApp.isExit();
+                isExit = selectedApp.getIsExit();
                 System.out.println(WELCOME_BACK_MESSAGE);
                 System.out.println(HELP_MESSAGE);
             } catch (Exception e) {
