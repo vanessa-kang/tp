@@ -27,7 +27,7 @@ With the `CAP Calulator` , plaNUS will be able to tell you your current CAP and 
 2. Loading of Academic Calendar Planner from text file.
 
 Useful links:
-* [User Guide](UserGuide.md)
-* [Developer Guide](DeveloperGuide.md)
-* [About Us](AboutUs.md)
+* [User Guide](https://ay2021s1-cs2113t-f12-1.github.io/tp/UserGuide.html "User Guide")
+* [Developer Guide](https://ay2021s1-cs2113t-f12-1.github.io/tp/DeveloperGuide.html "Developer Guide")
+* [About Us](https://ay2021s1-cs2113t-f12-1.github.io/tp/AboutUs.html "About Us")
 * [Planning Document](https://docs.google.com/document/d/1ikOD_2NS2qUSGtQJpqbVWX7g5mAFV6_jxhiAlka_SSs/edit?usp=sharing "Collaborative Document")
