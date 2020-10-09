@@ -54,7 +54,7 @@ class AddUtilsTest {
 
         addUtils.addModuleToUser("CS1231",1,"B-",4);
         assertEquals(modulesList.size(),2);
-        
+
         for (PartialModule m : modulesList) {
             if (m.getModuleCode().equalsIgnoreCase("CS1010")) {
                 assertEquals(m.getModuleCode(),"CS1010");
