@@ -3,10 +3,15 @@ package seedu.duke.apps.capcalculator.commons;
 import seedu.duke.objects.PartialModule;
 import seedu.duke.objects.Person;
 
+import java.text.DecimalFormat;
+
 public class CalculatorUtils {
     private static final int FROM_ADD = 1;
     private static final int FROM_EDIT = 2;
     private static final int FROM_REMOVE = 3;
+    private static final DecimalFormat formatFinalCap = new DecimalFormat("#.##");
+    protected static final double MAXIMUM_CAP = 5.00;
+
 
     private final Person currentPerson;
 
@@ -74,5 +79,29 @@ public class CalculatorUtils {
                         + mcxGradeToSet);
             }
         }
+    }
+
+    /**
+     * Returns CAP score as a string.
+     *
+     * @param academicPoint academic point to parse
+     * @return string of academic point
+     */
+    public static String formatCapToString(double academicPoint) {
+        if (isNaN(academicPoint)) {
+            return "0";
+        }
+        return formatFinalCap.format(academicPoint);
+    }
+
+    /**
+     * Returns true if CAP is NaN
+     * else returns false.
+     *
+     * @param academicPoint academic point to check
+     * @return boolean
+     */
+    public static boolean isNaN(double academicPoint) {
+        return (academicPoint != academicPoint);
     }
 }
