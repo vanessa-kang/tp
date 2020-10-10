@@ -20,14 +20,14 @@ PlanNUS is a __desktop application for planning academic journey__ with modules 
 
 PlanNUS has two separate commands at the main page where the users can either choose to have an outlook of their potential academic journey or calculate their CAP. For each of these commands, there are more specific functions for configuration of user's desired choices.
 
-<img src="images/Main_Page_Features.png" width = "450" />
+<img src="images/Main_Page_Features.png" width = "350" height = "80" />
 
-### Academic Calendar Planner: `acadPlan`
-Directs user to the page where he/she can plan a personalized academic journey in NUS by using `add`, `remove` or `edit` features as shown below.
+### Academic Calendar Planner: `acadplan`
+Directs user to the page where he/she can plan a personalized academic journey in NUS by using `add`, `remove` , `view` or `edit` features as shown below.
 
-{Photo here}
+<img src="images/acadplan_features.png" width = "320" height = "220" />
 
-Input format: `acadPlan`
+Input format: `acadplan`
 
 #### Adding a module into the calendar: `add`
 
@@ -38,7 +38,9 @@ Example of usage:
 * `add CS2113T`
 * `ADD cs2101`
 
-{Photo here}
+Upon entering the desired module, user will be prompted to enter the semester when this module had been or to be taken before keying in the grade as shown in the image below.
+
+<img src="images/add_module.png" width = "550" height = "260" />
 
 __<ins>Caution</ins>:__ 
 
@@ -54,7 +56,7 @@ Example of usage:
 * `remove cs2113T`
 * `REMOVE CS2101`
 
-{Photo here}
+<img src="images/remove_module.png" width = "350" height = "50" />
 
 __<ins>Caution:</ins>__ 
 
@@ -69,7 +71,17 @@ Example of usage:
 * `edit CS2113T`
 * `EDIT cs2101`
 
-{Photo here}
+<img src="images/edit_module.png" width = "600" />
+
+As shown in the image, user can choose to edit either the _Semester_ or _Grade_ of the selected module. (__Note:__ Enter either `1` or `2` instead of the component's name)
+
+Expected output when user wishes to change the _Semester_.
+
+<img src="images/edit_module_semester.png" width = "390" height = "95"/>
+
+Expected output when user wishes to change the _Grade_.
+
+<img src="images/edit_module_grade.png" width = "200" />
 
 __<ins>Caution:</ins>__ 
 
@@ -83,57 +95,55 @@ Input format: `view`
 
 
 
-### Cap Calculator: `capCalc`
+### Cap Calculator: `capcalc`
+
+Directs user to the page where he/she can view the `current` CAP or even `set target` CAP to be met in the upcoming semester(s). 
+
+<img src="images/capcalc_features.png" height = "180" />
+
+Input format: `capcalc`
 
 #### Printing current CAP and MCs taken: `current`
 
+The value of CAP depends entirely on the modules and with corresponding grades added by the user in Academic Calendar Planner.
+
+<img src="images/capcalc_current.png" width = "340" />
+
 Input format: `current`
 
-{Photo here}
-
 __<ins>Caution:</ins>__
 
-* Initializing the current CAP reads in all the modules added by the user in Academic Calendar Planner.
 * If there are no modules added, the current CAP and graded MCs are set to 0
-
-#### Configure current CAP and graded MCs: `set current`
-
-Input format: `set current`
-
-{Photo here}
-
-__<ins>Caution:</ins>__
-
-* Maximum CAP is 5.0
 
 #### Set target CAP: `set target`
 
-This is for the user to set a target CAP that he or she wishes to obtain for the specified graded MCs.
+This is for the user to set a target CAP that he or she wishes to obtain for the next specified graded MCs.
+
+<img src="images/capcalc_set_target.png" height = "130" />
 
 Input format: `set target`
-
-{Photo here}
 
 __<ins>Caution:</ins>__
 
 * Maximum CAP is 5.0
 
-#### Make the module grade as S/U: `set SU`
-
-Input format: `set SU`
-
-When prompted for the module that user has taken, the input format will be as such:
-`<module code> <grade> <MCs>`    (Example: `CS2113T B+ 4`)
-
-{Photo here}
 
 
+### Exiting from a feature or PlanNUS: `exit`
 
-### Exiting from a feature: `exit`
+This command directs user back to the main page of PlanNUS after they are done using a feature or exits from the entire application itself.
 
-This command directs user back to the main page of PlanNUS after they are done using a feature. 
+When user exits from the Academic Planner, expected output is as shown below.
 
-{Photo here}
+<img src="images/exit_acadplan.png" width = "350"/>
+
+When user exits from the CAP calculator, expected output will be as follows:
+
+<img src="images/exit_capcalc.png" width = "350"/>
+
+Last but not least, the expected output for exiting PlanNUS will be as such:
+
+<img src="images/exit_PlanNUS.png" width = "430" />
 
 Input format: `exit`
 
