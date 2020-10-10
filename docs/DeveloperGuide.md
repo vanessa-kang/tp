@@ -43,8 +43,6 @@ The following are remaining steps to be taken to finish the set up:
 | v1.0    | undergraduate with at least 1 semester of study completed | print out a personalised list of modules taken so far and grades obtained | track my academic progression in NUS                         |
 | v2.0    | user                                                      | find a to-do item by name                                    | locate a to-do without having to go through the entire list  |
 
-
-
 ## Non-Functional Requirements
 
 {Give non-functional requirements}

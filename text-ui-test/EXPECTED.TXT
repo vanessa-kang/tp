@@ -1,9 +1,46 @@
-Hello from
- ____        _        
-|  _ \ _   _| | _____ 
-| | | | | | | |/ / _ \
-| |_| | |_| |   <  __/
-|____/ \__,_|_|\_\___|
+Welcome to PlanNUS!
+	For academic planner, type <acadplan>
+	For CAP calculator, type <capcalc>
+	To exit PlanNUS, type <exit>
 
-What is your name?
-Hello James Gosling
+Welcome to Academic Planner!
+Available commands are:
+	add <module code>
+	edit <module code>
+	remove <module code>
+	view
+	exit
+Type a command to continue...
+Semester you plan to take CS1010?
+Valid semesters are integers from 1 to 10, inclusive
+Grade received for CS1010?
+Valid grades are:
+	Letter Grades: A+, A, A-, B+, B, B-, C+, C, D+, D, F
+	Special Grades: CS, CU, S, U, W, IC, IP, AUD, WU, EXE
+	If you have yet to have a grade for the module: NT
+CS1010 added into Semester 2.
+Thank you for using Academic Planner!
+Welcome back to PlanNUS Main Menu!
+	For academic planner, type <acadplan>
+	For CAP calculator, type <capcalc>
+	To exit PlanNUS, type <exit>
+Welcome to CAP Calculator! Commands available are:
+	Current
+	Set target
+	To exit CAP Calculator, use command: "exit"
+
+	Initializing your CAP...
+Type a command to continue...
+Your current now CAP is: 5
+Number of graded MCs taken is: 4
+EXITING CAPCALC
+Welcome back to PlanNUS Main Menu!
+	For academic planner, type <acadplan>
+	For CAP calculator, type <capcalc>
+	To exit PlanNUS, type <exit>
+OOPS!!! I'm sorry, but I don't know what that means :-(
+Welcome back to PlanNUS Main Menu!
+	For academic planner, type <acadplan>
+	For CAP calculator, type <capcalc>
+	To exit PlanNUS, type <exit>
+Thanks for using PlanNUS! We hope to see you again!
