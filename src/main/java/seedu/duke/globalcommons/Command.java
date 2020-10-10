@@ -1,5 +1,8 @@
 package seedu.duke.globalcommons;
 
+/**
+ * Class representing a command in PlanNUS.
+ */
 public class Command {
     private boolean isExit;
 

@@ -5,11 +5,13 @@ import seedu.duke.apps.capcalculator.commons.CalculatorUtils;
 import seedu.duke.exceptions.AcademicException;
 import seedu.duke.objects.PartialModule;
 import seedu.duke.objects.Person;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
+/**
+ * Class representing edit module utilities from the edit module command.
+ */
 public class EditUtils {
     private final ArrayList<PartialModule> modulesList;
     private final HashMap<String, PartialModule> modulesAddedMap;

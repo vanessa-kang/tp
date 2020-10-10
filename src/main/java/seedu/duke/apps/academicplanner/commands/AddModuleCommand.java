@@ -6,9 +6,11 @@ import seedu.duke.apps.academicplanner.commons.ModuleValidator;
 import seedu.duke.exceptions.AcademicException;
 import seedu.duke.globalcommons.Command;
 import seedu.duke.objects.Person;
-
 import java.util.Scanner;
 
+/**
+ * Class representing an add module command from the academic planner.
+ */
 public class AddModuleCommand extends Command {
     private static final String ERROR_INVALID_COMMAND = "INVALID COMMAND";
     private static final String ERROR_INVALID_SEMESTER_INDEX = "INVALID SEMESTER INDEX";

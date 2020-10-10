@@ -8,6 +8,9 @@ import seedu.duke.globalcommons.App;
 import seedu.duke.objects.Person;
 import seedu.duke.ui.Ui;
 
+/**
+ * Class representing the parser for applications used in the main PlanNUS page.
+ */
 public class AppParser {
     private static final String ACADEMIC_PLAN_COMMAND = "acadplan";
     private static final String CAP_CALCULATOR_COMMAND = "capcalc";
