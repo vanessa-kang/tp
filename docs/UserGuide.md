@@ -8,7 +8,7 @@ PlanNUS is a __desktop application for planning academic journey__ with modules 
 ## Quick Start
 
 1. Ensure that you have Java 11 or above installed.
-1. Down the latest version of `PlanNUS` from [here](http://link.to/duke).
+1. Download the latest version of `PlanNUS` from [here](https://github.com/AY2021S1-CS2113T-F12-1/tp/releases).
 1. Double click on _PlanNUS.jar_ to start up the program.
 1. If the previous step does not work, open up the command prompt.
 1. Go to the directory where the jar file is saved at.
