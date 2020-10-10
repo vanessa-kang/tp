@@ -36,8 +36,10 @@ public class Duke {
                 App selectedApp = AppParser.parse(userInput, allModules, currentPerson, ui);
                 selectedApp.run();
                 isExit = selectedApp.getIsExit();
-                System.out.println(WELCOME_BACK_MESSAGE);
-                System.out.println(HELP_MESSAGE);
+                if (!isExit) {
+                    System.out.println(WELCOME_BACK_MESSAGE);
+                    System.out.println(HELP_MESSAGE);
+                }
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
