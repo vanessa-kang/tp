@@ -3,6 +3,9 @@ package seedu.duke.objects;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Class representing the user for PlanNUS.
+ */
 public class Person {
     //General Variables
     private String personName;

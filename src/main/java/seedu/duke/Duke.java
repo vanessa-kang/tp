@@ -25,6 +25,9 @@ public class Duke {
         currentPerson = new Person("Bob");
     }
 
+    /**
+     * Main entry function for PlanNUS.
+     */
     public void run() {
         System.out.println(WELCOME_MESSAGE);
         System.out.println(HELP_MESSAGE);
@@ -47,6 +50,10 @@ public class Duke {
         System.out.println(EXIT_MESSAGE);
     }
 
+    /**
+     * Main runnable code.
+     * @param args arguments from command line
+     */
     public static void main(String[] args) {
         new Duke().run();
     }

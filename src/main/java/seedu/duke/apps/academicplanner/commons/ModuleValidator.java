@@ -3,9 +3,9 @@ package seedu.duke.apps.academicplanner.commons;
 import seedu.duke.apps.ModuleInitializer;
 import seedu.duke.objects.PartialModule;
 import seedu.duke.objects.Person;
-
 import java.util.ArrayList;
 import java.util.HashMap;
+
 
 public class ModuleValidator {
     private static final int STARTING_SEMESTER_INDEX = 1;

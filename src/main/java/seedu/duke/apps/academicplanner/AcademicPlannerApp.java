@@ -6,6 +6,9 @@ import seedu.duke.globalcommons.Command;
 import seedu.duke.objects.Person;
 import seedu.duke.ui.Ui;
 
+/**
+ * Class representing the Academic Planner Application.
+ */
 public class AcademicPlannerApp extends App {
     private static final String WELCOME_MESSAGE = "\nWelcome to Academic Planner!";
     private static final String EXIT_MESSAGE = "Thank you for using Academic Planner!";

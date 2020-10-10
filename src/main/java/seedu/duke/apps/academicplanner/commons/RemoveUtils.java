@@ -3,9 +3,11 @@ package seedu.duke.apps.academicplanner.commons;
 import seedu.duke.apps.capcalculator.commons.CalculatorUtils;
 import seedu.duke.objects.PartialModule;
 import seedu.duke.objects.Person;
-
 import java.util.ArrayList;
 
+/**
+ * Class representing remove module utilities from the remove module command.
+ */
 public class RemoveUtils {
     private static final int FROM_REMOVE = 3;
 

@@ -7,10 +7,12 @@ import seedu.duke.exceptions.AcademicException;
 import seedu.duke.globalcommons.Command;
 import seedu.duke.objects.PartialModule;
 import seedu.duke.objects.Person;
-
 import java.util.HashMap;
 import java.util.Scanner;
 
+/**
+ * Class representing an remove module command from the academic planner.
+ */
 public class RemoveModuleCommand extends Command {
     private static final String EXITING_CURRENT_COMMAND = "Exiting current command back to Academic Planner Main Menu.";
     private static final String ERROR_INVALID_COMMAND = "INVALID COMMAND";
