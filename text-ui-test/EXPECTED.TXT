@@ -39,8 +39,4 @@ Welcome back to PlanNUS Main Menu!
 	For CAP calculator, type <capcalc>
 	To exit PlanNUS, type <exit>
 OOPS!!! I'm sorry, but I don't know what that means :-(
-Welcome back to PlanNUS Main Menu!
-	For academic planner, type <acadplan>
-	For CAP calculator, type <capcalc>
-	To exit PlanNUS, type <exit>
 Thanks for using PlanNUS! We hope to see you again!
