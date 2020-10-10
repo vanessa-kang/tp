@@ -12,10 +12,10 @@ public class CapCalculatorParser {
     public static final String NEW_LINE = "\n";
     public static final String EXITING_CURRENT_COMMAND = "Exiting current command back to Cap Calculator Main Menu.";
     public static final String ERROR_INVALID_COMMAND = "INVALID COMMAND";
+    public static final String INVALID_COMMAND_MESSAGE = "OOPS!!! I'm sorry, but I don't know what that means :-(";
     private static final String CURRENT_COMMAND = "current";
     private static final String SET_TARGET_COMMAND = "set target";
     private static final String EXIT_COMMAND = "exit";
-    private static final String INVALID_COMMAND_MESSAGE = "OOPS!!! I'm sorry, but I don't know what that means :-(";
 
     public static Command parse(String userInput, Person currentPerson, Ui ui) throws CommandParserException {
         userInput = userInput.trim().toLowerCase();
