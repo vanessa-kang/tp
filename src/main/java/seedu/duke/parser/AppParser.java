@@ -1,7 +1,7 @@
 package seedu.duke.parser;
 
 import seedu.duke.apps.academicplanner.AcademicPlannerApp;
-import seedu.duke.apps.CapCalculator;
+import seedu.duke.apps.capcalculator.CapCalculator;
 import seedu.duke.apps.ModuleInitializer;
 import seedu.duke.exceptions.AppParserException;
 import seedu.duke.globalcommons.App;
