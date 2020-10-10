@@ -1,9 +1,11 @@
-# User Guide
+# User Guide for PlanNus
 
 PlanNUS is a __desktop application for planning academic journey__ with modules offered by National University of Singapore (NUS). The __Command Line Interface (CLI)__ will be required for the program to work.
 
+
 * Table of Contents
 {:toc}
+
 
 ## Quick Start
 
@@ -13,8 +15,6 @@ PlanNUS is a __desktop application for planning academic journey__ with modules 
 1. If the previous step does not work, open up the command prompt.
 1. Go to the directory where the jar file is saved at.
 1. Enter the following command `java -jar PlanNUS.jar`
-
-
 
 ## Features 
 
@@ -33,7 +33,8 @@ Input format: `acadplan`
 
 Input format: `add <module code>`
 
-Example of usage: 
+
+**Example of proper usage:**
 
 * `add CS2113T`
 * `ADD cs2101`
@@ -148,8 +149,13 @@ Last but not least, the expected output for exiting PlanNUS will be as such:
 Input format: `exit`
 
 
-
 ## FAQ
+
+Question Type|Question|Answer
+:---:|---|---
+General | How do I check which modules are offered by NUS? | For more info on which modules are offered by NUS, visit [here](https://nusmods.com/modules?sem[0]=1&sem[1]=2&sem[2]=3&sem[3]=4 "NUSMODS").
+General | What is a valid semester index? | For the purpose of this planning software, we have come to a decision to limit the maximum number of semesters an undergraduate can take to 10, which is 5 academic years. The notation they are represented by is by an integer of value 1 to 10. For a fresh undergraduate, they will begin at semester index of 1. For a year 3 student who is currently in semester 1, the semester index will be 5.
+General | What is a valid grade? | **Letter Grades**: A+, A, B+, B, B-, C+, C, D+, D, F , **Special Grades**: CS, CU, S, U, W, IC, IP, AUD, WU, EXE, **If you have yet to have a grade for the module**: NT
 
 **Q**: How do I transfer my data to another computer? 
 
@@ -224,3 +230,5 @@ As per NUS Grade Policy, letter grades will have a corresponding Academic Point 
 | Additional Grading Options* |        -        |
 
 *Additional Grading options include S,U,CS,CU,IC,IP,AUD,EXE,W,WU. They hold no Academic Point Value.
+
+

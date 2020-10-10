@@ -1,1 +1,10 @@
-James Gosling
+acadplan
+add CS1010
+2
+A
+exit
+capcalc
+current
+exit
+hi
+exit
