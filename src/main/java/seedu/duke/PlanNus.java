@@ -41,6 +41,7 @@ public class PlanNus {
      * Main entry function for PlanNUS.
      */
     public void run() {
+        assert isStartupSuccessfully == true : "Startup is successful";
         if (isStartupSuccessfully) {
             showWelcomeMessage();
             boolean isExit = false;
