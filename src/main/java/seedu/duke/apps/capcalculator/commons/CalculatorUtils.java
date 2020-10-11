@@ -27,23 +27,25 @@ public class CalculatorUtils {
      * @param currentModule A PartialModule object storing current module
      * @param caps An optional number of double storing old cap and new cap (If you send in old, must send in new also)
      */
-    //TODO Look into throwing error and short circuiting this command
     public void updateCap(int type, PartialModule currentModule, double... caps) {
         // Caps is an array, 0 being oldCap, 1 being newCap
         if (type == FROM_ADD) {
             updateCapFromAdd(currentModule);
+
         } else if (type == FROM_REMOVE) {
             //Decreasing total MC regardless of SU
             currentPerson.setCurrentMc(currentPerson.getCurrentMc()
                     - currentModule.getModuleCredit());
+
             //Decreasing total MC after SU only if module is not SU
             if (currentModule.getCap() != -1.00) {
                 editCapNonSuToSu(currentModule, currentModule.getCap());
             }
+
         } else if (type == FROM_EDIT) {
             if (isFromSuToNonSu(caps)) {
                 //Case where previously was SU but new is not SU
-                editCapSuToNonSu(currentModule.getModuleCredit(), caps[1]);
+                editCapSuToNonSu(currentModule, caps[1]);
 
             }  else if (isFromNonSuToSu(caps)) {
                 //Case where previously was not SU but now is SU
@@ -99,6 +101,8 @@ public class CalculatorUtils {
         double oldMCxGrade = caps[0] * currentModule.getModuleCredit();
         double newMCxGrade = caps[1] * currentModule.getModuleCredit();
         double mcxGradeToSet = newMCxGrade - oldMCxGrade;
+
+        //Updating total academic points to this point
         currentPerson.setCurrentTotalMcxGrade(currentPerson.getCurrentTotalMcxGrade()
                 + mcxGradeToSet);
     }
@@ -110,9 +114,13 @@ public class CalculatorUtils {
      * @param cap user's CAP
      */
     private void editCapNonSuToSu(PartialModule currentModule, double cap) {
+        double mcxGradeToMinus = cap * currentModule.getModuleCredit();
+
+        //Updating total MCs
         currentPerson.setCurrentMcAfterSU(currentPerson.getCurrentMcAfterSU()
                 - currentModule.getModuleCredit());
-        double mcxGradeToMinus = cap * currentModule.getModuleCredit();
+
+        //Updated total Academic Points
         currentPerson.setCurrentTotalMcxGrade(currentPerson.getCurrentTotalMcxGrade()
                 - mcxGradeToMinus);
     }
@@ -120,13 +128,17 @@ public class CalculatorUtils {
     /**
      * Updates CAP when User edits module from a letter grade to a special grade.
      *
-     * @param moduleCredit module credit of edited module
+     * @param currentModule module that was edited
      * @param cap user's CAP
      */
-    private void editCapSuToNonSu(Integer moduleCredit, double cap) {
+    private void editCapSuToNonSu(PartialModule currentModule, double cap) {
+        double newMCxGrade = cap * currentModule.getModuleCredit();
+
+        //Updating total MCs
         currentPerson.setCurrentMcAfterSU(currentPerson.getCurrentMcAfterSU()
-                + moduleCredit);
-        double newMCxGrade = cap * moduleCredit;
+                + currentModule.getModuleCredit());
+
+        //Updated total Academic Points
         currentPerson.setCurrentTotalMcxGrade(currentPerson.getCurrentTotalMcxGrade()
                 + newMCxGrade);
     }
@@ -143,7 +155,7 @@ public class CalculatorUtils {
 
         //Incrementing total MC after SU only if module is not SU
         if (currentModule.getCap() != -1.00) {
-            editCapSuToNonSu(moduleCredit, currentModule.getCap());
+            editCapSuToNonSu(currentModule, currentModule.getCap());
         }
     }
 

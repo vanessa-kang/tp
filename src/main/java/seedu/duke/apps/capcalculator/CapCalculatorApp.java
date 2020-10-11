@@ -13,7 +13,7 @@ import static seedu.duke.apps.capcalculator.CapCalculatorParser.EXITING_CURRENT_
 /**
  * Class representing the CAP Calculator app in PlanNUS.
  */
-public class CapCalculator extends App {
+public class CapCalculatorApp extends App {
 
     private static final String AWAIT_COMMAND = "Type a command to continue...";
     private static final String EXIT_MESSAGE = "Thank you for using Cap Calculator!";
@@ -27,7 +27,7 @@ public class CapCalculator extends App {
     private final Ui ui;
     private final DecimalFormat formatFinalCap = new DecimalFormat("#.##");
 
-    public CapCalculator(Person currentPerson, Ui ui) {
+    public CapCalculatorApp(Person currentPerson, Ui ui) {
         this.currentPerson = currentPerson;
         this.ui = ui;
     }

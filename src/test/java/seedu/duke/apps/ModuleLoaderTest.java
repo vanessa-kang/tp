@@ -2,21 +2,29 @@ package seedu.duke.apps;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import seedu.duke.apps.moduleloader.ModuleLoader;
+import seedu.duke.apps.moduleloader.exceptions.ModuleLoaderException;
 import seedu.duke.objects.FullModule;
 
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class ModuleInitializerTest {
+class ModuleLoaderTest {
     private static final int TOTAL_NUMBER_OF_MODULES = 12436;
     private static final int INDEX_OF_CS1010 = 1786;
 
-    private ModuleInitializer allModules;
+    private ModuleLoader allModules;
 
     @BeforeEach
     public void setup() {
-        allModules = new ModuleInitializer();
+        try {
+            allModules = new ModuleLoader();
+        } catch (ModuleLoaderException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     @Test
@@ -30,8 +38,6 @@ class ModuleInitializerTest {
     void getModuleFullDetails_loadAllModuleData_success() {
         FullModule[] modules = allModules.getModuleFullDetails();
 
-        assertEquals(allModules.getIsLoadingSuccessful(), true);
-
         assertEquals(modules.length, TOTAL_NUMBER_OF_MODULES);
         assertEquals(modules[1786].toString(), "{\"additionalProperties\":{},"
                 + "\"attributes\":[true,false,false,false,false,false,false,false,false],"
@@ -43,8 +49,10 @@ class ModuleInitializerTest {
 
     @Test
     void getModuleFullDetails_loadAllModuleData_fail() {
-        allModules = new ModuleInitializer(false);
+        Exception exception = assertThrows(ModuleLoaderException.class, () -> {
+            allModules = new ModuleLoader(false);
+        });
 
-        assertEquals(allModules.getIsLoadingSuccessful(), false);
+        assertTrue(exception.getMessage().contains("Data for Modules corrupted!\nTerminating program..."));
     }
 }

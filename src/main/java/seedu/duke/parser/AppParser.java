@@ -1,8 +1,8 @@
 package seedu.duke.parser;
 
 import seedu.duke.apps.academicplanner.AcademicPlannerApp;
-import seedu.duke.apps.capcalculator.CapCalculator;
-import seedu.duke.apps.ModuleInitializer;
+import seedu.duke.apps.capcalculator.CapCalculatorApp;
+import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.exceptions.AppParserException;
 import seedu.duke.globalcommons.App;
 import seedu.duke.objects.Person;
@@ -27,14 +27,14 @@ public class AppParser {
      * @return app to be run
      * @throws AppParserException thrown when an invalid command is give
      */
-    public static App parse(String userInput, ModuleInitializer allModules, Person currentPerson, Ui ui)
+    public static App parse(String userInput, ModuleLoader allModules, Person currentPerson, Ui ui)
             throws AppParserException {
         userInput = userInput.trim().toLowerCase();
 
         if (userInput.equals(ACADEMIC_PLAN_COMMAND)) {
             return new AcademicPlannerApp(allModules, currentPerson, ui);
         } else if (userInput.equals(CAP_CALCULATOR_COMMAND)) {
-            return new CapCalculator(currentPerson, ui);
+            return new CapCalculatorApp(currentPerson, ui);
         } else if (userInput.equals(EXIT_COMMAND)) {
             return new App(true);
         } else {

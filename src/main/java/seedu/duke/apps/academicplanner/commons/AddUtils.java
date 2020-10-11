@@ -1,6 +1,6 @@
 package seedu.duke.apps.academicplanner.commons;
 
-import seedu.duke.apps.ModuleInitializer;
+import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.apps.capcalculator.commons.CalculatorUtils;
 import seedu.duke.objects.PartialModule;
 import seedu.duke.objects.Person;
@@ -13,12 +13,12 @@ import java.util.HashMap;
 public class AddUtils {
     private static final int FROM_ADD = 1;
 
-    private final ModuleInitializer allModules;
+    private final ModuleLoader allModules;
     private final ArrayList<PartialModule> modulesList;
     private final HashMap<String, PartialModule> modulesAddedMap;
     private final CalculatorUtils calculatorUtils;
 
-    public AddUtils(ModuleInitializer allModules, Person currentPerson) {
+    public AddUtils(ModuleLoader allModules, Person currentPerson) {
         this.allModules = allModules;
         this.modulesList = currentPerson.getModulesList();
         this.modulesAddedMap = currentPerson.getModulesAddedMap();
