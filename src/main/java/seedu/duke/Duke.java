@@ -10,7 +10,6 @@ import seedu.duke.ui.Ui;
  * Class representing main function of PlanNUS.
  */
 public class Duke {
-
     private static final String WELCOME_MESSAGE = "Welcome to PlanNUS!";
     private static final String WELCOME_BACK_MESSAGE = "Welcome back to PlanNUS Main Menu!";
     private static final String EXIT_MESSAGE = "Thanks for using PlanNUS! We hope to see you again!";
