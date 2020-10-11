@@ -30,6 +30,9 @@ public class AcademicPlannerApp extends App {
         this.ui = ui;
     }
 
+    /**
+     * Main entry point for the Academic Planner Application.
+     */
     public void run() {
         System.out.println(WELCOME_MESSAGE);
         System.out.println(COMMANDS_LIST);
@@ -45,7 +48,13 @@ public class AcademicPlannerApp extends App {
                 System.out.println(e.getMessage());
             }
         }
-        System.out.println(EXIT_MESSAGE);
+        showExitMessageAcademicPlanner();
     }
 
+    /**
+     * Prints exit message for Academic Planner.
+     */
+    private void showExitMessageAcademicPlanner() {
+        System.out.println(EXIT_MESSAGE);
+    }
 }

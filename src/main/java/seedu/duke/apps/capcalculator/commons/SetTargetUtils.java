@@ -4,10 +4,12 @@ import seedu.duke.exceptions.InvalidCapException;
 import seedu.duke.exceptions.InvalidCreditException;
 import seedu.duke.objects.Person;
 import seedu.duke.ui.Ui;
-
 import static seedu.duke.apps.capcalculator.commons.CalculatorUtils.MAXIMUM_CAP;
 import static seedu.duke.apps.capcalculator.commons.CalculatorUtils.formatCapToString;
 
+/**
+ * Class representing the common Set Target functions in CAP Calculator.
+ */
 public class SetTargetUtils {
     private static final String INVALID_CAP_MESSAGE = "Your target CAP cannot be greater than the maximum CAP of 5!";
     private static final String INVALID_MC_MESSAGE = "Your target MC cannot be 0!";
@@ -73,11 +75,32 @@ public class SetTargetUtils {
         double neededCap = (targetCapxTargetMC - currentPerson.getCurrentTotalMcxGrade()) / (double) targetGradedMC;
 
         if (neededCap <= 5) {
-            System.out.println("You should achieve a minimum CAP of " + formatCapToString(neededCap) + " for your next "
-                    + targetGradedMC + " MCs to achieve your target CAP of " + targetCap + ".");
+            printTargetResultPossible(targetCap, targetGradedMC, neededCap);
         } else {
-            System.out.println("OOPS!! Looks like you are not able to achieve your target CAP of " + targetCap
-                    + " with you target MCs of " + targetGradedMC + ".");
+            printTargetResultImpossible(targetCap, targetGradedMC);
         }
+    }
+
+    /**
+     * Prints out message for user when the target result cannot be achieved.
+     *
+     * @param targetCap user's targeted CAP.
+     * @param targetGradedMC user's targeted MC.
+     */
+    private void printTargetResultImpossible(double targetCap, int targetGradedMC) {
+        System.out.println("OOPS!! Looks like you are not able to achieve your target CAP of " + targetCap
+                + " with you target MCs of " + targetGradedMC + ".");
+    }
+
+    /**
+     * Prints out message for user when the target result can be achieved.
+     *
+     * @param targetCap user's targeted CAP.
+     * @param targetGradedMC user's targeted MC.
+     * @param neededCap user's future CAP needed to reach targeted CAP
+     */
+    private void printTargetResultPossible(double targetCap, int targetGradedMC, double neededCap) {
+        System.out.println("You should achieve a minimum CAP of " + formatCapToString(neededCap) + " for your next "
+                + targetGradedMC + " MCs to achieve your target CAP of " + targetCap + ".");
     }
 }

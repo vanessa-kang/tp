@@ -6,7 +6,9 @@ import seedu.duke.objects.Person;
 import seedu.duke.parser.AppParser;
 import seedu.duke.ui.Ui;
 
-
+/**
+ * Class representing main function of PlanNUS.
+ */
 public class Duke {
 
     private static final String WELCOME_MESSAGE = "Welcome to PlanNUS!";
@@ -29,8 +31,7 @@ public class Duke {
      * Main entry function for PlanNUS.
      */
     public void run() {
-        System.out.println(WELCOME_MESSAGE);
-        System.out.println(HELP_MESSAGE);
+        showWelcomeMessage();
         boolean isExit = false;
 
         while (!isExit) {
@@ -40,18 +41,40 @@ public class Duke {
                 selectedApp.run();
                 isExit = selectedApp.getIsExit();
                 if (!isExit) {
-                    System.out.println(WELCOME_BACK_MESSAGE);
-                    System.out.println(HELP_MESSAGE);
+                    showWelcomeBackMessage();
                 }
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }
+        showExitMessage();
+    }
+
+    /**
+     * Prints exit message for user just before termination of program.
+     */
+    private void showExitMessage() {
         System.out.println(EXIT_MESSAGE);
     }
 
     /**
-     * Main runnable code.
+     * Prints welcome back message for user when user returns back to main menu.
+     */
+    private void showWelcomeBackMessage() {
+        System.out.println(WELCOME_BACK_MESSAGE);
+        System.out.println(HELP_MESSAGE);
+    }
+
+    /**
+     * Prints welcome message for user upon first entry into PlanNUS.
+     */
+    private void showWelcomeMessage() {
+        System.out.println(WELCOME_MESSAGE);
+        System.out.println(HELP_MESSAGE);
+    }
+
+    /**
+     * Main executable code.
      * @param args arguments from command line
      */
     public static void main(String[] args) {

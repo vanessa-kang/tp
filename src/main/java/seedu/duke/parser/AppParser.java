@@ -17,6 +17,16 @@ public class AppParser {
     private static final String EXIT_COMMAND = "exit";
     private static final String INVALID_COMMAND_MESSAGE = "OOPS!!! I'm sorry, but I don't know what that means :-(";
 
+    /**
+     * Processes user input command and returns app to be run.
+     *
+     * @param userInput user input
+     * @param allModules variable containing all modules offered by NUS
+     * @param currentPerson user of PlanNUS
+     * @param ui Ui
+     * @return app to be run
+     * @throws AppParserException thrown when an invalid command is give
+     */
     public static App parse(String userInput, ModuleInitializer allModules, Person currentPerson, Ui ui)
             throws AppParserException {
         userInput = userInput.trim().toLowerCase();

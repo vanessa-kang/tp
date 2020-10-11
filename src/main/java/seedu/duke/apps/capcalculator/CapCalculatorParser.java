@@ -7,6 +7,9 @@ import seedu.duke.globalcommons.Command;
 import seedu.duke.objects.Person;
 import seedu.duke.ui.Ui;
 
+/**
+ * Class representing the parser used in the CAP Calculator app.
+ */
 public class CapCalculatorParser {
 
     public static final String NEW_LINE = "\n";
@@ -17,6 +20,15 @@ public class CapCalculatorParser {
     private static final String SET_TARGET_COMMAND = "set target";
     private static final String EXIT_COMMAND = "exit";
 
+    /**
+     * Processes user input command and returns command to be executed.
+     *
+     * @param userInput user input
+     * @param currentPerson user of PlanNUS
+     * @param ui ui
+     * @return Command to be executed
+     * @throws CommandParserException thrown when an invalid command is entered
+     */
     public static Command parse(String userInput, Person currentPerson, Ui ui) throws CommandParserException {
         userInput = userInput.trim().toLowerCase();
 

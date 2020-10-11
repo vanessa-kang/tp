@@ -2,16 +2,17 @@ package seedu.duke.apps.capcalculator.commons;
 
 import seedu.duke.objects.PartialModule;
 import seedu.duke.objects.Person;
-
 import java.text.DecimalFormat;
 
+/**
+ * Class representing common functions for the CAP Calculator.
+ */
 public class CalculatorUtils {
     private static final int FROM_ADD = 1;
     private static final int FROM_EDIT = 2;
     private static final int FROM_REMOVE = 3;
     private static final DecimalFormat formatFinalCap = new DecimalFormat("#.##");
     protected static final double MAXIMUM_CAP = 5.00;
-
 
     private final Person currentPerson;
 
@@ -30,54 +31,119 @@ public class CalculatorUtils {
     public void updateCap(int type, PartialModule currentModule, double... caps) {
         // Caps is an array, 0 being oldCap, 1 being newCap
         if (type == FROM_ADD) {
-            //Incrementing total MC regardless of SU
-            int moduleCredit = currentModule.getModuleCredit();
-            currentPerson.setCurrentMc(currentPerson.getCurrentMc() + moduleCredit);
-
-            //Incrementing total MC after SU only if module is not SU
-            if (currentModule.getCap() != -1.00) {
-                currentPerson.setCurrentMcAfterSU(currentPerson.getCurrentMcAfterSU() + moduleCredit);
-                double newMCxGrade = currentModule.getCap() * moduleCredit;
-                currentPerson.setCurrentTotalMcxGrade(currentPerson.getCurrentTotalMcxGrade() + newMCxGrade);
-            }
+            updateCapFromAdd(currentModule);
         } else if (type == FROM_REMOVE) {
             //Decreasing total MC regardless of SU
             currentPerson.setCurrentMc(currentPerson.getCurrentMc()
                     - currentModule.getModuleCredit());
-
             //Decreasing total MC after SU only if module is not SU
             if (currentModule.getCap() != -1.00) {
-                currentPerson.setCurrentMcAfterSU(currentPerson.getCurrentMcAfterSU()
-                        - currentModule.getModuleCredit());
-                double mcxGradeToMinus = currentModule.getCap() * currentModule.getModuleCredit();
-                currentPerson.setCurrentTotalMcxGrade(currentPerson.getCurrentTotalMcxGrade()
-                        - mcxGradeToMinus);
+                editCapNonSuToSu(currentModule, currentModule.getCap());
             }
         } else if (type == FROM_EDIT) {
-            if (caps[0] == -1.00 && caps[1] != -1.00) {
+            if (isFromSuToNonSu(caps)) {
                 //Case where previously was SU but new is not SU
-                currentPerson.setCurrentMcAfterSU(currentPerson.getCurrentMcAfterSU()
-                        + currentModule.getModuleCredit());
-                double newMCxGrade = caps[1] * currentModule.getModuleCredit();
-                currentPerson.setCurrentTotalMcxGrade(currentPerson.getCurrentTotalMcxGrade()
-                        + newMCxGrade);
+                editCapSuToNonSu(currentModule.getModuleCredit(), caps[1]);
 
-            }  else if (caps[0] != -1.00 && caps[1] == -1.00) {
+            }  else if (isFromNonSuToSu(caps)) {
                 //Case where previously was not SU but now is SU
-                currentPerson.setCurrentMcAfterSU(currentPerson.getCurrentMcAfterSU()
-                        - currentModule.getModuleCredit());
-                double mcxGradeToMinus = caps[0] * currentModule.getModuleCredit();
-                currentPerson.setCurrentTotalMcxGrade(currentPerson.getCurrentTotalMcxGrade()
-                        - mcxGradeToMinus);
+                editCapNonSuToSu(currentModule, caps[0]);
 
-            } else if (caps[0] != caps[1]) {
+            } else if (isFromNonSuToNonSu(caps)) {
                 //Case where previously and new cap are not SU but not the same
-                double oldMCxGrade = caps[0] * currentModule.getModuleCredit();
-                double newMCxGrade = caps[1] * currentModule.getModuleCredit();
-                double mcxGradeToSet = newMCxGrade - oldMCxGrade;
-                currentPerson.setCurrentTotalMcxGrade(currentPerson.getCurrentTotalMcxGrade()
-                        + mcxGradeToSet);
+                editCapNonSuToNonSu(currentModule, caps);
             }
+        }
+    }
+
+    /**
+     * Returns true if edited module was from a special grade to special grade,
+     * else returns false.
+     *
+     * @param caps Academic points of original and edited module
+     * @return boolean
+     */
+    private boolean isFromNonSuToNonSu(double[] caps) {
+        return caps[0] != caps[1];
+    }
+
+    /**
+     * Returns true if edited module was from a special grade to letter grade,
+     * else returns false.
+     *
+     * @param caps Academic points of original and edited module
+     * @return boolean
+     */
+    private boolean isFromNonSuToSu(double[] caps) {
+        return caps[0] != -1.00 && caps[1] == -1.00;
+    }
+
+    /**
+     * Returns true if edited module was from a special grade to letter grade,
+     * else returns false.
+     *
+     * @param caps Academic points of original and edited module
+     * @return boolean
+     */
+    private boolean isFromSuToNonSu(double[] caps) {
+        return caps[0] == -1.00 && caps[1] != -1.00;
+    }
+
+    /**
+     * Updates CAP when User edits module from a special grade to a special grade.
+     *
+     * @param currentModule module that was edited
+     * @param caps array of previous and new cap
+     */
+    private void editCapNonSuToNonSu(PartialModule currentModule, double[] caps) {
+        double oldMCxGrade = caps[0] * currentModule.getModuleCredit();
+        double newMCxGrade = caps[1] * currentModule.getModuleCredit();
+        double mcxGradeToSet = newMCxGrade - oldMCxGrade;
+        currentPerson.setCurrentTotalMcxGrade(currentPerson.getCurrentTotalMcxGrade()
+                + mcxGradeToSet);
+    }
+
+    /**
+     * Updates CAP when User edits module from a special grade to a letter grade.
+     *
+     * @param currentModule module that was edited
+     * @param cap user's CAP
+     */
+    private void editCapNonSuToSu(PartialModule currentModule, double cap) {
+        currentPerson.setCurrentMcAfterSU(currentPerson.getCurrentMcAfterSU()
+                - currentModule.getModuleCredit());
+        double mcxGradeToMinus = cap * currentModule.getModuleCredit();
+        currentPerson.setCurrentTotalMcxGrade(currentPerson.getCurrentTotalMcxGrade()
+                - mcxGradeToMinus);
+    }
+
+    /**
+     * Updates CAP when User edits module from a letter grade to a special grade.
+     *
+     * @param moduleCredit module credit of edited module
+     * @param cap user's CAP
+     */
+    private void editCapSuToNonSu(Integer moduleCredit, double cap) {
+        currentPerson.setCurrentMcAfterSU(currentPerson.getCurrentMcAfterSU()
+                + moduleCredit);
+        double newMCxGrade = cap * moduleCredit;
+        currentPerson.setCurrentTotalMcxGrade(currentPerson.getCurrentTotalMcxGrade()
+                + newMCxGrade);
+    }
+
+    /**
+     * Updates CAP when User adds in a new module.
+     *
+     * @param currentModule module that is newly added
+     */
+    private void updateCapFromAdd(PartialModule currentModule) {
+        //Incrementing total MC regardless of SU
+        int moduleCredit = currentModule.getModuleCredit();
+        currentPerson.setCurrentMc(currentPerson.getCurrentMc() + moduleCredit);
+
+        //Incrementing total MC after SU only if module is not SU
+        if (currentModule.getCap() != -1.00) {
+            editCapSuToNonSu(moduleCredit, currentModule.getCap());
         }
     }
 
