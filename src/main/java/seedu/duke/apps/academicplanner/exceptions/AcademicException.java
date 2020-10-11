@@ -1,4 +1,4 @@
-package seedu.duke.exceptions;
+package seedu.duke.apps.academicplanner.exceptions;
 
 /**
  * Signals that an invalid command has been given in the Academic Planner App.

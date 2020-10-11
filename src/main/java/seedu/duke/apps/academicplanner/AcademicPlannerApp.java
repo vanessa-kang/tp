@@ -1,6 +1,6 @@
 package seedu.duke.apps.academicplanner;
 
-import seedu.duke.apps.ModuleInitializer;
+import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.globalcommons.App;
 import seedu.duke.globalcommons.Command;
 import seedu.duke.objects.Person;
@@ -20,11 +20,11 @@ public class AcademicPlannerApp extends App {
             + "\texit\n"
             + "Type a command to continue...";
 
-    private final ModuleInitializer allModules;
+    private final ModuleLoader allModules;
     private final Person currentPerson;
     private Ui ui;
 
-    public AcademicPlannerApp(ModuleInitializer allModules, Person currentPerson, Ui ui) {
+    public AcademicPlannerApp(ModuleLoader allModules, Person currentPerson, Ui ui) {
         this.allModules = allModules;
         this.currentPerson = currentPerson;
         this.ui = ui;

@@ -2,7 +2,8 @@ package seedu.duke.apps.academicplanner.commons;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import seedu.duke.apps.ModuleInitializer;
+import seedu.duke.apps.moduleloader.ModuleLoader;
+import seedu.duke.apps.moduleloader.exceptions.ModuleLoaderException;
 import seedu.duke.objects.PartialModule;
 import seedu.duke.objects.Person;
 import java.util.ArrayList;
@@ -12,17 +13,21 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class AddUtilsTest {
 
-    ModuleInitializer allModules;
+    ModuleLoader allModules;
     Person currentPerson;
     AddUtils addUtils;
     ModuleValidator moduleValidator;
 
     @BeforeEach
     void setup() {
-        allModules = new ModuleInitializer();
-        currentPerson = new Person("Bob");
-        addUtils = new AddUtils(allModules,currentPerson);
-        moduleValidator = new ModuleValidator(allModules,currentPerson);
+        try {
+            allModules = new ModuleLoader();
+            currentPerson = new Person("Bob");
+            addUtils = new AddUtils(allModules,currentPerson);
+            moduleValidator = new ModuleValidator(allModules,currentPerson);
+        } catch (ModuleLoaderException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     @Test
