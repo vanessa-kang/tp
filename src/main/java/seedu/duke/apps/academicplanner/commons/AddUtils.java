@@ -51,6 +51,8 @@ public class AddUtils {
      */
     public int getModuleCreditForModule(String moduleCode) {
         int mapIndex = allModules.getModuleMap().get(moduleCode);
-        return allModules.getModuleFullDetails()[mapIndex].getModuleCredit();
+        int moduleCredit = allModules.getModuleFullDetails()[mapIndex].getModuleCredit();
+        assert moduleCredit >= 0;
+        return moduleCredit;
     }
 }
