@@ -9,6 +9,9 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ModuleInitializerTest {
+    private final static int TOTAL_NUMBER_OF_MODULES = 12436;
+    private final static int INDEX_OF_CS1010 = 1786;
+
     private ModuleInitializer allModules;
 
     @BeforeEach
@@ -20,7 +23,7 @@ class ModuleInitializerTest {
     void getModuleMap_loadAllModuleData_success() {
         Map<String, Integer> moduleMap = allModules.getModuleMap();
 
-        assertEquals(moduleMap.get("CS1010"), 1786);
+        assertEquals(moduleMap.get("CS1010"), INDEX_OF_CS1010);
     }
 
     @Test
@@ -29,7 +32,7 @@ class ModuleInitializerTest {
 
         assertEquals(allModules.getIsLoadingSuccessful(), true);
 
-        assertEquals(modules.length, 12436);
+        assertEquals(modules.length, TOTAL_NUMBER_OF_MODULES);
         assertEquals(modules[1786].toString(), "{\"additionalProperties\":{}," +
                 "\"attributes\":[true,false,false,false,false,false,false,false,false]," +
                 "\"corequisite\":\"\",\"department\":\"Computer Science\",\"faculty\":\"Computing\"," +
