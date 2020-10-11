@@ -12,6 +12,9 @@ import java.util.Map;
  * Class representing function to load all modules offered by NUS.
  */
 public class ModuleInitializer {
+    private static final int TOTAL_NUMBER_OF_MODULES = 12436;
+
+    private boolean isLoadingSuccessful;
     private Map<String, Integer> moduleMap = new HashMap<>();
     private FullModule[] moduleFullDetails;
 
@@ -25,6 +28,20 @@ public class ModuleInitializer {
         for (int i = 0; i < moduleFullDetails.length; i++) {
             moduleMap.put(moduleFullDetails[i].getModuleCode(), i);
         }
+
+        if (moduleFullDetails.length != TOTAL_NUMBER_OF_MODULES) {
+            isLoadingSuccessful = false;
+        } else {
+            isLoadingSuccessful = true;
+        }
+    }
+
+    public ModuleInitializer(boolean isProperCreation) {
+        this.isLoadingSuccessful = isProperCreation;
+    }
+
+    public boolean getIsLoadingSuccessful() {
+        return this.isLoadingSuccessful;
     }
 
     public Map<String, Integer> getModuleMap() {
