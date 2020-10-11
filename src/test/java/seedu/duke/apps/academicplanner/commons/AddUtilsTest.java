@@ -7,18 +7,22 @@ import seedu.duke.objects.PartialModule;
 import seedu.duke.objects.Person;
 import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class AddUtilsTest {
 
     ModuleInitializer allModules;
     Person currentPerson;
     AddUtils addUtils;
+    ModuleValidator moduleValidator;
 
     @BeforeEach
     void setup() {
         allModules = new ModuleInitializer();
         currentPerson = new Person("Bob");
         addUtils = new AddUtils(allModules,currentPerson);
+        moduleValidator = new ModuleValidator(allModules,currentPerson);
     }
 
     @Test
@@ -38,6 +42,8 @@ class AddUtilsTest {
                 assertEquals(m.getModuleCredit(),4);
             }
         }
+        assertTrue(moduleValidator.isModTakenByUser("CS1010"));
+        assertFalse(moduleValidator.isModTakenByUser("CS2113"));
     }
 
     @Test
@@ -66,5 +72,8 @@ class AddUtilsTest {
                 assertEquals(m.getModuleCredit(),4);
             }
         }
+        assertTrue(moduleValidator.isModTakenByUser("CS1010"));
+        assertTrue(moduleValidator.isModTakenByUser("CS1231"));
+        assertFalse(moduleValidator.isModTakenByUser("CS2113"));
     }
 }
