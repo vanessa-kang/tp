@@ -6,11 +6,11 @@ import seedu.duke.objects.FullModule;
 
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ModuleInitializerTest {
-    private final static int TOTAL_NUMBER_OF_MODULES = 12436;
-    private final static int INDEX_OF_CS1010 = 1786;
+    private static final int TOTAL_NUMBER_OF_MODULES = 12436;
+    private static final int INDEX_OF_CS1010 = 1786;
 
     private ModuleInitializer allModules;
 
@@ -33,12 +33,12 @@ class ModuleInitializerTest {
         assertEquals(allModules.getIsLoadingSuccessful(), true);
 
         assertEquals(modules.length, TOTAL_NUMBER_OF_MODULES);
-        assertEquals(modules[1786].toString(), "{\"additionalProperties\":{}," +
-                "\"attributes\":[true,false,false,false,false,false,false,false,false]," +
-                "\"corequisite\":\"\",\"department\":\"Computer Science\",\"faculty\":\"Computing\"," +
-                "\"moduleCode\":\"CS1010\",\"moduleCredit\":4," +
-                "\"preclusion\":\"CS1010E, CS1010J, CS1010S, CS1010X, CS1010XCP, CS1101S\"," +
-                "\"prerequisite\":\"\",\"semester\":[1,2],\"title\":\"Programming Methodology\"}");
+        assertEquals(modules[1786].toString(), "{\"additionalProperties\":{},"
+                + "\"attributes\":[true,false,false,false,false,false,false,false,false],"
+                + "\"corequisite\":\"\",\"department\":\"Computer Science\",\"faculty\":\"Computing\","
+                + "\"moduleCode\":\"CS1010\",\"moduleCredit\":4,"
+                + "\"preclusion\":\"CS1010E, CS1010J, CS1010S, CS1010X, CS1010XCP, CS1101S\","
+                + "\"prerequisite\":\"\",\"semester\":[1,2],\"title\":\"Programming Methodology\"}");
     }
 
     @Test
