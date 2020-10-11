@@ -51,8 +51,7 @@ public class AddModuleCommand extends Command {
             throw new AcademicException(ERROR_DUPLICATE_MOD);
         }
 
-        System.out.println("Semester you plan to take " + moduleCode.toUpperCase() + "?");
-        System.out.println(VALID_SEMESTERS);
+        promptUserToEnterSemester();
         String userInput = in.nextLine();
 
         int semesterValue;
@@ -66,8 +65,7 @@ public class AddModuleCommand extends Command {
             throw new AcademicException(ERROR_INVALID_SEMESTER_INDEX);
         }
 
-        System.out.println("Grade received for " + moduleCode.toUpperCase() + "?");
-        System.out.println(VALID_GRADES);
+        promptUserToEnterGrade();
         String gradeValue = in.nextLine();
 
         if (!moduleValidator.isValidGrade(gradeValue)) {
@@ -75,5 +73,21 @@ public class AddModuleCommand extends Command {
         }
         int moduleCredit = addUtils.getModuleCreditForModule(moduleCode);
         addUtils.addModuleToUser(moduleCode, semesterValue, gradeValue, moduleCredit);
+    }
+
+    /**
+     * Prints prompt and help messages for user to enter module's grade.
+     */
+    private void promptUserToEnterGrade() {
+        System.out.println("Grade received for " + moduleCode.toUpperCase() + "?");
+        System.out.println(VALID_GRADES);
+    }
+
+    /**
+     * Prints prompt and help messages for user to enter module's semester taken.
+     */
+    private void promptUserToEnterSemester() {
+        System.out.println("Semester you plan to take " + moduleCode.toUpperCase() + "?");
+        System.out.println(VALID_SEMESTERS);
     }
 }

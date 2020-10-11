@@ -54,6 +54,12 @@ public class PartialModule implements Comparable<PartialModule> {
         setCap(grade);
     }
 
+    /**
+     * Returns Academic points associated with letter grades.
+     * If grade is a special grading option, returns -1.00.
+     *
+     * @param grade user grade to check
+     */
     public void setCap(String grade) {
         switch (grade.toUpperCase()) {
         case "A+":

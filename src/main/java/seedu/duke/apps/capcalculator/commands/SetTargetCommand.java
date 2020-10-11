@@ -7,7 +7,9 @@ import seedu.duke.objects.Person;
 import seedu.duke.ui.Ui;
 import seedu.duke.apps.capcalculator.commons.SetTargetUtils;
 
-
+/**
+ * Class representing the Set target CAP command for CAP Calculator.
+ */
 public class SetTargetCommand extends Command {
 
     private Person currentPerson;
@@ -20,6 +22,9 @@ public class SetTargetCommand extends Command {
         this.setTargetUtils = new SetTargetUtils(currentPerson, ui);
     }
 
+    /**
+     * Function to calculate CAP needed to obtain target grades.
+     */
     @Override
     public void execute() {
         try {
