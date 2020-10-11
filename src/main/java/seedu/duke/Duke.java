@@ -22,8 +22,6 @@ public class Duke {
         ui = new Ui();
         allModules =  new ModuleInitializer();
         currentPerson = new Person("Bob");
-
-        System.out.println(allModules.getModuleFullDetails()[1786].toString());
     }
 
     /**
