@@ -14,10 +14,13 @@ import java.util.Map;
 public class ModuleInitializer {
     private static final int TOTAL_NUMBER_OF_MODULES = 12436;
 
-    private boolean isLoadingSuccessful;
+    private boolean isLoadingSuccessful = false;
     private Map<String, Integer> moduleMap = new HashMap<>();
     private FullModule[] moduleFullDetails;
 
+    /**
+     * Default constructor for to load all modules from JSON file.
+     */
     public ModuleInitializer() {
         Gson gson = new Gson();
 
@@ -29,25 +32,43 @@ public class ModuleInitializer {
             moduleMap.put(moduleFullDetails[i].getModuleCode(), i);
         }
 
-        if (moduleFullDetails.length != TOTAL_NUMBER_OF_MODULES) {
-            isLoadingSuccessful = false;
-        } else {
+        if (moduleFullDetails.length == TOTAL_NUMBER_OF_MODULES) {
             isLoadingSuccessful = true;
         }
     }
 
+    /**
+     * Constructor for checking condition where loading all module from JSON file fails.
+     *
+     * @param isProperCreation boolean indicating non-proper creation of module initializer (Default: false)
+     */
     public ModuleInitializer(boolean isProperCreation) {
         this.isLoadingSuccessful = isProperCreation;
     }
 
+    /**
+     * Getter for whether loading modules from JSON is successful.
+     *
+     * @return boolean
+     */
     public boolean getIsLoadingSuccessful() {
         return this.isLoadingSuccessful;
     }
 
+    /**
+     * Getter for module map.
+     *
+     * @return Map<String, Integer>
+     */
     public Map<String, Integer> getModuleMap() {
         return this.moduleMap;
     }
 
+    /**
+     * Getter for full module details.
+     *
+     * @return An Array of FullModule
+     */
     public FullModule[] getModuleFullDetails() {
         return this.moduleFullDetails;
     }
