@@ -1,5 +1,8 @@
 package seedu.duke.globalcommons;
 
+/**
+ * Class representing an application in PlanNUS.
+ */
 public class App {
     private boolean isExit = false;
 

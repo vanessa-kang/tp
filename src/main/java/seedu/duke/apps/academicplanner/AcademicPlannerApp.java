@@ -1,11 +1,14 @@
 package seedu.duke.apps.academicplanner;
 
-import seedu.duke.apps.ModuleInitializer;
+import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.globalcommons.App;
 import seedu.duke.globalcommons.Command;
 import seedu.duke.objects.Person;
 import seedu.duke.ui.Ui;
 
+/**
+ * Class representing the Academic Planner Application.
+ */
 public class AcademicPlannerApp extends App {
     private static final String WELCOME_MESSAGE = "\nWelcome to Academic Planner!";
     private static final String EXIT_MESSAGE = "Thank you for using Academic Planner!";
@@ -17,16 +20,19 @@ public class AcademicPlannerApp extends App {
             + "\texit\n"
             + "Type a command to continue...";
 
-    private final ModuleInitializer allModules;
+    private final ModuleLoader allModules;
     private final Person currentPerson;
     private Ui ui;
 
-    public AcademicPlannerApp(ModuleInitializer allModules, Person currentPerson, Ui ui) {
+    public AcademicPlannerApp(ModuleLoader allModules, Person currentPerson, Ui ui) {
         this.allModules = allModules;
         this.currentPerson = currentPerson;
         this.ui = ui;
     }
 
+    /**
+     * Main entry point for the Academic Planner Application.
+     */
     public void run() {
         System.out.println(WELCOME_MESSAGE);
         System.out.println(COMMANDS_LIST);
@@ -42,7 +48,13 @@ public class AcademicPlannerApp extends App {
                 System.out.println(e.getMessage());
             }
         }
-        System.out.println(EXIT_MESSAGE);
+        showExitMessageAcademicPlanner();
     }
 
+    /**
+     * Prints exit message for Academic Planner.
+     */
+    private void showExitMessageAcademicPlanner() {
+        System.out.println(EXIT_MESSAGE);
+    }
 }
