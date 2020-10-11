@@ -72,6 +72,8 @@ public class AddModuleCommand extends Command {
             throw new AcademicException(ERROR_INVALID_GRADE);
         }
         int moduleCredit = addUtils.getModuleCreditForModule(moduleCode);
+        assert semesterValue > 0;
+        assert moduleCredit >= 0;
         addUtils.addModuleToUser(moduleCode, semesterValue, gradeValue, moduleCredit);
     }
 
