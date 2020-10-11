@@ -4,10 +4,12 @@ import seedu.duke.apps.ModuleInitializer;
 import seedu.duke.apps.capcalculator.commons.CalculatorUtils;
 import seedu.duke.objects.PartialModule;
 import seedu.duke.objects.Person;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Class representing add module utilities from the add module command.
+ */
 public class AddUtils {
     private static final int FROM_ADD = 1;
 
@@ -49,6 +51,8 @@ public class AddUtils {
      */
     public int getModuleCreditForModule(String moduleCode) {
         int mapIndex = allModules.getModuleMap().get(moduleCode);
-        return allModules.getModuleFullDetails()[mapIndex].getModuleCredit();
+        int moduleCredit = allModules.getModuleFullDetails()[mapIndex].getModuleCredit();
+        assert moduleCredit >= 0;
+        return moduleCredit;
     }
 }

@@ -5,12 +5,15 @@ import seedu.duke.apps.capcalculator.commons.CalculatorUtils;
 import seedu.duke.exceptions.AcademicException;
 import seedu.duke.objects.PartialModule;
 import seedu.duke.objects.Person;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
+/**
+ * Class representing edit module utilities from the edit module command.
+ */
 public class EditUtils {
+
     private final ArrayList<PartialModule> modulesList;
     private final HashMap<String, PartialModule> modulesAddedMap;
     private final ModuleValidator modChecker;
@@ -28,6 +31,11 @@ public class EditUtils {
     private static final String PROMPT_NEW_GRADE = "Enter the new grade: ";
     private static final String ERROR_INVALID_SEMESTER_INDEX = "INVALID SEMESTER INDEX";
     private static final String ERROR_INVALID_GRADE = "INVALID GRADE VALUE";
+    private static final String VALID_GRADES = "Valid grades are:\n"
+            + "\tLetter Grades: A+, A, A-, B+, B, B-, C+, C, D+, D, F\n"
+            + "\tSpecial Grades: CS, CU, S, U, W, IC, IP, AUD, WU, EXE\n"
+            + "\tIf you have yet to have a grade for the module: NT";
+    private static final String VALID_SEMESTERS = "Valid semesters are integers from 1 to 10, inclusive";
 
     /**
      * Changes the current grade of module to the input of the user.
@@ -39,6 +47,7 @@ public class EditUtils {
      */
     public void editModuleGrade(Scanner in, String moduleCode) throws AcademicException {
         System.out.println(PROMPT_NEW_GRADE);
+        System.out.println(VALID_GRADES);
         String gradeValue = in.nextLine().toUpperCase();
 
         if (!modChecker.isValidGrade(gradeValue)) {
@@ -57,16 +66,25 @@ public class EditUtils {
      * @param gradeValue grade to edit to
      */
     public void updateModuleGrade(String moduleCode, String gradeValue) {
-        for (PartialModule item : modulesList) {
-            if (item.getModuleCode().equals(moduleCode)) {
-                double oldCap = item.getCap();
-                item.setGrade(gradeValue);
-                double newCap = item.getCap();
-                calculatorUtils.updateCap(FROM_EDIT, item, oldCap, newCap);
+        for (PartialModule module : modulesList) {
+            if (module.getModuleCode().equals(moduleCode)) {
+                updateCurrentModuleGrade(gradeValue, module);
                 break;
             }
         }
         modulesAddedMap.get(moduleCode).setGrade(gradeValue);
+    }
+
+    /**
+     * Updates module to reflect the new grade.
+     * @param gradeValue new grade value to reflect
+     * @param module module to edit
+     */
+    private void updateCurrentModuleGrade(String gradeValue, PartialModule module) {
+        double oldCap = module.getCap();
+        module.setGrade(gradeValue);
+        double newCap = module.getCap();
+        calculatorUtils.updateCap(FROM_EDIT, module, oldCap, newCap);
     }
 
     /**
@@ -79,6 +97,7 @@ public class EditUtils {
      */
     public void editModuleSemester(Scanner in, String moduleCode) throws AcademicException {
         System.out.println(PROMPT_NEW_SEMESTER_VALUE);
+        System.out.println(VALID_SEMESTERS);
         String newValue = in.nextLine();
 
         if (!modChecker.isValidSemester(Integer.parseInt(newValue))) {
@@ -100,7 +119,7 @@ public class EditUtils {
         for (PartialModule item : modulesList) {
             if (item.getModuleCode().equals(moduleCode)) {
                 item.setSemesterIndex(Integer.parseInt(newValue));
-                return;
+                break;
             }
         }
     }

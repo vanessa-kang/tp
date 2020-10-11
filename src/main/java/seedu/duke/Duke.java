@@ -6,9 +6,10 @@ import seedu.duke.objects.Person;
 import seedu.duke.parser.AppParser;
 import seedu.duke.ui.Ui;
 
-
+/**
+ * Class representing main function of PlanNUS.
+ */
 public class Duke {
-
     private static final String WELCOME_MESSAGE = "Welcome to PlanNUS!";
     private static final String WELCOME_BACK_MESSAGE = "Welcome back to PlanNUS Main Menu!";
     private static final String EXIT_MESSAGE = "Thanks for using PlanNUS! We hope to see you again!";
@@ -25,9 +26,11 @@ public class Duke {
         currentPerson = new Person("Bob");
     }
 
+    /**
+     * Main entry function for PlanNUS.
+     */
     public void run() {
-        System.out.println(WELCOME_MESSAGE);
-        System.out.println(HELP_MESSAGE);
+        showWelcomeMessage();
         boolean isExit = false;
 
         while (!isExit) {
@@ -37,16 +40,42 @@ public class Duke {
                 selectedApp.run();
                 isExit = selectedApp.getIsExit();
                 if (!isExit) {
-                    System.out.println(WELCOME_BACK_MESSAGE);
-                    System.out.println(HELP_MESSAGE);
+                    showWelcomeBackMessage();
                 }
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }
+        showExitMessage();
+    }
+
+    /**
+     * Prints exit message for user just before termination of program.
+     */
+    private void showExitMessage() {
         System.out.println(EXIT_MESSAGE);
     }
 
+    /**
+     * Prints welcome back message for user when user returns back to main menu.
+     */
+    private void showWelcomeBackMessage() {
+        System.out.println(WELCOME_BACK_MESSAGE);
+        System.out.println(HELP_MESSAGE);
+    }
+
+    /**
+     * Prints welcome message for user upon first entry into PlanNUS.
+     */
+    private void showWelcomeMessage() {
+        System.out.println(WELCOME_MESSAGE);
+        System.out.println(HELP_MESSAGE);
+    }
+
+    /**
+     * Main executable code.
+     * @param args arguments from command line
+     */
     public static void main(String[] args) {
         new Duke().run();
     }

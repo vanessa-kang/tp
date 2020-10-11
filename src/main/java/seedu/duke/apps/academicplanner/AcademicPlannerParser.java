@@ -9,9 +9,11 @@ import seedu.duke.exceptions.CommandParserException;
 import seedu.duke.globalcommons.Command;
 import seedu.duke.objects.Person;
 import seedu.duke.ui.Ui;
-
 import java.util.Scanner;
 
+/**
+ * Class representing the parser for the academic parser. Used in the academic parser app.
+ */
 public class AcademicPlannerParser {
     private static final int MODULE_CODE_INDEX = 1;
     public static final String NEW_LINE = "\n";
@@ -31,6 +33,16 @@ public class AcademicPlannerParser {
             + "\texit\n"
             + "Type a command to continue...";
 
+    /**
+     * Command to process the user inputs and to return the intended command with the correct parameters.
+     *
+     * @param userInput input of user
+     * @param allModules data of all modules offered by NUS
+     * @param currentPerson person using the app
+     * @param ui ui for output
+     * @return Command to be executed
+     * @throws CommandParserException to return with error message
+     */
     public static Command parse(String userInput, ModuleInitializer allModules, Person currentPerson, Ui ui)
         throws CommandParserException {
         String[] inputs = userInput.toUpperCase().split(" ");

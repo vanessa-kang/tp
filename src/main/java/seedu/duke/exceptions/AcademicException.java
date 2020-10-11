@@ -1,5 +1,8 @@
 package seedu.duke.exceptions;
 
+/**
+ * Signals that an invalid command has been given in the Academic Planner App.
+ */
 public class AcademicException extends Exception {
     private String errorMessage;
 

@@ -1,7 +1,7 @@
 package seedu.duke.exceptions;
 
 /**
- * Represents a Capcalculator exception.
+ * Signals that an invalid command has been given in the CAP Calculator App.
  */
 public class CapCalculatorException extends Exception {
     private String errorMessage;

@@ -6,6 +6,9 @@ import seedu.duke.globalcommons.Command;
 import seedu.duke.objects.Person;
 import seedu.duke.ui.Ui;
 
+/**
+ * Class representing the Academic Planner Application.
+ */
 public class AcademicPlannerApp extends App {
     private static final String WELCOME_MESSAGE = "\nWelcome to Academic Planner!";
     private static final String EXIT_MESSAGE = "Thank you for using Academic Planner!";
@@ -27,6 +30,9 @@ public class AcademicPlannerApp extends App {
         this.ui = ui;
     }
 
+    /**
+     * Main entry point for the Academic Planner Application.
+     */
     public void run() {
         System.out.println(WELCOME_MESSAGE);
         System.out.println(COMMANDS_LIST);
@@ -42,7 +48,13 @@ public class AcademicPlannerApp extends App {
                 System.out.println(e.getMessage());
             }
         }
-        System.out.println(EXIT_MESSAGE);
+        showExitMessageAcademicPlanner();
     }
 
+    /**
+     * Prints exit message for Academic Planner.
+     */
+    private void showExitMessageAcademicPlanner() {
+        System.out.println(EXIT_MESSAGE);
+    }
 }
