@@ -150,12 +150,14 @@ public class CalculatorUtils {
      */
     private void updateCapFromAdd(PartialModule currentModule) {
         //Incrementing total MC regardless of SU
-        int moduleCredit = currentModule.getModuleCredit();
-        currentPerson.setCurrentMc(currentPerson.getCurrentMc() + moduleCredit);
+        if (currentModule.getCap() != -2.00) {
+            int moduleCredit = currentModule.getModuleCredit();
+            currentPerson.setCurrentMc(currentPerson.getCurrentMc() + moduleCredit);
 
-        //Incrementing total MC after SU only if module is not SU
-        if (currentModule.getCap() != -1.00) {
-            editCapSuToNonSu(currentModule, currentModule.getCap());
+            //Incrementing total MC after SU only if module is not SU
+            if (currentModule.getCap() != -1.00) {
+                editCapSuToNonSu(currentModule, currentModule.getCap());
+            }
         }
     }
 
