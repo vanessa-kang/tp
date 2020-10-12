@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  * Class representing the Set target CAP command for CAP Calculator.
  */
 public class SetTargetCommand extends Command {
-    private final double MAXIMUM_CAP = 5.00;
+    private static final double MAXIMUM_CAP = 5.00;
 
     private static final Logger logger = Logger.getLogger("SetTargetCommand.java");
     private Person currentPerson;
