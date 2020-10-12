@@ -26,11 +26,15 @@ public class RemoveUtils {
      * @param moduleCode module to remove.
      */
     public void removeModuleFromUserModuleList(String moduleCode) {
+        int totalNumberOfModules = modulesList.size();
+      
         for (PartialModule item : modulesList) {
             if (item.getModuleCode().equals(moduleCode)) {
                 System.out.println(item.getModuleCode() + " has been removed from the list");
                 calculatorUtils.updateCap(FROM_REMOVE, item);
                 modulesList.remove(item);
+
+                assert modulesList.size() == totalNumberOfModules - 1;
                 return;
             }
         }

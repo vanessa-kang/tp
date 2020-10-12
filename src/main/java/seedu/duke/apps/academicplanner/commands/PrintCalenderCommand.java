@@ -54,5 +54,4 @@ public class PrintCalenderCommand extends Command {
         }
         return space;
     }
-
 }
