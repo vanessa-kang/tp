@@ -100,12 +100,13 @@ public class PartialModule implements Comparable<PartialModule> {
         case "S":            //Satisfactory
             //Fallthrough
         case "U":            //Unsatisfactory
-            //Fallthrough
+            //Fallthrough 
+        case "IP":           //In progress
+            this.cap = -1.00;
+            break;
         case "W":            //Withdrawn
             //Fallthrough
         case "IC":           //Incomplete
-            //Fallthrough
-        case "IP":           //In progress
             //Fallthrough
         case "AUD":          //Audit
             //Fallthrough
@@ -114,7 +115,7 @@ public class PartialModule implements Comparable<PartialModule> {
         case "EXE":         //Exempted
             //Fallthrough
         case "NT":           //Not taken
-            this.cap = -1.00;
+            this.cap = -2.00;
             break;
         default:
             this.cap = 0.00;
