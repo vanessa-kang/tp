@@ -3,10 +3,12 @@ package seedu.duke.apps.academicplanner.commands;
 import seedu.duke.globalcommons.Command;
 import seedu.duke.objects.PartialModule;
 import seedu.duke.objects.Person;
-
 import java.util.ArrayList;
 import java.util.Comparator;
 
+/**
+ * Class representing a print module command from the academic planner.
+ */
 public class PrintCalenderCommand extends Command {
 
     private static final String EMPTY_MODULE_LIST = "Your academic calendar is currently empty!";
@@ -45,7 +47,9 @@ public class PrintCalenderCommand extends Command {
     }
 
     /**
-     * HELPER FUNCTION: Prints num spaces
+     * Prints num spaces for indentation.
+     * @param num int of spaces to print
+     * @return string of spaces
      */
     private String printSpace(int num) {
         String space = "";
