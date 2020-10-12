@@ -55,9 +55,7 @@ public class AcademicPlannerParser {
         } else if (inputs[0].equals(REMOVE_COMMAND)) {
             return new RemoveModuleCommand(allModules, currentPerson, in, inputs[MODULE_CODE_INDEX]);
         } else if (inputs[0].equals(VIEW_COMMAND)) {
-            System.out.println("Sorry this function is not ready yet!");
-            return new PrintCalenderCommand();
-            //TODO Add in print calender
+            return new PrintCalenderCommand(currentPerson);
         } else if (inputs[0].equals(EXIT_COMMAND)) {
             return new Command(true);
         } else {
