@@ -11,6 +11,7 @@ import seedu.duke.apps.capcalculator.commons.SetTargetUtils;
  * Class representing the Set target CAP command for CAP Calculator.
  */
 public class SetTargetCommand extends Command {
+    private final double MAXIMUM_CAP = 5.00;
 
     private Person currentPerson;
     private Ui ui;
@@ -30,6 +31,8 @@ public class SetTargetCommand extends Command {
         try {
             double targetCap = setTargetUtils.getTargetCap();
             int targetMCs = setTargetUtils.getTargetGradedMC();
+            assert targetCap <= MAXIMUM_CAP;
+            assert targetMCs > 0;
             setTargetUtils.showResultsToUser(targetCap, targetMCs);
         } catch (InvalidCapException e) {
             System.out.println(e.getMessage());
