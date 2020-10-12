@@ -42,7 +42,7 @@ public class EditModuleCommand extends Command {
         try {
             if (moduleValidator.isModTakenByUser(moduleCode)) {
                 System.out.println(PROMPT_EDIT_CHOICES);
-                String choice = in.nextLine();
+                String choice = in.nextLine().trim();
 
                 if (choice.equals(EDIT_SEMESTER)) {
                     editUtils.editModuleSemester(in, moduleCode);
