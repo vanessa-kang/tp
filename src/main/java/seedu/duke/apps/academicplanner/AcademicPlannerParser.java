@@ -1,6 +1,6 @@
 package seedu.duke.apps.academicplanner;
 
-import seedu.duke.apps.ModuleInitializer;
+import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.apps.academicplanner.commands.AddModuleCommand;
 import seedu.duke.apps.academicplanner.commands.EditModuleCommand;
 import seedu.duke.apps.academicplanner.commands.PrintCalenderCommand;
@@ -43,7 +43,7 @@ public class AcademicPlannerParser {
      * @return Command to be executed
      * @throws CommandParserException to return with error message
      */
-    public static Command parse(String userInput, ModuleInitializer allModules, Person currentPerson, Ui ui)
+    public static Command parse(String userInput, ModuleLoader allModules, Person currentPerson, Ui ui)
         throws CommandParserException {
         String[] inputs = userInput.toUpperCase().split(" ");
         Scanner in = ui.getScanner();

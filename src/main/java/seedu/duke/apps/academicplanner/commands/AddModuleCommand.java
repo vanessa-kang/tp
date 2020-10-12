@@ -1,9 +1,9 @@
 package seedu.duke.apps.academicplanner.commands;
 
-import seedu.duke.apps.ModuleInitializer;
+import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.apps.academicplanner.commons.AddUtils;
 import seedu.duke.apps.academicplanner.commons.ModuleValidator;
-import seedu.duke.exceptions.AcademicException;
+import seedu.duke.apps.academicplanner.exceptions.AcademicException;
 import seedu.duke.globalcommons.Command;
 import seedu.duke.objects.Person;
 import java.util.Scanner;
@@ -31,7 +31,7 @@ public class AddModuleCommand extends Command {
     private Scanner in;
     private String moduleCode;
 
-    public AddModuleCommand(ModuleInitializer allModules, Person currentPerson, Scanner in, String moduleCode) {
+    public AddModuleCommand(ModuleLoader allModules, Person currentPerson, Scanner in, String moduleCode) {
         this.addUtils = new AddUtils(allModules, currentPerson);
         this.moduleValidator = new ModuleValidator(allModules, currentPerson);
         this.in = in;
@@ -59,7 +59,7 @@ public class AddModuleCommand extends Command {
         }
 
         promptUserToEnterSemester();
-        String userInput = in.nextLine();
+        String userInput = in.nextLine().trim();
 
         int semesterValue;
         try {
@@ -75,7 +75,7 @@ public class AddModuleCommand extends Command {
         }
 
         promptUserToEnterGrade();
-        String gradeValue = in.nextLine();
+        String gradeValue = in.nextLine().trim().toUpperCase();
 
         if (!moduleValidator.isValidGrade(gradeValue)) {
             logger.log(Level.WARNING,"Grade entered is invalid.");

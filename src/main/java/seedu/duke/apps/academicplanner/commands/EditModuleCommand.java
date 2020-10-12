@@ -1,9 +1,9 @@
 package seedu.duke.apps.academicplanner.commands;
 
-import seedu.duke.apps.ModuleInitializer;
+import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.apps.academicplanner.commons.EditUtils;
 import seedu.duke.apps.academicplanner.commons.ModuleValidator;
-import seedu.duke.exceptions.AcademicException;
+import seedu.duke.apps.academicplanner.exceptions.AcademicException;
 import seedu.duke.globalcommons.Command;
 import seedu.duke.objects.Person;
 import java.util.Scanner;
@@ -26,7 +26,7 @@ public class EditModuleCommand extends Command {
     private Scanner in;
     private String moduleCode;
 
-    public EditModuleCommand(ModuleInitializer allModules, Person currentPerson, Scanner in, String moduleCode) {
+    public EditModuleCommand(ModuleLoader allModules, Person currentPerson, Scanner in, String moduleCode) {
         this.editUtils = new EditUtils(allModules, currentPerson);
         this.moduleValidator = new ModuleValidator(allModules, currentPerson);
         this.in = in;
@@ -42,7 +42,7 @@ public class EditModuleCommand extends Command {
         try {
             if (moduleValidator.isModTakenByUser(moduleCode)) {
                 System.out.println(PROMPT_EDIT_CHOICES);
-                String choice = in.nextLine();
+                String choice = in.nextLine().trim();
 
                 if (choice.equals(EDIT_SEMESTER)) {
                     editUtils.editModuleSemester(in, moduleCode);
