@@ -119,6 +119,7 @@ public class EditUtils {
         for (PartialModule item : modulesList) {
             if (item.getModuleCode().equals(moduleCode)) {
                 item.setSemesterIndex(Integer.parseInt(newValue));
+
                 assert item.getSemesterIndex() == Integer.parseInt(newValue);
                 break;
             }
