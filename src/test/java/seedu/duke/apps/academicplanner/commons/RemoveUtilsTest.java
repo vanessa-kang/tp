@@ -10,7 +10,6 @@ import seedu.duke.objects.Person;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class RemoveUtilsTest {
 
@@ -43,6 +42,5 @@ class RemoveUtilsTest {
         assertEquals(modulesList.size(),1);
         removeUtils.removeModuleFromUserModuleList("CS1010");
         assertEquals(modulesList.size(), 0);
-        assertFalse(moduleValidator.isModTakenByUser("CS1010"));
     }
 }
