@@ -31,11 +31,11 @@ test {
 }
 
 application {
-    mainClassName = "seedu.duke.Duke"
+    mainClassName = "seedu.duke.PlanNus"
 }
 
 shadowJar {
-    archiveBaseName = "duke"
+    archiveBaseName = "PlanNus"
     archiveClassifier = null
 }
 
@@ -50,7 +50,7 @@ run {
 jar {
     manifest {
         attributes(
-                'Main-Class': 'seedu.duke.Duke'
+                'Main-Class': 'seedu.duke.PlanNus'
         )
     }
 }

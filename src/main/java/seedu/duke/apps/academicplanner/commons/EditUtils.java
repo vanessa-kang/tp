@@ -1,8 +1,8 @@
 package seedu.duke.apps.academicplanner.commons;
 
-import seedu.duke.apps.ModuleInitializer;
+import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.apps.capcalculator.commons.CalculatorUtils;
-import seedu.duke.exceptions.AcademicException;
+import seedu.duke.apps.academicplanner.exceptions.AcademicException;
 import seedu.duke.objects.PartialModule;
 import seedu.duke.objects.Person;
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ public class EditUtils {
     private final ModuleValidator modChecker;
     private final CalculatorUtils calculatorUtils;
 
-    public EditUtils(ModuleInitializer allModules, Person currentPerson) {
+    public EditUtils(ModuleLoader allModules, Person currentPerson) {
         this.modulesList = currentPerson.getModulesList();
         this.modulesAddedMap = currentPerson.getModulesAddedMap();
         this.modChecker = new ModuleValidator(allModules, currentPerson);
