@@ -33,6 +33,7 @@ public class SetTargetCommand extends Command {
     @Override
     public void execute() {
         try {
+            logger.setLevel(Level.WARNING);
             logger.log(Level.INFO,"Executing set target command.");
             double targetCap = setTargetUtils.getTargetCap();
             int targetMCs = setTargetUtils.getTargetGradedMC();
