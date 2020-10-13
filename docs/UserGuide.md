@@ -126,7 +126,8 @@ Input format: `set target`
 
 __<ins>Caution:</ins>__
 
-* Maximum CAP is 5.0
+* Maximum CAP should be smaller or equals to 5.00.
+* Minimum MC should be greater than 0.
 
 
 
