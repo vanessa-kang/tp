@@ -1,6 +1,6 @@
 package seedu.duke.apps.academicplanner;
 
-import seedu.duke.apps.ModuleInitializer;
+import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.apps.academicplanner.commands.AddModuleCommand;
 import seedu.duke.apps.academicplanner.commands.EditModuleCommand;
 import seedu.duke.apps.academicplanner.commands.PrintCalenderCommand;
@@ -43,7 +43,7 @@ public class AcademicPlannerParser {
      * @return Command to be executed
      * @throws CommandParserException to return with error message
      */
-    public static Command parse(String userInput, ModuleInitializer allModules, Person currentPerson, Ui ui)
+    public static Command parse(String userInput, ModuleLoader allModules, Person currentPerson, Ui ui)
         throws CommandParserException {
         String[] inputs = userInput.toUpperCase().split(" ");
         Scanner in = ui.getScanner();
@@ -55,9 +55,7 @@ public class AcademicPlannerParser {
         } else if (inputs[0].equals(REMOVE_COMMAND)) {
             return new RemoveModuleCommand(allModules, currentPerson, in, inputs[MODULE_CODE_INDEX]);
         } else if (inputs[0].equals(VIEW_COMMAND)) {
-            System.out.println("Sorry this function is not ready yet!");
-            return new PrintCalenderCommand();
-            //TODO Add in print calender
+            return new PrintCalenderCommand(currentPerson);
         } else if (inputs[0].equals(EXIT_COMMAND)) {
             return new Command(true);
         } else {

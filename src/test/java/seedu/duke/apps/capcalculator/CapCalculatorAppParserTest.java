@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 import static seedu.duke.apps.capcalculator.CapCalculatorParser.INVALID_COMMAND_MESSAGE;
 
-class CapCalculatorParserTest {
+class CapCalculatorAppParserTest {
 
     private Person currentPerson;
     private Ui ui;
