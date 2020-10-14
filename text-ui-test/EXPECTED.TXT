@@ -12,7 +12,7 @@ Available commands are:
 	exit
 Type a command to continue...
 Semester you plan to take CS1010?
-Valid semesters are integers from 1 to 10, inclusive
+	Valid semesters are integers from 1 to 10, inclusive
 Grade received for CS1010?
 Valid grades are:
 	Letter Grades: A+, A, A-, B+, B, B-, C+, C, D+, D, F

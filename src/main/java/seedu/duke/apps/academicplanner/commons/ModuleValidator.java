@@ -49,7 +49,7 @@ public class ModuleValidator {
      * @param semesterIndex semesterIndex to check
      * @return false
      */
-    public boolean isValidSemester(int semesterIndex) {
+    public static boolean isValidSemester(int semesterIndex) {
         return (semesterIndex >= STARTING_SEMESTER_INDEX && semesterIndex <= FINAL_SEMESTER_INDEX);
     }
 

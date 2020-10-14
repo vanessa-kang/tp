@@ -55,7 +55,7 @@ public class AcademicPlannerParser {
         } else if (inputs[0].equals(REMOVE_COMMAND)) {
             return new RemoveModuleCommand(allModules, currentPerson, in, inputs[MODULE_CODE_INDEX]);
         } else if (inputs[0].equals(VIEW_COMMAND)) {
-            return new PrintCalenderCommand(currentPerson);
+            return new PrintCalenderCommand(currentPerson, in);
         } else if (inputs[0].equals(EXIT_COMMAND)) {
             return new Command(true);
         } else {
