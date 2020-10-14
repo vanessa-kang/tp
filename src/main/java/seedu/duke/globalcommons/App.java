@@ -19,7 +19,7 @@ public class App {
     }
 
     public void run() {
-
+        //Method is intentionally left blank
     }
 
     public boolean getIsExit() {
