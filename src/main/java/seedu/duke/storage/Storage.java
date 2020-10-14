@@ -46,8 +46,6 @@ public class Storage {
                 int currentModuleCredit = Integer.parseInt(lineItems[MODULE_CREDIT_POSITION]);
 
                 addUtils.addModuleToUser(currentModuleCode, currSem, currentModuleGrade, currentModuleCredit);
-//                PartialModule currentModule = new PartialModule(currentModuleCode, currSem, currentModuleGrade, currentModuleCredit);
-//                modulesList.add(currentModule);
             }
         }
     }

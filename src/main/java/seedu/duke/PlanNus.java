@@ -52,7 +52,7 @@ public class PlanNus {
             boolean isExit = false;
 
             try {
-                 textFile.loadTextFile(currentPerson);
+                textFile.loadTextFile(currentPerson);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
