@@ -9,6 +9,7 @@ Available commands are:
 	edit <module code>
 	remove <module code>
 	view
+	help
 	exit
 Type a command to continue...
 Semester you plan to take CS1010?

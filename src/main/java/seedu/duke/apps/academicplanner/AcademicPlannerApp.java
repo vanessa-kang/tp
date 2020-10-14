@@ -17,6 +17,7 @@ public class AcademicPlannerApp extends App {
             + "\tedit <module code>\n"
             + "\tremove <module code>\n"
             + "\tview\n"
+            + "\thelp\n"
             + "\texit\n"
             + "Type a command to continue...";
 
