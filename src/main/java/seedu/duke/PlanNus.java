@@ -54,7 +54,7 @@ public class PlanNus {
             try {
                  textFile.loadTextFile(currentPerson);
             } catch (FileNotFoundException e) {
-                System.out.println("File PlanNUS.txt not found");
+                e.printStackTrace();
             }
 
             while (!isExit) {
