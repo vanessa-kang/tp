@@ -1,9 +1,12 @@
 package seedu.duke.apps.capcalculator.commons;
 
-import seedu.duke.exceptions.InvalidCapException;
-import seedu.duke.exceptions.InvalidCreditException;
+import seedu.duke.apps.capcalculator.exceptions.InvalidCapException;
+import seedu.duke.apps.capcalculator.exceptions.InvalidCreditException;
 import seedu.duke.objects.Person;
 import seedu.duke.ui.Ui;
+
+import java.util.Scanner;
+
 import static seedu.duke.apps.capcalculator.commons.CalculatorUtils.MAXIMUM_CAP;
 import static seedu.duke.apps.capcalculator.commons.CalculatorUtils.formatCapToString;
 
@@ -15,11 +18,11 @@ public class SetTargetUtils {
     private static final String INVALID_MC_MESSAGE = "Your target MC cannot be 0!";
 
     private Person currentPerson;
-    private Ui ui;
+    private Scanner in;
 
-    public SetTargetUtils(Person currentPerson, Ui ui) {
+    public SetTargetUtils(Person currentPerson, Scanner in) {
         this.currentPerson = currentPerson;
-        this.ui = ui;
+        this.in = in;
     }
 
     /**
@@ -27,7 +30,7 @@ public class SetTargetUtils {
      */
     public double getTargetCap() throws InvalidCapException {
         System.out.println("What is your target CAP?");
-        double targetCap = Double.parseDouble(ui.getScanner().nextLine());
+        double targetCap = Double.parseDouble(in.nextLine());
         checkValidCap(targetCap);
         return targetCap;
     }
@@ -37,7 +40,7 @@ public class SetTargetUtils {
      */
     public int getTargetGradedMC() throws InvalidCreditException {
         System.out.println("How many graded MCs you are taking to achieve the target CAP?");
-        int targetGradedMC = Integer.parseInt(ui.getScanner().nextLine());
+        int targetGradedMC = Integer.parseInt(in.nextLine());
         checkValidCredits(targetGradedMC);
         return targetGradedMC;
     }
