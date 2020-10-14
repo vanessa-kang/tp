@@ -12,14 +12,14 @@ import seedu.duke.ui.Ui;
 public class AcademicPlannerApp extends App {
     private static final String WELCOME_MESSAGE = "\nWelcome to Academic Planner!";
     private static final String EXIT_MESSAGE = "Thank you for using Academic Planner!";
+    private static final String AWAIT_COMMAND = "Type in a command to continue...";
     private static final String COMMANDS_LIST = "Available commands are:\n"
             + "\tadd <module code>\n"
             + "\tedit <module code>\n"
             + "\tremove <module code>\n"
             + "\tview\n"
             + "\thelp\n"
-            + "\texit\n"
-            + "Type a command to continue...";
+            + "\texit";
 
     private final ModuleLoader allModules;
     private final Person currentPerson;
@@ -35,12 +35,12 @@ public class AcademicPlannerApp extends App {
      * Main entry point for the Academic Planner Application.
      */
     public void run() {
-        System.out.println(WELCOME_MESSAGE);
-        System.out.println(COMMANDS_LIST);
+        showWelcomeMessage();
         boolean isExit = false;
 
         while (!isExit) {
             try {
+                System.out.println(AWAIT_COMMAND);
                 String userInput = ui.getScanner().nextLine();
                 Command commandInput = AcademicPlannerParser.parse(userInput, allModules, currentPerson, ui);
                 commandInput.execute();
@@ -49,13 +49,21 @@ public class AcademicPlannerApp extends App {
                 System.out.println(e.getMessage());
             }
         }
-        showExitMessageAcademicPlanner();
+        showExitMessage();
+    }
+
+    /**
+     * Prints welcome message for Academic Planner.
+     */
+    private void showWelcomeMessage() {
+        System.out.println(WELCOME_MESSAGE);
+        System.out.println(COMMANDS_LIST);
     }
 
     /**
      * Prints exit message for Academic Planner.
      */
-    private void showExitMessageAcademicPlanner() {
+    private void showExitMessage() {
         System.out.println(EXIT_MESSAGE);
     }
 }

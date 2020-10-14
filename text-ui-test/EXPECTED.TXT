@@ -2,6 +2,7 @@ Welcome to PlanNUS!
 	For academic planner, type <acadplan>
 	For CAP calculator, type <capcalc>
 	To exit PlanNUS, type <exit>
+Type in a command to continue...
 
 Welcome to Academic Planner!
 Available commands are:
@@ -11,7 +12,7 @@ Available commands are:
 	view
 	help
 	exit
-Type a command to continue...
+Type in a command to continue...
 Semester you plan to take CS1010?
 	Valid semesters are integers from 1 to 10, inclusive
 Grade received for CS1010?
@@ -20,11 +21,13 @@ Valid grades are:
 	Special Grades: CS, CU, S, U, W, IC, IP, AUD, WU, EXE
 	If you have yet to have a grade for the module: NT
 CS1010 added into Semester 2.
+Type in a command to continue...
 Thank you for using Academic Planner!
 Welcome back to PlanNUS Main Menu!
 	For academic planner, type <acadplan>
 	For CAP calculator, type <capcalc>
 	To exit PlanNUS, type <exit>
+Type in a command to continue...
 Welcome to CAP Calculator! Commands available are:
 	current
 	set target
@@ -39,5 +42,7 @@ Welcome back to PlanNUS Main Menu!
 	For academic planner, type <acadplan>
 	For CAP calculator, type <capcalc>
 	To exit PlanNUS, type <exit>
+Type in a command to continue...
 OOPS!!! I'm sorry, but I don't know what that means :-(
+Type in a command to continue...
 Thanks for using PlanNUS! We hope to see you again!
