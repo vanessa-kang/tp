@@ -7,7 +7,6 @@ import java.util.ArrayList;
  * Class representing the common print methods.
  */
 public class PrintUtils {
-
     private static final String INDENT = "     ";
 
     public PrintUtils() {
