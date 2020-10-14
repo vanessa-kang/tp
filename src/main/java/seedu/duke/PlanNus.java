@@ -4,7 +4,11 @@ import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.globalcommons.App;
 import seedu.duke.objects.Person;
 import seedu.duke.parser.AppParser;
+import seedu.duke.storage.Storage;
 import seedu.duke.ui.Ui;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 /**
  * Class representing main function of PlanNUS.
@@ -41,10 +45,17 @@ public class PlanNus {
      * Main entry function for PlanNUS.
      */
     public void run() {
+        Storage textFile = new Storage();
         assert isStartupSuccessfully == true : "Startup is successful";
         if (isStartupSuccessfully) {
             showWelcomeMessage();
             boolean isExit = false;
+
+            try {
+                 textFile.loadTextFile(currentPerson);
+            } catch (FileNotFoundException e) {
+                System.out.println("File PlanNUS.txt not found");
+            }
 
             while (!isExit) {
                 try {
@@ -58,6 +69,11 @@ public class PlanNus {
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
+            }
+            try {
+                textFile.saveTextFile(currentPerson);
+            } catch (IOException e) {
+                System.out.println("There is a problem saving PlanNUS.txt");
             }
             showExitMessage();
         }
