@@ -59,7 +59,7 @@ public class AddModuleCommand extends Command {
         }
 
         promptUserToEnterSemester();
-        String userInput = in.nextLine();
+        String userInput = in.nextLine().trim();
 
         int semesterValue;
         try {
@@ -75,7 +75,7 @@ public class AddModuleCommand extends Command {
         }
 
         promptUserToEnterGrade();
-        String gradeValue = in.nextLine();
+        String gradeValue = in.nextLine().trim().toUpperCase();
 
         if (!moduleValidator.isValidGrade(gradeValue)) {
             logger.log(Level.WARNING,"Grade entered is invalid.");

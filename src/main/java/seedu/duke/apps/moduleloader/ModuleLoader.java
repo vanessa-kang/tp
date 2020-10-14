@@ -8,6 +8,8 @@ import java.io.Reader;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Class representing function to load all modules offered by NUS.
@@ -21,6 +23,7 @@ public class ModuleLoader {
 
     private Map<String, Integer> moduleMap;
     private FullModule[] moduleFullDetails;
+    private static Logger logger = Logger.getLogger("ModuleLoader.java");
 
     /**
      * Default constructor for to load all modules from JSON file.
@@ -41,7 +44,11 @@ public class ModuleLoader {
             if (moduleFullDetails.length != TOTAL_NUMBER_OF_MODULES) {
                 throw new ModuleLoaderException(CORRUPTED_MODULE_DATA + NEW_LINE + TERMINATION);
             }
+
+            logger.setLevel(Level.WARNING);
+            logger.log(Level.INFO, "All Module successfully loaded");
         } catch (NullPointerException e) {
+            logger.log(Level.WARNING, "Error while loading all modules: " + e.getMessage());
             throw new ModuleLoaderException(MISSING_MODULE_DATA + NEW_LINE + TERMINATION);
         }
     }
