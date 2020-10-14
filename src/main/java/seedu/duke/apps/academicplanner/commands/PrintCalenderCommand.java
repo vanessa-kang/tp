@@ -26,8 +26,7 @@ public class PrintCalenderCommand extends Command {
     private PrintUtils printUtils = new PrintUtils();
     private final ArrayList<PartialModule> modulesList;
     private Scanner in;
-    AcademicCalendarSorter sorter;
-
+    private AcademicCalendarSorter sorter;
 
     public PrintCalenderCommand(Person currentPerson, Scanner in) {
         this.modulesList = currentPerson.getModulesList();

@@ -12,7 +12,7 @@ public class ModuleValidator {
 
     private final ModuleLoader allModules;
     private final ArrayList<PartialModule> modulesList;
-    private final HashMap<String, PartialModule> modulesAddedMap;
+    private final HashMap<String, Integer> modulesAddedMap;
 
     public ModuleValidator(ModuleLoader allModules, Person currentPerson) {
         this.allModules = allModules;
