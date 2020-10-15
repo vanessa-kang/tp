@@ -4,6 +4,7 @@ import seedu.duke.apps.capcalculator.commons.CalculatorUtils;
 import seedu.duke.objects.PartialModule;
 import seedu.duke.objects.Person;
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * Class representing remove module utilities from the remove module command.
@@ -12,11 +13,13 @@ public class RemoveUtils {
     private static final int FROM_REMOVE = 3;
 
     private final ArrayList<PartialModule> modulesList;
+    private final Map<String, Integer> modulesAddedMap;
     private final CalculatorUtils calculatorUtils;
 
     public RemoveUtils(Person currentPerson) {
         this.modulesList = currentPerson.getModulesList();
         this.calculatorUtils = new CalculatorUtils(currentPerson);
+        this.modulesAddedMap = currentPerson.getModulesAddedMap();
     }
 
     /**
@@ -26,17 +29,17 @@ public class RemoveUtils {
      * @param moduleCode module to remove.
      */
     public void removeModuleFromUserModuleList(String moduleCode) {
-        int totalNumberOfModules = modulesList.size();
-      
-        for (PartialModule item : modulesList) {
-            if (item.getModuleCode().equals(moduleCode)) {
-                System.out.println(item.getModuleCode() + " has been removed from the list");
-                calculatorUtils.updateCap(FROM_REMOVE, item);
-                modulesList.remove(item);
+        final int totalNumberOfModules = modulesList.size();
 
-                assert modulesList.size() == totalNumberOfModules - 1;
-                return;
-            }
-        }
+        Integer moduleIndex = modulesAddedMap.get(moduleCode);
+        PartialModule item = modulesList.get(moduleIndex);
+
+        System.out.println(item.getModuleCode() + " has been removed from the list");
+        calculatorUtils.updateCap(FROM_REMOVE, item);
+
+        modulesList.remove(item);
+        modulesAddedMap.remove(moduleCode);
+
+        assert modulesList.size() == totalNumberOfModules - 1;
     }
 }

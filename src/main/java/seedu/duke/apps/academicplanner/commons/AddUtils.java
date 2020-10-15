@@ -15,7 +15,7 @@ public class AddUtils {
 
     private final ModuleLoader allModules;
     private final ArrayList<PartialModule> modulesList;
-    private final HashMap<String, PartialModule> modulesAddedMap;
+    private final HashMap<String, Integer> modulesAddedMap;
     private final CalculatorUtils calculatorUtils;
 
     public AddUtils(ModuleLoader allModules, Person currentPerson) {
@@ -37,7 +37,7 @@ public class AddUtils {
     public void addModuleToUser(String moduleCode, int semesterValue, String gradeValue, int moduleCredit) {
         PartialModule newModuleToAdd = new PartialModule(moduleCode, semesterValue, gradeValue, moduleCredit);
         modulesList.add(newModuleToAdd);
-        modulesAddedMap.put(moduleCode, newModuleToAdd);
+        modulesAddedMap.put(moduleCode, modulesList.size() - 1);
         calculatorUtils.updateCap(FROM_ADD, newModuleToAdd);
         System.out.println(newModuleToAdd.getModuleCode()
                 + " added into Semester " + semesterValue + ".");
