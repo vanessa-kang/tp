@@ -92,23 +92,23 @@ __<ins>Caution:</ins>__
 
 Input format: `view`
 
-<img src="images/acadplan_viewmain.png" width = "600" />
+<img src="images/acadplan_viewmain.PNG" width = "600" />
 
 As shown in the image, users can choose from printing the full calendar by typing `full` or printing a specific semester by typing a number from 1-10, inclusive.
 
 Expected output when user wishes to print the `full` calendar:
 
-<img src="images/acadplan_viewfull.png" width = "170" height = "150" />
+<img src="images/acadplan_viewfull.PNG" width = "170" height = "150" />
 
 Expected output when user wishes to print a specific semester:
 
-<img src="images/acadplan_viewsem.png" height = "68" />
+<img src="images/acadplan_viewsem.PNG" height = "68" />
 
 #### Printing help for academic calendar: `help`
 
 Input format: `help`
 
-<img src="images/acadplan_help.png" height = "200" />
+<img src="images/acadplan_help.PNG" height = "200" />
 
 ### Cap Calculator: `capcalc`
 
