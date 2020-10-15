@@ -1,0 +1,6 @@
+            SEMESTER 1
+CS1010          A-              4
+            SEMESTER 2
+CS2040C         A               4
+            SEMESTER 3
+CS2113T         NT              4
