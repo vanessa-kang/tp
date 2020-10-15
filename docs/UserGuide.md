@@ -92,9 +92,23 @@ __<ins>Caution:</ins>__
 
 Input format: `view`
 
-{Photo here}
+<img src="images/acadplan_viewmain.png" width = "600" />
 
+As shown in the image, users can choose from printing the full calendar by typing `full` or printing a specific semester by typing a number from 1-10, inclusive.
 
+Expected output when user wishes to print the `full` calendar:
+
+<img src="images/acadplan_viewfull.png" width = "600" />
+
+Expected output when user wishes to print a specific semester:
+
+<img src="images/acadplan_viewsem.png" width = "600" />
+
+#### Printing help for acdemic calendar: `help`
+
+Input format: `help`
+
+<img src="images/acadplan_help.png" width = "600" />
 
 ### Cap Calculator: `capcalc`
 
