@@ -2,7 +2,7 @@ Welcome to PlanNUS!
 	For academic planner, type <acadplan>
 	For CAP calculator, type <capcalc>
 	To exit PlanNUS, type <exit>
-File PlanNUS.txt not found
+File PlanNUS.txt not found.
 Type in a command to continue...
 
 Welcome to Academic Planner!
