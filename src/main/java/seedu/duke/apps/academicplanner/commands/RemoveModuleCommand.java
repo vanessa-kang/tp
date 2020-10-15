@@ -20,7 +20,7 @@ public class RemoveModuleCommand extends Command {
 
     private RemoveUtils removeUtils;
     private ModuleValidator moduleValidator;
-    private HashMap<String, PartialModule> modulesAddedMap;
+    private HashMap<String, Integer> modulesAddedMap;
     private String moduleCode;
 
     public RemoveModuleCommand(ModuleLoader allModules, Person currentPerson, Scanner in, String moduleCode) {
@@ -38,7 +38,6 @@ public class RemoveModuleCommand extends Command {
     public void execute() {
         try {
             if (moduleValidator.isModTakenByUser(moduleCode)) {
-                modulesAddedMap.remove(moduleCode);
                 removeUtils.removeModuleFromUserModuleList(moduleCode);
             } else {
                 throw new AcademicException(ERROR_NOT_ADDED);

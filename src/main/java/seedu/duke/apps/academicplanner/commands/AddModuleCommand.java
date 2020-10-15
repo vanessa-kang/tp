@@ -23,7 +23,7 @@ public class AddModuleCommand extends Command {
             + "\tLetter Grades: A+, A, A-, B+, B, B-, C+, C, D+, D, F\n"
             + "\tSpecial Grades: CS, CU, S, U, W, IC, IP, AUD, WU, EXE\n"
             + "\tIf you have yet to have a grade for the module: NT";
-    private static final String VALID_SEMESTERS = "Valid semesters are integers from 1 to 10, inclusive";
+    private static final String VALID_SEMESTERS = "\tValid semesters are integers from 1 to 10, inclusive";
 
     private static final Logger logger = Logger.getLogger("AddModuleCommand.java");
     private AddUtils addUtils;

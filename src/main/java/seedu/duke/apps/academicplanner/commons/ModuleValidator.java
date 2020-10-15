@@ -12,7 +12,7 @@ public class ModuleValidator {
 
     private final ModuleLoader allModules;
     private final ArrayList<PartialModule> modulesList;
-    private final HashMap<String, PartialModule> modulesAddedMap;
+    private final HashMap<String, Integer> modulesAddedMap;
 
     public ModuleValidator(ModuleLoader allModules, Person currentPerson) {
         this.allModules = allModules;
@@ -49,7 +49,7 @@ public class ModuleValidator {
      * @param semesterIndex semesterIndex to check
      * @return false
      */
-    public boolean isValidSemester(int semesterIndex) {
+    public static boolean isValidSemester(int semesterIndex) {
         return (semesterIndex >= STARTING_SEMESTER_INDEX && semesterIndex <= FINAL_SEMESTER_INDEX);
     }
 
