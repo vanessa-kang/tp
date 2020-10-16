@@ -20,7 +20,7 @@ public class Storage {
 
         try {
             loadHandler.load();
-        } catch(LoadFileException e) {
+        } catch (LoadFileException e) {
             System.out.println(e.getMessage());
         }
     }
@@ -30,7 +30,7 @@ public class Storage {
 
         try {
             saveHandler.save();
-        } catch(SaveFileException e) {
+        } catch (SaveFileException e) {
             System.out.println(e.getMessage());
         }
     }

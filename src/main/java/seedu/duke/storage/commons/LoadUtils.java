@@ -39,7 +39,7 @@ public class LoadUtils {
     private String fileName;
 
     /**
-     * Default constructor for handling loading
+     * Default constructor for handling loading.
      *
      * @param currentPerson a Person object storing information for current person
      * @param fileName a String for name of save file
@@ -53,7 +53,7 @@ public class LoadUtils {
     }
 
     /**
-     * Function to load save file
+     * Function to load save file.
      *
      * @throws LoadFileException Exception when the save file is corrupted or missing
      */
@@ -77,7 +77,7 @@ public class LoadUtils {
 
                 boolean isEntryValid = new FieldValidator(details, lineItems, moduleValidator).validate();
 
-                if(!isEntryValid) {
+                if (!isEntryValid) {
                     isAllEntryValid = false;
                 }
 
@@ -96,7 +96,7 @@ public class LoadUtils {
             
             printLoadDetails(isAllEntryValid, details[MODULE_LOADED]);
         } catch (FileNotFoundException e) {
-            throw new LoadFileException("Save file not found! \nIt will be automatically created.\n");
+            throw new LoadFileException("Save file not found!\nIt will be automatically created.\n");
         } catch (CorruptedSaveFileException e) {
             throw new LoadFileException("Save file corrupted! "
                     + "Details:" + NEW_LINE

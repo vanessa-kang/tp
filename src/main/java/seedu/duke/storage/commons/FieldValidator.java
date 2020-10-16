@@ -24,14 +24,14 @@ public class FieldValidator {
     private String[] lineItems;
 
     /**
-     * Default constructor for Field Validator
+     * Default constructor for Field Validator.
      *
      * @param details An Array of int storing all the details of loading save file until current entry
      * @param lineItems Different fields of current entry from save file
      * @param moduleValidator Module validator to check validity of modules from save file
      */
 
-    public FieldValidator(int details[], String[] lineItems, ModuleValidator moduleValidator) {
+    public FieldValidator(int[] details, String[] lineItems, ModuleValidator moduleValidator) {
         this.details = details;
         this.lineItems = lineItems;
         this.isAllFieldValid = true;
@@ -41,7 +41,6 @@ public class FieldValidator {
     /**
      * Validating all input fields from save file. Note that validator will terminate once
      * an entry fails one check, with priority:
-     *
      * Semester > Module code > Grade > Module Credit
      *
      * @return A boolean for whether current entry is valid
@@ -88,14 +87,14 @@ public class FieldValidator {
     }
 
     /**
-     * Print full loading details after loading finishes
+     * Print full loading details after loading finishes.
      *
      * @param isAllEntryValid boolean stating whether all entries in save file is valid
      * @param modulesLoaded number of modules loaded successfully
      * @throws CorruptedSaveFileException throws an exception if save file is corrupted
      */
     public static void printLoadDetails(boolean isAllEntryValid, int modulesLoaded) throws CorruptedSaveFileException {
-        if(isAllEntryValid) {
+        if (isAllEntryValid) {
             if (modulesLoaded == 0) {
                 System.out.println("Save file is empty. No module loaded.");
             } else if (modulesLoaded == 1) {

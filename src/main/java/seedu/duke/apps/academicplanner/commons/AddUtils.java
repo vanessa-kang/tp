@@ -34,7 +34,8 @@ public class AddUtils {
      * @param gradeValue grade achieved for module
      * @param moduleCredit module's credit weightage
      */
-    public void addModuleToUser(String moduleCode, int semesterValue, String gradeValue, int moduleCredit, int ...from) {
+    public void addModuleToUser(String moduleCode, int semesterValue,
+                                String gradeValue, int moduleCredit, int... from) {
         PartialModule newModuleToAdd = new PartialModule(moduleCode, semesterValue, gradeValue, moduleCredit);
         modulesList.add(newModuleToAdd);
         modulesAddedMap.put(moduleCode, modulesList.size() - 1);

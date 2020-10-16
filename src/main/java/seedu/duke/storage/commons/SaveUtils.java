@@ -17,7 +17,7 @@ public class SaveUtils {
     private String fileName;
 
     /**
-     * Default constructor for handling save
+     * Default constructor for handling save.
      *
      * @param currentPerson a Person object storing information for current person
      * @param fileName a String for name of save file
@@ -28,7 +28,7 @@ public class SaveUtils {
     }
 
     /**
-     * Function to save person object into save file
+     * Function to save person object into save file.
      *
      * @throws SaveFileException Exception thrown if there is an error accessing save file
      */
