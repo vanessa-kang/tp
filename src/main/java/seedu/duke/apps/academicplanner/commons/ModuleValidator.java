@@ -23,6 +23,16 @@ public class ModuleValidator {
     }
 
     /**
+     * Overload constructor for EditUtils.
+     *
+     * @param allModules all modules offered by NUS
+     */
+    public ModuleValidator(ModuleLoader allModules) {
+        this.allModules = allModules;
+        this.modulesAddedMap = null;
+    }
+
+    /**
      * Returns true if module code is offered by NUS,
      * else returns false.
      * @param moduleCode input module code
