@@ -1,7 +1,7 @@
 package seedu.duke.apps.capcalculator.commands;
 
-import seedu.duke.exceptions.InvalidCapException;
-import seedu.duke.exceptions.InvalidCreditException;
+import seedu.duke.apps.capcalculator.exceptions.InvalidCapException;
+import seedu.duke.apps.capcalculator.exceptions.InvalidCreditException;
 import seedu.duke.globalcommons.Command;
 import seedu.duke.globalcommons.LoggingTool;
 import seedu.duke.objects.Person;
