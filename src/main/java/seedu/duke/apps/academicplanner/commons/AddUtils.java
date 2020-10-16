@@ -34,13 +34,16 @@ public class AddUtils {
      * @param gradeValue grade achieved for module
      * @param moduleCredit module's credit weightage
      */
-    public void addModuleToUser(String moduleCode, int semesterValue, String gradeValue, int moduleCredit) {
+    public void addModuleToUser(String moduleCode, int semesterValue, String gradeValue, int moduleCredit, int ...from) {
         PartialModule newModuleToAdd = new PartialModule(moduleCode, semesterValue, gradeValue, moduleCredit);
         modulesList.add(newModuleToAdd);
         modulesAddedMap.put(moduleCode, modulesList.size() - 1);
         calculatorUtils.updateCap(FROM_ADD, newModuleToAdd);
-        System.out.println(newModuleToAdd.getModuleCode()
-                + " added into Semester " + semesterValue + ".");
+
+        if (from.length == 0) {
+            System.out.println(newModuleToAdd.getModuleCode()
+                    + " added into Semester " + semesterValue + ".");
+        }
     }
 
     /**
