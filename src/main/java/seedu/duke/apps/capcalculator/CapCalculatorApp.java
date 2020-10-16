@@ -21,7 +21,6 @@ public class CapCalculatorApp extends App {
             + "\tcurrent\n"
             + "\tset target\n"
             + "\tset su\n"
-            + "\tTo exit CAP Calculator, use command: \"exit\"\n\n"
             + "\texit\n"
             + "\tInitializing your CAP...";
 

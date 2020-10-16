@@ -4,7 +4,6 @@ Welcome to PlanNUS!
 	To exit PlanNUS, type <exit>
 Save file not found!
 It will be automatically created.
-
 Type in a command to continue...
 
 Welcome to Academic Planner!
@@ -36,8 +35,6 @@ Available commands are:
 	current
 	set target
 	set su
-	To exit CAP Calculator, use command: "exit"
-
 	exit
 	Initializing your CAP...
 Type a command to continue...
