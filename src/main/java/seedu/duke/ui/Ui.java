@@ -15,4 +15,8 @@ public class Ui {
     public Scanner getScanner() {
         return this.scanner;
     }
+
+    public void closeScanner() {
+        this.scanner.close();
+    }
 }

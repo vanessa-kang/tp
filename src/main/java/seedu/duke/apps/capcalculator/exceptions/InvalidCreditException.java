@@ -1,4 +1,4 @@
-package seedu.duke.exceptions;
+package seedu.duke.apps.capcalculator.exceptions;
 
 import seedu.duke.apps.capcalculator.exceptions.CapCalculatorException;
 
