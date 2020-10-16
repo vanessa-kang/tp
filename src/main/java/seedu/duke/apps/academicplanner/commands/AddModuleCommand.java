@@ -37,6 +37,14 @@ public class AddModuleCommand extends Command {
     private Scanner in;
     private String moduleCode;
 
+    /**
+     * Default constructor for Add Module command.
+     *
+     * @param allModules all modules offered by NUS
+     * @param currentPerson current user
+     * @param in scanner
+     * @param moduleCode module code
+     */
     public AddModuleCommand(ModuleLoader allModules, Person currentPerson, Scanner in, String moduleCode) {
         this.addUtils = new AddUtils(allModules, currentPerson);
         this.moduleValidator = new ModuleValidator(allModules, currentPerson);
@@ -49,12 +57,15 @@ public class AddModuleCommand extends Command {
      * else does not add module into user's academic calendar.
      * Validates user's input semester and grade.
      * If either is invalid, does not add module into user's academic calendar.
+     * Updates user's statistics as well.
      */
     @Override
     public void execute() throws AcademicException, IOException {
         fh = new FileHandler(LOG_FILE_NAME);
         logger = new LoggingTool(LOGGER_NAME,fh).initialize();
+
         logger.log(Level.INFO,"Executing add command.");
+
         if (!moduleValidator.isModOfferedByNus(moduleCode)) {
             logger.log(Level.WARNING,"Module entered not offered by NUS.");
             fh.close();
@@ -79,7 +90,7 @@ public class AddModuleCommand extends Command {
             throw new AcademicException(ERROR_INVALID_COMMAND);
         }
 
-        if (!moduleValidator.isValidSemester(semesterValue)) {
+        if (!ModuleValidator.isValidSemester(semesterValue)) {
             logger.log(Level.WARNING,"Semester entered is invalid.");
             fh.close();
             throw new AcademicException(ERROR_INVALID_SEMESTER_INDEX);
@@ -93,10 +104,13 @@ public class AddModuleCommand extends Command {
             fh.close();
             throw new AcademicException(ERROR_INVALID_GRADE);
         }
+
         int moduleCredit = addUtils.getModuleCreditForModule(moduleCode);
+        addUtils.addModuleToUser(moduleCode, semesterValue, gradeValue, moduleCredit);
+
         assert semesterValue > 0;
         assert moduleCredit >= 0;
-        addUtils.addModuleToUser(moduleCode, semesterValue, gradeValue, moduleCredit);
+
         logger.log(Level.INFO,"Finish executing add command.");
         fh.close();
     }

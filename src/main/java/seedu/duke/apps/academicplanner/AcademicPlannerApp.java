@@ -25,6 +25,13 @@ public class AcademicPlannerApp extends App {
     private final Person currentPerson;
     private Ui ui;
 
+    /**
+     * Default constructor for Academic Planner App.
+     *
+     * @param allModules all modules offered by NUS
+     * @param currentPerson current user
+     * @param ui ui of PlanNUS
+     */
     public AcademicPlannerApp(ModuleLoader allModules, Person currentPerson, Ui ui) {
         this.allModules = allModules;
         this.currentPerson = currentPerson;
