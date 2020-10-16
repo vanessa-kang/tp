@@ -27,6 +27,8 @@ public class AddModuleCommand extends Command {
             + "\tSpecial Grades: CS, CU, S, U, W, IC, IP, AUD, WU, EXE\n"
             + "\tIf you have yet to have a grade for the module: NT";
     private static final String VALID_SEMESTERS = "\tValid semesters are integers from 1 to 10, inclusive";
+    private static final String LOG_FILE_NAME = "AddModuleCommand.log";
+    private static final String LOGGER_NAME = "AddModuleCommand";
 
     private static Logger logger;
     private static FileHandler fh;
@@ -50,8 +52,8 @@ public class AddModuleCommand extends Command {
      */
     @Override
     public void execute() throws AcademicException, IOException {
-        fh = new FileHandler("AddModuleCommand.log");
-        logger = new LoggingTool("AddModuleCommand",fh).initialize();
+        fh = new FileHandler(LOG_FILE_NAME);
+        logger = new LoggingTool(LOGGER_NAME,fh).initialize();
         logger.log(Level.INFO,"Executing add command.");
         if (!moduleValidator.isModOfferedByNus(moduleCode)) {
             logger.log(Level.WARNING,"Module entered not offered by NUS.");

@@ -17,6 +17,8 @@ import java.util.logging.Logger;
  */
 public class SetTargetCommand extends Command {
     private static final double MAXIMUM_CAP = 5.00;
+    private static final String LOG_FILE_NAME = "SetTargetCommand.log";
+    private static final String LOGGER_NAME = "SetTargetCommand";
 
     private static Logger logger;
     private static FileHandler fh;
@@ -36,8 +38,8 @@ public class SetTargetCommand extends Command {
     @Override
     public void execute() {
         try {
-            fh = new FileHandler("SetTargetCommand.log");
-            logger = new LoggingTool("SetTargetCommand",fh).initialize();
+            fh = new FileHandler(LOG_FILE_NAME);
+            logger = new LoggingTool(LOGGER_NAME,fh).initialize();
             logger.log(Level.INFO,"Executing set target command.");
             double targetCap = setTargetUtils.getTargetCap();
             int targetMCs = setTargetUtils.getTargetGradedMC();

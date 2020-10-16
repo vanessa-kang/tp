@@ -24,6 +24,8 @@ public class ModuleLoader {
     public static final String MISSING_MODULE_DATA = "Data for Modules not found!";
     public static final String TERMINATION = "Terminating program...";
     public static final String CORRUPTED_MODULE_DATA = "Data for Modules corrupted!";
+    public static final String LOG_FILE_NAME = "ModuleLoader.log";
+    public static final String LOGGER_NAME = "ModuleLoader";
 
     private Map<String, Integer> moduleMap;
     private FullModule[] moduleFullDetails;
@@ -35,8 +37,8 @@ public class ModuleLoader {
      */
     public ModuleLoader() throws ModuleLoaderException {
         try {
-            fh = new FileHandler("ModuleLoader.log");
-            logger = new LoggingTool("ModuleLoader",fh).initialize();
+            fh = new FileHandler(LOG_FILE_NAME);
+            logger = new LoggingTool(LOGGER_NAME,fh).initialize();
             moduleMap = new HashMap<>();
             Gson gson = new Gson();
 
@@ -60,7 +62,7 @@ public class ModuleLoader {
             fh.close();
             throw new ModuleLoaderException(MISSING_MODULE_DATA + NEW_LINE + TERMINATION);
         } catch (IOException e) {
-            throw new ModuleLoaderException("Logger failed to initialize" + NEW_LINE + TERMINATION);
+            throw new ModuleLoaderException("Logger failed to initialize: " + NEW_LINE + TERMINATION);
         }
     }
 
