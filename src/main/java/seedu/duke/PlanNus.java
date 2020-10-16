@@ -4,7 +4,11 @@ import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.globalcommons.App;
 import seedu.duke.objects.Person;
 import seedu.duke.parser.AppParser;
+import seedu.duke.storage.Storage;
 import seedu.duke.ui.Ui;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 /**
  * Class representing main function of PlanNUS.
@@ -12,6 +16,9 @@ import seedu.duke.ui.Ui;
 public class PlanNus {
     private static final String WELCOME_MESSAGE = "Welcome to PlanNUS!";
     private static final String WELCOME_BACK_MESSAGE = "Welcome back to PlanNUS Main Menu!";
+    private static final String AWAIT_COMMAND = "Type in a command to continue...";
+    private static final String ERROR_FILE_NOT_FOUND = "File PlanNUS.txt not found.";
+    private static final String ERROR_SAVING_FILE = "There is a problem saving PlanNUS.txt.";
     private static final String EXIT_MESSAGE = "Thanks for using PlanNUS! We hope to see you again!";
     private static final String HELP_MESSAGE = "\tFor academic planner, type <acadplan>\n"
             + "\tFor CAP calculator, type <capcalc>\n"
@@ -41,13 +48,21 @@ public class PlanNus {
      * Main entry function for PlanNUS.
      */
     public void run() {
+
+        Storage textFile = new Storage();
         assert isStartupSuccessfully == true : "Startup is successful";
         if (isStartupSuccessfully) {
             showWelcomeMessage();
             boolean isExit = false;
+            try {
+                textFile.loadTextFile(currentPerson);
+            } catch (FileNotFoundException e) {
+                System.out.println(ERROR_FILE_NOT_FOUND);
+            }
 
             while (!isExit) {
                 try {
+                    System.out.println(AWAIT_COMMAND);
                     String userInput = ui.getScanner().nextLine();
                     App selectedApp = AppParser.parse(userInput, allModules, currentPerson, ui);
                     selectedApp.run();
@@ -58,6 +73,11 @@ public class PlanNus {
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
+            }
+            try {
+                textFile.saveTextFile(currentPerson);
+            } catch (IOException e) {
+                System.out.println(ERROR_SAVING_FILE);
             }
             showExitMessage();
         }

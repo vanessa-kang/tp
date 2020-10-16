@@ -15,7 +15,7 @@ public class Command {
     }
 
     public void execute() throws Exception {
-
+        //Method is intentionally left blank
     }
 
     public boolean getIsExit() {
