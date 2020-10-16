@@ -46,6 +46,7 @@ public class PlanNus {
      */
     public void run() {
         Storage storage = new Storage(allModules);
+
         assert isStartupSuccessfully == true : "Startup is successful";
         if (isStartupSuccessfully) {
             showWelcomeMessage();
