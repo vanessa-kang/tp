@@ -1,4 +1,4 @@
-package seedu.duke.exceptions;
+package seedu.duke.global.exceptions;
 
 /**
  * Signals that an invalid command has been given in the App parser.

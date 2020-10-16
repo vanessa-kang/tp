@@ -1,7 +1,7 @@
 package seedu.duke.storage.commons;
 
-import seedu.duke.objects.PartialModule;
-import seedu.duke.objects.Person;
+import seedu.duke.global.objects.PartialModule;
+import seedu.duke.global.objects.Person;
 import seedu.duke.storage.exceptions.SaveFileException;
 
 import java.io.FileWriter;

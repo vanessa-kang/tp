@@ -4,8 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import seedu.duke.apps.capcalculator.commands.CurrentCommand;
 import seedu.duke.apps.capcalculator.commands.SetTargetCommand;
-import seedu.duke.globalcommons.Command;
-import seedu.duke.objects.Person;
+import seedu.duke.global.Command;
+import seedu.duke.global.objects.Person;
 import seedu.duke.ui.Ui;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;

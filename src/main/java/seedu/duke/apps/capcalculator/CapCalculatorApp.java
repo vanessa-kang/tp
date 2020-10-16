@@ -1,8 +1,8 @@
 package seedu.duke.apps.capcalculator;
 
-import seedu.duke.globalcommons.App;
-import seedu.duke.globalcommons.Command;
-import seedu.duke.objects.Person;
+import seedu.duke.global.App;
+import seedu.duke.global.Command;
+import seedu.duke.global.objects.Person;
 import seedu.duke.ui.Ui;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;

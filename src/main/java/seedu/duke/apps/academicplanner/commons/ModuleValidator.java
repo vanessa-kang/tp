@@ -1,8 +1,8 @@
 package seedu.duke.apps.academicplanner.commons;
 
 import seedu.duke.apps.moduleloader.ModuleLoader;
-import seedu.duke.objects.PartialModule;
-import seedu.duke.objects.Person;
+import seedu.duke.global.objects.PartialModule;
+import seedu.duke.global.objects.Person;
 import java.util.ArrayList;
 import java.util.HashMap;
 

@@ -1,8 +1,8 @@
 package seedu.duke;
 
 import seedu.duke.apps.moduleloader.ModuleLoader;
-import seedu.duke.globalcommons.App;
-import seedu.duke.objects.Person;
+import seedu.duke.global.App;
+import seedu.duke.global.objects.Person;
 import seedu.duke.parser.AppParser;
 import seedu.duke.storage.Storage;
 import seedu.duke.ui.Ui;

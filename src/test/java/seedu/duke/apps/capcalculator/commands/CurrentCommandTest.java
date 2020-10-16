@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import seedu.duke.apps.academicplanner.commons.AddUtils;
 import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.apps.moduleloader.exceptions.ModuleLoaderException;
-import seedu.duke.objects.Person;
+import seedu.duke.global.objects.Person;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
