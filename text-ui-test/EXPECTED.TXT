@@ -35,6 +35,9 @@ Welcome to CAP Calculator!
 Available commands are:
 	current
 	set target
+	set su
+	To exit CAP Calculator, use command: "exit"
+
 	exit
 	Initializing your CAP...
 Type a command to continue...
