@@ -140,10 +140,32 @@ Input format: `set target`
 
 __<ins>Caution:</ins>__
 
-* Maximum CAP should be smaller or equals to 5.00.
+* CAP should be between 0.00 to 5.00 inclusive.
 * Minimum MC should be greater than 0.
 
+#### Set S/U modules: `set su`
 
+This is for the user to set modules that he or she wishes to S/U.
+
+<img src="images/capcalc_set_su_module.png" height = "180" />
+
+As shown in the image, user can choose to S/U by either a _Semester_ or some selected _Modules_. (__Note:__ Enter either `1` or `2` instead of the component's name)
+
+Expected output when user wishes to S/U by _Semester_.
+
+<img src="images/capcalc_set_su_semester.png" width = "390" height = "95"/>
+
+Expected output when user wishes to S/U by _Modules_.
+
+<img src="images/capcalc_set_su_module.png" width = "200" />
+
+User will then be prompte to enter a specific number of modules to  
+
+__<ins>Caution:</ins>__ 
+
+* Only modules that have been added into the calendar can be edited.
+* Duplicate modules are not allowed.
+* Number of modules to be S/Ued should not be greater than number of modules taken by the user.
 
 ### Exiting from a feature or PlanNUS: `exit`
 
