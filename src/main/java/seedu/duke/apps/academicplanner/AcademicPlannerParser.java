@@ -5,6 +5,7 @@ import seedu.duke.apps.academicplanner.commands.EditModuleCommand;
 import seedu.duke.apps.academicplanner.commands.PrintCalenderCommand;
 import seedu.duke.apps.academicplanner.commands.PrintHelpCommand;
 import seedu.duke.apps.academicplanner.commands.RemoveModuleCommand;
+import seedu.duke.apps.academicplanner.commands.SearchModuleCommand;
 import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.exceptions.CommandParserException;
 import seedu.duke.globalcommons.Command;
@@ -25,6 +26,7 @@ public class AcademicPlannerParser {
     private static final String EDIT_COMMAND = "EDIT";
     private static final String REMOVE_COMMAND = "REMOVE";
     private static final String VIEW_COMMAND = "VIEW";
+    private static final String SEARCH_COMMAND = "SEARCH";
     private static final String HELP_COMMAND = "HELP";
     private static final String EXIT_COMMAND = "EXIT";
 
@@ -52,10 +54,13 @@ public class AcademicPlannerParser {
             return new RemoveModuleCommand(allModules, currentPerson, in, inputs[MODULE_CODE_INDEX]);
         case VIEW_COMMAND:
             return new PrintCalenderCommand(currentPerson, in);
-        case EXIT_COMMAND:
-            return new Command(true);
+        case SEARCH_COMMAND:
+            return new SearchModuleCommand(allModules, inputs[MODULE_CODE_INDEX]);
         case HELP_COMMAND:
             return new PrintHelpCommand();
+        case EXIT_COMMAND:
+            return new Command(true);
+
         default:
             throw new CommandParserException(ERROR_INVALID_COMMAND + NEW_LINE + EXITING_CURRENT_COMMAND);
         }
