@@ -15,9 +15,15 @@ public class AddUtils {
 
     private final ModuleLoader allModules;
     private final ArrayList<PartialModule> modulesList;
-    private final HashMap<String, PartialModule> modulesAddedMap;
+    private final HashMap<String, Integer> modulesAddedMap;
     private final CalculatorUtils calculatorUtils;
 
+    /**
+     * Default constructor for AddUtils.
+     *
+     * @param allModules all modules offered by NUS
+     * @param currentPerson current User
+     */
     public AddUtils(ModuleLoader allModules, Person currentPerson) {
         this.allModules = allModules;
         this.modulesList = currentPerson.getModulesList();
@@ -34,13 +40,26 @@ public class AddUtils {
      * @param gradeValue grade achieved for module
      * @param moduleCredit module's credit weightage
      */
-    public void addModuleToUser(String moduleCode, int semesterValue, String gradeValue, int moduleCredit) {
+    public void addModuleToUser(String moduleCode, int semesterValue,
+                                String gradeValue, int moduleCredit, int... from) {
         PartialModule newModuleToAdd = new PartialModule(moduleCode, semesterValue, gradeValue, moduleCredit);
-        modulesList.add(newModuleToAdd);
-        modulesAddedMap.put(moduleCode, newModuleToAdd);
+        populate(moduleCode, newModuleToAdd);
         calculatorUtils.updateCap(FROM_ADD, newModuleToAdd);
-        System.out.println(newModuleToAdd.getModuleCode()
-                + " added into Semester " + semesterValue + ".");
+        if (from.length == 0) {
+            System.out.println(newModuleToAdd.getModuleCode()
+                    + " added into Semester " + semesterValue + ".");
+        }
+    }
+
+    /**
+     * Populates the user's arraylist and hashmap with the new module.
+     *
+     * @param moduleCode module code to be entered
+     * @param newModuleToAdd module object to be added
+     */
+    private void populate(String moduleCode, PartialModule newModuleToAdd) {
+        modulesList.add(newModuleToAdd);
+        modulesAddedMap.put(moduleCode, modulesList.size() - 1);
     }
 
     /**

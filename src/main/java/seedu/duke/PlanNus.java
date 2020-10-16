@@ -4,6 +4,7 @@ import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.globalcommons.App;
 import seedu.duke.objects.Person;
 import seedu.duke.parser.AppParser;
+import seedu.duke.storage.Storage;
 import seedu.duke.ui.Ui;
 
 /**
@@ -12,6 +13,7 @@ import seedu.duke.ui.Ui;
 public class PlanNus {
     private static final String WELCOME_MESSAGE = "Welcome to PlanNUS!";
     private static final String WELCOME_BACK_MESSAGE = "Welcome back to PlanNUS Main Menu!";
+    private static final String AWAIT_COMMAND = "Type in a command to continue...";
     private static final String EXIT_MESSAGE = "Thanks for using PlanNUS! We hope to see you again!";
     private static final String HELP_MESSAGE = "\tFor academic planner, type <acadplan>\n"
             + "\tFor CAP calculator, type <capcalc>\n"
@@ -21,6 +23,7 @@ public class PlanNus {
     private ModuleLoader allModules;
     private Person currentPerson;
     private boolean isStartupSuccessfully;
+    private boolean isExit;
 
     /**
      * Default constructor for PlanNus.
@@ -31,6 +34,7 @@ public class PlanNus {
             this.allModules = new ModuleLoader();
             this.currentPerson = new Person("Bob");
             this.isStartupSuccessfully = true;
+            isExit = false;
         } catch (Exception e) {
             this.isStartupSuccessfully = false;
             System.out.println(e.getMessage());
@@ -41,26 +45,40 @@ public class PlanNus {
      * Main entry function for PlanNUS.
      */
     public void run() {
-        assert isStartupSuccessfully == true : "Startup is successful";
-        if (isStartupSuccessfully) {
-            showWelcomeMessage();
-            boolean isExit = false;
+        assert isStartupSuccessfully : "Startup is unsuccessful";
 
-            while (!isExit) {
-                try {
-                    String userInput = ui.getScanner().nextLine();
-                    App selectedApp = AppParser.parse(userInput, allModules, currentPerson, ui);
-                    selectedApp.run();
-                    isExit = selectedApp.getIsExit();
-                    if (!isExit) {
-                        showWelcomeBackMessage();
-                    }
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
+        showWelcomeMessage();
+        Storage storage = initializeStorage(currentPerson);
+
+        while (!isExit) {
+            try {
+                System.out.println(AWAIT_COMMAND);
+                String userInput = ui.getScanner().nextLine();
+                App selectedApp = AppParser.parse(userInput, allModules, currentPerson, ui);
+                selectedApp.run();
+                isExit = selectedApp.getIsExit();
+                if (!isExit) {
+                    showWelcomeBackMessage();
                 }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
             }
-            showExitMessage();
         }
+        ui.closeScanner();
+        storage.saver(currentPerson);
+        showExitMessage();
+    }
+
+    /**
+     * Initialises storage with the data of the currentPerson.
+     *
+     * @param currentPerson Person of data
+     * @return populated Storage
+     */
+    private Storage initializeStorage(Person currentPerson) {
+        Storage storage = new Storage(allModules);
+        storage.loader(currentPerson);
+        return storage;
     }
 
     /**

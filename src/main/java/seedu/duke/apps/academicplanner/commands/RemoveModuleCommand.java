@@ -14,13 +14,12 @@ import java.util.Scanner;
  * Class representing an remove module command from the academic planner.
  */
 public class RemoveModuleCommand extends Command {
-    private static final String EXITING_CURRENT_COMMAND = "Exiting current command back to Academic Planner Main Menu.";
     private static final String ERROR_INVALID_COMMAND = "INVALID COMMAND";
     private static final String ERROR_NOT_ADDED = "You have not added this module into your list yet";
 
     private RemoveUtils removeUtils;
     private ModuleValidator moduleValidator;
-    private HashMap<String, PartialModule> modulesAddedMap;
+    private HashMap<String, Integer> modulesAddedMap;
     private String moduleCode;
 
     public RemoveModuleCommand(ModuleLoader allModules, Person currentPerson, Scanner in, String moduleCode) {
@@ -35,17 +34,15 @@ public class RemoveModuleCommand extends Command {
      * else prompts user of error.
      */
     @Override
-    public void execute() {
+    public void execute() throws AcademicException {
         try {
             if (moduleValidator.isModTakenByUser(moduleCode)) {
-                modulesAddedMap.remove(moduleCode);
                 removeUtils.removeModuleFromUserModuleList(moduleCode);
             } else {
                 throw new AcademicException(ERROR_NOT_ADDED);
             }
         } catch (Exception e) {
-            System.out.println(ERROR_INVALID_COMMAND);
-            System.out.println(EXITING_CURRENT_COMMAND);
+            throw new AcademicException(ERROR_INVALID_COMMAND);
         }
     }
 }

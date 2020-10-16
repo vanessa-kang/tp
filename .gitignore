@@ -17,3 +17,7 @@ bin/
 text-ui-test/EXPECTED-UNIX.TXT
 /text-ui-test/DIFF.TXT
 DIFF.TXT
+PlanNUS.txt
+AddModuleCommand.log
+ModuleLoader.log
+SetTargetCommand.log

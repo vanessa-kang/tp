@@ -5,8 +5,11 @@ import seedu.duke.apps.academicplanner.commons.AddUtils;
 import seedu.duke.apps.academicplanner.commons.ModuleValidator;
 import seedu.duke.apps.academicplanner.exceptions.AcademicException;
 import seedu.duke.globalcommons.Command;
+import seedu.duke.globalcommons.LoggingTool;
 import seedu.duke.objects.Person;
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -23,14 +26,25 @@ public class AddModuleCommand extends Command {
             + "\tLetter Grades: A+, A, A-, B+, B, B-, C+, C, D+, D, F\n"
             + "\tSpecial Grades: CS, CU, S, U, W, IC, IP, AUD, WU, EXE\n"
             + "\tIf you have yet to have a grade for the module: NT";
-    private static final String VALID_SEMESTERS = "Valid semesters are integers from 1 to 10, inclusive";
+    private static final String VALID_SEMESTERS = "\tValid semesters are integers from 1 to 10, inclusive";
+    private static final String LOG_FILE_NAME = "AddModuleCommand.log";
+    private static final String LOGGER_NAME = "AddModuleCommand";
 
-    private static final Logger logger = Logger.getLogger("AddModuleCommand.java");
+    private static Logger logger;
+    private static FileHandler fh;
     private AddUtils addUtils;
     private ModuleValidator moduleValidator;
     private Scanner in;
     private String moduleCode;
 
+    /**
+     * Default constructor for Add Module command.
+     *
+     * @param allModules all modules offered by NUS
+     * @param currentPerson current user
+     * @param in scanner
+     * @param moduleCode module code
+     */
     public AddModuleCommand(ModuleLoader allModules, Person currentPerson, Scanner in, String moduleCode) {
         this.addUtils = new AddUtils(allModules, currentPerson);
         this.moduleValidator = new ModuleValidator(allModules, currentPerson);
@@ -43,49 +57,86 @@ public class AddModuleCommand extends Command {
      * else does not add module into user's academic calendar.
      * Validates user's input semester and grade.
      * If either is invalid, does not add module into user's academic calendar.
+     * Updates user's statistics as well.
      */
     @Override
-    public void execute() throws AcademicException {
-        logger.setLevel(Level.WARNING);
+    public void execute() throws AcademicException, IOException {
+        fh = new FileHandler(LOG_FILE_NAME);
+        logger = new LoggingTool(LOGGER_NAME,fh).initialize();
         logger.log(Level.INFO,"Executing add command.");
+
+        validateModuleCode();
+
+        promptUserToEnterSemester();
+        String userInput = in.nextLine().trim();
+
+        promptUserToEnterGrade();
+        String gradeValue = in.nextLine().trim().toUpperCase();
+
+        int semesterValue = validateInputs(userInput, gradeValue);
+        int moduleCredit = addUtils.getModuleCreditForModule(moduleCode);
+        
+        addUtils.addModuleToUser(moduleCode, semesterValue, gradeValue, moduleCredit);
+
+        assert semesterValue > 0;
+        assert moduleCredit >= 0;
+
+        logger.log(Level.INFO,"Finish executing add command.");
+        fh.close();
+    }
+
+    /**
+     * Throws AcademicException if the module code is not offered by NUS,
+     * or module is already taken by user.
+     *
+     * @throws AcademicException thrown when invalid module code is requested to be added
+     */
+    private void validateModuleCode() throws AcademicException {
         if (!moduleValidator.isModOfferedByNus(moduleCode)) {
             logger.log(Level.WARNING,"Module entered not offered by NUS.");
+            fh.close();
             throw new AcademicException(moduleCode + ERROR_NOT_OFFERED);
         }
 
         if (moduleValidator.isModTakenByUser(moduleCode)) {
             logger.log(Level.WARNING,"Module entered is duplicated.");
+            fh.close();
             throw new AcademicException(ERROR_DUPLICATE_MOD);
         }
+    }
 
-        promptUserToEnterSemester();
-        String userInput = in.nextLine().trim();
-
+    /**
+     * Validates user inputs and returns semester value if inputs are valid,
+     * else throws Academic Exception.
+     *
+     * @param userInput semester value
+     * @param gradeValue grade value
+     * @return semesterIndex
+     * @throws AcademicException thrown when any input is invalid
+     */
+    private int validateInputs(String userInput, String gradeValue) throws AcademicException {
         int semesterValue;
+
         try {
             semesterValue = Integer.parseInt(userInput);
         } catch (Exception e) {
             logger.log(Level.WARNING,"Semester entered is not an integer.");
+            fh.close();
             throw new AcademicException(ERROR_INVALID_COMMAND);
         }
 
-        if (!moduleValidator.isValidSemester(semesterValue)) {
+        if (!ModuleValidator.isValidSemester(semesterValue)) {
             logger.log(Level.WARNING,"Semester entered is invalid.");
+            fh.close();
             throw new AcademicException(ERROR_INVALID_SEMESTER_INDEX);
         }
 
-        promptUserToEnterGrade();
-        String gradeValue = in.nextLine().trim().toUpperCase();
-
         if (!moduleValidator.isValidGrade(gradeValue)) {
             logger.log(Level.WARNING,"Grade entered is invalid.");
+            fh.close();
             throw new AcademicException(ERROR_INVALID_GRADE);
         }
-        int moduleCredit = addUtils.getModuleCreditForModule(moduleCode);
-        assert semesterValue > 0;
-        assert moduleCredit >= 0;
-        addUtils.addModuleToUser(moduleCode, semesterValue, gradeValue, moduleCredit);
-        logger.log(Level.INFO,"Finish executing add command.");
+        return semesterValue;
     }
 
     /**
