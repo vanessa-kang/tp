@@ -23,8 +23,8 @@ public class SetSuUtils {
     private static final String INVALID_SEMESTER_ERROR = "Looks like the semester you entered is not valid!";
     private static final String INVALID_NUMBER_ERROR = "Looks like the number of modules you entered is not valid!";
     private static final String INVALID_MODULE_ERROR = "Looks like the module you entered is not a valid module!";
-    private static final String NUMBER_OUT_OF_BOUND_ERROR = "Looks like the number you entered " +
-            "is more than the numbers of modules you took.";
+    private static final String NUMBER_OUT_OF_BOUND_ERROR = "Looks like the number you entered "
+            + "is more than the numbers of modules you took.";
     private static final String EMPTY_LIST_ERROR = "Your S/U list is empty!";
     private static final String DUPLICATE_MODULE_ERROR = "Looks like you have already added this module!";
     private static final int STARTING_SEMESTER_INDEX = 1;
@@ -117,7 +117,7 @@ public class SetSuUtils {
      * @param suList the S/U list
      */
     public void showResultsToUser(ArrayList<PartialModule> suList) {
-        double currentCap = currentPerson.getCurrentTotalMcxGrade()/(double)currentPerson.getCurrentMcAfterSU();
+        double currentCap = currentPerson.getCurrentTotalMcxGrade() / (double)currentPerson.getCurrentMcAfterSU();
         int currentGradedMCs = currentPerson.getCurrentMcAfterSU();
         showInitialCapToUser(currentCap, currentGradedMCs);
         showCapAfterEachSu(suList, currentCap, currentPerson.getCurrentTotalMcxGrade(), currentGradedMCs);
@@ -140,11 +140,11 @@ public class SetSuUtils {
         for (PartialModule module : suList) {
             totalMcxGrade -= module.getCap() * module.getModuleCredit();
             currentGradedMCs -= module.getModuleCredit();
-            System.out.println("S/U your module of " + module.getModuleCode() + " with grade " +module.getGrade()
-                    + " will give you a CAP of: " + formatCapToString(totalMcxGrade/(double)currentGradedMCs));
+            System.out.println("S/U your module of " + module.getModuleCode() + " with grade " + module.getGrade()
+                    + " will give you a CAP of: " + formatCapToString(totalMcxGrade / (double)currentGradedMCs));
             System.out.println("Your graded MCs after S/Uing this module is: " + currentGradedMCs);
-            if (bestCap < (totalMcxGrade/(double)currentGradedMCs)) {
-                bestCap = totalMcxGrade/(double)currentGradedMCs;
+            if (bestCap < (totalMcxGrade / (double)currentGradedMCs)) {
+                bestCap = totalMcxGrade / (double)currentGradedMCs;
                 bestGradedMCs = currentGradedMCs;
                 numberOfModulesToSU++;
             }
@@ -164,8 +164,8 @@ public class SetSuUtils {
             System.out.println(SU_SUGGESTION_PROMPT);
             for (int i = 0; i < numberOfModulesToSU; i++) {
                 PartialModule moduleToSu = suList.get(i);
-                System.out.println(moduleToSu.getModuleCode() + " with grade " + moduleToSu.getGrade() +
-                        " and modular credit of " + moduleToSu.getModuleCredit() + ".");
+                System.out.println(moduleToSu.getModuleCode() + " with grade " + moduleToSu.getGrade()
+                        + " and modular credit of " + moduleToSu.getModuleCredit() + ".");
             }
         } else {
             System.out.println(NO_SUGGESTION_PROMPT);
@@ -306,7 +306,7 @@ public class SetSuUtils {
     }
 
     /**
-     * Function to return the abbreviation for the number
+     * Function to return the abbreviation for the number.
      *
      * @param number number to return the abbreviation for
      * @return string
