@@ -7,6 +7,7 @@ import seedu.duke.objects.PartialModule;
 import seedu.duke.objects.Person;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -15,7 +16,7 @@ import java.util.Scanner;
 public class EditUtils {
 
     private final ArrayList<PartialModule> modulesList;
-    private final HashMap<String, PartialModule> modulesAddedMap;
+    private final HashMap<String, Integer> modulesAddedMap;
     private final ModuleValidator modChecker;
     private final CalculatorUtils calculatorUtils;
 
@@ -66,13 +67,10 @@ public class EditUtils {
      * @param gradeValue grade to edit to
      */
     public void updateModuleGrade(String moduleCode, String gradeValue) {
-        for (PartialModule module : modulesList) {
-            if (module.getModuleCode().equals(moduleCode)) {
-                updateCurrentModuleGrade(gradeValue, module);
-                break;
-            }
-        }
-        modulesAddedMap.get(moduleCode).setGrade(gradeValue);
+        Integer moduleIndex = modulesAddedMap.get(moduleCode);
+        PartialModule module = modulesList.get(moduleIndex);
+
+        updateCurrentModuleGrade(gradeValue, module);
     }
 
     /**
@@ -106,7 +104,6 @@ public class EditUtils {
         }
 
         updateModuleSemester(moduleCode, newValue);
-        modulesAddedMap.get(moduleCode).setSemesterIndex(Integer.parseInt(newValue));
         System.out.println("Semester for " + moduleCode + " successfully updated!");
     }
 
@@ -117,13 +114,10 @@ public class EditUtils {
      * @param newValue new semester index
      */
     public void updateModuleSemester(String moduleCode, String newValue) {
-        for (PartialModule item : modulesList) {
-            if (item.getModuleCode().equals(moduleCode)) {
-                item.setSemesterIndex(Integer.parseInt(newValue));
+        Integer moduleIndex = modulesAddedMap.get(moduleCode);
+        PartialModule item = modulesList.get(moduleIndex);
+        item.setSemesterIndex(Integer.parseInt(newValue));
 
-                assert item.getSemesterIndex() == Integer.parseInt(newValue);
-                break;
-            }
-        }
+        assert item.getSemesterIndex() == Integer.parseInt(newValue);
     }
 }

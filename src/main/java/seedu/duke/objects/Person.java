@@ -13,7 +13,7 @@ public class Person {
     private int currentMc;
     private int currentMcAfterSU;
     private ArrayList<PartialModule> modulesList;
-    private HashMap<String, PartialModule> modulesAddedMap;
+    private HashMap<String, Integer> modulesAddedMap;
 
     public Person(String personName) {
         this.currentTotalMcxGrade = 0.0;
@@ -60,11 +60,11 @@ public class Person {
         this.modulesList = modulesList;
     }
 
-    public HashMap<String, PartialModule> getModulesAddedMap() {
+    public HashMap<String, Integer> getModulesAddedMap() {
         return modulesAddedMap;
     }
 
-    public void setModulesAddedMap(HashMap<String, PartialModule> modulesAddedMap) {
+    public void setModulesAddedMap(HashMap<String, Integer> modulesAddedMap) {
         this.modulesAddedMap = modulesAddedMap;
     }
 }

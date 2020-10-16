@@ -14,7 +14,7 @@ PlanNUS is a __desktop application for planning academic journey__ with modules 
 1. Double click on _PlanNUS.jar_ to start up the program.
 1. If the previous step does not work, open up the command prompt.
 1. Go to the directory where the jar file is saved at.
-1. Enter the following command `java -jar PlanNUS.jar`
+1. Enter the following command `java -jar PlanNus.jar`
 
 ## Features 
 
@@ -92,9 +92,23 @@ __<ins>Caution:</ins>__
 
 Input format: `view`
 
-{Photo here}
+<img src="images/acadplan_viewmain.PNG" width = "600" />
 
+As shown in the image, users can choose from printing the full calendar by typing `full` or printing a specific semester by typing a number from 1-10, inclusive.
 
+Expected output when user wishes to print the `full` calendar:
+
+<img src="images/acadplan_viewfull.PNG" width = "170" height = "150" />
+
+Expected output when user wishes to print a specific semester:
+
+<img src="images/acadplan_viewsem.PNG" height = "68" />
+
+#### Printing help for academic calendar: `help`
+
+Input format: `help`
+
+<img src="images/acadplan_help.PNG" height = "200" />
 
 ### Cap Calculator: `capcalc`
 
@@ -155,14 +169,9 @@ Input format: `exit`
 Question Type|Question|Answer
 :---:|---|---
 General | How do I check which modules are offered by NUS? | For more info on which modules are offered by NUS, visit [here](https://nusmods.com/modules?sem[0]=1&sem[1]=2&sem[2]=3&sem[3]=4 "NUSMODS").
-General | What is a valid semester index? | For the purpose of this planning software, we have come to a decision to limit the maximum number of semesters an undergraduate can take to 10, which is 5 academic years. The notation they are represented by is by an integer of value 1 to 10. For a fresh undergraduate, they will begin at semester index of 1. For a year 3 student who is currently in semester 1, the semester index will be 5.
+General | What is a valid semester index? | For the purpose of this planning software, we have come to a decision to limit the maximum number of semesters an undergraduate can take to 10, which is 5 academic years. The notation they are represented by is by an integer of value 1 to 10. For a fresh undergraduate, they will begin at semester index of 1. For a year 3 student who is currently in semester 1, the semester index will be 5. Please refer to the appendix for more information.
 General | What is a valid grade? | **Letter Grades**: A+, A, B+, B, B-, C+, C, D+, D, F , **Special Grades**: CS, CU, S, U, W, IC, IP, AUD, WU, EXE, **If you have yet to have a grade for the module**: NT
-
-**Q**: How do I transfer my data to another computer? 
-
-**A**: {your answer here}
-
-
+General | What is the name of the saved file? | The name of the saved file is `PlanNUS.txt` and can be found at the base of the folder, in the same location as your PlanNUS.jar.
 
 ## Command Summary
 
@@ -176,6 +185,9 @@ Note that the following commands are case-insensitive.
 | Removing an existing module in the calendar | `remove <module code>` |
 | Editing an existing module in the calendar  | `edit <module code>`   |
 | Printing the academic calendar              | `view`                 |
+| Printing help information                   | `help`                 |
+| Exiting the Academic Planner                    | `exit`                 |
+
 
 * Initiate the __CAP calculator__: `capCalc`
 
@@ -185,10 +197,7 @@ Note that the following commands are case-insensitive.
 | Configure current CAP and graded MCs | `set current` |
 | Set target CAP                       | `set target`  |
 | Make the module grade as S/U         | `set SU`      |
-
-* To exit to the main page: `exit`
-
-
+| Exiting the CAP Calculator           | `exit`        |
 
 ## Appendix
 
