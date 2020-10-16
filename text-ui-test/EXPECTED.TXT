@@ -29,11 +29,11 @@ Welcome back to PlanNUS Main Menu!
 	For CAP calculator, type <capcalc>
 	To exit PlanNUS, type <exit>
 Type in a command to continue...
-Welcome to CAP Calculator! Commands available are:
+Welcome to CAP Calculator!
+Available commands are:
 	current
 	set target
-	To exit CAP Calculator, use command: "exit"
-
+	exit
 	Initializing your CAP...
 Type a command to continue...
 Your current now CAP is: 5

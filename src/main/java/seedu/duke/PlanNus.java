@@ -48,12 +48,12 @@ public class PlanNus {
      * Main entry function for PlanNUS.
      */
     public void run() {
+
         Storage textFile = new Storage();
         assert isStartupSuccessfully == true : "Startup is successful";
         if (isStartupSuccessfully) {
             showWelcomeMessage();
             boolean isExit = false;
-
             try {
                 textFile.loadTextFile(currentPerson);
             } catch (FileNotFoundException e) {
