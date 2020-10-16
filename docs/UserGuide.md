@@ -203,12 +203,12 @@ Note that the following commands are case-insensitive.
 
 | __Action__                                  | Command                |
 | ------------------------------------------- | ---------------------- |
-| Adding a module into the calendar           | `add <module code>`    |
-| Removing an existing module in the calendar | `remove <module code>` |
-| Editing an existing module in the calendar  | `edit <module code>`   |
+| Adding a module into the calendar           | `add <module code>`​ <br> e.g., `add CS1010, ADD cs1231 , ADD CS2040`|
+| Removing an existing module in the calendar | `remove <module code>`​ <br> e.g., `remove CS1010, REMOVE cs1231 , REMOVE CS2040`|
+| Editing an existing module in the calendar  | `edit <module code>`​ <br> e.g., `edit CS1010, EDIT cs1231 , EDIT CS2040`   |
 | Printing the academic calendar              | `view`                 |
 | Printing help information                   | `help`                 |
-| Exiting the Academic Planner                    | `exit`                 |
+| Exiting the Academic Planner                | `exit`                 |
 
 
 * Initiate the __CAP calculator__: `capCalc`
