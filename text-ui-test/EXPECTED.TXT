@@ -38,6 +38,7 @@ Welcome to CAP Calculator! Commands available are:
 Type a command to continue...
 Your current now CAP is: 5
 Number of graded MCs taken is: 4
+Total number of MCs taken is: 4
 Thank you for using Cap Calculator!
 Welcome back to PlanNUS Main Menu!
 	For academic planner, type <acadplan>
