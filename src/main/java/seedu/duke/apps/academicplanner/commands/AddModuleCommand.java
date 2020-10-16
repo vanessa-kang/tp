@@ -63,9 +63,35 @@ public class AddModuleCommand extends Command {
     public void execute() throws AcademicException, IOException {
         fh = new FileHandler(LOG_FILE_NAME);
         logger = new LoggingTool(LOGGER_NAME,fh).initialize();
-
         logger.log(Level.INFO,"Executing add command.");
 
+        validateModuleCode();
+
+        promptUserToEnterSemester();
+        String userInput = in.nextLine().trim();
+
+        promptUserToEnterGrade();
+        String gradeValue = in.nextLine().trim().toUpperCase();
+
+        int semesterValue = validateInputs(userInput, gradeValue);
+        int moduleCredit = addUtils.getModuleCreditForModule(moduleCode);
+        
+        addUtils.addModuleToUser(moduleCode, semesterValue, gradeValue, moduleCredit);
+
+        assert semesterValue > 0;
+        assert moduleCredit >= 0;
+
+        logger.log(Level.INFO,"Finish executing add command.");
+        fh.close();
+    }
+
+    /**
+     * Throws AcademicException if the module code is not offered by NUS,
+     * or module is already taken by user.
+     *
+     * @throws AcademicException thrown when invalid module code is requested to be added
+     */
+    private void validateModuleCode() throws AcademicException {
         if (!moduleValidator.isModOfferedByNus(moduleCode)) {
             logger.log(Level.WARNING,"Module entered not offered by NUS.");
             fh.close();
@@ -77,11 +103,20 @@ public class AddModuleCommand extends Command {
             fh.close();
             throw new AcademicException(ERROR_DUPLICATE_MOD);
         }
+    }
 
-        promptUserToEnterSemester();
-        String userInput = in.nextLine().trim();
-
+    /**
+     * Validates user inputs and returns semester value if inputs are valid,
+     * else throws Academic Exception.
+     *
+     * @param userInput semester value
+     * @param gradeValue grade value
+     * @return semesterIndex
+     * @throws AcademicException thrown when any input is invalid
+     */
+    private int validateInputs(String userInput, String gradeValue) throws AcademicException {
         int semesterValue;
+
         try {
             semesterValue = Integer.parseInt(userInput);
         } catch (Exception e) {
@@ -96,23 +131,12 @@ public class AddModuleCommand extends Command {
             throw new AcademicException(ERROR_INVALID_SEMESTER_INDEX);
         }
 
-        promptUserToEnterGrade();
-        String gradeValue = in.nextLine().trim().toUpperCase();
-
         if (!moduleValidator.isValidGrade(gradeValue)) {
             logger.log(Level.WARNING,"Grade entered is invalid.");
             fh.close();
             throw new AcademicException(ERROR_INVALID_GRADE);
         }
-
-        int moduleCredit = addUtils.getModuleCreditForModule(moduleCode);
-        addUtils.addModuleToUser(moduleCode, semesterValue, gradeValue, moduleCredit);
-
-        assert semesterValue > 0;
-        assert moduleCredit >= 0;
-
-        logger.log(Level.INFO,"Finish executing add command.");
-        fh.close();
+        return semesterValue;
     }
 
     /**
