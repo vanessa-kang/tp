@@ -3,7 +3,6 @@ package seedu.duke.apps.capcalculator.commons;
 import seedu.duke.apps.capcalculator.exceptions.InvalidCapException;
 import seedu.duke.apps.capcalculator.exceptions.InvalidCreditException;
 import seedu.duke.objects.Person;
-import seedu.duke.ui.Ui;
 
 import java.util.Scanner;
 
@@ -27,46 +26,53 @@ public class SetTargetUtils {
 
     /**
      * Obtain the target CAP from the user.
+     * @throws InvalidCapException if the Cap given is greater than 5.00 or less than 0
      */
     public double getTargetCap() throws InvalidCapException {
         System.out.println("What is your target CAP?");
         double targetCap = Double.parseDouble(in.nextLine());
-        checkValidCap(targetCap);
-        return targetCap;
-    }
-
-    /**
-     * Obtain the target MCs from the user.
-     */
-    public int getTargetGradedMC() throws InvalidCreditException {
-        System.out.println("How many graded MCs you are taking to achieve the target CAP?");
-        int targetGradedMC = Integer.parseInt(in.nextLine());
-        checkValidCredits(targetGradedMC);
-        return targetGradedMC;
-    }
-
-    /**
-     * Checks if the target Cap given by the user is valid.
-     *
-     * @param cap Cap to be checked
-     * @throws InvalidCapException if the Cap given is greater than 5.00 or less than 0
-     */
-    private void checkValidCap(double cap) throws InvalidCapException {
-        if (cap > MAXIMUM_CAP || cap <= 0) {
+        if (isValidCap(targetCap)) {
+            return targetCap;
+        } else {
             throw new InvalidCapException(INVALID_CAP_MESSAGE);
         }
     }
 
     /**
-     * Checks if the target Cap given by the user is valid.
-     *
-     * @param credits Module credits to be checked
+     * Obtain the target MCs from the user.
      * @throws InvalidCreditException if the module credit given less than 0
      */
-    private void checkValidCredits(int credits) throws InvalidCreditException {
-        if (credits <= 0) {
+    public int getTargetGradedMC() throws InvalidCreditException {
+        System.out.println("How many graded MCs you are taking to achieve the target CAP?");
+        int targetGradedMC = Integer.parseInt(in.nextLine());
+        if (isValidCredits(targetGradedMC)) { 
+            return targetGradedMC;
+        } else {
             throw new InvalidCreditException(INVALID_MC_MESSAGE);
         }
+    }
+
+    /**
+     * Checks if the target Cap given by the user is valid.
+     * Returns true when the Cap provided is less than 5.00 and more or equals to 0.
+     * Returns false otherwise.
+     *
+     * @param cap Cap to be checked
+     * @return boolean whether Cap is valid
+     */
+    private boolean isValidCap(double cap) {
+        return cap > MAXIMUM_CAP && cap <= 0;
+    }
+
+    /**
+     * Checks if the target Cap given by the user is valid.
+     * Returns false when the MC provided is less than 0 else false.
+     *
+     *  @param credits Module credits to be checked
+     *  @return boolean whether MC is valid
+     */
+    private boolean isValidCredits(int credits) {
+        return credits > 0;
     }
 
     /**
@@ -77,7 +83,7 @@ public class SetTargetUtils {
         double targetCapxTargetMC = (double) totalMcToTarget * targetCap;
         double neededCap = (targetCapxTargetMC - currentPerson.getCurrentTotalMcxGrade()) / (double) targetGradedMC;
 
-        if (neededCap <= 5) {
+        if (isValidCap(neededCap)) {
             printTargetResultPossible(targetCap, targetGradedMC, neededCap);
         } else {
             printTargetResultImpossible(targetCap, targetGradedMC);

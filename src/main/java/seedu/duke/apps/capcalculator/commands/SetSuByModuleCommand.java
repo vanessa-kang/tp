@@ -1,8 +1,12 @@
 package seedu.duke.apps.capcalculator.commands;
 
+import seedu.duke.apps.capcalculator.commons.SetSuUtils;
+import seedu.duke.apps.capcalculator.exceptions.CapCalculatorException;
 import seedu.duke.globalcommons.Command;
+import seedu.duke.objects.PartialModule;
 import seedu.duke.objects.Person;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -10,9 +14,11 @@ import java.util.Scanner;
  */
 public class SetSuByModuleCommand extends Command {
 
-
+    private SetSuUtils setSuUtils;
+    private ArrayList<PartialModule> suList;
 
     public SetSuByModuleCommand(Person currentPerson, Scanner in) {
+        this.setSuUtils = new SetSuUtils(currentPerson, in);
     }
 
     /**
@@ -20,6 +26,13 @@ public class SetSuByModuleCommand extends Command {
      */
     @Override
     public void execute() {
-
+        try {
+            int numberOfModulesToSu = setSuUtils.promptUserForNumberOfModules();
+            suList = setSuUtils.getSuListByModule(numberOfModulesToSu);
+            setSuUtils.showSuListToUser(suList);
+            setSuUtils.showResultsToUser(suList);
+        } catch (CapCalculatorException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

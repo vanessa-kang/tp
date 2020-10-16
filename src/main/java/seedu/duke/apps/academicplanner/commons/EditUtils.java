@@ -77,6 +77,7 @@ public class EditUtils {
 
     /**
      * Updates module to reflect the new grade.
+     *
      * @param gradeValue new grade value to reflect
      * @param module module to edit
      */
