@@ -1,6 +1,6 @@
 # Developer Guide
 
-
+Before reading this document, you are recommended to read through the user guide.
 
 {:toc}
 
