@@ -4,9 +4,8 @@ import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.apps.academicplanner.commons.ModuleValidator;
 import seedu.duke.apps.academicplanner.commons.RemoveUtils;
 import seedu.duke.apps.academicplanner.exceptions.AcademicException;
-import seedu.duke.globalcommons.Command;
-import seedu.duke.objects.PartialModule;
-import seedu.duke.objects.Person;
+import seedu.duke.global.Command;
+import seedu.duke.global.objects.Person;
 import java.util.HashMap;
 import java.util.Scanner;
 

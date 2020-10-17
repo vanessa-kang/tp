@@ -2,10 +2,9 @@ package seedu.duke.apps.capcalculator;
 
 import seedu.duke.apps.capcalculator.commands.SetSuByModuleCommand;
 import seedu.duke.apps.capcalculator.commands.SetSuBySemesterCommand;
-import seedu.duke.exceptions.CommandParserException;
-import seedu.duke.globalcommons.Command;
-import seedu.duke.objects.Person;
-import seedu.duke.ui.Ui;
+import seedu.duke.global.exceptions.CommandParserException;
+import seedu.duke.global.Command;
+import seedu.duke.global.objects.Person;
 
 import java.util.Scanner;
 

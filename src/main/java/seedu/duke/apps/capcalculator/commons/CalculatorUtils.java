@@ -1,7 +1,7 @@
 package seedu.duke.apps.capcalculator.commons;
 
-import seedu.duke.objects.PartialModule;
-import seedu.duke.objects.Person;
+import seedu.duke.global.objects.PartialModule;
+import seedu.duke.global.objects.Person;
 import java.text.DecimalFormat;
 
 /**
