@@ -72,45 +72,85 @@ Each package in the PlanNUS as given above follows the following file structure 
 * `commons`: A package with the utilities and shared classes across the parent package
 * `exceptions`: A package to handle all exceptions thrown across the parent package
 
-
-
 The interaction within each package should ideally be as shown below.
 
-![Project structure](C:\Users\Orion\Desktop\Git\CS2113T\tp\docs\images\DeveloperGuide\Project structure.png)
-
-
+![Project structure](./images/DeveloperGuide/Project_structure.png)
 
 *Note that while this is the ideal case, packages such as* `global`, `parser` *and* `ui` *might not strictly follow this structure due to these package serving a different function altogether (Refer to the sections below for more details.)*
-
-
 
 ### Lifecycle of PlanNUS
 
 The *sequence diagram* below shows how different packages and classes interact with each other throughout the whole lifecycle of PlanNUS.
 
-![Packages Interaction](C:\Users\Orion\Desktop\Git\CS2113T\tp\docs\images\DeveloperGuide\Packages Interaction.png)
-
-
+![Packages Interaction](./images/DeveloperGuide/Packages_Interaction.png)
 
 ### Details
 
 #### Global Component
 
+Classes used by multiple components are in the `src.main.java.global` package.
+
 #### Storage Component
+
+**API** : `src.main.java.seedu.duke.storage`
 
 #### Parser Component
 
 
-
-
-
 ## Implementation
 
-### Academic Calendar Planner features (i.e. add, remove, edit and view)
+### Academic Calendar Planner : Add Module feature
 
 #### Proposed implementation
 
 {Exact diagram and corresponding descriptions to be added}
+
+The proposed add module command is facilitated by `AcademicPlannerParser`. It allows users to add modules into their
+ `Academic Planner` by instantiating a new `PartialModule` object and adding it into the `userModuleList` 
+ and `userModuleMap`. Both the list and hashmap are the _java API_, which are used by importing them. The `Person` object
+ is used to encapsulate both `userModuleList` and `userModuleMap`.
+ 
+Additionally, add module command extends the `Command` class and overrides its `execute()` command. An external class,
+ `ModuleValidator` is called upon to validate the various parameters that the user has entered, as to only allow
+ valid modules to be added to the user.
+ 
+Given below is an example usage scenario and how add module command behaves at each step.
+
+{DIAGRAM FOR STEP 1: INITIAL STATE}
+
+**Step 1** : The user calls the add module command from the `AcademicPlannerParser`, which will initialise a 
+`AddModuleCommand`. `AddModuleCommand`'s constructor takes in parameters of `ModuleLoader`, `Person`,`Scanner`, 
+and `String`. Below is a table of what each parameter corresponds to in the state diagram of the program.
+
+|Parameter|Corresponds to|Referred to as
+|:---:|:---:|:---:
+|`ModuleLoader`| Class representing all modules offered by NUS | `allModules`
+|`Person`| Class representing current user's information | `currentPerson`
+|`Scanner`| Class representing java's default scanner class | `in`
+|`String` | Class representing the module code to be added | `moduleCode`
+ 
+ {DIAGRAM FOR STEP 2: WITH FH AND LOGGER}
+ 
+**Step 2** : `execute()` is called from the instance of `AddModuleCommand`. It can throw `AcademicException` 
+or `IOException`. `FileHandler` and `Logger` classes from the _java API_ are instantiated to handle logging for the 
+remainder of the `execute()` method. 
+
+
+**Step 3** : `in` then reads in the next two lines of input, which is the user's input for the desired semester for the 
+`moduleCode` and `moduleCode`'s grades.
+
+{DIAGRAM FOR STEP 3:  }
+
+**Step 4** : `validateInputs()` is called to validate the user entered data against `allModules`.
+
+**Step 5** : `AddUtils` is called upon to return module credit for `moduleCode` by `getModuleCreditForModule()`.
+
+**Step 6** :  `AddUtils` is called upon again to add the module's data to the user, by instatiating a new
+`PartialModule` and storing it in both `userModuleList` and `userModuleMap`.
+
+**Step 7** : `FileHandler` terminated.
+
+**Step 8** : `AddModuleCommand` is terminated.
 
 #### Design consideration
 
