@@ -1,7 +1,7 @@
 package seedu.duke.storage;
 
 import seedu.duke.apps.moduleloader.ModuleLoader;
-import seedu.duke.objects.Person;
+import seedu.duke.global.objects.Person;
 import seedu.duke.storage.commons.LoadUtils;
 import seedu.duke.storage.commons.SaveUtils;
 import seedu.duke.storage.exceptions.LoadFileException;

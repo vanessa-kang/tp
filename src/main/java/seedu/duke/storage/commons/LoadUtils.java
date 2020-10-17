@@ -3,7 +3,7 @@ package seedu.duke.storage.commons;
 import seedu.duke.apps.academicplanner.commons.AddUtils;
 import seedu.duke.apps.academicplanner.commons.ModuleValidator;
 import seedu.duke.apps.moduleloader.ModuleLoader;
-import seedu.duke.objects.Person;
+import seedu.duke.global.objects.Person;
 import seedu.duke.storage.exceptions.CorruptedSaveFileException;
 import seedu.duke.storage.exceptions.LoadFileException;
 

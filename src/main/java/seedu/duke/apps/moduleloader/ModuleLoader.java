@@ -2,8 +2,8 @@ package seedu.duke.apps.moduleloader;
 
 import com.google.gson.Gson;
 import seedu.duke.apps.moduleloader.exceptions.ModuleLoaderException;
-import seedu.duke.globalcommons.LoggingTool;
-import seedu.duke.objects.FullModule;
+import seedu.duke.global.LoggingTool;
+import seedu.duke.global.objects.FullModule;
 
 import java.io.IOException;
 import java.io.InputStream;

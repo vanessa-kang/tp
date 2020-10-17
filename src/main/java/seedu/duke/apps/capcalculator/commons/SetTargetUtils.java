@@ -2,7 +2,7 @@ package seedu.duke.apps.capcalculator.commons;
 
 import seedu.duke.apps.capcalculator.exceptions.InvalidCapException;
 import seedu.duke.apps.capcalculator.exceptions.InvalidCreditException;
-import seedu.duke.objects.Person;
+import seedu.duke.global.objects.Person;
 
 import java.util.Scanner;
 
@@ -61,7 +61,7 @@ public class SetTargetUtils {
      * @return boolean whether Cap is valid
      */
     private boolean isValidCap(double cap) {
-        return cap > MAXIMUM_CAP && cap <= 0;
+        return cap < MAXIMUM_CAP && cap <= 0;
     }
 
     /**
