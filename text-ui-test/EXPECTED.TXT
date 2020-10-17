@@ -4,7 +4,6 @@ Welcome to PlanNUS!
 	To exit PlanNUS, type <exit>
 Save file not found!
 It will be automatically created.
-
 Type in a command to continue...
 
 Welcome to Academic Planner!
@@ -12,6 +11,7 @@ Available commands are:
 	add <module code>
 	edit <module code>
 	remove <module code>
+	details <module code>
 	view
 	help
 	exit
@@ -25,6 +25,15 @@ Valid grades are:
 	If you have yet to have a grade for the module: NT
 CS1010 added into Semester 2.
 Type in a command to continue...
+CS2101 Effective Communication for Computing Professionals
+	Department: Center for Engl Lang Comms
+	Faculty: Computing
+	Credits: 4MCs
+	Semesters offered: 1, 2
+	Prerequisites: Students have to complete ES1000 and/or ES1103 (if required to take the module/s) before reading this module.
+	Corequisites: Students have to read CS2103T Software Engineering at the same time as this module.
+	Preclusions: CS2103 Software Engineering, IS2101 Business Technical Communication or its equivalent, ES2002, ES2007D, and ES1601.
+Type in a command to continue...
 Thank you for using Academic Planner!
 Welcome back to PlanNUS Main Menu!
 	For academic planner, type <acadplan>
@@ -36,8 +45,6 @@ Available commands are:
 	current
 	set target
 	set su
-	To exit CAP Calculator, use command: "exit"
-
 	exit
 	Initializing your CAP...
 Type a command to continue...

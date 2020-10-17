@@ -2,8 +2,8 @@ package seedu.duke.apps.academicplanner.commons;
 
 import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.apps.capcalculator.commons.CalculatorUtils;
-import seedu.duke.objects.PartialModule;
-import seedu.duke.objects.Person;
+import seedu.duke.global.objects.PartialModule;
+import seedu.duke.global.objects.Person;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -18,6 +18,12 @@ public class AddUtils {
     private final HashMap<String, Integer> modulesAddedMap;
     private final CalculatorUtils calculatorUtils;
 
+    /**
+     * Default constructor for AddUtils.
+     *
+     * @param allModules all modules offered by NUS
+     * @param currentPerson current User
+     */
     public AddUtils(ModuleLoader allModules, Person currentPerson) {
         this.allModules = allModules;
         this.modulesList = currentPerson.getModulesList();
@@ -37,14 +43,23 @@ public class AddUtils {
     public void addModuleToUser(String moduleCode, int semesterValue,
                                 String gradeValue, int moduleCredit, int... from) {
         PartialModule newModuleToAdd = new PartialModule(moduleCode, semesterValue, gradeValue, moduleCredit);
-        modulesList.add(newModuleToAdd);
-        modulesAddedMap.put(moduleCode, modulesList.size() - 1);
+        populate(moduleCode, newModuleToAdd);
         calculatorUtils.updateCap(FROM_ADD, newModuleToAdd);
-
         if (from.length == 0) {
             System.out.println(newModuleToAdd.getModuleCode()
                     + " added into Semester " + semesterValue + ".");
         }
+    }
+
+    /**
+     * Populates the user's arraylist and hashmap with the new module.
+     *
+     * @param moduleCode module code to be entered
+     * @param newModuleToAdd module object to be added
+     */
+    private void populate(String moduleCode, PartialModule newModuleToAdd) {
+        modulesList.add(newModuleToAdd);
+        modulesAddedMap.put(moduleCode, modulesList.size() - 1);
     }
 
     /**

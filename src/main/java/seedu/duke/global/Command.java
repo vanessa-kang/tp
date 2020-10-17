@@ -1,4 +1,4 @@
-package seedu.duke.globalcommons;
+package seedu.duke.global;
 
 /**
  * Class representing a command in PlanNUS.

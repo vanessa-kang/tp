@@ -1,6 +1,7 @@
 package seedu.duke.apps.academicplanner.commons;
 
-import seedu.duke.objects.PartialModule;
+import seedu.duke.global.objects.PartialModule;
+import seedu.duke.global.objects.FullModule;
 import java.util.ArrayList;
 
 /**
@@ -8,6 +9,7 @@ import java.util.ArrayList;
  */
 public class PrintUtils {
     private static final String INDENT = "     ";
+    private static final String ERROR_NO_MODULES = "You have no modules added in the semester you requested!";
 
     public PrintUtils() {
         //Constructor is intentionally left blank
@@ -21,7 +23,8 @@ public class PrintUtils {
      */
     public void printBySemester(ArrayList<PartialModule> sortedList, int selectedSemester) {
         if (sortedList.size() < 1) {
-            System.out.println("You have no modules added in the semester you requested!");
+            System.out.println(ERROR_NO_MODULES);
+            return;
         }
 
         System.out.println(INDENT + "SEMESTER " + selectedSemester);
@@ -58,6 +61,23 @@ public class PrintUtils {
             }
             printCalendarLine(item);
         }
+    }
+
+    public void printModuleDetails(FullModule module) {
+
+        String semOfferedStr = module.getSemester().toString();
+
+        System.out.println(module.getModuleCode() + " " + module.getTitle());
+        System.out.println("\t" + "Department: " + module.getDepartment());
+        System.out.println("\t" + "Faculty: " + module.getFaculty());
+        System.out.println("\t" + "Credits: " + module.getModuleCredit() + "MCs");
+        System.out.println("\t" + "Semesters offered: " + semOfferedStr.substring(1,semOfferedStr.length() - 1));
+        System.out.println("\t" + "Prerequisites: "
+                                + module.getPrerequisite().replaceAll("\n","\n\t" + printSpace(15)));
+        System.out.println("\t" + "Corequisites: "
+                                + module.getCorequisite().replaceAll("\n","\n\t" + printSpace(13)));
+        System.out.println("\t" + "Preclusions: "
+                                + module.getPreclusion().replaceAll("\n","\n\t"  + printSpace(13)));
     }
 
     /**
