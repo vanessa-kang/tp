@@ -72,11 +72,9 @@ Each package in the PlanNUS as given above follows the following file structure 
 * `commons`: A package with the utilities and shared classes across the parent package
 * `exceptions`: A package to handle all exceptions thrown across the parent package
 
-
-
 The interaction within each package should ideally be as shown below.
 
-![Project structure](C:\Users\Orion\Desktop\Git\CS2113T\tp\docs\images\DeveloperGuide\Project structure.png)
+![Project structure](./images/DeveloperGuide/Project_structure.png)
 
 *Note that while this is the ideal case, packages such as* `global`, `parser` *and* `ui` *might not strictly follow this structure due to these package serving a different function altogether (Refer to the sections below for more details.)*
 
@@ -84,7 +82,7 @@ The interaction within each package should ideally be as shown below.
 
 The *sequence diagram* below shows how different packages and classes interact with each other throughout the whole lifecycle of PlanNUS.
 
-![Packages Interaction](C:\Users\Orion\Desktop\Git\CS2113T\tp\docs\images\DeveloperGuide\Packages Interaction.png)
+![Packages Interaction](./images/DeveloperGuide/Packages_Interaction.png)
 
 ### Details
 
@@ -143,7 +141,16 @@ remainder of the `execute()` method.
 
 {DIAGRAM FOR STEP 3:  }
 
-**Step 4** : 
+**Step 4** : `validateInputs()` is called to validate the user entered data against `allModules`.
+
+**Step 5** : `AddUtils` is called upon to return module credit for `moduleCode` by `getModuleCreditForModule()`.
+
+**Step 6** :  `AddUtils` is called upon again to add the module's data to the user, by instatiating a new
+`PartialModule` and storing it in both `userModuleList` and `userModuleMap`.
+
+**Step 7** : `FileHandler` terminated.
+
+**Step 8** : `AddModuleCommand` is terminated.
 
 #### Design consideration
 
