@@ -18,6 +18,7 @@ import java.util.Scanner;
 public class AcademicPlannerParser {
     private static final int COMMAND_INDEX = 0;
     private static final int MODULE_CODE_INDEX = 1;
+    private static final int CORRECT_COMMAND_LENGTH = 2;
     public static final String NEW_LINE = "\n";
     private static final String EXITING_CURRENT_COMMAND = "Exiting current command back to Academic Planner Main Menu.";
     private static final String ERROR_INVALID_COMMAND = "INVALID COMMAND";
@@ -43,20 +44,19 @@ public class AcademicPlannerParser {
         String[] inputs = userInput.toUpperCase().split(" ");
         Scanner in = ui.getScanner();
 
-        switch (inputs[COMMAND_INDEX]) {
-        case ADD_COMMAND:
+        if (inputs[COMMAND_INDEX].equals(ADD_COMMAND) && inputs.length == CORRECT_COMMAND_LENGTH) {
             return new AddModuleCommand(allModules, currentPerson, in, inputs[MODULE_CODE_INDEX]);
-        case EDIT_COMMAND:
+        } else if (inputs[COMMAND_INDEX].equals(EDIT_COMMAND) && inputs.length == CORRECT_COMMAND_LENGTH) {
             return new EditModuleCommand(allModules, currentPerson, in, inputs[MODULE_CODE_INDEX]);
-        case REMOVE_COMMAND:
+        } else if (inputs[COMMAND_INDEX].equals(REMOVE_COMMAND) && inputs.length == CORRECT_COMMAND_LENGTH) {
             return new RemoveModuleCommand(allModules, currentPerson, in, inputs[MODULE_CODE_INDEX]);
-        case VIEW_COMMAND:
+        } else if (inputs[COMMAND_INDEX].equals(VIEW_COMMAND)) {
             return new PrintCalenderCommand(currentPerson, in);
-        case EXIT_COMMAND:
-            return new Command(true);
-        case HELP_COMMAND:
+        } else if (inputs[COMMAND_INDEX].equals(HELP_COMMAND)) {
             return new PrintHelpCommand();
-        default:
+        } else if (inputs[COMMAND_INDEX].equals(EXIT_COMMAND)) {
+            return new Command(true);
+        } else {
             throw new CommandParserException(ERROR_INVALID_COMMAND + NEW_LINE + EXITING_CURRENT_COMMAND);
         }
     }
