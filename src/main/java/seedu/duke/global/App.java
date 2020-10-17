@@ -1,4 +1,4 @@
-package seedu.duke.globalcommons;
+package seedu.duke.global;
 
 /**
  * Class representing an application in PlanNUS.
