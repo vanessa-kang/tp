@@ -3,6 +3,7 @@ package seedu.duke.apps.academicplanner;
 
 import seedu.duke.apps.academicplanner.commands.AddModuleCommand;
 import seedu.duke.apps.academicplanner.commands.EditModuleCommand;
+import seedu.duke.apps.academicplanner.commands.ModuleDetailsCommand;
 import seedu.duke.apps.academicplanner.commands.PrintCalenderCommand;
 import seedu.duke.apps.academicplanner.commands.PrintHelpCommand;
 import seedu.duke.apps.academicplanner.commands.RemoveModuleCommand;
