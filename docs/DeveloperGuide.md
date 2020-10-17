@@ -139,9 +139,9 @@ remainder of the `execute()` method.
 **Step 3** : `in` then reads in the next two lines of input, which is the user's input for the desired semester for the 
 `moduleCode` and `moduleCode`'s grades.
 
-{DIAGRAM FOR STEP 3:  }
-
 **Step 4** : `validateInputs()` is called to validate the user entered data against `allModules`.
+
+{DIAGRAM FOR STEP 5: with addutils }
 
 **Step 5** : `AddUtils` is called upon to return module credit for `moduleCode` by `getModuleCreditForModule()`.
 
@@ -152,9 +152,22 @@ remainder of the `execute()` method.
 
 **Step 8** : `AddModuleCommand` is terminated.
 
+The following sequence diagram shows how the `AddModuleCommand` works:
+
+{Sequence Diagram}
+
+The following activity diagram summarizes what happens when the user executes an `AddModuleCommand` :
+
 #### Design consideration
 
-{Exact diagram and corresponding descriptions to be added}
+The following were considered when implementing commands:
+
+* Option 1 (Current Choice): As a class by itself
+    * Pros: Increases modularity of code, higher overall code quality 
+    * Cons: More complicated to implement
+* Option 2: As a method in a class
+    * Pros: Easier to implement
+    * Cons: Class needs to be instantiated and increases coupling, reducing testability.
 
 ### CAP Calculator features (i.e. current and set target)
 
