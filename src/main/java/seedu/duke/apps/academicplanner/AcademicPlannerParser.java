@@ -1,6 +1,11 @@
 package seedu.duke.apps.academicplanner;
 
-import seedu.duke.apps.academicplanner.commands.*;
+
+import seedu.duke.apps.academicplanner.commands.AddModuleCommand;
+import seedu.duke.apps.academicplanner.commands.EditModuleCommand;
+import seedu.duke.apps.academicplanner.commands.PrintCalenderCommand;
+import seedu.duke.apps.academicplanner.commands.PrintHelpCommand;
+import seedu.duke.apps.academicplanner.commands.RemoveModuleCommand;
 import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.exceptions.CommandParserException;
 import seedu.duke.globalcommons.Command;
@@ -55,6 +60,7 @@ public class AcademicPlannerParser {
             return new PrintHelpCommand();
         case DETAILS_COMMAND:
             return new ModuleDetailsCommand(allModules, inputs[MODULE_CODE_INDEX]);
+
         default:
             throw new CommandParserException(ERROR_INVALID_COMMAND + NEW_LINE + EXITING_CURRENT_COMMAND);
         }
