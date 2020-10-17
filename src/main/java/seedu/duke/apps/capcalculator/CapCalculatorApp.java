@@ -1,8 +1,8 @@
 package seedu.duke.apps.capcalculator;
 
-import seedu.duke.globalcommons.App;
-import seedu.duke.globalcommons.Command;
-import seedu.duke.objects.Person;
+import seedu.duke.global.App;
+import seedu.duke.global.Command;
+import seedu.duke.global.objects.Person;
 import seedu.duke.ui.Ui;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
@@ -17,10 +17,11 @@ public class CapCalculatorApp extends App {
 
     private static final String AWAIT_COMMAND = "Type a command to continue...";
     private static final String EXIT_MESSAGE = "Thank you for using Cap Calculator!";
-    private static final String WELCOME_MESSAGE = "Welcome to CAP Calculator! Commands available are:\n"
+    private static final String WELCOME_MESSAGE = "Welcome to CAP Calculator!\nAvailable commands are:\n"
             + "\tcurrent\n"
             + "\tset target\n"
-            + "\tTo exit CAP Calculator, use command: \"exit\"\n\n"
+            + "\tset su\n"
+            + "\texit\n"
             + "\tInitializing your CAP...";
 
     private final Person currentPerson;

@@ -23,11 +23,49 @@ The following are remaining steps to be taken to finish the set up:
 
 ### Architecture
 
-{Exact diagram and corresponding descriptions to be added}
+![Architecture](./images/DeveloperGuide/Architecture.png)
+
+The ***Architecture Diagram*** given above explains the high-level design of PlanNus. Below is a quick overview of each component.
+
+
+
+#### PlanNus
+
+`PlanNus` class contains the `main` and `run` method, which is responsible for
+
+  * At launch
+
+       * Loading all modules for AY2020/21 into PlanNus
+
+       * Loading previous save file into PlanNus if available
+
+       * Creation of entry point to available app in PlanNus
+
+  * While running
+
+       * Continuously prompt user for app selection
+
+  * At shut down
+
+       * Saving of user data into save file
+       * Clean up methods where necessary
+
+
+
+#### Global, Ui, Parser, Storage
+
+* The `global` package contains classes, exceptions and objects that are required across the whole app. 
+* The `ui` package contains the class that is responsible for sharing one `scanner` class across the whole app to prevent multiple IO streams
+* The `parser` package contains the class that handles user's app selection
+* The `storage` package handles loading and saving of user's data to a save file.
+
+
 
 ### UI component
 
-{Exact diagram and corresponding descriptions to be added}
+
+
+
 
 ### Logic component
 

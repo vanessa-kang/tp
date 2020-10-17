@@ -1,6 +1,6 @@
 package seedu.duke.apps.academicplanner.commons;
 
-import seedu.duke.objects.PartialModule;
+import seedu.duke.global.objects.PartialModule;
 import java.util.ArrayList;
 
 /**
@@ -8,6 +8,7 @@ import java.util.ArrayList;
  */
 public class PrintUtils {
     private static final String INDENT = "     ";
+    private static final String ERROR_NO_MODULES = "You have no modules added in the semester you requested!";
 
     public PrintUtils() {
         //Constructor is intentionally left blank
@@ -21,7 +22,8 @@ public class PrintUtils {
      */
     public void printBySemester(ArrayList<PartialModule> sortedList, int selectedSemester) {
         if (sortedList.size() < 1) {
-            System.out.println("You have no modules added in the semester you requested!");
+            System.out.println(ERROR_NO_MODULES);
+            return;
         }
 
         System.out.println(INDENT + "SEMESTER " + selectedSemester);

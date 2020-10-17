@@ -2,7 +2,8 @@ Welcome to PlanNUS!
 	For academic planner, type <acadplan>
 	For CAP calculator, type <capcalc>
 	To exit PlanNUS, type <exit>
-File PlanNUS.txt not found
+Save file not found!
+It will be automatically created.
 Type in a command to continue...
 
 Welcome to Academic Planner!
@@ -29,15 +30,17 @@ Welcome back to PlanNUS Main Menu!
 	For CAP calculator, type <capcalc>
 	To exit PlanNUS, type <exit>
 Type in a command to continue...
-Welcome to CAP Calculator! Commands available are:
+Welcome to CAP Calculator!
+Available commands are:
 	current
 	set target
-	To exit CAP Calculator, use command: "exit"
-
+	set su
+	exit
 	Initializing your CAP...
 Type a command to continue...
 Your current now CAP is: 5
 Number of graded MCs taken is: 4
+Total number of MCs taken is: 4
 Thank you for using Cap Calculator!
 Welcome back to PlanNUS Main Menu!
 	For academic planner, type <acadplan>

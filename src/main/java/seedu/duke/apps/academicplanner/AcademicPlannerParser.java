@@ -6,9 +6,9 @@ import seedu.duke.apps.academicplanner.commands.PrintCalenderCommand;
 import seedu.duke.apps.academicplanner.commands.PrintHelpCommand;
 import seedu.duke.apps.academicplanner.commands.RemoveModuleCommand;
 import seedu.duke.apps.moduleloader.ModuleLoader;
-import seedu.duke.exceptions.CommandParserException;
-import seedu.duke.globalcommons.Command;
-import seedu.duke.objects.Person;
+import seedu.duke.global.exceptions.CommandParserException;
+import seedu.duke.global.Command;
+import seedu.duke.global.objects.Person;
 import seedu.duke.ui.Ui;
 import java.util.Scanner;
 
@@ -43,19 +43,20 @@ public class AcademicPlannerParser {
         String[] inputs = userInput.toUpperCase().split(" ");
         Scanner in = ui.getScanner();
 
-        if (inputs[COMMAND_INDEX].equals(ADD_COMMAND)) {
+        switch (inputs[COMMAND_INDEX]) {
+        case ADD_COMMAND:
             return new AddModuleCommand(allModules, currentPerson, in, inputs[MODULE_CODE_INDEX]);
-        } else if (inputs[COMMAND_INDEX].equals(EDIT_COMMAND)) {
+        case EDIT_COMMAND:
             return new EditModuleCommand(allModules, currentPerson, in, inputs[MODULE_CODE_INDEX]);
-        } else if (inputs[COMMAND_INDEX].equals(REMOVE_COMMAND)) {
+        case REMOVE_COMMAND:
             return new RemoveModuleCommand(allModules, currentPerson, in, inputs[MODULE_CODE_INDEX]);
-        } else if (inputs[COMMAND_INDEX].equals(VIEW_COMMAND)) {
+        case VIEW_COMMAND:
             return new PrintCalenderCommand(currentPerson, in);
-        } else if (inputs[COMMAND_INDEX].equals(EXIT_COMMAND)) {
+        case EXIT_COMMAND:
             return new Command(true);
-        } else if (inputs[COMMAND_INDEX].equals(HELP_COMMAND)) {
+        case HELP_COMMAND:
             return new PrintHelpCommand();
-        } else {
+        default:
             throw new CommandParserException(ERROR_INVALID_COMMAND + NEW_LINE + EXITING_CURRENT_COMMAND);
         }
     }

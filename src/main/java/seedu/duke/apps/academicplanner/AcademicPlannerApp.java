@@ -1,9 +1,9 @@
 package seedu.duke.apps.academicplanner;
 
 import seedu.duke.apps.moduleloader.ModuleLoader;
-import seedu.duke.globalcommons.App;
-import seedu.duke.globalcommons.Command;
-import seedu.duke.objects.Person;
+import seedu.duke.global.App;
+import seedu.duke.global.Command;
+import seedu.duke.global.objects.Person;
 import seedu.duke.ui.Ui;
 
 /**
@@ -25,6 +25,13 @@ public class AcademicPlannerApp extends App {
     private final Person currentPerson;
     private Ui ui;
 
+    /**
+     * Default constructor for Academic Planner App.
+     *
+     * @param allModules all modules offered by NUS
+     * @param currentPerson current user
+     * @param ui ui of PlanNUS
+     */
     public AcademicPlannerApp(ModuleLoader allModules, Person currentPerson, Ui ui) {
         this.allModules = allModules;
         this.currentPerson = currentPerson;

@@ -1,14 +1,11 @@
 package seedu.duke;
 
 import seedu.duke.apps.moduleloader.ModuleLoader;
-import seedu.duke.globalcommons.App;
-import seedu.duke.objects.Person;
+import seedu.duke.global.App;
+import seedu.duke.global.objects.Person;
 import seedu.duke.parser.AppParser;
 import seedu.duke.storage.Storage;
 import seedu.duke.ui.Ui;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
 /**
  * Class representing main function of PlanNUS.
@@ -26,6 +23,7 @@ public class PlanNus {
     private ModuleLoader allModules;
     private Person currentPerson;
     private boolean isStartupSuccessfully;
+    private boolean isExit;
 
     /**
      * Default constructor for PlanNus.
@@ -36,6 +34,7 @@ public class PlanNus {
             this.allModules = new ModuleLoader();
             this.currentPerson = new Person("Bob");
             this.isStartupSuccessfully = true;
+            isExit = false;
         } catch (Exception e) {
             this.isStartupSuccessfully = false;
             System.out.println(e.getMessage());
@@ -46,39 +45,40 @@ public class PlanNus {
      * Main entry function for PlanNUS.
      */
     public void run() {
-        Storage textFile = new Storage();
-        assert isStartupSuccessfully == true : "Startup is successful";
-        if (isStartupSuccessfully) {
-            showWelcomeMessage();
-            boolean isExit = false;
+        assert isStartupSuccessfully : "Startup is unsuccessful";
 
+        showWelcomeMessage();
+        Storage storage = initializeStorage(currentPerson);
+
+        while (!isExit) {
             try {
-                textFile.loadTextFile(currentPerson);
-            } catch (FileNotFoundException e) {
-                System.out.println("File PlanNUS.txt not found");
-            }
-
-            while (!isExit) {
-                try {
-                    System.out.println(AWAIT_COMMAND);
-                    String userInput = ui.getScanner().nextLine();
-                    App selectedApp = AppParser.parse(userInput, allModules, currentPerson, ui);
-                    selectedApp.run();
-                    isExit = selectedApp.getIsExit();
-                    if (!isExit) {
-                        showWelcomeBackMessage();
-                    }
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
+                System.out.println(AWAIT_COMMAND);
+                String userInput = ui.getScanner().nextLine();
+                App selectedApp = AppParser.parse(userInput, allModules, currentPerson, ui);
+                selectedApp.run();
+                isExit = selectedApp.getIsExit();
+                if (!isExit) {
+                    showWelcomeBackMessage();
                 }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
             }
-            try {
-                textFile.saveTextFile(currentPerson);
-            } catch (IOException e) {
-                System.out.println("There is a problem saving PlanNUS.txt");
-            }
-            showExitMessage();
         }
+        ui.closeScanner();
+        storage.saver(currentPerson);
+        showExitMessage();
+    }
+
+    /**
+     * Initialises storage with the data of the currentPerson.
+     *
+     * @param currentPerson Person of data
+     * @return populated Storage
+     */
+    private Storage initializeStorage(Person currentPerson) {
+        Storage storage = new Storage(allModules);
+        storage.loader(currentPerson);
+        return storage;
     }
 
     /**
