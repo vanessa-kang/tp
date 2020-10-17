@@ -59,7 +59,7 @@ public class RemoveUtils {
         modulesList.remove(module);
 
         HashMap<String, Integer> newModuleAddedMap = new HashMap<>();
-        for(int i = 0; i < modulesList.size(); i++) {
+        for (int i = 0; i < modulesList.size(); i++) {
             newModuleAddedMap.put(modulesList.get(i).getModuleCode(), i);
         }
 
