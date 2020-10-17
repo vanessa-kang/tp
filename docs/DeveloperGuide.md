@@ -26,6 +26,8 @@ The ***Architecture Diagram*** given above explains the high-level design of Pla
 
 
 
+### Overview
+
 #### PlanNus
 
 `PlanNus` class contains the `main` and `run` method, which is responsible for
@@ -36,7 +38,7 @@ The ***Architecture Diagram*** given above explains the high-level design of Pla
 
        * Loading previous save file into PlanNus if available
 
-       * Creation of entry point to available app in PlanNus
+       * Creation of entry point to available apps in PlanNus
 
   * While running
 
@@ -49,36 +51,42 @@ The ***Architecture Diagram*** given above explains the high-level design of Pla
 
 
 
-#### Global, Ui, Parser, Storage
+#### Global, Ui, Parser, Storage, Apps
 
 * The `global` package contains classes, exceptions and objects that are required across the whole app. 
 * The `ui` package contains the class that is responsible for sharing one `scanner` class across the whole app to prevent multiple IO streams
 * The `parser` package contains the class that handles user's app selection
 * The `storage` package handles loading and saving of user's data to a save file.
+* Packages for Available apps such as Academic Planner and CAP Calculator are stored within `apps` package
 
 
 
-### UI component
+### Project Structure
+
+Each package in the PlanNus as given above follows the following file structure where applicable:
+
+* A functional class that acts as the entry point to that module
+* A parser class that parses user input into executable commands by PlanNus 
+
+* `commands`: A package that handles all executable commands given by parser
+* `commons`: A package with the utilities and shared classes across the parent package
+* `exceptions`: A package to handle all exceptions thrown across the parent package
 
 
 
+The interaction within each package should ideally be as shown below.
+
+![Project structure](C:\Users\Orion\Desktop\Git\CS2113T\tp\docs\images\DeveloperGuide\Project structure.png)
 
 
-### Logic component
 
-{Exact diagram and corresponding descriptions to be added}
+*Note that while this is the ideal case, packages such as* `global`, `parser` *and* `ui` *might not strictly follow this structure due to these package serving a different function altogether (Refer to the sections below for more details.)*
 
-### Model component
 
-{Exact diagram and corresponding descriptions to be added}
 
-### Storage component
+### Interaction between packages
 
-{Exact diagram and corresponding descriptions to be added}
-
-### Common classes
-
-{Exact diagram and corresponding descriptions to be added}
+The *sequence diagram* below shows how different packages interact with each other throughout the whole lifecycle of PlanNus.
 
 
 
