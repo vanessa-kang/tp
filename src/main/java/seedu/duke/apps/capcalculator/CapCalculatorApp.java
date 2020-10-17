@@ -20,6 +20,7 @@ public class CapCalculatorApp extends App {
     private static final String WELCOME_MESSAGE = "Welcome to CAP Calculator!\nAvailable commands are:\n"
             + "\tcurrent\n"
             + "\tset target\n"
+            + "\tset su\n"
             + "\texit\n"
             + "\tInitializing your CAP...";
 

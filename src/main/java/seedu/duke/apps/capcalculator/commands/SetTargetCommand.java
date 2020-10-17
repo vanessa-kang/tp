@@ -1,12 +1,14 @@
 package seedu.duke.apps.capcalculator.commands;
 
-import seedu.duke.exceptions.InvalidCapException;
-import seedu.duke.exceptions.InvalidCreditException;
+import seedu.duke.apps.capcalculator.exceptions.InvalidCapException;
+import seedu.duke.apps.capcalculator.exceptions.InvalidCreditException;
 import seedu.duke.globalcommons.Command;
 import seedu.duke.globalcommons.LoggingTool;
 import seedu.duke.objects.Person;
 import seedu.duke.ui.Ui;
 import seedu.duke.apps.capcalculator.commons.SetTargetUtils;
+
+import java.util.Scanner;
 import java.io.IOException;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
@@ -26,10 +28,8 @@ public class SetTargetCommand extends Command {
     private Ui ui;
     private SetTargetUtils setTargetUtils;
 
-    public SetTargetCommand(Person currentPerson, Ui ui) {
-        this.currentPerson = currentPerson;
-        this.ui = ui;
-        this.setTargetUtils = new SetTargetUtils(currentPerson, ui);
+    public SetTargetCommand(Person currentPerson, Scanner in) {
+        this.setTargetUtils = new SetTargetUtils(currentPerson, in);
     }
 
     /**

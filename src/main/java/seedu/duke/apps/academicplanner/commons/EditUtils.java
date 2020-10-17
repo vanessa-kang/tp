@@ -7,7 +7,6 @@ import seedu.duke.objects.PartialModule;
 import seedu.duke.objects.Person;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -20,6 +19,12 @@ public class EditUtils {
     private final ModuleValidator modChecker;
     private final CalculatorUtils calculatorUtils;
 
+    /**
+     * Default constructor for EditUtils.
+     *
+     * @param allModules all modules offered by NUS
+     * @param currentPerson current User
+     */
     public EditUtils(ModuleLoader allModules, Person currentPerson) {
         this.modulesList = currentPerson.getModulesList();
         this.modulesAddedMap = currentPerson.getModulesAddedMap();
@@ -55,7 +60,6 @@ public class EditUtils {
             throw new AcademicException(ERROR_INVALID_GRADE);
         }
 
-        System.out.println(moduleCode);
         updateModuleGrade(moduleCode, gradeValue);
         System.out.println("Grade for " + moduleCode + " successfully updated!");
     }
@@ -69,12 +73,12 @@ public class EditUtils {
     public void updateModuleGrade(String moduleCode, String gradeValue) {
         Integer moduleIndex = modulesAddedMap.get(moduleCode);
         PartialModule module = modulesList.get(moduleIndex);
-
         updateCurrentModuleGrade(gradeValue, module);
     }
 
     /**
      * Updates module to reflect the new grade.
+     *
      * @param gradeValue new grade value to reflect
      * @param module module to edit
      */
@@ -98,7 +102,7 @@ public class EditUtils {
         System.out.println(VALID_SEMESTERS);
         String newValue = in.nextLine().trim();
 
-        if (!modChecker.isValidSemester(Integer.parseInt(newValue))) {
+        if (!ModuleValidator.isValidSemester(Integer.parseInt(newValue))) {
             throw new AcademicException(ERROR_INVALID_SEMESTER_INDEX);
         }
 
@@ -116,7 +120,6 @@ public class EditUtils {
         Integer moduleIndex = modulesAddedMap.get(moduleCode);
         PartialModule item = modulesList.get(moduleIndex);
         item.setSemesterIndex(Integer.parseInt(newValue));
-
         assert item.getSemesterIndex() == Integer.parseInt(newValue);
     }
 }
