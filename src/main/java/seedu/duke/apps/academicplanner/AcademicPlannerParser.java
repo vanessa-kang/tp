@@ -7,6 +7,7 @@ import seedu.duke.apps.academicplanner.commands.ModuleDetailsCommand;
 import seedu.duke.apps.academicplanner.commands.PrintCalenderCommand;
 import seedu.duke.apps.academicplanner.commands.PrintHelpCommand;
 import seedu.duke.apps.academicplanner.commands.RemoveModuleCommand;
+import seedu.duke.apps.academicplanner.commands.SearchModuleCommand;
 import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.global.exceptions.CommandParserException;
 import seedu.duke.global.Command;
@@ -28,6 +29,7 @@ public class AcademicPlannerParser {
     private static final String EDIT_COMMAND = "EDIT";
     private static final String REMOVE_COMMAND = "REMOVE";
     private static final String VIEW_COMMAND = "VIEW";
+    private static final String SEARCH_COMMAND = "SEARCH";
     private static final String HELP_COMMAND = "HELP";
     private static final String EXIT_COMMAND = "EXIT";
     private static final String DETAILS_COMMAND = "DETAILS";
@@ -59,6 +61,8 @@ public class AcademicPlannerParser {
             return new PrintHelpCommand();
         } else if (inputs[COMMAND_INDEX].equals(DETAILS_COMMAND)) {
             return new ModuleDetailsCommand(allModules, inputs[MODULE_CODE_INDEX]);
+        } else if (inputs[COMMAND_INDEX].equals(SEARCH_COMMAND)) {
+          return new SearchModuleCommand(allModules, inputs[MODULE_CODE_INDEX]);
         } else if (inputs[COMMAND_INDEX].equals(EXIT_COMMAND)) {
             return new Command(true);
         } else {
