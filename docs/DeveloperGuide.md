@@ -20,7 +20,9 @@ The following are remaining steps to be taken to finish the set up:
 
 ### Architecture
 
-![Architecture](./images/DeveloperGuide/Architecture.png)
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/Architecture.png" alt="Architecture diagram of PlanNUS"/>
+</div>
 
 The ***Architecture Diagram*** given above explains the high-level design of PlanNUS. Below is a quick overview of each component.
 
@@ -74,7 +76,9 @@ Each package in the PlanNUS as given above follows the following file structure 
 
 The interaction within each package should ideally be as shown below.
 
-![Project structure](./images/DeveloperGuide/Project_structure.png)
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/Project_structure.png" alt="Architecture diagram for ideal project structure in PlanNUS"/>
+</div>
 
 *Note that while this is the ideal case, packages such as* `global`, `parser` *and* `ui` *might not strictly follow this structure due to these package serving a different function altogether (Refer to the sections below for more details.)*
 
@@ -82,7 +86,9 @@ The interaction within each package should ideally be as shown below.
 
 The *sequence diagram* below shows how different packages and classes interact with each other throughout the whole lifecycle of PlanNUS.
 
-![Packages Interaction](./images/DeveloperGuide/Packages_Interaction.png)
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/Packages_Interaction.png" alt="Sequence diagram for lifecycle of PlanNUS"/>
+</div>
 
 ### Details
 
@@ -109,11 +115,11 @@ The proposed add module command is facilitated by `AcademicPlannerParser`. It al
  `Academic Planner` by instantiating a new `PartialModule` object and adding it into the `userModuleList` 
  and `userModuleMap`. Both the list and hashmap are the _java API_, which are used by importing them. The `Person` object
  is used to encapsulate both `userModuleList` and `userModuleMap`.
- 
+
 Additionally, add module command extends the `Command` class and overrides its `execute()` command. An external class,
  `ModuleValidator` is called upon to validate the various parameters that the user has entered, as to only allow
  valid modules to be added to the user.
- 
+
 Given below is an example usage scenario and how add module command behaves at each step.
 
 {DIAGRAM FOR STEP 1: INITIAL STATE}
@@ -128,9 +134,9 @@ and `String`. Below is a table of what each parameter corresponds to in the stat
 |`Person`| Class representing current user's information | `currentPerson`
 |`Scanner`| Class representing java's default scanner class | `in`
 |`String` | Class representing the module code to be added | `moduleCode`
- 
+
  {DIAGRAM FOR STEP 2: WITH FH AND LOGGER}
- 
+
 **Step 2** : `execute()` is called from the instance of `AddModuleCommand`. It can throw `AcademicException` 
 or `IOException`. `FileHandler` and `Logger` classes from the _java API_ are instantiated to handle logging for the 
 remainder of the `execute()` method. 

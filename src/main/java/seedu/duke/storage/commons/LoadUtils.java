@@ -81,12 +81,14 @@ public class LoadUtils {
                     isAllEntryValid = false;
                 }
 
-                int currentSem = parseInt(lineItems[SEMESTER_VALUE_POSITION]);
-                String currentModuleCode = lineItems[MODULE_CODE_POSITION];
-                String currentModuleGrade = lineItems[MODULE_GRADE_POSITION];
-                int currentModuleCredit = parseInt(lineItems[MODULE_CREDIT_POSITION]);
-                addUtils.addModuleToUser(currentModuleCode, currentSem, 
-                        currentModuleGrade, currentModuleCredit, FROM_LOAD);
+                if (isEntryValid) {
+                    int currentSem = parseInt(lineItems[SEMESTER_VALUE_POSITION]);
+                    String currentModuleCode = lineItems[MODULE_CODE_POSITION];
+                    String currentModuleGrade = lineItems[MODULE_GRADE_POSITION];
+                    int currentModuleCredit = parseInt(lineItems[MODULE_CREDIT_POSITION]);
+                    addUtils.addModuleToUser(currentModuleCode, currentSem,
+                            currentModuleGrade, currentModuleCredit, FROM_LOAD);
+                }
             }
             in.close();
             printLoadDetails(isAllEntryValid, details[MODULE_LOADED]);
