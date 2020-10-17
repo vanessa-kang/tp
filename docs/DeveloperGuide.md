@@ -22,7 +22,7 @@ The following are remaining steps to be taken to finish the set up:
 
 ![Architecture](./images/DeveloperGuide/Architecture.png)
 
-The ***Architecture Diagram*** given above explains the high-level design of PlanNus. Below is a quick overview of each component.
+The ***Architecture Diagram*** given above explains the high-level design of PlanNUS. Below is a quick overview of each component.
 
 
 
@@ -34,11 +34,11 @@ The ***Architecture Diagram*** given above explains the high-level design of Pla
 
   * At launch
 
-       * Loading all modules for AY2020/21 into PlanNus
+       * Loading all modules for AY2020/21 into PlanNUS
 
-       * Loading previous save file into PlanNus if available
+       * Loading previous save file into PlanNUS if available
 
-       * Creation of entry point to available apps in PlanNus
+       * Creation of entry point to available apps in PlanNUS
 
   * While running
 
@@ -63,10 +63,10 @@ The ***Architecture Diagram*** given above explains the high-level design of Pla
 
 ### Project Structure
 
-Each package in the PlanNus as given above follows the following file structure where applicable:
+Each package in the PlanNUS as given above follows the following file structure where applicable:
 
 * A functional class that acts as the entry point to that module
-* A parser class that parses user input into executable commands by PlanNus 
+* A parser class that parses user input into executable commands by PlanNUS
 
 * `commands`: A package that handles all executable commands given by parser
 * `commons`: A package with the utilities and shared classes across the parent package
@@ -84,9 +84,23 @@ The interaction within each package should ideally be as shown below.
 
 
 
-### Interaction between packages
+### Lifecycle of PlanNUS
 
-The *sequence diagram* below shows how different packages interact with each other throughout the whole lifecycle of PlanNus.
+The *sequence diagram* below shows how different packages and classes interact with each other throughout the whole lifecycle of PlanNUS.
+
+![Packages Interaction](C:\Users\Orion\Desktop\Git\CS2113T\tp\docs\images\DeveloperGuide\Packages Interaction.png)
+
+
+
+### Details
+
+#### Global Component
+
+#### Storage Component
+
+#### Parser Component
+
+
 
 
 
