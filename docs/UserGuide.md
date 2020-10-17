@@ -147,7 +147,7 @@ __<ins>Caution:</ins>__
 
 This is for the user to set modules that he or she wishes to S/U.
 
-<img src="images/capcalc_set_su_module.png" height = "180" />
+<img src="images/capcalc_set_su_module.png" height = "100" />
 
 As shown in the image, user can choose to S/U by either a _Semester_ or some selected _Modules_. (__Note:__ Enter either `1` or `2` instead of the component's name)
 
@@ -155,13 +155,13 @@ As shown in the image, user can choose to S/U by either a _Semester_ or some sel
 
 Expected output when user wishes to S/U by _Semester_.
 
-<img src="images/capcalc_set_su_semester.png" width = "390" height = "95"/>
+<img src="images/capcalc_set_su_semester.png" />
 
 User will then be prompte to enter a specific semester that he or she wishes to S/U.
 
 Expected output when user entered valid _Semester_.
 
-<img src="images/capcalc_set_su_semester_output.png" width = "390" height = "95"/>
+<img src="images/capcalc_set_su_semester_output.png" />
 
 __<ins>Caution:</ins>__ 
 
@@ -172,19 +172,19 @@ __<ins>Caution:</ins>__
 
 Expected output when user wishes to S/U by _Modules_.
 
-<img src="images/capcalc_set_su_modules.png" width = "200" />
+<img src="images/capcalc_set_su_modules.png"  />
 
 User will then be prompte to enter a specific number of modules to S/Ued.
 
 Expected output when user entered a valid number of modules.
 
-<img src="images/capcalc_set_su_modules_prompt.png" width = "390" height = "95"/>
+<img src="images/capcalc_set_su_modules_prompt.png" />
 
 User will then be prompte to enter a serie of module codes to S/Ued.
 
 Expected output when user entered valid module codes.
 
-<img src="images/capcalc_set_su_modules_output.png" width = "390" height = "95"/>
+<img src="images/capcalc_set_su_modules_output.png" />
 
 __<ins>Caution:</ins>__ 
 
@@ -197,15 +197,15 @@ This command directs user back to the main page of PlanNUS after they are done u
 
 When user exits from the Academic Planner, expected output is as shown below.
 
-<img src="images/exit_acadplan.png" width = "350"/>
+<img src="images/exit_acadplan.png" />
 
 When user exits from the CAP calculator, expected output will be as follows:
 
-<img src="images/exit_capcalc.png" width = "350"/>
+<img src="images/exit_capcalc.png" />
 
 Last but not least, the expected output for exiting PlanNUS will be as such:
 
-<img src="images/exit_PlanNUS.png" width = "430" />
+<img src="images/exit_PlanNUS.png" />
 
 Input format: `exit`
 
