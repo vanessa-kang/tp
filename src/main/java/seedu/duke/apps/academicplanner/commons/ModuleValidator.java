@@ -11,12 +11,16 @@ public class ModuleValidator {
     private static final int FINAL_SEMESTER_INDEX = 10;
 
     private final ModuleLoader allModules;
-    private final ArrayList<PartialModule> modulesList;
     private final HashMap<String, Integer> modulesAddedMap;
 
+    /**
+     * Default constructor for EditUtils.
+     *
+     * @param allModules all modules offered by NUS
+     * @param currentPerson current User
+     */
     public ModuleValidator(ModuleLoader allModules, Person currentPerson) {
         this.allModules = allModules;
-        this.modulesList = currentPerson.getModulesList();
         this.modulesAddedMap = currentPerson.getModulesAddedMap();
     }
 

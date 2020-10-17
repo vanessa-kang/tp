@@ -28,6 +28,11 @@ public class PrintCalenderCommand extends Command {
     private Scanner in;
     private AcademicCalendarSorter sorter;
 
+    /**
+     * Default constructor for print calendar command.
+     * @param currentPerson current user
+     * @param in PlanNUS ui
+     */
     public PrintCalenderCommand(Person currentPerson, Scanner in) {
         this.modulesList = currentPerson.getModulesList();
         sorter = new AcademicCalendarSorter(modulesList);
@@ -40,18 +45,17 @@ public class PrintCalenderCommand extends Command {
     @Override
     public void execute() throws AcademicException {
         if (modulesList.size() > 0) {
+
             System.out.println(PROMPT_USER);
             String userInput = in.nextLine().trim();
+
             if (userInput.equalsIgnoreCase(FULL_PRINT_COMMAND)) {
-                ArrayList<PartialModule> sortedBySem = new ArrayList<>(modulesList);
-                sortedBySem.sort(Comparator.comparing(PartialModule::getSemesterIndex));
-                printUtils.printFullCalendar(sortedBySem);
+                printFullCalendar();
             } else {
                 try {
                     int selectedSemester = Integer.parseInt(userInput);
                     if (ModuleValidator.isValidSemester(selectedSemester)) {
-                        ArrayList<PartialModule> sortedList = sorter.sortBySemester(selectedSemester);
-                        printUtils.printBySemester(sortedList, selectedSemester);
+                        sortAndPrint(selectedSemester);
                     } else {
                         throw new AcademicException(ERROR_INVALID_SEMESTER);
                     }
@@ -62,5 +66,24 @@ public class PrintCalenderCommand extends Command {
         } else {
             System.out.println(EMPTY_MODULE_LIST);
         }
+    }
+
+    /**
+     * Prints full academic calendar.
+     */
+    private void printFullCalendar() {
+        ArrayList<PartialModule> sortedBySem = new ArrayList<>(modulesList);
+        sortedBySem.sort(Comparator.comparing(PartialModule::getSemesterIndex));
+        printUtils.printFullCalendar(sortedBySem);
+    }
+
+    /**
+     * Sorts and prints the semester's module.
+     *
+     * @param selectedSemester semester to print
+     */
+    private void sortAndPrint(int selectedSemester) {
+        ArrayList<PartialModule> sortedList = sorter.sortBySemester(selectedSemester);
+        printUtils.printBySemester(sortedList, selectedSemester);
     }
 }

@@ -16,6 +16,11 @@ public class RemoveUtils {
     private final Map<String, Integer> modulesAddedMap;
     private final CalculatorUtils calculatorUtils;
 
+    /**
+     * Default constructor for RemoveUtils.
+     *
+     * @param currentPerson current user
+     */
     public RemoveUtils(Person currentPerson) {
         this.modulesList = currentPerson.getModulesList();
         this.calculatorUtils = new CalculatorUtils(currentPerson);
@@ -32,14 +37,22 @@ public class RemoveUtils {
         final int totalNumberOfModules = modulesList.size();
 
         Integer moduleIndex = modulesAddedMap.get(moduleCode);
-        PartialModule item = modulesList.get(moduleIndex);
+        PartialModule module = modulesList.get(moduleIndex);
 
-        System.out.println(item.getModuleCode() + " has been removed from the list");
-        calculatorUtils.updateCap(FROM_REMOVE, item);
-
-        modulesList.remove(item);
-        modulesAddedMap.remove(moduleCode);
+        calculatorUtils.updateCap(FROM_REMOVE, module);
+        depopulate(moduleCode, module);
 
         assert modulesList.size() == totalNumberOfModules - 1;
+    }
+
+    /**
+     * Removes module from both arraylist and hashmap of the user.
+     *
+     * @param moduleCode module code to remove
+     * @param module module object to remove
+     */
+    private void depopulate(String moduleCode, PartialModule module) {
+        modulesList.remove(module);
+        modulesAddedMap.remove(moduleCode);
     }
 }

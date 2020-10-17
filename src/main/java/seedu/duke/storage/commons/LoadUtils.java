@@ -85,18 +85,13 @@ public class LoadUtils {
                 String currentModuleCode = lineItems[MODULE_CODE_POSITION];
                 String currentModuleGrade = lineItems[MODULE_GRADE_POSITION];
                 int currentModuleCredit = parseInt(lineItems[MODULE_CREDIT_POSITION]);
-
                 addUtils.addModuleToUser(currentModuleCode, currentSem, 
                         currentModuleGrade, currentModuleCredit, FROM_LOAD);
             }
-
             in.close();
-            
-
-            
             printLoadDetails(isAllEntryValid, details[MODULE_LOADED]);
         } catch (FileNotFoundException e) {
-            throw new LoadFileException("Save file not found!\nIt will be automatically created.\n");
+            throw new LoadFileException("Save file not found!\nIt will be automatically created.");
         } catch (CorruptedSaveFileException e) {
             throw new LoadFileException("Save file corrupted! "
                     + "Details:" + NEW_LINE
