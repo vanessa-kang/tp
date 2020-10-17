@@ -1,4 +1,4 @@
-package seedu.duke.globalcommons;
+package seedu.duke.global;
 
 import java.io.IOException;
 import java.util.logging.FileHandler;

@@ -1,6 +1,6 @@
 package seedu.duke.apps.academicplanner.commands;
 
-import seedu.duke.globalcommons.Command;
+import seedu.duke.global.Command;
 
 /**
  * Class representing a print help command from the academic planner.

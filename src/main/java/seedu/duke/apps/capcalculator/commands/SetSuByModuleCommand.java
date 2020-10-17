@@ -2,9 +2,9 @@ package seedu.duke.apps.capcalculator.commands;
 
 import seedu.duke.apps.capcalculator.commons.SetSuUtils;
 import seedu.duke.apps.capcalculator.exceptions.CapCalculatorException;
-import seedu.duke.globalcommons.Command;
-import seedu.duke.objects.PartialModule;
-import seedu.duke.objects.Person;
+import seedu.duke.global.Command;
+import seedu.duke.global.objects.PartialModule;
+import seedu.duke.global.objects.Person;
 
 import java.util.ArrayList;
 import java.util.Scanner;

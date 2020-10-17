@@ -3,9 +3,9 @@ package seedu.duke.parser;
 import seedu.duke.apps.academicplanner.AcademicPlannerApp;
 import seedu.duke.apps.capcalculator.CapCalculatorApp;
 import seedu.duke.apps.moduleloader.ModuleLoader;
-import seedu.duke.exceptions.AppParserException;
-import seedu.duke.globalcommons.App;
-import seedu.duke.objects.Person;
+import seedu.duke.global.exceptions.AppParserException;
+import seedu.duke.global.App;
+import seedu.duke.global.objects.Person;
 import seedu.duke.ui.Ui;
 
 /**

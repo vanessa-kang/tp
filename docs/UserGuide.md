@@ -140,10 +140,56 @@ Input format: `set target`
 
 __<ins>Caution:</ins>__
 
-* Maximum CAP should be smaller or equals to 5.00.
+* CAP should be between 0.00 to 5.00 inclusive.
 * Minimum MC should be greater than 0.
 
+#### Set S/U modules: `set su`
 
+This is for the user to set modules that he or she wishes to S/U.
+
+<img src="images/capcalc_set_su_module.png" height = "100" />
+
+As shown in the image, user can choose to S/U by either a _Semester_ or some selected _Modules_. (__Note:__ Enter either `1` or `2` instead of the component's name)
+
+##### Set S/U by semester:
+
+Expected output when user wishes to S/U by _Semester_.
+
+<img src="images/capcalc_set_su_semester.png" />
+
+User will then be prompte to enter a specific semester that he or she wishes to S/U.
+
+Expected output when user entered valid _Semester_.
+
+<img src="images/capcalc_set_su_semester_output.png" />
+
+__<ins>Caution:</ins>__ 
+
+* Only modules that can be S/Ued are added into the S/U list.
+* Modules with special grades are filtered out.
+
+##### Set S/U by modules:
+
+Expected output when user wishes to S/U by _Modules_.
+
+<img src="images/capcalc_set_su_modules.png"  />
+
+User will then be prompte to enter a specific number of modules to S/Ued.
+
+Expected output when user entered a valid number of modules.
+
+<img src="images/capcalc_set_su_modules_prompt.png" />
+
+User will then be prompte to enter a serie of module codes to S/Ued.
+
+Expected output when user entered valid module codes.
+
+<img src="images/capcalc_set_su_modules_output.png" />
+
+__<ins>Caution:</ins>__ 
+
+* Duplicate modules are not allowed.
+* Number of modules to be S/Ued should not be greater than number of modules taken by the user.
 
 ### Exiting from a feature or PlanNUS: `exit`
 
@@ -151,15 +197,15 @@ This command directs user back to the main page of PlanNUS after they are done u
 
 When user exits from the Academic Planner, expected output is as shown below.
 
-<img src="images/exit_acadplan.png" width = "350"/>
+<img src="images/exit_acadplan.png" />
 
 When user exits from the CAP calculator, expected output will be as follows:
 
-<img src="images/exit_capcalc.png" width = "350"/>
+<img src="images/exit_capcalc.png" />
 
 Last but not least, the expected output for exiting PlanNUS will be as such:
 
-<img src="images/exit_PlanNUS.png" width = "430" />
+<img src="images/exit_PlanNUS.png" />
 
 Input format: `exit`
 
@@ -181,12 +227,12 @@ Note that the following commands are case-insensitive.
 
 | __Action__                                  | Command                |
 | ------------------------------------------- | ---------------------- |
-| Adding a module into the calendar           | `add <module code>`    |
-| Removing an existing module in the calendar | `remove <module code>` |
-| Editing an existing module in the calendar  | `edit <module code>`   |
+| Adding a module into the calendar           | `add <module code>`​ <br> e.g., `add CS1010, ADD cs1231 , ADD CS2040`|
+| Removing an existing module in the calendar | `remove <module code>`​ <br> e.g., `remove CS1010, REMOVE cs1231 , REMOVE CS2040`|
+| Editing an existing module in the calendar  | `edit <module code>`​ <br> e.g., `edit CS1010, EDIT cs1231 , EDIT CS2040`   |
 | Printing the academic calendar              | `view`                 |
 | Printing help information                   | `help`                 |
-| Exiting the Academic Planner                    | `exit`                 |
+| Exiting the Academic Planner                | `exit`                 |
 
 
 * Initiate the __CAP calculator__: `capCalc`

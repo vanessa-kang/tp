@@ -6,9 +6,9 @@ import seedu.duke.apps.academicplanner.commands.PrintCalenderCommand;
 import seedu.duke.apps.academicplanner.commands.PrintHelpCommand;
 import seedu.duke.apps.academicplanner.commands.RemoveModuleCommand;
 import seedu.duke.apps.moduleloader.ModuleLoader;
-import seedu.duke.exceptions.CommandParserException;
-import seedu.duke.globalcommons.Command;
-import seedu.duke.objects.Person;
+import seedu.duke.global.exceptions.CommandParserException;
+import seedu.duke.global.Command;
+import seedu.duke.global.objects.Person;
 import seedu.duke.ui.Ui;
 import java.util.Scanner;
 
