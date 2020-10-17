@@ -11,6 +11,7 @@ public class PrintHelpCommand extends Command {
             + "\tadd <module code>\n"
             + "\tedit <module code>\n"
             + "\tremove <module code>\n"
+            + "\tdetails <module code>\n"
             + "\tview\n"
             + "\thelp\n"
             + "\texit";
