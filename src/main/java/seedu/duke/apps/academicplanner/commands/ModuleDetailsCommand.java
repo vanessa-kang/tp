@@ -4,8 +4,8 @@ import seedu.duke.apps.academicplanner.commons.ModuleValidator;
 import seedu.duke.apps.academicplanner.commons.PrintUtils;
 import seedu.duke.apps.academicplanner.exceptions.AcademicException;
 import seedu.duke.apps.moduleloader.ModuleLoader;
-import seedu.duke.globalcommons.Command;
-import seedu.duke.objects.FullModule;
+import seedu.duke.global.Command;
+import seedu.duke.global.objects.FullModule;
 
 public class ModuleDetailsCommand extends Command {
 
