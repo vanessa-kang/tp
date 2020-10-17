@@ -1,7 +1,9 @@
 package seedu.duke.apps.academicplanner;
 
+
 import seedu.duke.apps.academicplanner.commands.AddModuleCommand;
 import seedu.duke.apps.academicplanner.commands.EditModuleCommand;
+import seedu.duke.apps.academicplanner.commands.ModuleDetailsCommand;
 import seedu.duke.apps.academicplanner.commands.PrintCalenderCommand;
 import seedu.duke.apps.academicplanner.commands.PrintHelpCommand;
 import seedu.duke.apps.academicplanner.commands.RemoveModuleCommand;
@@ -28,6 +30,7 @@ public class AcademicPlannerParser {
     private static final String VIEW_COMMAND = "VIEW";
     private static final String HELP_COMMAND = "HELP";
     private static final String EXIT_COMMAND = "EXIT";
+    private static final String DETAILS_COMMAND = "DETAILS";
 
     /**
      * Command to process the user inputs and to return the intended command with the correct parameters.
@@ -54,6 +57,8 @@ public class AcademicPlannerParser {
             return new PrintCalenderCommand(currentPerson, in);
         } else if (inputs[COMMAND_INDEX].equals(HELP_COMMAND)) {
             return new PrintHelpCommand();
+        } else if (inputs[COMMAND_INDEX].equals(DETAILS_COMMAND)) {
+            return new ModuleDetailsCommand(allModules, inputs[MODULE_CODE_INDEX]);
         } else if (inputs[COMMAND_INDEX].equals(EXIT_COMMAND)) {
             return new Command(true);
         } else {
