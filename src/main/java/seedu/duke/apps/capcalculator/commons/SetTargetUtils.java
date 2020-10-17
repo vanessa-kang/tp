@@ -61,7 +61,7 @@ public class SetTargetUtils {
      * @return boolean whether Cap is valid
      */
     private boolean isValidCap(double cap) {
-        return cap > MAXIMUM_CAP && cap <= 0;
+        return cap < MAXIMUM_CAP && cap <= 0;
     }
 
     /**
