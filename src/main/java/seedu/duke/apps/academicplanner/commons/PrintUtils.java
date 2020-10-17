@@ -23,6 +23,7 @@ public class PrintUtils {
     public void printBySemester(ArrayList<PartialModule> sortedList, int selectedSemester) {
         if (sortedList.size() < 1) {
             System.out.println(ERROR_NO_MODULES);
+            return;
         }
 
         System.out.println(INDENT + "SEMESTER " + selectedSemester);
