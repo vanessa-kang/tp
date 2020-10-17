@@ -1,4 +1,4 @@
-package seedu.duke.objects;
+package seedu.duke.global.objects;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 

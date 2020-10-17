@@ -1,7 +1,7 @@
 package seedu.duke.apps.academicplanner.commons;
 
-import seedu.duke.objects.FullModule;
-import seedu.duke.objects.PartialModule;
+import seedu.duke.global.objects.PartialModule;
+import seedu.duke.global.objects.FullModule;
 import java.util.ArrayList;
 
 /**

@@ -1,7 +1,7 @@
 package seedu.duke.apps.academicplanner.commons;
 
 import seedu.duke.apps.moduleloader.ModuleLoader;
-import seedu.duke.objects.Person;
+import seedu.duke.global.objects.Person;
 import java.util.HashMap;
 
 public class ModuleValidator {
