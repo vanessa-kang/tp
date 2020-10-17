@@ -72,19 +72,23 @@ The ***Architecture Diagram*** given above explains the high-level design of Pla
 
 {Exact diagram and corresponding descriptions to be added}
 
+**API** : `src.main.java.global.objects`
+
 ### Storage component
 
 {Exact diagram and corresponding descriptions to be added}
+
+**API** : `src.main.java.seedu.duke.storage`
 
 ### Common classes
 
 {Exact diagram and corresponding descriptions to be added}
 
-
+Classes used by multiple components are in the `src.main.java.global` package.
 
 ## Implementation
 
-### Academic Calendar Planner features (i.e. add, remove, edit and view)
+### Academic Calendar Planner add module feature
 
 #### Proposed implementation
 
