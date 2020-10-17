@@ -1,8 +1,9 @@
 package seedu.duke.apps.academicplanner.commands;
 
 import seedu.duke.apps.moduleloader.ModuleLoader;
-import seedu.duke.globalcommons.Command;
-import seedu.duke.objects.FullModule;
+import seedu.duke.apps.academicplanner.commons.PrintUtils;
+import seedu.duke.global.Command;
+import seedu.duke.global.objects.FullModule;
 import java.util.ArrayList;
 
 public class SearchModuleCommand extends Command {
@@ -10,10 +11,12 @@ public class SearchModuleCommand extends Command {
     private final ModuleLoader allModules;
     private String keyword;
     private final ArrayList<String> matchList = new ArrayList<>();
+    private final int maxResults = 10;
+    private PrintUtils printUtils = new PrintUtils();
 
     public SearchModuleCommand(ModuleLoader allModules, String keyword) {
-       this.allModules = allModules;
-       this.keyword = keyword;
+        this.allModules = allModules;
+        this.keyword = keyword;
     }
 
     @Override
@@ -25,15 +28,12 @@ public class SearchModuleCommand extends Command {
             if (item.getModuleCode().contains(keyword)) {
                 matchList.add(item.getModuleCode());
             }
-            if (matchList.size() == 10) break;
+            if (matchList.size() == maxResults) {
+                break;
+            }
         }
 
-        System.out.println("Note: Only up to the first 10 results are displayed.");
-        String grammar = matchList.size() == 1 ? "module." : "modules.";
-        System.out.println("Found " + matchList.size() + " matching " + grammar);
-        for (String matches: matchList) {
-            System.out.println(matches);
-        }
+        printUtils.printMatchModules(matchList, maxResults);
 
     }
 
