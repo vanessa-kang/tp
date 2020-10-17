@@ -1,7 +1,7 @@
 package seedu.duke.apps.academicplanner.commons;
 
 import seedu.duke.apps.moduleloader.ModuleLoader;
-import seedu.duke.objects.Person;
+import seedu.duke.global.objects.Person;
 import java.util.HashMap;
 
 public class ModuleValidator {
@@ -20,6 +20,16 @@ public class ModuleValidator {
     public ModuleValidator(ModuleLoader allModules, Person currentPerson) {
         this.allModules = allModules;
         this.modulesAddedMap = currentPerson.getModulesAddedMap();
+    }
+
+    /**
+     * Overload constructor for EditUtils.
+     *
+     * @param allModules all modules offered by NUS
+     */
+    public ModuleValidator(ModuleLoader allModules) {
+        this.allModules = allModules;
+        this.modulesAddedMap = null;
     }
 
     /**

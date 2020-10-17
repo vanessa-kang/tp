@@ -1,9 +1,9 @@
 package seedu.duke.apps.academicplanner;
 
 import seedu.duke.apps.moduleloader.ModuleLoader;
-import seedu.duke.globalcommons.App;
-import seedu.duke.globalcommons.Command;
-import seedu.duke.objects.Person;
+import seedu.duke.global.App;
+import seedu.duke.global.Command;
+import seedu.duke.global.objects.Person;
 import seedu.duke.ui.Ui;
 
 /**
@@ -17,6 +17,7 @@ public class AcademicPlannerApp extends App {
             + "\tadd <module code>\n"
             + "\tedit <module code>\n"
             + "\tremove <module code>\n"
+            + "\tdetails <module code>\n"
             + "\tsearch <module code key>\n"
             + "\tview\n"
             + "\thelp\n"

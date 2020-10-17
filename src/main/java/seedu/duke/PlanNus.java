@@ -1,8 +1,8 @@
 package seedu.duke;
 
 import seedu.duke.apps.moduleloader.ModuleLoader;
-import seedu.duke.globalcommons.App;
-import seedu.duke.objects.Person;
+import seedu.duke.global.App;
+import seedu.duke.global.objects.Person;
 import seedu.duke.parser.AppParser;
 import seedu.duke.storage.Storage;
 import seedu.duke.ui.Ui;
@@ -11,18 +11,10 @@ import seedu.duke.ui.Ui;
  * Class representing main function of PlanNUS.
  */
 public class PlanNus {
-    private static final String WELCOME_MESSAGE = "Welcome to PlanNUS!";
-    private static final String WELCOME_BACK_MESSAGE = "Welcome back to PlanNUS Main Menu!";
-    private static final String AWAIT_COMMAND = "Type in a command to continue...";
-    private static final String EXIT_MESSAGE = "Thanks for using PlanNUS! We hope to see you again!";
-    private static final String HELP_MESSAGE = "\tFor academic planner, type <acadplan>\n"
-            + "\tFor CAP calculator, type <capcalc>\n"
-            + "\tTo exit PlanNUS, type <exit>";
-
     private Ui ui;
     private ModuleLoader allModules;
     private Person currentPerson;
-    private boolean isStartupSuccessfully;
+    private Storage storage;
     private boolean isExit;
 
     /**
@@ -33,10 +25,10 @@ public class PlanNus {
             this.ui = new Ui();
             this.allModules = new ModuleLoader();
             this.currentPerson = new Person("Bob");
-            this.isStartupSuccessfully = true;
+            this.storage = new Storage(allModules);
             isExit = false;
         } catch (Exception e) {
-            this.isStartupSuccessfully = false;
+            isExit = true;
             System.out.println(e.getMessage());
         }
     }
@@ -45,63 +37,29 @@ public class PlanNus {
      * Main entry function for PlanNUS.
      */
     public void run() {
-        assert isStartupSuccessfully : "Startup is unsuccessful";
+        assert isExit == true : "Startup is unsuccessful";
 
-        showWelcomeMessage();
-        Storage storage = initializeStorage(currentPerson);
+        ui.showWelcomeMessage();
+        storage.loader(currentPerson);
 
         while (!isExit) {
             try {
-                System.out.println(AWAIT_COMMAND);
+                ui.showAwaitCommand();
                 String userInput = ui.getScanner().nextLine();
                 App selectedApp = AppParser.parse(userInput, allModules, currentPerson, ui);
                 selectedApp.run();
                 isExit = selectedApp.getIsExit();
                 if (!isExit) {
-                    showWelcomeBackMessage();
+                    ui.showWelcomeBackMessage();
                 }
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }
+
         ui.closeScanner();
         storage.saver(currentPerson);
-        showExitMessage();
-    }
-
-    /**
-     * Initialises storage with the data of the currentPerson.
-     *
-     * @param currentPerson Person of data
-     * @return populated Storage
-     */
-    private Storage initializeStorage(Person currentPerson) {
-        Storage storage = new Storage(allModules);
-        storage.loader(currentPerson);
-        return storage;
-    }
-
-    /**
-     * Prints exit message for user just before termination of program.
-     */
-    private void showExitMessage() {
-        System.out.println(EXIT_MESSAGE);
-    }
-
-    /**
-     * Prints welcome back message for user when user returns back to main menu.
-     */
-    private void showWelcomeBackMessage() {
-        System.out.println(WELCOME_BACK_MESSAGE);
-        System.out.println(HELP_MESSAGE);
-    }
-
-    /**
-     * Prints welcome message for user upon first entry into PlanNUS.
-     */
-    private void showWelcomeMessage() {
-        System.out.println(WELCOME_MESSAGE);
-        System.out.println(HELP_MESSAGE);
+        ui.showExitMessage();
     }
 
     /**

@@ -1,7 +1,7 @@
 package seedu.duke.apps.capcalculator.commands;
 
-import seedu.duke.globalcommons.Command;
-import seedu.duke.objects.Person;
+import seedu.duke.global.Command;
+import seedu.duke.global.objects.Person;
 import static seedu.duke.apps.capcalculator.commons.CalculatorUtils.formatCapToString;
 
 /**

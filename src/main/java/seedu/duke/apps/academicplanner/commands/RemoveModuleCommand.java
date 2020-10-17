@@ -4,9 +4,8 @@ import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.apps.academicplanner.commons.ModuleValidator;
 import seedu.duke.apps.academicplanner.commons.RemoveUtils;
 import seedu.duke.apps.academicplanner.exceptions.AcademicException;
-import seedu.duke.globalcommons.Command;
-import seedu.duke.objects.PartialModule;
-import seedu.duke.objects.Person;
+import seedu.duke.global.Command;
+import seedu.duke.global.objects.Person;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -16,6 +15,7 @@ import java.util.Scanner;
 public class RemoveModuleCommand extends Command {
     private static final String ERROR_INVALID_COMMAND = "INVALID COMMAND";
     private static final String ERROR_NOT_ADDED = "You have not added this module into your list yet";
+    private static final String MODULE_REMOVED = "Module removed successfully.";
 
     private RemoveUtils removeUtils;
     private ModuleValidator moduleValidator;
@@ -38,6 +38,7 @@ public class RemoveModuleCommand extends Command {
         try {
             if (moduleValidator.isModTakenByUser(moduleCode)) {
                 removeUtils.removeModuleFromUserModuleList(moduleCode);
+                System.out.println(MODULE_REMOVED);
             } else {
                 throw new AcademicException(ERROR_NOT_ADDED);
             }
