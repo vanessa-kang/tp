@@ -35,7 +35,7 @@ public class AcademicCalendarSorter {
      * @param semesterIndex semester to sort by
      * @return sortedList
      */
-    private ArrayList<PartialModule> processCalendar(int semesterIndex) {
+    public ArrayList<PartialModule> processCalendar(int semesterIndex) {
         ArrayList<PartialModule> sortedList = new ArrayList<>();
         for (PartialModule m : userModuleList) {
             if (m.getSemesterIndex() == semesterIndex) {
