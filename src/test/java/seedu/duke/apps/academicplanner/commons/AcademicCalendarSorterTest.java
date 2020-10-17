@@ -7,7 +7,7 @@ import seedu.duke.apps.moduleloader.exceptions.ModuleLoaderException;
 import seedu.duke.global.objects.PartialModule;
 import seedu.duke.global.objects.Person;
 import java.util.ArrayList;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class AcademicCalendarSorterTest {
 
