@@ -110,9 +110,7 @@ Classes used by multiple components are in the `src.main.java.global` package.
 
 ### Academic Calendar Planner : Add Module feature
 
-#### Proposed implementation
-
-{Exact diagram and corresponding descriptions to be added}
+#### Current implementation
 
 Add module command is executed by `AcademicPlannerParser`. It allows users to add modules into their
  `Academic Planner` by instantiating a new `PartialModule` object and adding it into the `userModuleList` 
