@@ -3,6 +3,7 @@ add CS1010
 2
 A
 details cs2101
+search cg
 exit
 capcalc
 current
