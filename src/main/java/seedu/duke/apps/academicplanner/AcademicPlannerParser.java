@@ -66,7 +66,7 @@ public class AcademicPlannerParser {
 
         } else if (inputs[COMMAND_INDEX].equals(DETAILS_COMMAND)) {
             return new ModuleDetailsCommand(allModules, inputs[MODULE_CODE_INDEX]);
-
+          
         } else if (inputs[COMMAND_INDEX].equals(SEARCH_COMMAND)) {
             return new SearchModulesCommand(allModules, inputs[MODULE_CODE_INDEX]);
 
