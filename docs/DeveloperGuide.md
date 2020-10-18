@@ -164,7 +164,7 @@ remainder of the `execute()` method.
     <img src="./images/DeveloperGuide/addModuleCommand_finalState.png" alt="Final state diagram for AddModuleCommand"/>
 </div>
 
-**Step 7** : `FileHandler`, `Logger`, `PartialModule`, `AddUtils` and `AddModuleCommand` terminated.
+**Step 7** : `FileHandler`, `Logger`, `PartialModule`, `AddUtils` and `AddModuleCommand` are terminated.
 
 The following sequence diagram shows how the `AddModuleCommand` works:
 
@@ -208,6 +208,19 @@ __Documentation guide__
 __Testing guide__
 
 __Logging guide__
+`LoggingTool` is available to use for accessible logging at the package `src.main.java.seedu.duke.global`. `LoggingTool`'s 
+constructor takes in a parameter `String` and `FileHandler`. `String` represents `loggerName` and `FileHandler` represents
+the object `fh`, which is the _java API_. `initialise()` will automatically return a fully configured `Logger` object
+with the following parameters :
+
+* addHandler(fh)
+    * `logger` will log to an external file as defined by `fh`
+* setUseParentHandlers(false)
+    * Disables logging on the console output
+* setLevel(Level.INFO)
+    * Any message logged `Level.INFO` and above will be logged
+
+After initialising, the `logger` can be used as per _java API_ constraints.
 
 __Configuration guide__
 

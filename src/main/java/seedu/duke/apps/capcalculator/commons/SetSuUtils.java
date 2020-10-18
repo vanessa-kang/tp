@@ -68,10 +68,6 @@ public class SetSuUtils {
         }
     }
 
-    private boolean isValidSemester(int semester) {
-        return (semester >= STARTING_SEMESTER_INDEX && semester <= FINAL_SEMESTER_INDEX);
-    }
-
     /**
      * Prompt user to enter number of modules.
      *
@@ -321,5 +317,17 @@ public class SetSuUtils {
         } else {
             return number + "th ";
         }
+    }
+
+    //@@Author jerroldlam
+    /**
+     * Returns true if semsesterIndex is a valid semesterIndex,
+     * else returns false.
+     *
+     * @param semesterIndex semesterIndex to check
+     * @return false
+     */
+    public static boolean isValidSemester(int semesterIndex) {
+        return (semesterIndex >= STARTING_SEMESTER_INDEX && semesterIndex <= FINAL_SEMESTER_INDEX);
     }
 }
