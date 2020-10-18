@@ -125,39 +125,48 @@ Additionally, add module command extends the `Command` class and overrides its `
 
 Given below is an example usage scenario and how add module command behaves at each step.
 
-{DIAGRAM FOR STEP 1: INITIAL STATE}
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/addModuleCommand_initialState.png" alt="Initial state diagram for AddModuleCommand"/>
+</div>
 
 **Step 1** : The user calls the add module command from the `AcademicPlannerParser`, which will initialise a 
-`AddModuleCommand`. `AddModuleCommand`'s constructor takes in parameters of `ModuleLoader`, `Person`,`Scanner`, 
+`AddModuleCommand`. `AddModuleCommand`'s constructor takes in parameters of `ModuleLoader`, `Person`,`Ui`, 
 and `String`. Below is a table of what each parameter corresponds to in the state diagram of the program.
 
 |Parameter|Corresponds to|Referred to as
 |:---:|:---:|:---:
 |`ModuleLoader`| Class representing all modules offered by NUS | `allModules`
 |`Person`| Class representing current user's information | `currentPerson`
-|`Scanner`| Class representing java's default scanner class | `in`
+|`Ui`| Class representing java's default scanner class | `in`
 |`String` | Class representing the module code to be added | `moduleCode`
 
- {DIAGRAM FOR STEP 2: WITH FH AND LOGGER}
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/addModuleCommand_state2.png" alt="State diagram for AddModuleCommand"/>
+</div>
 
 **Step 2** : `execute()` is called from the instance of `AddModuleCommand`. It can throw `AcademicException` 
 or `IOException`. `FileHandler` and `Logger` classes from the _java API_ are instantiated to handle logging for the 
 remainder of the `execute()` method. 
-
 
 **Step 3** : `in` then reads in the next two lines of input, which is the user's input for the desired semester for the 
 `moduleCode` and `moduleCode`'s grades.
 
 **Step 4** : `validateInputs()` is called to validate the user entered data against `allModules`.
 
-{DIAGRAM FOR STEP 5: with addutils }
-
 **Step 5** : `AddUtils` is called upon to return module credit for `moduleCode` by `getModuleCreditForModule()`.
+
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/addModuleCommand_state6.png" alt="State diagram for AddModuleCommand"/>
+</div>
 
 **Step 6** :  `AddUtils` is called upon again to add the module's data to the user, by instantiating a new
 `PartialModule` and storing it in both `userModuleList` and `userModuleMap` via `Person`.
 
-**Step 7** : `FileHandler` and `AddModuleCommand` terminated.
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/addModuleCommand_finalState.png" alt="Final state diagram for AddModuleCommand"/>
+</div>
+
+**Step 7** : `FileHandler`, `Logger`, `PartialModule`, `AddUtils` and `AddModuleCommand` terminated.
 
 The following sequence diagram shows how the `AddModuleCommand` works:
 
