@@ -51,20 +51,25 @@ public class AcademicPlannerParser {
 
         if (inputs[COMMAND_INDEX].equals(ADD_COMMAND) && inputs.length == CORRECT_COMMAND_LENGTH) {
             return new AddModuleCommand(allModules, currentPerson, in, inputs[MODULE_CODE_INDEX]);
+
         } else if (inputs[COMMAND_INDEX].equals(EDIT_COMMAND) && inputs.length == CORRECT_COMMAND_LENGTH) {
             return new EditModuleCommand(allModules, currentPerson, in, inputs[MODULE_CODE_INDEX]);
+
         } else if (inputs[COMMAND_INDEX].equals(REMOVE_COMMAND) && inputs.length == CORRECT_COMMAND_LENGTH) {
             return new RemoveModuleCommand(allModules, currentPerson, in, inputs[MODULE_CODE_INDEX]);
+
         } else if (inputs[COMMAND_INDEX].equals(VIEW_COMMAND)) {
             return new PrintCalenderCommand(currentPerson, in);
+
         } else if (inputs[COMMAND_INDEX].equals(HELP_COMMAND)) {
             return new PrintHelpCommand();
+
         } else if (inputs[COMMAND_INDEX].equals(DETAILS_COMMAND)) {
             return new ModuleDetailsCommand(allModules, inputs[MODULE_CODE_INDEX]);
-        } else if (inputs[COMMAND_INDEX].equals(SEARCH_COMMAND)) {
-            return new SearchModuleCommand(allModules, inputs[MODULE_CODE_INDEX]);
+
         } else if (inputs[COMMAND_INDEX].equals(EXIT_COMMAND)) {
             return new Command(true);
+
         } else {
             throw new CommandParserException(ERROR_INVALID_COMMAND + NEW_LINE + EXITING_CURRENT_COMMAND);
         }
