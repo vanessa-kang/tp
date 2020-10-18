@@ -151,7 +151,7 @@ This is for the user to set modules that he or she wishes to S/U.
 
 As shown in the image, user can choose to S/U by either a _Semester_ or some selected _Modules_. (__Note:__ Enter either `1` or `2` instead of the component's name)
 
-##### Set S/U by semester:
+##### Set S/U by semester
 
 Expected output when user wishes to S/U by _Semester_.
 
@@ -168,7 +168,7 @@ __<ins>Caution:</ins>__
 * Only modules that can be S/Ued are added into the S/U list.
 * Modules with special grades are filtered out.
 
-##### Set S/U by modules:
+##### Set S/U by modules
 
 Expected output when user wishes to S/U by _Modules_.
 
@@ -208,6 +208,22 @@ Last but not least, the expected output for exiting PlanNUS will be as such:
 <img src="images/exit_PlanNUS.png" />
 
 Input format: `exit`
+
+
+## Loading and Saving 
+
+Upon running PlanNUS in command prompt, the program automatically looks for a text file with the name _PlanNUS.txt_ within the same folder as _PlanNUS.jar_. 
+
+If the text file cannot be found, then the output will be as shown at the main page of PlanNUS after the list of commands.
+
+<img src="images/file_not_found.png" />
+
+All the modules selected will be saved into _PlanNUS.txt_ after the user exits from the program. The next time when user runs the program again, it will load the configurations that were saved previously which will generate the below output.
+
+<img src="images/module_loaded.png" />
+
+Note that the image above is just an example because it depends on the number of modules saved in the text file.
+
 
 
 ## FAQ
