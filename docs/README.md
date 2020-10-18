@@ -18,15 +18,18 @@ With the `CAP Calulator` , plaNUS will be able to tell you your current CAP and 
     1. Edit module
     1. Remove module
     1. Print Calendar
+        1. Full Calendar
+        1. Semester Calendar
+    1. View module details
 1. CAP Calculator
-    1. Get Cap
+    1. Get current CAP
+    1. Get results need for target CAP
+    1. See possible CAP when setting as grade-less
+1. General
+    1. Saving of Academic Calendar into text file
+    1. Loading of Academic Calendar from text file
 
-## Planned Feature List for the future
-
-1. Saving of Academic Calendar Planner into text file.
-2. Loading of Academic Calendar Planner from text file.
-
-Useful links:
+## Useful links:
 * [User Guide](https://ay2021s1-cs2113t-f12-1.github.io/tp/UserGuide.html "User Guide")
 * [Developer Guide](https://ay2021s1-cs2113t-f12-1.github.io/tp/DeveloperGuide.html "Developer Guide")
 * [About Us](https://ay2021s1-cs2113t-f12-1.github.io/tp/AboutUs.html "About Us")
