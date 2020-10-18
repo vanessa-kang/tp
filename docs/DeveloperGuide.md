@@ -110,11 +110,9 @@ Classes used by multiple components are in the `src.main.java.global` package.
 
 ### Academic Calendar Planner : Add Module feature
 
-#### Proposed implementation
+#### Current implementation
 
-{Exact diagram and corresponding descriptions to be added}
-
-The proposed add module command is facilitated by `AcademicPlannerParser`. It allows users to add modules into their
+Add module command is executed by `AcademicPlannerParser`. It allows users to add modules into their
  `Academic Planner` by instantiating a new `PartialModule` object and adding it into the `userModuleList` 
  and `userModuleMap`. Both the list and hashmap are the _java API_, which are used by importing them. The `Person` object
  is used to encapsulate both `userModuleList` and `userModuleMap`.
@@ -125,51 +123,64 @@ Additionally, add module command extends the `Command` class and overrides its `
 
 Given below is an example usage scenario and how add module command behaves at each step.
 
-{DIAGRAM FOR STEP 1: INITIAL STATE}
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/addModuleCommand_initialState.png" alt="Initial state diagram for AddModuleCommand"/>
+</div>
 
 **Step 1** : The user calls the add module command from the `AcademicPlannerParser`, which will initialise a 
-`AddModuleCommand`. `AddModuleCommand`'s constructor takes in parameters of `ModuleLoader`, `Person`,`Scanner`, 
+`AddModuleCommand`. `AddModuleCommand`'s constructor takes in parameters of `ModuleLoader`, `Person`,`Ui`, 
 and `String`. Below is a table of what each parameter corresponds to in the state diagram of the program.
 
 |Parameter|Corresponds to|Referred to as
 |:---:|:---:|:---:
 |`ModuleLoader`| Class representing all modules offered by NUS | `allModules`
 |`Person`| Class representing current user's information | `currentPerson`
-|`Scanner`| Class representing java's default scanner class | `in`
+|`Ui`| Class representing java's default scanner class | `in`
 |`String` | Class representing the module code to be added | `moduleCode`
 
- {DIAGRAM FOR STEP 2: WITH FH AND LOGGER}
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/addModuleCommand_state2.png" alt="State diagram for AddModuleCommand"/>
+</div>
 
 **Step 2** : `execute()` is called from the instance of `AddModuleCommand`. It can throw `AcademicException` 
 or `IOException`. `FileHandler` and `Logger` classes from the _java API_ are instantiated to handle logging for the 
 remainder of the `execute()` method. 
-
 
 **Step 3** : `in` then reads in the next two lines of input, which is the user's input for the desired semester for the 
 `moduleCode` and `moduleCode`'s grades.
 
 **Step 4** : `validateInputs()` is called to validate the user entered data against `allModules`.
 
-{DIAGRAM FOR STEP 5: with addutils }
-
 **Step 5** : `AddUtils` is called upon to return module credit for `moduleCode` by `getModuleCreditForModule()`.
 
-**Step 6** :  `AddUtils` is called upon again to add the module's data to the user, by instatiating a new
-`PartialModule` and storing it in both `userModuleList` and `userModuleMap`.
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/addModuleCommand_state6.png" alt="State diagram for AddModuleCommand"/>
+</div>
 
-**Step 7** : `FileHandler` terminated.
+**Step 6** :  `AddUtils` is called upon again to add the module's data to the user, by instantiating a new
+`PartialModule` and storing it in both `userModuleList` and `userModuleMap` via `Person`.
 
-**Step 8** : `AddModuleCommand` is terminated.
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/addModuleCommand_finalState.png" alt="Final state diagram for AddModuleCommand"/>
+</div>
+
+**Step 7** : `FileHandler`, `Logger`, `PartialModule`, `AddUtils` and `AddModuleCommand` terminated.
 
 The following sequence diagram shows how the `AddModuleCommand` works:
 
-{Sequence Diagram}
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/addModuleCommand_sequence.png" alt="Sequence diagram for AddModuleCommand"/>
+</div>
 
 The following activity diagram summarizes what happens when the user executes an `AddModuleCommand` :
 
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/addModuleCommand_activity.png" alt="Activity diagram for AddModuleCommand"/>
+</div>
+
 #### Design consideration
 
-The following were considered when implementing commands:
+The following options were considered when implementing commands:
 
 * Option 1 (Current Choice): As a class by itself
     * Pros: Increases modularity of code, higher overall code quality 
@@ -203,7 +214,6 @@ __Configuration guide__
 __DevOps guide__
 
 
-
 ## Appendix: Requirements
 
 ### Product scope
@@ -218,18 +228,16 @@ __Target user profile:__
 __Value proposition:__
 Provides NUS undergraduates with a platform to keep track of their academic progress and explore other possibilities with the plethora of modules available. 
 
-
-
 ### User stories
 
 | Version | As a ...                                                  | I want to ...                                                | So that I can ...                                            |
-| ------- | --------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| :-----: | --------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | v1.0    | fresh undergraduate                                       | visualize the modules in the recommended schedule and course requirements | better plan out my academic journey for the next 4-5 years in NUS |
 | v1.0    | undergraduate with at least 1 semester of study completed | calculate my CAP easily                                      | forecast my own expected graduation CAP and if they match my expected CAP |
 | v1.0    | undergraduate with at least 1 semester of study completed | print out a personalized list of modules taken so far and grades obtained | track my academic progression in NUS                         |
-| v2.0    | user                                                      | find a to-do item by name                                    | locate a to-do without having to go through the entire list  |
-
-
+| v2.0    | user of PlanNUS                                           | find modules I have completed in a particular semester  | view specific information I require about that semester without redundant information |
+| V2.0    | user of PlanNUS                                           | easily access my last made list | save time on retyping my academic calendar after each use                         
+| V2.0    | undergraduate with at least 1 semester of study completed | have suggestions on which modules to mark as S/U             | make an informed decision on which modules to S/U
 
 ### Use cases
 

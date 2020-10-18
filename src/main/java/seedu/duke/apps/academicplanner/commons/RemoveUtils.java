@@ -4,10 +4,8 @@ import seedu.duke.apps.capcalculator.commons.CalculatorUtils;
 import seedu.duke.global.objects.PartialModule;
 import seedu.duke.global.objects.Person;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * Class representing remove module utilities from the remove module command.
@@ -57,12 +55,17 @@ public class RemoveUtils {
      */
     private void depopulate(PartialModule module) {
         modulesList.remove(module);
+        updateHashmap();
+    }
 
+    /**
+     * Updates hashmap with the new module list.
+     */
+    private void updateHashmap() {
         HashMap<String, Integer> newModuleAddedMap = new HashMap<>();
         for (int i = 0; i < modulesList.size(); i++) {
             newModuleAddedMap.put(modulesList.get(i).getModuleCode(), i);
         }
-
         currentPerson.setModulesAddedMap(newModuleAddedMap);
     }
 }
