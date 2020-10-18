@@ -37,7 +37,7 @@ public class PlanNus {
      * Main entry function for PlanNUS.
      */
     public void run() {
-        assert isExit: "Startup is unsuccessful";
+        assert isExit : "Startup is unsuccessful";
 
         ui.showWelcomeMessage();
         storage.loader(currentPerson);
