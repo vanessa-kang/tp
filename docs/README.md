@@ -11,7 +11,7 @@ With the `CAP Calulator` , plaNUS will be able to tell you your current CAP and 
 1. All Fresh NUS Undergraduates
 1. NUS Undergraduates who have completed at least 1 semester of study
 
-## Feature List (for V1.0)
+## Feature List (for V2.0)
 
 1. Academic Calendar Planner
     1. Add module
@@ -33,4 +33,3 @@ With the `CAP Calulator` , plaNUS will be able to tell you your current CAP and 
 * [User Guide](https://ay2021s1-cs2113t-f12-1.github.io/tp/UserGuide.html "User Guide")
 * [Developer Guide](https://ay2021s1-cs2113t-f12-1.github.io/tp/DeveloperGuide.html "Developer Guide")
 * [About Us](https://ay2021s1-cs2113t-f12-1.github.io/tp/AboutUs.html "About Us")
-* [Planning Document](https://docs.google.com/document/d/1ikOD_2NS2qUSGtQJpqbVWX7g5mAFV6_jxhiAlka_SSs/edit?usp=sharing "Collaborative Document")
