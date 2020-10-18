@@ -114,7 +114,7 @@ Classes used by multiple components are in the `src.main.java.global` package.
 
 {Exact diagram and corresponding descriptions to be added}
 
-The proposed add module command is facilitated by `AcademicPlannerParser`. It allows users to add modules into their
+Add module command is executed by `AcademicPlannerParser`. It allows users to add modules into their
  `Academic Planner` by instantiating a new `PartialModule` object and adding it into the `userModuleList` 
  and `userModuleMap`. Both the list and hashmap are the _java API_, which are used by importing them. The `Person` object
  is used to encapsulate both `userModuleList` and `userModuleMap`.
@@ -154,12 +154,10 @@ remainder of the `execute()` method.
 
 **Step 5** : `AddUtils` is called upon to return module credit for `moduleCode` by `getModuleCreditForModule()`.
 
-**Step 6** :  `AddUtils` is called upon again to add the module's data to the user, by instatiating a new
-`PartialModule` and storing it in both `userModuleList` and `userModuleMap`.
+**Step 6** :  `AddUtils` is called upon again to add the module's data to the user, by instantiating a new
+`PartialModule` and storing it in both `userModuleList` and `userModuleMap` via `Person`.
 
-**Step 7** : `FileHandler` terminated.
-
-**Step 8** : `AddModuleCommand` is terminated.
+**Step 7** : `FileHandler` and `AddModuleCommand` terminated.
 
 The following sequence diagram shows how the `AddModuleCommand` works:
 
@@ -167,9 +165,11 @@ The following sequence diagram shows how the `AddModuleCommand` works:
 
 The following activity diagram summarizes what happens when the user executes an `AddModuleCommand` :
 
+{Activity Diagram}
+
 #### Design consideration
 
-The following were considered when implementing commands:
+The following options were considered when implementing commands:
 
 * Option 1 (Current Choice): As a class by itself
     * Pros: Increases modularity of code, higher overall code quality 
@@ -203,7 +203,6 @@ __Configuration guide__
 __DevOps guide__
 
 
-
 ## Appendix: Requirements
 
 ### Product scope
@@ -218,18 +217,16 @@ __Target user profile:__
 __Value proposition:__
 Provides NUS undergraduates with a platform to keep track of their academic progress and explore other possibilities with the plethora of modules available. 
 
-
-
 ### User stories
 
 | Version | As a ...                                                  | I want to ...                                                | So that I can ...                                            |
-| ------- | --------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| :-----: | --------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | v1.0    | fresh undergraduate                                       | visualize the modules in the recommended schedule and course requirements | better plan out my academic journey for the next 4-5 years in NUS |
 | v1.0    | undergraduate with at least 1 semester of study completed | calculate my CAP easily                                      | forecast my own expected graduation CAP and if they match my expected CAP |
 | v1.0    | undergraduate with at least 1 semester of study completed | print out a personalized list of modules taken so far and grades obtained | track my academic progression in NUS                         |
-| v2.0    | user                                                      | find a to-do item by name                                    | locate a to-do without having to go through the entire list  |
-
-
+| v2.0    | user of PlanNUS                                           | find modules I have completed in a particular semester  | view specific information I require about that semester without redundant information |
+| V2.0    | user of PlanNUS                                           | easily access my last made list | save time on retyping my academic calendar after each use                         
+| V2.0    | undergraduate with at least 1 semester of study completed | have suggestions on which modules to mark as S/U             | make an informed decision on which modules to S/U
 
 ### Use cases
 
