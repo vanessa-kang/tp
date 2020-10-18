@@ -167,7 +167,9 @@ The following sequence diagram shows how the `AddModuleCommand` works:
 
 The following activity diagram summarizes what happens when the user executes an `AddModuleCommand` :
 
-{Activity Diagram}
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/addModuleCommand_activity.png" alt="Activity diagram for AddModuleCommand"/>
+</div>
 
 #### Design consideration
 
