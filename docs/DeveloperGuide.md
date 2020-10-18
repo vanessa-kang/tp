@@ -82,7 +82,6 @@ The interaction within each package should ideally be as shown below.
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/Project_structure.png" alt="Architecture diagram for ideal project structure in PlanNUS"/>
 </div>
-
 *Note that while this is the ideal case, packages such as* `global`, `parser` *and* `ui` *might not strictly follow this structure due to these package serving a different function altogether (Refer to the sections below for more details.)*
 
 ### Lifecycle of PlanNUS
@@ -188,6 +187,14 @@ The following options were considered when implementing commands:
 * Option 2: As a method in a class
     * Pros: Easier to implement
     * Cons: Class needs to be instantiated and increases coupling, reducing testability.
+
+### Academic Calendar Planner: Edit Module Feature
+
+#### Current implementation
+
+Similar to the add module command, the edit module command is also executed by `AcademicPlannerParser`. It allows users to edit the existing modules added to their `Academic Planner` by first accessing the specified `PartialModule` object within the `userModuleList`and `userModuleMap`. 
+
+
 
 ### CAP Calculator features (i.e. current and set target)
 
