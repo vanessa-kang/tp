@@ -161,7 +161,9 @@ remainder of the `execute()` method.
 
 The following sequence diagram shows how the `AddModuleCommand` works:
 
-{Sequence Diagram}
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/addModuleCommand_sequence.png" alt="Sequence diagram for AddModuleCommand"/>
+</div>
 
 The following activity diagram summarizes what happens when the user executes an `AddModuleCommand` :
 
