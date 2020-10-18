@@ -6,7 +6,6 @@ import seedu.duke.apps.academicplanner.commons.ModuleValidator;
 import seedu.duke.apps.academicplanner.exceptions.AcademicException;
 import seedu.duke.global.Command;
 import seedu.duke.global.LoggingTool;
-import seedu.duke.global.objects.FullModule;
 import seedu.duke.global.objects.Person;
 import java.io.IOException;
 import java.util.Scanner;
