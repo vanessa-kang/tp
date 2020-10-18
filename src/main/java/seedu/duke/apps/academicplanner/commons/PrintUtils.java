@@ -63,6 +63,11 @@ public class PrintUtils {
         }
     }
 
+    /**
+     * Prints out detailed information about a module.
+     *
+     * @param module FullModule object, contains all information about a module.
+     */
     public void printModuleDetails(FullModule module) {
 
         String semOfferedStr = module.getSemester().toString();
@@ -78,6 +83,24 @@ public class PrintUtils {
                                 + module.getCorequisite().replaceAll("\n","\n\t" + printSpace(13)));
         System.out.println("\t" + "Preclusions: "
                                 + module.getPreclusion().replaceAll("\n","\n\t"  + printSpace(13)));
+    }
+
+    /**
+     * Prints out list of module codes that matches the user's search key.
+     *
+     * @param matchList arrayList of module codes that matches the search key.
+     * @param maxResults maximum number of results to be printed.
+     */
+
+    public void printMatchModules(ArrayList<String> matchList, int maxResults) {
+
+        String grammar = matchList.size() == 1 ? "module." : "modules.";
+
+        System.out.println("Note: Only up to the first " + maxResults + " results are displayed.");
+        System.out.println("Found " + matchList.size() + " matching " + grammar);
+        for (String matches: matchList) {
+            System.out.println(matches);
+        }
     }
 
     /**

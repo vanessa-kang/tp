@@ -151,7 +151,7 @@ This is for the user to set modules that he or she wishes to S/U.
 
 As shown in the image, user can choose to S/U by either a _Semester_ or some selected _Modules_. (__Note:__ Enter either `1` or `2` instead of the component's name)
 
-##### Set S/U by semester:
+##### Set S/U by semester
 
 Expected output when user wishes to S/U by _Semester_.
 
@@ -168,7 +168,7 @@ __<ins>Caution:</ins>__
 * Only modules that can be S/Ued are added into the S/U list.
 * Modules with special grades are filtered out.
 
-##### Set S/U by modules:
+##### Set S/U by modules
 
 Expected output when user wishes to S/U by _Modules_.
 
@@ -208,7 +208,6 @@ Last but not least, the expected output for exiting PlanNUS will be as such:
 <img src="images/exit_PlanNUS.png" />
 
 Input format: `exit`
-
 
 
 ## Loading and Saving 
