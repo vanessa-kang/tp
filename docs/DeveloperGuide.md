@@ -200,7 +200,6 @@ The following options were considered when implementing commands:
 {Exact diagram and corresponding descriptions to be added}
 
 
-
 ## Documentation, logging, testing, configuration, dev-ops
 
 __Documentation guide__
