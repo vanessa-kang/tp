@@ -83,7 +83,6 @@ The interaction within each package should ideally be as shown below.
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/Project_structure.png" alt="Architecture diagram for ideal project structure in PlanNUS"/>
 </div>
-
 *Note that while this is the ideal case, packages such as* `global`, `parser` *and* `ui` *might not strictly follow this structure due to these package serving a different function altogether (Refer to the sections below for more details.)*
 
 ### Lifecycle of PlanNUS
@@ -189,6 +188,91 @@ The following options were considered when implementing commands:
 * Option 2: As a method in a class
     * Pros: Easier to implement
     * Cons: Class needs to be instantiated and increases coupling, reducing testability.
+
+### Academic Calendar Planner: Edit Module Feature
+
+#### Current implementation
+
+Similar to the add module command, the edit module command is also executed by `AcademicPlannerParser`. It allows the user to edit the existing modules added to their `Academic Planner` by accessing the specified `PartialModule` object within the `userModuleList`and `userModuleMap`. 
+
+Given below is an example usage scenario and how add module command behaves at each step.
+
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/editModuleCommand_initialState.png" alt="Sequence diagram for AddModuleCommand"/>
+</div>
+
+__Step 1:__ The user calls the edit module command from the `AcademicPlannerParser` and  then `EditModuleCommand` will be initialized where its constructor would take in the same parameters as that of `AddModuleCommand`.
+
+__Step 2:__ The `execute()` method is called from the instance of `EditModuleCommand` which only throws `AcademicException` if applicable.
+
+__Step 3:__ Method `isModTakenByUser()` of the `ModuleValidator` is called to check if the `moduleCode` entered by the user exists within the `userModuleList` and `userModuleMap`.
+
+__Step 4:__ `in` reads the next line of input for user's choice of modifying either the semester or grade of the selected `moduleCode`.
+
+__Step 5:__ `isValidSemester()` or `isValidGrade()` is called to validate the semester or grade entered by the user.
+
+__Step 6:__ `updateModuleSemester()` or `updateModuleGrade()` is then called to conduct necessary changes to the information by accessing the module from `userModuleMap` and `userModuleList`.
+
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/editModuleCommand_finalState.png" alt="Sequence diagram for AddModuleCommand"/>
+</div>
+
+__Step 7:__ `EditModuleCommand`, `EditUtils` and `ModuleValidator` are terminated.
+
+The following sequence diagram shows how `EditModuleCommand` works.
+
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/editModuleCommand_sequence.png" alt="Sequence diagram for AddModuleCommand"/>
+</div>
+
+
+The following diagram summarizes what happens when the user executes an `EditModuleCommand`: 
+
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/editModuleCommand_activity.png" alt="Sequence diagram for AddModuleCommand"/>
+</div>
+
+### Academic Calendar Planner: Remove Module Feature
+
+#### Current implementation
+
+The remove module command is executed by `AcademicPlannerParser` just like the commands for add and edit. This feature allows the user to delete any existing modules added to their `Academic Planner`.  by first accessing the specified `PartialModule` object within the `userModuleList`and `userModuleMap`.
+
+Given below is an example usage scenario and how remove module command behaves at each step.
+
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/removeModuleCommand_initialState.png" alt="Sequence diagram for AddModuleCommand"/>
+</div>
+
+__Step 1:__ The user calls the edit module command from the `AcademicPlannerParser` and  then `RemoveModuleCommand` will be initialized where its constructor would take in the same parameters as that of `AddModuleCommand` and `EditModuleCommand`.
+
+__Step 2:__ The `execute()` method is called from the instance of `RemoveModuleCommand` which only throws `AcademicException` if applicable.
+
+__Step 3:__ Method `isModTakenByUser()` of the `ModuleValidator` is called to check if the `moduleCode` entered by the user exists within the `userModuleList` and `userModuleMap`.
+
+__Step 4:__ `removeModuleFromUserModuleList()` of `removeUtils` is then called to delete the specified `moduleCode`.
+
+__Step 5:__ The`depopulate()` method deletes the module object by accessing it from `userModuleMap` and `userModuleList` before updating the both the hashmap and the array list.
+
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/removeModuleCommand_finalState.png" alt="Sequence diagram for AddModuleCommand"/>
+</div>
+
+__Step 6:__ `RemoveModuleCommand`, `RemoveUtils` and `ModuleValidator` are terminated.
+
+The following sequence diagram shows how `RemoveModuleCommand` works.
+
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/removeModuleCommand_sequence.png" alt="Sequence diagram for AddModuleCommand"/>
+</div>
+
+The following diagram summarizes what happens when the user executes an `RemoveModuleCommand`: 
+
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/removeModuleCommand_activity.png" alt="Sequence diagram for AddModuleCommand"/>
+</div>
+
+
 
 ### CAP Calculator features (i.e. current and set target)
 
