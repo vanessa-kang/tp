@@ -82,7 +82,7 @@ class SetSuUtilsTest {
             suList = setSuUtils.getSuListBySemester(4);
             assertEquals(suList.size(),0);
         } catch (CapCalculatorException e) {
-            assertEquals(e.getMessage(),EMPTY_LIST_ERROR +  NEW_LINE + EXITING_CURRENT_COMMAND);
+            assertEquals(e.getMessage(),EMPTY_LIST_ERROR + NEW_LINE + EXITING_CURRENT_COMMAND);
         }
     }
 
@@ -108,7 +108,7 @@ class SetSuUtilsTest {
         try {
             suModule = setSuUtils.getSuModule(filteredList, "MA1511");
         } catch (CapCalculatorException e) {
-            assertEquals(e.getMessage(),INVALID_MODULE_ERROR + NEW_LINE +EXITING_CURRENT_COMMAND);
+            assertEquals(e.getMessage(),INVALID_MODULE_ERROR + NEW_LINE + EXITING_CURRENT_COMMAND);
         }
     }
 }
