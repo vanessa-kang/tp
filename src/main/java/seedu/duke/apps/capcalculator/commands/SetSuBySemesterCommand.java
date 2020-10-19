@@ -14,14 +14,10 @@ import java.util.Scanner;
  */
 public class SetSuBySemesterCommand extends Command {
 
-    private Person currentPerson;
-    private Scanner in;
     private SetSuUtils setSuUtils;
     private ArrayList<PartialModule> suList;
 
     public SetSuBySemesterCommand(Person currentPerson, Scanner in) {
-        this.currentPerson = currentPerson;
-        this.in = in;
         this.setSuUtils = new SetSuUtils(currentPerson, in);
     }
 
