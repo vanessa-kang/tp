@@ -5,9 +5,10 @@ Before reading this document, you are recommended to read through the user guide
 * Table of contents
 {:toc}
 
+
 ## Setting up PlanNUS
 
-First and foremost, the following steps are assuming that you already have a [GitHub](github.com) account set up beforehand. Once this has been done, proceed to __fork__ this [repo](https://github.com/AY2021S1-CS2113T-F12-1/tp), and __clone__ the fork into your computer using [Sourcetree](<sourcetreeapp.com>) or any other _Git GUI_.
+First and foremost, the following steps are assuming that you already have a [GitHub](https://github.com) account set up beforehand. Once this has been done, proceed to __fork__ this [repo](https://github.com/AY2021S1-CS2113T-F12-1/tp), and __clone__ the fork into your computer using [Sourcetree](<sourcetreeapp.com>) or any other _Git GUI_.
 
 The _IDE_ to be used should contain the latest version of _Java_ as this is the main programming language for this application. Thus you are highly recommended to use Intellij IDEA.
 
@@ -219,7 +220,12 @@ with the following parameters :
 * setLevel(Level.INFO)
     * Any message logged `Level.INFO` and above will be logged
 
-After initialising, the `logger` can be used as per _java API_ constraints.
+After initialising, the `logger` can be used as per _java API_ constraints. Below shows an example code snippet that can be used to initialise a `logger`:
+
+```
+FileHandler fh = new FileHandler(<YOUR_LOG_FILE_NAME>);
+Logger logger = new LoggingTool(<YOUR_LOGGER_NAME>,fh).initialize();
+```
 
 __Configuration guide__
 
@@ -238,18 +244,21 @@ __Target user profile:__
 * prefers using desktop or laptop instead of other electronic devices
 
 __Value proposition:__
-Provides NUS undergraduates with a platform to keep track of their academic progress and explore other possibilities with the plethora of modules available. 
+Provides NUS undergraduates with a platform to keep track of their academic progress and explore other possibilities with the plethora of modules available. In addition, provides NUS undergraduates with an avenue to have an automatic calculation
+of their scores and receive information regarding the use of their Satisfactory / Unsatisfactory options. 
 
 ### User stories
 
-| Version | As a ...                                                  | I want to ...                                                | So that I can ...                                            |
-| :-----: | --------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| v1.0    | fresh undergraduate                                       | visualize the modules in the recommended schedule and course requirements | better plan out my academic journey for the next 4-5 years in NUS |
-| v1.0    | undergraduate with at least 1 semester of study completed | calculate my CAP easily                                      | forecast my own expected graduation CAP and if they match my expected CAP |
-| v1.0    | undergraduate with at least 1 semester of study completed | print out a personalized list of modules taken so far and grades obtained | track my academic progression in NUS                         |
-| v2.0    | user of PlanNUS                                           | find modules I have completed in a particular semester  | view specific information I require about that semester without redundant information |
-| V2.0    | user of PlanNUS                                           | easily access my last made list | save time on retyping my academic calendar after each use                         
-| V2.0    | undergraduate with at least 1 semester of study completed | have suggestions on which modules to mark as S/U             | make an informed decision on which modules to S/U
+| Version | As a ...                                                  | I want to ...                                                             | So that I can ...                                                                     |
+| :-----: | --------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| v1.0    | fresh undergraduate                                       | visualize the modules in the recommended schedule and course requirements | better plan out my academic journey for the next 4-5 years in NUS                     |
+| v1.0    | undergraduate with at least 1 semester of study completed | calculate my CAP easily                                                   | forecast my own expected graduation CAP and if they match my expected CAP             |
+| v1.0    | undergraduate with at least 1 semester of study completed | print out a personalized list of modules taken so far and grades obtained | track my academic progression in NUS                                                  |
+| v2.0    | user of PlanNUS                                           | find modules I have completed in a particular semester                    | view specific information I require about that semester without redundant information |
+| V2.0    | user of PlanNUS                                           | easily access my last made list                                           | save time on retyping my academic calendar after each use                             |
+| V2.0    | user of PlanNUS                                           | view module details                                                       | make an informed decision on which modules to take up during the semester             |
+| V2.0    | user of PlanNUS                                           | search modules by their partial keys                                      | view more modules with similar subject codes                                          |
+| V2.0    | undergraduate with at least 1 semester of study completed | have suggestions on which modules to mark as S/U                          | make an informed decision on which modules to S/U                                     |
 
 ### Use cases
 
@@ -293,7 +302,15 @@ __Extensions__
 
 ### Non-Functional Requirements
 
-{More to be added}
+* General
+    * Commands entered should be short and intuitive to reduce mistyping of commands
+    * Program should be compatible on a wide range of devices
+* Academic Planner
+    * Viewing of Academic Calendar should be intuitive as a complicated or messy output compromises usability of PlanNUS
+    * Only verified modules offered by NUS should be able to be added to prevent confusion
+    * The navigation between applications should be intuitive
+* CAP Calculator
+    * Data should be shared between applications in order to reduce redundant typing from the user
 
 ### Glossary
 

@@ -17,11 +17,11 @@ With the `CAP Calulator` , plaNUS will be able to tell you your current CAP and 
     * Add module
     * Edit module
     * Remove module
+    * View module details
+    * Search for module by keyword
     * Print Calendar
         * Full Calendar
         * Semester Calendar
-    * View module details
-    * Search for module by keyword
 * CAP Calculator
     * Get current CAP
     * Get results need for target CAP
