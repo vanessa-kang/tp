@@ -22,6 +22,9 @@ class SetSuUtilsTest {
 
     private static final String EMPTY_LIST_ERROR = "Looks like your S/U list is empty!";
     private static final String INVALID_MODULE_ERROR = "Looks like the module you entered is not a valid module!";
+    private static final String EXITING_CURRENT_COMMAND = "Exiting current command back to CapCalculatorApp Main Menu.";
+    private static final String NEW_LINE = "\n";
+
     Person currentPerson;
     AddUtils addUtils;
     SetSuUtils setSuUtils;
@@ -79,7 +82,7 @@ class SetSuUtilsTest {
             suList = setSuUtils.getSuListBySemester(4);
             assertEquals(suList.size(),0);
         } catch (CapCalculatorException e) {
-            assertEquals(e.getMessage(),EMPTY_LIST_ERROR);
+            assertEquals(e.getMessage(),EMPTY_LIST_ERROR +  NEW_LINE + EXITING_CURRENT_COMMAND);
         }
     }
 
@@ -105,7 +108,7 @@ class SetSuUtilsTest {
         try {
             suModule = setSuUtils.getSuModule(filteredList, "MA1511");
         } catch (CapCalculatorException e) {
-            assertEquals(e.getMessage(),INVALID_MODULE_ERROR);
+            assertEquals(e.getMessage(),INVALID_MODULE_ERROR + NEW_LINE +EXITING_CURRENT_COMMAND);
         }
     }
 }
