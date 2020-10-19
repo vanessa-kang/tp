@@ -105,7 +105,7 @@ Example of usage:
 * `details CS2101`
 * `DETAILS cs2113t`
 
-<img src="images/acadplan_details.PNG" width = "800"/>
+<img src="images/acadplan_details.png" width = "800"/>
 
 As shown in the image, users can input the module that they wish to view further details about.
 
@@ -123,9 +123,9 @@ Example of usage:
 * `search CS21`
 * `SEARCH cg4002`
 
-<img src="images/acadplan_search_part.PNG"/>
+<img src="images/acadplan_search_part.png"/>
 
-<img src="images/acadplan_search_full.PNG"/>
+<img src="images/acadplan_search_full.png"/>
 
 As shown above, users can enter a search key that contains either part of, or the whole module code.
 
