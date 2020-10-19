@@ -5,9 +5,10 @@ Before reading this document, you are recommended to read through the user guide
 * Table of contents
 {:toc}
 
+
 ## Setting up PlanNUS
 
-First and foremost, the following steps are assuming that you already have a [GitHub](github.com) account set up beforehand. Once this has been done, proceed to __fork__ this [repo](https://github.com/AY2021S1-CS2113T-F12-1/tp), and __clone__ the fork into your computer using [Sourcetree](<sourcetreeapp.com>) or any other _Git GUI_.
+First and foremost, the following steps are assuming that you already have a [GitHub](https://github.com) account set up beforehand. Once this has been done, proceed to __fork__ this [repo](https://github.com/AY2021S1-CS2113T-F12-1/tp), and __clone__ the fork into your computer using [Sourcetree](<sourcetreeapp.com>) or any other _Git GUI_.
 
 The _IDE_ to be used should contain the latest version of _Java_ as this is the main programming language for this application. Thus you are highly recommended to use Intellij IDEA.
 
@@ -222,8 +223,8 @@ with the following parameters :
 After initialising, the `logger` can be used as per _java API_ constraints. Below shows an example code snippet that can be used to initialise a `logger`:
 
 ```
-FileHandler fh = new FileHandler(YOUR_LOG_FILE_NAME);
-Logger logger = new LoggingTool(YOUR_LOGGER_NAME,fh).initialize();
+FileHandler fh = new FileHandler(<YOUR_LOG_FILE_NAME>);
+Logger logger = new LoggingTool(<YOUR_LOGGER_NAME>,fh).initialize();
 ```
 
 __Configuration guide__
@@ -243,7 +244,8 @@ __Target user profile:__
 * prefers using desktop or laptop instead of other electronic devices
 
 __Value proposition:__
-Provides NUS undergraduates with a platform to keep track of their academic progress and explore other possibilities with the plethora of modules available. 
+Provides NUS undergraduates with a platform to keep track of their academic progress and explore other possibilities with the plethora of modules available. In addition, provides NUS undergraduates with an avenue to have an automatic calculation
+of their scores and receive information regarding the use of their Satisfactory / Unsatisfactory options. 
 
 ### User stories
 
@@ -302,6 +304,7 @@ __Extensions__
 
 * General
     * Commands entered should be short and intuitive to reduce mistyping of commands
+    * Program should be compatible on a wide range of devices
 * Academic Planner
     * Viewing of Academic Calendar should be intuitive as a complicated or messy output compromises usability of PlanNUS
     * Only verified modules offered by NUS should be able to be added to prevent confusion
