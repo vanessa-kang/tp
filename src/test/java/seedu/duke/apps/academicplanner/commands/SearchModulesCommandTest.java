@@ -9,14 +9,14 @@ import java.util.ArrayList;
 
 class SearchModulesCommandTest {
 
-    private static final String PARTIAL_CODE_TEST = "cg40";
+    private static final String PARTIAL_CODE_TEST = "cg40".toUpperCase();
     private static final int PARTIAL_CODE_RESULT = 3;
     private static final ArrayList<String> PARTIAL_CODE_RESULT_LIST = new ArrayList<>() {{
             add("CG4001");
             add("CG4002");
             add("CG4003");
         }};
-    private static final String FULL_CODE_TEST = "cs1010";
+    private static final String FULL_CODE_TEST = "cs1010".toUpperCase();
     private static final int FULL_CODE_RESULT = 7;
     private static final ArrayList<String> FULL_CODE_RESULT_LIST = new ArrayList<>() {{
             add("CS1010");
@@ -44,7 +44,7 @@ class SearchModulesCommandTest {
 
     @Test
     void searchmodules_partialcode_success() {
-        keyword = PARTIAL_CODE_TEST.toUpperCase();
+        keyword = PARTIAL_CODE_TEST;
         searcher = new SearchModulesCommand(allModules,keyword);
         searcher.execute();
         testList = searcher.matchList;
@@ -54,7 +54,7 @@ class SearchModulesCommandTest {
 
     @Test
     void searchmodules_fullcode_success() {
-        keyword = FULL_CODE_TEST.toUpperCase();
+        keyword = FULL_CODE_TEST;
         searcher = new SearchModulesCommand(allModules,keyword);
         searcher.execute();
         testList = searcher.matchList;
