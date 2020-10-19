@@ -24,8 +24,6 @@ public class SetTargetCommand extends Command {
 
     private static Logger logger;
     private static FileHandler fh;
-    private Person currentPerson;
-    private Ui ui;
     private SetTargetUtils setTargetUtils;
 
     public SetTargetCommand(Person currentPerson, Scanner in) {

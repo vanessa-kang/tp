@@ -5,9 +5,10 @@ Before reading this document, you are recommended to read through the user guide
 * Table of contents
 {:toc}
 
+
 ## Setting up PlanNUS
 
-First and foremost, the following steps are assuming that you already have a [GitHub](github.com) account set up beforehand. Once this has been done, proceed to __fork__ this [repo](https://github.com/AY2021S1-CS2113T-F12-1/tp), and __clone__ the fork into your computer using [Sourcetree](<sourcetreeapp.com>) or any other _Git GUI_.
+First and foremost, the following steps are assuming that you already have a [GitHub](https://github.com) account set up beforehand. Once this has been done, proceed to __fork__ this [repo](https://github.com/AY2021S1-CS2113T-F12-1/tp), and __clone__ the fork into your computer using [Sourcetree](<sourcetreeapp.com>) or any other _Git GUI_.
 
 The _IDE_ to be used should contain the latest version of _Java_ as this is the main programming language for this application. Thus you are highly recommended to use Intellij IDEA.
 
@@ -82,7 +83,6 @@ The interaction within each package should ideally be as shown below.
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/Project_structure.png" alt="Architecture diagram for ideal project structure in PlanNUS"/>
 </div>
-
 *Note that while this is the ideal case, packages such as* `global`, `parser` *and* `ui` *might not strictly follow this structure due to these package serving a different function altogether (Refer to the sections below for more details.)*
 
 ### Lifecycle of PlanNUS
@@ -189,6 +189,91 @@ The following options were considered when implementing commands:
     * Pros: Easier to implement
     * Cons: Class needs to be instantiated and increases coupling, reducing testability.
 
+### Academic Calendar Planner: Edit Module Feature
+
+#### Current implementation
+
+Similar to the add module command, the edit module command is also executed by `AcademicPlannerParser`. It allows the user to edit the existing modules added to their `Academic Planner` by accessing the specified `PartialModule` object within the `userModuleList`and `userModuleMap`. 
+
+Given below is an example usage scenario and how add module command behaves at each step.
+
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/editModuleCommand_initialState.png" alt="Sequence diagram for AddModuleCommand"/>
+</div>
+
+__Step 1:__ The user calls the edit module command from the `AcademicPlannerParser` and  then `EditModuleCommand` will be initialized where its constructor would take in the same parameters as that of `AddModuleCommand`.
+
+__Step 2:__ The `execute()` method is called from the instance of `EditModuleCommand` which only throws `AcademicException` if applicable.
+
+__Step 3:__ Method `isModTakenByUser()` of the `ModuleValidator` is called to check if the `moduleCode` entered by the user exists within the `userModuleList` and `userModuleMap`.
+
+__Step 4:__ `in` reads the next line of input for user's choice of modifying either the semester or grade of the selected `moduleCode`.
+
+__Step 5:__ `isValidSemester()` or `isValidGrade()` is called to validate the semester or grade entered by the user.
+
+__Step 6:__ `updateModuleSemester()` or `updateModuleGrade()` is then called to conduct necessary changes to the information by accessing the module from `userModuleMap` and `userModuleList`.
+
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/editModuleCommand_finalState.png" alt="Sequence diagram for AddModuleCommand"/>
+</div>
+
+__Step 7:__ `EditModuleCommand`, `EditUtils` and `ModuleValidator` are terminated.
+
+The following sequence diagram shows how `EditModuleCommand` works.
+
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/editModuleCommand_sequence.png" alt="Sequence diagram for AddModuleCommand"/>
+</div>
+
+
+The following diagram summarizes what happens when the user executes an `EditModuleCommand`: 
+
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/editModuleCommand_activity.png" alt="Sequence diagram for AddModuleCommand"/>
+</div>
+
+### Academic Calendar Planner: Remove Module Feature
+
+#### Current implementation
+
+The remove module command is executed by `AcademicPlannerParser` just like the commands for add and edit. This feature allows the user to delete any existing modules added to their `Academic Planner`.  by first accessing the specified `PartialModule` object within the `userModuleList`and `userModuleMap`.
+
+Given below is an example usage scenario and how remove module command behaves at each step.
+
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/removeModuleCommand_initialState.png" alt="Sequence diagram for AddModuleCommand"/>
+</div>
+
+__Step 1:__ The user calls the edit module command from the `AcademicPlannerParser` and  then `RemoveModuleCommand` will be initialized where its constructor would take in the same parameters as that of `AddModuleCommand` and `EditModuleCommand`.
+
+__Step 2:__ The `execute()` method is called from the instance of `RemoveModuleCommand` which only throws `AcademicException` if applicable.
+
+__Step 3:__ Method `isModTakenByUser()` of the `ModuleValidator` is called to check if the `moduleCode` entered by the user exists within the `userModuleList` and `userModuleMap`.
+
+__Step 4:__ `removeModuleFromUserModuleList()` of `removeUtils` is then called to delete the specified `moduleCode`.
+
+__Step 5:__ The`depopulate()` method deletes the module object by accessing it from `userModuleMap` and `userModuleList` before updating the both the hashmap and the array list.
+
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/removeModuleCommand_finalState.png" alt="Sequence diagram for AddModuleCommand"/>
+</div>
+
+__Step 6:__ `RemoveModuleCommand`, `RemoveUtils` and `ModuleValidator` are terminated.
+
+The following sequence diagram shows how `RemoveModuleCommand` works.
+
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/removeModuleCommand_sequence.png" alt="Sequence diagram for AddModuleCommand"/>
+</div>
+
+The following diagram summarizes what happens when the user executes an `RemoveModuleCommand`: 
+
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/removeModuleCommand_activity.png" alt="Sequence diagram for AddModuleCommand"/>
+</div>
+
+
+
 ### CAP Calculator features (i.e. current and set target)
 
 #### Proposed implementation
@@ -198,7 +283,6 @@ The following options were considered when implementing commands:
 #### Design consideration
 
 {Exact diagram and corresponding descriptions to be added}
-
 
 
 ## Documentation, logging, testing, configuration, dev-ops
@@ -220,7 +304,12 @@ with the following parameters :
 * setLevel(Level.INFO)
     * Any message logged `Level.INFO` and above will be logged
 
-After initialising, the `logger` can be used as per _java API_ constraints.
+After initialising, the `logger` can be used as per _java API_ constraints. Below shows an example code snippet that can be used to initialise a `logger`:
+
+```
+FileHandler fh = new FileHandler(<YOUR_LOG_FILE_NAME>);
+Logger logger = new LoggingTool(<YOUR_LOGGER_NAME>,fh).initialize();
+```
 
 __Configuration guide__
 
@@ -239,18 +328,21 @@ __Target user profile:__
 * prefers using desktop or laptop instead of other electronic devices
 
 __Value proposition:__
-Provides NUS undergraduates with a platform to keep track of their academic progress and explore other possibilities with the plethora of modules available. 
+Provides NUS undergraduates with a platform to keep track of their academic progress and explore other possibilities with the plethora of modules available. In addition, provides NUS undergraduates with an avenue to have an automatic calculation
+of their scores and receive information regarding the use of their Satisfactory / Unsatisfactory options. 
 
 ### User stories
 
-| Version | As a ...                                                  | I want to ...                                                | So that I can ...                                            |
-| :-----: | --------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| v1.0    | fresh undergraduate                                       | visualize the modules in the recommended schedule and course requirements | better plan out my academic journey for the next 4-5 years in NUS |
-| v1.0    | undergraduate with at least 1 semester of study completed | calculate my CAP easily                                      | forecast my own expected graduation CAP and if they match my expected CAP |
-| v1.0    | undergraduate with at least 1 semester of study completed | print out a personalized list of modules taken so far and grades obtained | track my academic progression in NUS                         |
-| v2.0    | user of PlanNUS                                           | find modules I have completed in a particular semester  | view specific information I require about that semester without redundant information |
-| V2.0    | user of PlanNUS                                           | easily access my last made list | save time on retyping my academic calendar after each use                         
-| V2.0    | undergraduate with at least 1 semester of study completed | have suggestions on which modules to mark as S/U             | make an informed decision on which modules to S/U
+| Version | As a ...                                                  | I want to ...                                                             | So that I can ...                                                                     |
+| :-----: | --------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| v1.0    | fresh undergraduate                                       | visualize the modules in the recommended schedule and course requirements | better plan out my academic journey for the next 4-5 years in NUS                     |
+| v1.0    | undergraduate with at least 1 semester of study completed | calculate my CAP easily                                                   | forecast my own expected graduation CAP and if they match my expected CAP             |
+| v1.0    | undergraduate with at least 1 semester of study completed | print out a personalized list of modules taken so far and grades obtained | track my academic progression in NUS                                                  |
+| v2.0    | user of PlanNUS                                           | find modules I have completed in a particular semester                    | view specific information I require about that semester without redundant information |
+| V2.0    | user of PlanNUS                                           | easily access my last made list                                           | save time on retyping my academic calendar after each use                             |
+| V2.0    | user of PlanNUS                                           | view module details                                                       | make an informed decision on which modules to take up during the semester             |
+| V2.0    | user of PlanNUS                                           | search modules by their partial keys                                      | view more modules with similar subject codes                                          |
+| V2.0    | undergraduate with at least 1 semester of study completed | have suggestions on which modules to mark as S/U                          | make an informed decision on which modules to S/U                                     |
 
 ### Use cases
 
@@ -294,7 +386,15 @@ __Extensions__
 
 ### Non-Functional Requirements
 
-{More to be added}
+* General
+    * Commands entered should be short and intuitive to reduce mistyping of commands
+    * Program should be compatible on a wide range of devices
+* Academic Planner
+    * Viewing of Academic Calendar should be intuitive as a complicated or messy output compromises usability of PlanNUS
+    * Only verified modules offered by NUS should be able to be added to prevent confusion
+    * The navigation between applications should be intuitive
+* CAP Calculator
+    * Data should be shared between applications in order to reduce redundant typing from the user
 
 ### Glossary
 
