@@ -10,7 +10,7 @@ public class SearchModulesCommand extends Command {
 
     private final ModuleLoader allModules;
     private String keyword;
-    private final ArrayList<String> matchList = new ArrayList<>();
+    final ArrayList<String> matchList = new ArrayList<>();
     private final int maxResults = 10;
     private PrintUtils printUtils = new PrintUtils();
 

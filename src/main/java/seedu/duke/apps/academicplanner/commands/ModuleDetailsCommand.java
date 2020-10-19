@@ -15,6 +15,7 @@ public class ModuleDetailsCommand extends Command {
     private String moduleCode;
     private ModuleValidator moduleValidator;
     private PrintUtils printUtils = new PrintUtils();
+    FullModule module;
 
     public ModuleDetailsCommand(ModuleLoader allModules, String moduleCode) {
         this.allModules = allModules;
@@ -26,7 +27,7 @@ public class ModuleDetailsCommand extends Command {
     public void execute() throws AcademicException {
         validateModuleCode();
         int mapIndex = allModules.getModuleMap().get(moduleCode);
-        FullModule module = allModules.getModuleFullDetails()[mapIndex];
+        module = allModules.getModuleFullDetails()[mapIndex];
         printUtils.printModuleDetails(module);
     }
 
