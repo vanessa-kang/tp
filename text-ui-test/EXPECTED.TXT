@@ -12,6 +12,7 @@ Available commands are:
 	edit <module code>
 	remove <module code>
 	details <module code>
+	search <module code key>
 	view
 	help
 	exit
@@ -33,6 +34,19 @@ CS2101 Effective Communication for Computing Professionals
 	Prerequisites: Students have to complete ES1000 and/or ES1103 (if required to take the module/s) before reading this module.
 	Corequisites: Students have to read CS2103T Software Engineering at the same time as this module.
 	Preclusions: CS2103 Software Engineering, IS2101 Business Technical Communication or its equivalent, ES2002, ES2007D, and ES1601.
+Type in a command to continue...
+Note: Only up to the first 10 results are displayed.
+Found 10 matching modules.
+CG1111
+CG1112
+CG2023
+CG2027
+CG2028
+CG2271
+CG3002
+CG3207
+CG4001
+CG4002
 Type in a command to continue...
 Thank you for using Academic Planner!
 Welcome back to PlanNUS Main Menu!
