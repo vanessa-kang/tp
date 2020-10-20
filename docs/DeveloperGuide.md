@@ -284,8 +284,9 @@ The following diagram summarizes what happens when the user executes an `RemoveM
  
  Given below is an example usage scenario and how `SetSuBySemesterCommand` beahves at each step.
  
- <Insert Image Here>
-    
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/setSuBySemesterCommand_initialState.png"/>
+</div>    
     
 __Step 1:__ The user calls the set S/U command from the `CapCalculatorParser` and the parameters `currentPerson` and `in` will be parsed into `SetSuParser`. `SetSuParser` will then ask for a set S/U method to be parsed. 
 
@@ -297,17 +298,29 @@ __Step 4:__ `SetSuUtils` is created and the method `promptUserForSemester()` of 
 
 __Step 5:__  The method `getSuListBySemester()` of `SetSuUtils` is then called to get a list of valid modules that the user can S/U.
 
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/setSuBySemesterCommand_State5.png"/>
+</div>    
+
 __Step 6:__  The method `showResultsToUser()` of `SetSuUtils` is then called to display the suggestions to user.
 
 __Step 7:__  `SetSuBySemesterCommmand` and `SetSuUltils` are terminated.
 
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/setSuBySemesterCommand_finalState.png"/>
+</div>    
+
 The following sequence diagram shows how `SetSuBySemesterCommand` works.
 
-<Insert diagram>
+<Insert diagram><div style="text-align:center">
+    <img src="./images/DeveloperGuide/setSuBySemesterCommand_sequence.png"/>
+</div>    
 
 The following diagram summarizes what happens when the user executes an `SetSuBySemesterCommand`: 
 
-{Exact diagram and corresponding descriptions to be added}
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/setSuBySemesterCommand_diagram.png"/>
+</div>    
 
 
 ## Documentation, logging, testing, configuration, dev-ops
