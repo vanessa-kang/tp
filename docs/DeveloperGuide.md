@@ -274,11 +274,34 @@ The following diagram summarizes what happens when the user executes an `RemoveM
 
 
 
-### CAP Calculator features (i.e. current and set target)
+### CAP Calculator feature : Set S/U by semester feature
 
-#### Proposed implementation
+#### Current implementation
 
-{Exact diagram and corresponding descriptions to be added}
+`SetSuBySemesterCommand` is executed by `CapCalculatorApp`. It provides users with a suggestion on how they can S/U their modules added in `AcademicPlannerApp` by retrieving the `userMduleList` from  the `Person` object and filter the list according to the semester provided to get a `suList`.
+
+`suList` will then be analysed to provide user with a list of suggested S/U modules to achieve a best Cap.
+ 
+ Given below is an example usage scenario and how `SetSuBySemesterCommand` beahves at each step.
+ 
+ <Insert Image Here>
+    
+    
+__Step 1:__ The user calls the set S/U command from the `CapCalculatorParser` and  then parse the parameters `currentPerson` and `in` into `SetSuParser` will ask for a set S/U method to be parsed.
+
+__Step 2:__ `in` will read in the next line of input, which decides either `SetSuBySemesterCommand` or `SetSuByModulesCommand` to be parsed into `CapCalculatorApp`.
+
+__Step 3:__ The `execute()` method is called from the instance of `SetSuBySemesterCommand` or `SetSuByModulesCommand` which only throws `CapCalculatorException` if applicable.
+
+__Step 4:__ `in` reads the next line of input for user's choice of modifying either the semester or grade of the selected `moduleCode`.
+
+__Step 5:__ 
+
+__Step 6:__ 
+
+__Step 7:__ 
+
+The following sequence diagram shows how `SetSuBySemesterCommand` works.
 
 #### Design consideration
 
