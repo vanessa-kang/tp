@@ -11,7 +11,6 @@ import seedu.duke.ui.Ui;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
-import static seedu.duke.apps.capcalculator.CapCalculatorParser.INVALID_COMMAND_MESSAGE;
 
 class CapCalculatorAppParserTest {
 
@@ -30,7 +29,7 @@ class CapCalculatorAppParserTest {
             final String emptyInput = "";
             CapCalculatorParser.parse(emptyInput, currentPerson, ui);
         } catch (Exception e) {
-            assertEquals(INVALID_COMMAND_MESSAGE, e.getMessage());
+            assertEquals("OOPS!!! I'm sorry, but I don't know what that means :-(", e.getMessage());
         }
     }
 
@@ -40,7 +39,7 @@ class CapCalculatorAppParserTest {
             final String unknownInput = "unknown command word";
             CapCalculatorParser.parse(unknownInput, currentPerson, ui);
         } catch (Exception e) {
-            assertEquals(INVALID_COMMAND_MESSAGE, e.getMessage());
+            assertEquals("OOPS!!! I'm sorry, but I don't know what that means :-(", e.getMessage());
         }
     }
 
