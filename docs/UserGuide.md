@@ -16,23 +16,28 @@ PlanNUS is a __desktop application for planning academic journey__ with modules 
 1. Go to the directory where the jar file is saved at.
 1. Enter the following command `java -jar PlanNus.jar`
 
+  
+
 ## Features 
 
 PlanNUS has two separate commands at the main page where the users can either choose to have an outlook of their potential academic journey or calculate their CAP. For each of these commands, there are more specific functions for configuration of user's desired choices.
 
-<img src="images/Main_Page_Features.png" width = "350" height = "80" />
+<img src="images/Main_Page_Features.png" width = "350" height = "80" />  
+
+
+
 
 ### Academic Calendar Planner: `acadplan`
 Directs user to the page where he/she can plan a personalized academic journey in NUS by using `add`, `remove` , `view` or `edit` features as shown below.
 
-<img src="images/acadplan_features.png" width = "320" height = "220" />
+<img src="images/acadplan_features.png" width = "320" height = "300" />
 
-Input format: `acadplan`
+Input format: `acadplan`    
+    
 
 #### Adding a module into the calendar: `add`
 
 Input format: `add <module code>`
-
 
 **Example of proper usage:**
 
@@ -46,8 +51,9 @@ Upon entering the desired module, user will be prompted to enter the semester wh
 __<ins>Caution</ins>:__ 
 
 * Invalid module codes (i.e. Modules not offered by NUS) cannot be added into the calendar
-* Duplicate module codes cannot be added into the calendar as well
-
+* Duplicate module codes cannot be added into the calendar as well  
+  
+  
 #### Removing an existing module in the calendar: `remove`
 
 Input format: `remove <module code>`
@@ -62,7 +68,8 @@ Example of usage:
 __<ins>Caution:</ins>__ 
 
 * Only modules that have been added into the calendar can be removed
-
+  
+  
 #### Editing an existing module in the calendar: `edit`
 
 Input format: `edit <module code>`
@@ -87,7 +94,47 @@ Expected output when user wishes to change the _Grade_.
 __<ins>Caution:</ins>__ 
 
 * Only modules that have been added into the calendar can be edited
+  
+  
+#### Viewing the details of a module: `details`
 
+Input format: `details <module code>`
+
+Example of usage:
+
+* `details CS2101`
+* `DETAILS cs2113t`
+
+<img src="images/acadplan_details.png" width = "800"/>
+
+As shown in the image, users can input the module that they wish to view further details about.
+
+__<ins>Caution:</ins>__ 
+
+* No information will be printed if the module is not offered by NUS.
+  
+  
+#### Searching for module codes containing a keyword: `search`
+
+Input format: `search <module code key>`
+
+Example of usage:
+
+* `search CS21`
+* `SEARCH cg4002`
+
+<img src="images/acadplan_search_part.png"/>
+
+<img src="images/acadplan_search_full.png"/>
+
+As shown above, users can enter a search key that contains either part of, or the whole module code.
+
+__<ins>Caution:</ins>__ 
+
+* This feature currently only supports searching by module code.
+* Only up to the first 10 results are displayed.
+  
+  
 #### Printing the academic calendar: `view`
 
 Input format: `view`
@@ -104,11 +151,14 @@ Expected output when user wishes to print a specific semester:
 
 <img src="images/acadplan_viewsem.PNG" height = "68" />
 
+
 #### Printing help for academic calendar: `help`
 
 Input format: `help`
 
-<img src="images/acadplan_help.PNG" height = "200" />
+<img src="images/acadplan_help.PNG" height = "250" />
+
+​    
 
 ### Cap Calculator: `capcalc`
 
@@ -117,6 +167,7 @@ Directs user to the page where he/she can view the `current` CAP or even `set ta
 <img src="images/capcalc_features.png" height = "180" />
 
 Input format: `capcalc`
+
 
 #### Printing current CAP and MCs taken: `current`
 
@@ -129,7 +180,8 @@ Input format: `current`
 __<ins>Caution:</ins>__
 
 * If there are no modules added, the current CAP and graded MCs are set to 0
-
+  
+  
 #### Set target CAP: `set target`
 
 This is for the user to set a target CAP that he or she wishes to obtain for the next specified graded MCs.
@@ -142,7 +194,8 @@ __<ins>Caution:</ins>__
 
 * CAP should be between 0.00 to 5.00 inclusive.
 * Minimum MC should be greater than 0.
-
+  
+  
 #### Set S/U modules: `set su`
 
 This is for the user to set modules that he or she wishes to S/U.
@@ -150,6 +203,7 @@ This is for the user to set modules that he or she wishes to S/U.
 <img src="images/capcalc_set_su_module.png" height = "100" />
 
 As shown in the image, user can choose to S/U by either a _Semester_ or some selected _Modules_. (__Note:__ Enter either `1` or `2` instead of the component's name)
+
 
 ##### Set S/U by semester
 
@@ -167,20 +221,21 @@ __<ins>Caution:</ins>__
 
 * Only modules that can be S/Ued are added into the S/U list.
 * Modules with special grades are filtered out.
-
+  
+  
 ##### Set S/U by modules
 
 Expected output when user wishes to S/U by _Modules_.
 
 <img src="images/capcalc_set_su_modules.png"  />
 
-User will then be prompte to enter a specific number of modules to S/Ued.
+User will then be prompted to enter a specific number of modules to S/Ued.
 
 Expected output when user entered a valid number of modules.
 
 <img src="images/capcalc_set_su_modules_prompt.png" />
 
-User will then be prompte to enter a serie of module codes to S/Ued.
+User will then be prompted to enter a series of module codes to S/Ued.
 
 Expected output when user entered valid module codes.
 
@@ -190,7 +245,8 @@ __<ins>Caution:</ins>__
 
 * Duplicate modules are not allowed.
 * Number of modules to be S/Ued should not be greater than number of modules taken by the user.
-
+  
+  
 ### Exiting from a feature or PlanNUS: `exit`
 
 This command directs user back to the main page of PlanNUS after they are done using a feature or exits from the entire application itself.
@@ -209,6 +265,7 @@ Last but not least, the expected output for exiting PlanNUS will be as such:
 
 Input format: `exit`
 
+​    
 
 ## Loading and Saving 
 
@@ -234,6 +291,8 @@ General | How do I check which modules are offered by NUS? | For more info on wh
 General | What is a valid semester index? | For the purpose of this planning software, we have come to a decision to limit the maximum number of semesters an undergraduate can take to 10, which is 5 academic years. The notation they are represented by is by an integer of value 1 to 10. For a fresh undergraduate, they will begin at semester index of 1. For a year 3 student who is currently in semester 1, the semester index will be 5. Please refer to the appendix for more information.
 General | What is a valid grade? | **Letter Grades**: A+, A, B+, B, B-, C+, C, D+, D, F , **Special Grades**: CS, CU, S, U, W, IC, IP, AUD, WU, EXE, **If you have yet to have a grade for the module**: NT
 General | What is the name of the saved file? | The name of the saved file is `PlanNUS.txt` and can be found at the base of the folder, in the same location as your PlanNUS.jar.
+
+  
 
 ## Command Summary
 
@@ -261,11 +320,13 @@ Note that the following commands are case-insensitive.
 | Make the module grade as S/U         | `set SU`      |
 | Exiting the CAP Calculator           | `exit`        |
 
+​    
+
 ## Appendix
 
 ### Naming convention for semester indexes
 
-For the purpose of this planning software, we have decided to limit the maximum number of semesters an undergraduate can take to 10, which is equivalent to 5 academic years. Each semester is indexed by an integer between 1 to 10. For a fresh undergraduate, they will begin at semester index of 1. For a year 3 student who is currently in semester 1, the semester index will be 5. Below is a table which illustrates the corresponding semester indexes for undergraduates.
+For the purpose of this planning software, we have decided to limit the maximum number of semesters an undergraduate can take to 10, which is equivalent to 5 academic years. Each semester is indexed by an integer between 1 and 10. For a fresh undergraduate, they will begin at semester index of 1. For a year 3 student who is currently in semester 1, the semester index will be 5. Below is a table which illustrates the corresponding semester indexes for undergraduates.
 
 | Academic Year | Semester (as of Academic Year) | Semester Index |
 | :-----------: | :----------------------------: | :------------: |
@@ -284,7 +345,7 @@ For the purpose of this planning software, we have decided to limit the maximum 
 
 ### Grade values
 
-As per NUS Grade Policy, letter grades will have a corresponding Academic Point attached to them. Special cases such as Satisfactory/Unsatisfactory (SU) grades can be captured by our software as well. Below is a table of grades and their corresponding grade value. Do note that the grades of forecasted modules should be declared as NT, short for Not Taken.
+As per NUS [Grade Policy](http://www.nus.edu.sg/registrar/academic-information-policies/undergraduate-students/modular-system "NUS Official Site"), letter grades will have a corresponding Academic Point attached to them. Special cases such as Satisfactory/Unsatisfactory (SU) grades can be captured by our software as well. Below is a table of grades and their corresponding grade value. Do note that the grades of forecasted modules should be declared as NT, short for Not Taken.
 
 |            Grade            | Academic Points |
 | :-------------------------: | :-------------: |

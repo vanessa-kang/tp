@@ -25,7 +25,7 @@ public class SetSuUtils {
     private static final String INVALID_MODULE_ERROR = "Looks like the module you entered is not a valid module!";
     private static final String NUMBER_OUT_OF_BOUND_ERROR = "Looks like the number you entered "
             + "is more than the numbers of modules you took.";
-    private static final String EMPTY_LIST_ERROR = "Your S/U list is empty!";
+    private static final String EMPTY_LIST_ERROR = "Looks like your S/U list is empty!";
     private static final String DUPLICATE_MODULE_ERROR = "Looks like you have already added this module!";
     private static final int STARTING_SEMESTER_INDEX = 1;
     private static final int FINAL_SEMESTER_INDEX = 10;
@@ -120,12 +120,12 @@ public class SetSuUtils {
     }
 
     /**
-     * Display cap after each su.
+     * Display cap after each S/U.
      *
      * @param suList the S/U list
      * @param currentCap the current cap
      * @param totalMcxGrade the total MC multiply by the grade
-     * @param currentGradedMCs the current graded m cs
+     * @param currentGradedMCs the current graded MCs
      */
     public void showCapAfterEachSu(ArrayList<PartialModule> suList, double currentCap,
                                     double totalMcxGrade, int currentGradedMCs) {
@@ -250,7 +250,7 @@ public class SetSuUtils {
      * @return the module to be S/Ued
      * @throws CapCalculatorException if there is no valid module found
      */
-    private PartialModule getSuModule(ArrayList<PartialModule> filteredList,
+    public PartialModule getSuModule(ArrayList<PartialModule> filteredList,
                                       String moduleCode) throws CapCalculatorException {
         for (PartialModule module : filteredList) {
             if (module.getModuleCode().equalsIgnoreCase(moduleCode)) {
@@ -319,9 +319,9 @@ public class SetSuUtils {
         }
     }
 
-    //@@Author jerroldlam
+    //@@author jerroldlam
     /**
-     * Returns true if semsesterIndex is a valid semesterIndex,
+     * Returns true if semesterIndex is a valid semesterIndex,
      * else returns false.
      *
      * @param semesterIndex semesterIndex to check
