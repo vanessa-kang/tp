@@ -287,23 +287,25 @@ The following diagram summarizes what happens when the user executes an `RemoveM
  <Insert Image Here>
     
     
-__Step 1:__ The user calls the set S/U command from the `CapCalculatorParser` and  then parse the parameters `currentPerson` and `in` into `SetSuParser` will ask for a set S/U method to be parsed.
+__Step 1:__ The user calls the set S/U command from the `CapCalculatorParser` and the parameters `currentPerson` and `in` will be parsed into `SetSuParser`. `SetSuParser` will then ask for a set S/U method to be parsed. 
 
-__Step 2:__ `in` will read in the next line of input, which decides either `SetSuBySemesterCommand` or `SetSuByModulesCommand` to be parsed into `CapCalculatorApp`.
+__Step 2:__ `in` will read in the next line of input, which decides either `SetSuBySemesterCommand` or `SetSuByModulesCommand` to be parsed into `CapCalculatorApp`. Taking that the user decides to parse the `SetSuBySemesterCommand` by entering _1_.
 
-__Step 3:__ The `execute()` method is called from the instance of `SetSuBySemesterCommand` or `SetSuByModulesCommand` which only throws `CapCalculatorException` if applicable.
+__Step 3:__ The `execute()` method is called from the instance of `SetSuBySemesterCommand` which only throws `CapCalculatorException` if applicable.
 
-__Step 4:__ `in` reads the next line of input for user's choice of modifying either the semester or grade of the selected `moduleCode`.
+__Step 4:__ `SetSuUtils` is created and the method `promptUserForSemester()` of `SetSuUtils` is called to read the next line of input for user's choice of a semester to S/U.
 
-__Step 5:__ 
+__Step 5:__  The method `getSuListBySemester()` of `SetSuUtils` is then called to get a list of valid modules that the user can S/U.
 
-__Step 6:__ 
+__Step 6:__  The method `showResultsToUser()` of `SetSuUtils` is then called to display the suggestions to user.
 
-__Step 7:__ 
+__Step 7:__  `SetSuBySemesterCommmand` and `SetSuUltils` are terminated.
 
 The following sequence diagram shows how `SetSuBySemesterCommand` works.
 
-#### Design consideration
+<Insert diagram>
+
+The following diagram summarizes what happens when the user executes an `SetSuBySemesterCommand`: 
 
 {Exact diagram and corresponding descriptions to be added}
 
