@@ -319,7 +319,7 @@ The following sequence diagram shows how `SetSuBySemesterCommand` works.
 The following diagram summarizes what happens when the user executes an `SetSuBySemesterCommand`: 
 
 <div style="text-align:center">
-    <img src="./images/DeveloperGuide/setSuBySemesterCommand_diagram.png"/>
+    <img src="./images/DeveloperGuide/setSuBySemesterCommand_activity.png"/>
 </div>    
 
 
