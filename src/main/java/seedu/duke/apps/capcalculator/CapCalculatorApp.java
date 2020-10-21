@@ -6,23 +6,22 @@ import seedu.duke.global.objects.Person;
 import seedu.duke.ui.Ui;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
-import static seedu.duke.apps.capcalculator.CapCalculatorParser.ERROR_INVALID_COMMAND;
-import static seedu.duke.apps.capcalculator.CapCalculatorParser.NEW_LINE;
-import static seedu.duke.apps.capcalculator.CapCalculatorParser.EXITING_CURRENT_COMMAND;
 
 /**
  * Class representing the CAP Calculator app in PlanNUS.
  */
 public class CapCalculatorApp extends App {
-
-    private static final String AWAIT_COMMAND = "Type a command to continue...";
+    private static final String NEW_LINE = "\n";
+    private static final String EXITING_CURRENT_COMMAND = "Exiting current command back to Cap Calculator Main Menu.";
+    private static final String ERROR_INVALID_COMMAND = "INVALID COMMAND";
     private static final String EXIT_MESSAGE = "Thank you for using Cap Calculator!";
-    private static final String WELCOME_MESSAGE = "Welcome to CAP Calculator!\nAvailable commands are:\n"
+    private static final String WELCOME_MESSAGE = "Welcome to CAP Calculator!\n"
+            + "Initializing your CAP...";
+    private static final String COMMANDS_LIST = "Available commands are:\n"
             + "\tcurrent\n"
             + "\tset target\n"
             + "\tset su\n"
-            + "\texit\n"
-            + "\tInitializing your CAP...";
+            + "\texit";
 
     private final Person currentPerson;
     private final Ui ui;
@@ -37,12 +36,15 @@ public class CapCalculatorApp extends App {
      * Main function for CAP Calculator.
      */
     public void run() {
+        ui.printLine();
         showWelcomeMessage();
         boolean isExit = false;
         formatFinalCap.setRoundingMode(RoundingMode.UP);
 
         while (!isExit) {
             try {
+                ui.showCalculatorAwaitCommand();
+                ui.printLine();
                 String userInput = ui.getScanner().nextLine();
                 Command commandInput = CapCalculatorParser.parse(userInput, currentPerson, ui);
                 commandInput.execute();
@@ -53,7 +55,17 @@ public class CapCalculatorApp extends App {
                 System.out.println(e.getMessage());
             }
         }
+        ui.printLine();
         showExitMessage();
+    }
+
+
+    /**
+     * Prints out welcome message when user enters CAP Calculator.
+     */
+    private void showWelcomeMessage() {
+        System.out.println(WELCOME_MESSAGE + NEW_LINE);
+        System.out.println(COMMANDS_LIST);
     }
 
     /**
@@ -63,11 +75,4 @@ public class CapCalculatorApp extends App {
         System.out.println(EXIT_MESSAGE);
     }
 
-    /**
-     * Prints out welcome message when user enters CAP Calculator.
-     */
-    private void showWelcomeMessage() {
-        System.out.println(WELCOME_MESSAGE);
-        System.out.println(AWAIT_COMMAND);
-    }
 }
