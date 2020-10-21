@@ -271,13 +271,11 @@ The following sequence diagram shows how `SetSuBySemesterCommand` works.
 The following diagram summarizes what happens when the user executes a `SetSuBySemesterCommand`: 
 
 ## Extra Guides and Information
-
-* **About Us**
+* [**About Us**](https://ay2021s1-cs2113t-f12-1.github.io/tp/AboutUs.html)
 * **Configuration guide**
 * **DevOps guide**
 * **Documentation guide**
-* **Logging guide**
-
+* [**Logging guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/LoggingGuide.html)
 * **Testing guide**
 * **User guide**
 
