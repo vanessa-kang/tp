@@ -1,12 +1,17 @@
+____________________________________________________________
+Save file not found!
+It will be automatically created.
+
 Welcome to PlanNUS!
 	For academic planner, type <acadplan>
 	For CAP calculator, type <capcalc>
 	To exit PlanNUS, type <exit>
-Save file not found!
-It will be automatically created.
-Type in a command to continue...
 
+Type in a command to continue...
+____________________________________________________________
+____________________________________________________________
 Welcome to Academic Planner!
+
 Available commands are:
 	add <module code>
 	edit <module code>
@@ -16,7 +21,9 @@ Available commands are:
 	view
 	help
 	exit
-Type in a command to continue...
+
+Type in an Academic Planner command to continue...
+____________________________________________________________
 Semester you plan to take CS1010?
 	Valid semesters are integers from 1 to 10, inclusive
 Grade received for CS1010?
@@ -25,7 +32,9 @@ Valid grades are:
 	Special Grades: CS, CU, S, U, W, IC, IP, AUD, WU, EXE
 	If you have yet to have a grade for the module: NT
 CS1010 added into Semester 2.
-Type in a command to continue...
+
+Type in an Academic Planner command to continue...
+____________________________________________________________
 CS2101 Effective Communication for Computing Professionals
 	Department: Center for Engl Lang Comms
 	Faculty: Computing
@@ -34,7 +43,9 @@ CS2101 Effective Communication for Computing Professionals
 	Prerequisites: Students have to complete ES1000 and/or ES1103 (if required to take the module/s) before reading this module.
 	Corequisites: Students have to read CS2103T Software Engineering at the same time as this module.
 	Preclusions: CS2103 Software Engineering, IS2101 Business Technical Communication or its equivalent, ES2002, ES2007D, and ES1601.
-Type in a command to continue...
+
+Type in an Academic Planner command to continue...
+____________________________________________________________
 Note: Only up to the first 10 results are displayed.
 Found 10 matching modules.
 CG1111
@@ -47,30 +58,52 @@ CG3002
 CG3207
 CG4001
 CG4002
-Type in a command to continue...
+
+Type in an Academic Planner command to continue...
+____________________________________________________________
+____________________________________________________________
 Thank you for using Academic Planner!
+____________________________________________________________
 Welcome back to PlanNUS Main Menu!
 	For academic planner, type <acadplan>
 	For CAP calculator, type <capcalc>
 	To exit PlanNUS, type <exit>
+
 Type in a command to continue...
+____________________________________________________________
+____________________________________________________________
 Welcome to CAP Calculator!
+Initializing your CAP...
+
 Available commands are:
 	current
 	set target
 	set su
 	exit
-	Initializing your CAP...
-Type a command to continue...
+
+Type in an CAP Calculator command to continue...
+____________________________________________________________
 Your current now CAP is: 5
 Number of graded MCs taken is: 4
 Total number of MCs taken is: 4
+
+Type in an CAP Calculator command to continue...
+____________________________________________________________
+____________________________________________________________
 Thank you for using Cap Calculator!
+____________________________________________________________
 Welcome back to PlanNUS Main Menu!
 	For academic planner, type <acadplan>
 	For CAP calculator, type <capcalc>
 	To exit PlanNUS, type <exit>
+
 Type in a command to continue...
+____________________________________________________________
 OOPS!!! I'm sorry, but I don't know what that means :-(
+
 Type in a command to continue...
+____________________________________________________________
+____________________________________________________________
 Thanks for using PlanNUS! We hope to see you again!
+____________________________________________________________
+
