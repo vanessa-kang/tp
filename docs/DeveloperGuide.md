@@ -318,11 +318,11 @@ __Step 7:__  `SetSuBySemesterCommmand` and `SetSuUltils` are terminated.
 
 The following sequence diagram shows how `SetSuBySemesterCommand` works.
 
-<Insert diagram><div style="text-align:center">
+<div style="text-align:center">
     <img src="./images/DeveloperGuide/setSuBySemesterCommand_sequence.png"/>
-</div>    
+</div>
 
-The following diagram summarizes what happens when the user executes an `SetSuBySemesterCommand`: 
+The following diagram summarizes what happens when the user executes a `SetSuBySemesterCommand`: 
 
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/setSuBySemesterCommand_activity.png"/>
