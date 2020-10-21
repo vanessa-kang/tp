@@ -1,4 +1,4 @@
-# Developer Guide
+# Developer Guide for PlanNUS
 
 Before reading this document, you are recommended to read through the user guide.
 
@@ -105,6 +105,12 @@ Classes used by multiple components are in the `src.main.java.global` package.
 
 #### Parser Component
 
+{add in}
+
+#### Ui Component
+
+{add in}
+
 
 ## Implementation
 
@@ -112,49 +118,41 @@ Classes used by multiple components are in the `src.main.java.global` package.
 
 #### Current implementation
 
-Add module command is executed by `AcademicPlannerParser`. It allows users to add modules into their
- `Academic Planner` by instantiating a new `PartialModule` object and adding it into the `userModuleList` 
- and `userModuleMap`. Both the list and hashmap are the _java API_, which are used by importing them. The `Person` object
- is used to encapsulate both `userModuleList` and `userModuleMap`.
+Add module command is executed by `AcademicPlannerParser`. It allows users to add modules into their Academic Planner by instantiating a new `PartialModule` object and adding it into the `userModuleList` and `userModuleMap`. Both the list and hashmap are the _java API_, which are used by importing them. The `Person` object is used to encapsulate both `userModuleList` and `userModuleMap`.
 
-Additionally, add module command extends the `Command` class and overrides its `execute()` command. An external class,
- `ModuleValidator` is called upon to validate the various parameters that the user has entered, as to only allow
- valid modules to be added to the user.
+Additionally, the add module command extends the `Command` class and overrides its `execute()` command. An external class, `ModuleValidator` is called upon to validate the various parameters that the user has entered, as to only allow valid modules to be added to the user.
 
 Given below is an example usage scenario and how add module command behaves at each step.
 
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/addModuleCommand_initialState.png" alt="Initial state diagram for AddModuleCommand"/>
 </div>
-
 **Step 1** : The user calls the add module command from the `AcademicPlannerParser`, which will initialise a 
 `AddModuleCommand`. `AddModuleCommand`'s constructor takes in parameters of `ModuleLoader`, `Person`,`Ui`, 
 and `String`. Below is a table of what each parameter corresponds to in the state diagram of the program.
 
-|Parameter|Corresponds to|Referred to as
-|:---:|:---:|:---:
-|`ModuleLoader`| Class representing all modules offered by NUS | `allModules`
-|`Person`| Class representing current user's information | `currentPerson`
-|`Ui`| Class representing java's default scanner class | `in`
-|`String` | Class representing the module code to be added | `moduleCode`
+|Parameter<br />(Class Name)|Corresponds to<br />(Function of Class)|Referred to as<br />(Variable Name)|
+|:---:|:---:|:---:|
+|`ModuleLoader`| Class representing all modules offered by NUS | `allModules` |
+|`Person`| Class representing current user's information | `currentPerson`|
+|`Ui`| Class representing java's default scanner class | `in`|
+|`String` | Class representing the module code to be added | `moduleCode`|
 
 <div style="text-align:center">
-    <img src="./images/DeveloperGuide/addModuleCommand_state2.png" alt="State diagram for AddModuleCommand"/>
+    <img src="./images/DeveloperGuide/addModuleCommand_state2.png" alt="State diagram for AddModuleCommand Step 2"/>
 </div>
 
 **Step 2** : `execute()` is called from the instance of `AddModuleCommand`. It can throw `AcademicException` 
-or `IOException`. `FileHandler` and `Logger` classes from the _java API_ are instantiated to handle logging for the 
-remainder of the `execute()` method. 
+or `IOException`. `FileHandler` and `Logger` classes from the _java API_ are instantiated to handle logging for the remainder of the `execute()` method. 
 
-**Step 3** : `in` then reads in the next two lines of input, which is the user's input for the desired semester for the 
-`moduleCode` and `moduleCode`'s grades.
+**Step 3** : `in` then reads in the next two lines of input, which is the user's input for the desired semester for the `moduleCode` and `moduleCode`'s grades.
 
 **Step 4** : `validateInputs()` is called to validate the user entered data against `allModules`.
 
 **Step 5** : `AddUtils` is called upon to return module credit for `moduleCode` by `getModuleCreditForModule()`.
 
 <div style="text-align:center">
-    <img src="./images/DeveloperGuide/addModuleCommand_state6.png" alt="State diagram for AddModuleCommand"/>
+    <img src="./images/DeveloperGuide/addModuleCommand_state6.png" alt="State diagram for AddModuleCommand Step 6"/>
 </div>
 
 **Step 6** :  `AddUtils` is called upon again to add the module's data to the user, by instantiating a new
@@ -182,12 +180,12 @@ The following activity diagram summarizes what happens when the user executes an
 
 The following options were considered when implementing commands:
 
-* Option 1 (Current Choice): As a class by itself
+* Option 1 (Current Implementation): Implementing each command as a class by itself
     * Pros: Increases modularity of code, higher overall code quality 
     * Cons: More complicated to implement
-* Option 2: As a method in a class
+* Option 2: Implementing each command as a method in a class
     * Pros: Easier to implement
-    * Cons: Class needs to be instantiated and increases coupling, reducing testability.
+    * Cons: Class needs to be instantiated and increases coupling, reducing testability. This method also decreases SLAP.
 
 ### Academic Calendar Planner: Edit Module Feature
 
@@ -198,8 +196,9 @@ Similar to the add module command, the edit module command is also executed by `
 Given below is an example usage scenario and how add module command behaves at each step.
 
 <div style="text-align:center">
-    <img src="./images/DeveloperGuide/editModuleCommand_initialState.png" alt="Sequence diagram for AddModuleCommand"/>
+    <img src="./images/DeveloperGuide/editModuleCommand_initialState.png" alt="Initial state diagram for Edit Module Command"/>
 </div>
+
 
 __Step 1:__ The user calls the edit module command from the `AcademicPlannerParser` and  then `EditModuleCommand` will be initialized where its constructor would take in the same parameters as that of `AddModuleCommand`.
 
@@ -214,37 +213,41 @@ __Step 5:__ `isValidSemester()` or `isValidGrade()` is called to validate the se
 __Step 6:__ `updateModuleSemester()` or `updateModuleGrade()` is then called to conduct necessary changes to the information by accessing the module from `userModuleMap` and `userModuleList`.
 
 <div style="text-align:center">
-    <img src="./images/DeveloperGuide/editModuleCommand_finalState.png" alt="Sequence diagram for AddModuleCommand"/>
+    <img src="./images/DeveloperGuide/editModuleCommand_finalState.png" alt="Final state diagram for Edit Module Command"/>
 </div>
+
 
 __Step 7:__ `EditModuleCommand`, `EditUtils` and `ModuleValidator` are terminated.
 
 The following sequence diagram shows how `EditModuleCommand` works.
 
 <div style="text-align:center">
-    <img src="./images/DeveloperGuide/editModuleCommand_sequence.png" alt="Sequence diagram for AddModuleCommand"/>
+    <img src="./images/DeveloperGuide/editModuleCommand_sequence.png" alt="Sequence diagram for Edit Module Command"/>
 </div>
+
 
 
 The following diagram summarizes what happens when the user executes an `EditModuleCommand`: 
 
 <div style="text-align:center">
-    <img src="./images/DeveloperGuide/editModuleCommand_activity.png" alt="Sequence diagram for AddModuleCommand"/>
+    <img src="./images/DeveloperGuide/editModuleCommand_activity.png" alt="Activity diagram for Edit Module Command"/>
 </div>
+
 
 ### Academic Calendar Planner: Remove Module Feature
 
 #### Current implementation
 
-The remove module command is executed by `AcademicPlannerParser` just like the commands for add and edit. This feature allows the user to delete any existing modules added to their `Academic Planner`.  by first accessing the specified `PartialModule` object within the `userModuleList`and `userModuleMap`.
+The remove module command is executed by `AcademicPlannerParser` just like the commands for add and edit. This feature allows the user to delete any existing modules added to their Academic Planner.  by first accessing the specified `PartialModule` object within the `userModuleList`and `userModuleMap`.
 
 Given below is an example usage scenario and how remove module command behaves at each step.
 
 <div style="text-align:center">
-    <img src="./images/DeveloperGuide/removeModuleCommand_initialState.png" alt="Sequence diagram for AddModuleCommand"/>
+    <img src="./images/DeveloperGuide/removeModuleCommand_initialState.png" alt="Initial state diagram for Remove Module Command"/>
 </div>
 
-__Step 1:__ The user calls the edit module command from the `AcademicPlannerParser` and  then `RemoveModuleCommand` will be initialized where its constructor would take in the same parameters as that of `AddModuleCommand` and `EditModuleCommand`.
+
+__Step 1:__ The user calls the remove module command from the `AcademicPlannerParser` and  then `RemoveModuleCommand` will be initialized where its constructor would take in the same parameters as that of `AddModuleCommand` and `EditModuleCommand`.
 
 __Step 2:__ The `execute()` method is called from the instance of `RemoveModuleCommand` which only throws `AcademicException` if applicable.
 
@@ -255,22 +258,25 @@ __Step 4:__ `removeModuleFromUserModuleList()` of `removeUtils` is then called t
 __Step 5:__ The`depopulate()` method deletes the module object by accessing it from `userModuleMap` and `userModuleList` before updating the both the hashmap and the array list.
 
 <div style="text-align:center">
-    <img src="./images/DeveloperGuide/removeModuleCommand_finalState.png" alt="Sequence diagram for AddModuleCommand"/>
+    <img src="./images/DeveloperGuide/removeModuleCommand_finalState.png" alt="Final state diagram for Remove Module Command"/>
 </div>
+
 
 __Step 6:__ `RemoveModuleCommand`, `RemoveUtils` and `ModuleValidator` are terminated.
 
 The following sequence diagram shows how `RemoveModuleCommand` works.
 
 <div style="text-align:center">
-    <img src="./images/DeveloperGuide/removeModuleCommand_sequence.png" alt="Sequence diagram for AddModuleCommand"/>
+    <img src="./images/DeveloperGuide/removeModuleCommand_sequence.png" alt="Sequence diagram for Remove Module Command"/>
 </div>
+
 
 The following diagram summarizes what happens when the user executes an `RemoveModuleCommand`: 
 
 <div style="text-align:center">
-    <img src="./images/DeveloperGuide/removeModuleCommand_activity.png" alt="Sequence diagram for AddModuleCommand"/>
+    <img src="./images/DeveloperGuide/removeModuleCommand_activity.png" alt="Activity diagram for Remove Module Command"/>
 </div>
+
 
 
 
@@ -281,13 +287,13 @@ The following diagram summarizes what happens when the user executes an `RemoveM
 `SetSuBySemesterCommand` is executed by `CapCalculatorApp`. It provides users with a suggestion on how they can S/U their modules added in `AcademicPlannerApp` by retrieving the `userMduleList` from  the `Person` object and filter the list according to the semester provided to get a `suList`.
 
 `suList` will then be analysed to provide user with a list of suggested S/U modules to achieve a best Cap.
- 
+
  Given below is an example usage scenario and how `SetSuBySemesterCommand` beahves at each step.
- 
+
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/setSuBySemesterCommand_initialState.png"/>
 </div>    
-    
+
 __Step 1:__ The user calls the set S/U command from the `CapCalculatorParser` and the parameters `currentPerson` and `in` will be parsed into `SetSuParser`. `SetSuParser` will then ask for a set S/U method to be parsed. 
 
 __Step 2:__ `in` will read in the next line of input, which decides either `SetSuBySemesterCommand` or `SetSuByModulesCommand` to be parsed into `CapCalculatorApp`. Taking that the user decides to parse the `SetSuBySemesterCommand` by entering _1_.
@@ -323,35 +329,16 @@ The following diagram summarizes what happens when the user executes an `SetSuBy
 </div>    
 
 
-## Documentation, logging, testing, configuration, dev-ops
+## Extra Guides and Information
 
-__Documentation guide__
+* [**About Us**](https://ay2021s1-cs2113t-f12-1.github.io/tp/AboutUs.html)
+* **Configuration guide**
+* **DevOps guide**
+* **Documentation guide**
+* [**Logging guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/LoggingGuide.html)
 
-__Testing guide__
-
-__Logging guide__
-`LoggingTool` is available to use for accessible logging at the package `src.main.java.seedu.duke.global`. `LoggingTool`'s 
-constructor takes in a parameter `String` and `FileHandler`. `String` represents `loggerName` and `FileHandler` represents
-the object `fh`, which is the _java API_. `initialise()` will automatically return a fully configured `Logger` object
-with the following parameters :
-
-* addHandler(fh)
-    * `logger` will log to an external file as defined by `fh`
-* setUseParentHandlers(false)
-    * Disables logging on the console output
-* setLevel(Level.INFO)
-    * Any message logged `Level.INFO` and above will be logged
-
-After initialising, the `logger` can be used as per _java API_ constraints. Below shows an example code snippet that can be used to initialise a `logger`:
-
-```
-FileHandler fh = new FileHandler(<YOUR_LOG_FILE_NAME>);
-Logger logger = new LoggingTool(<YOUR_LOGGER_NAME>,fh).initialize();
-```
-
-__Configuration guide__
-
-__DevOps guide__
+* **Testing guide**
+* [**User guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/UserGuide.html)
 
 
 ## Appendix: Requirements
@@ -386,7 +373,7 @@ of their scores and receive information regarding the use of their Satisfactory 
 
 __Use case 1: Add a module__
 
-__MSS__
+__Main Success Scenario (MSS)__ 
 
 1. User enters `acadplan` in the main menu of PlanNUS
 
