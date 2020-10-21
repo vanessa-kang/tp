@@ -80,18 +80,16 @@ Each package in the PlanNUS as given above follows the following file structure 
 
 The interaction within each package should ideally be as shown below.
 
-<div style="text-align:center">
-    <img src="./images/DeveloperGuide/Project_structure.png" alt="Architecture diagram for ideal project structure in PlanNUS"/>
-</div>
+
+
 *Note that while this is the ideal case, packages such as* `global`, `parser` *and* `ui` *might not strictly follow this structure due to these package serving a different function altogether (Refer to the sections below for more details.)*
 
 ### Lifecycle of PlanNUS
 
 The *sequence diagram* below shows how different packages and classes interact with each other throughout the whole lifecycle of PlanNUS.
 
-<div style="text-align:center">
-    <img src="./images/DeveloperGuide/Packages_Interaction.png" alt="Sequence diagram for lifecycle of PlanNUS"/>
-</div>
+
+
 
 ### Details
 
@@ -124,9 +122,8 @@ Additionally, the add module command extends the `Command` class and overrides i
 
 Given below is an example usage scenario and how add module command behaves at each step.
 
-<div style="text-align:center">
-    <img src="./images/DeveloperGuide/addModuleCommand_initialState.png" alt="Initial state diagram for AddModuleCommand"/>
-</div>
+
+
 **Step 1** : The user calls the add module command from the `AcademicPlannerParser`, which will initialise a 
 `AddModuleCommand`. `AddModuleCommand`'s constructor takes in parameters of `ModuleLoader`, `Person`,`Ui`, 
 and `String`. Below is a table of what each parameter corresponds to in the state diagram of the program.
@@ -138,9 +135,8 @@ and `String`. Below is a table of what each parameter corresponds to in the stat
 |`Ui`| Class representing java's default scanner class | `in`|
 |`String` | Class representing the module code to be added | `moduleCode`|
 
-<div style="text-align:center">
-    <img src="./images/DeveloperGuide/addModuleCommand_state2.png" alt="State diagram for AddModuleCommand Step 2"/>
-</div>
+
+
 
 **Step 2** : `execute()` is called from the instance of `AddModuleCommand`. It can throw `AcademicException` 
 or `IOException`. `FileHandler` and `Logger` classes from the _java API_ are instantiated to handle logging for the remainder of the `execute()` method. 
@@ -151,30 +147,26 @@ or `IOException`. `FileHandler` and `Logger` classes from the _java API_ are ins
 
 **Step 5** : `AddUtils` is called upon to return module credit for `moduleCode` by `getModuleCreditForModule()`.
 
-<div style="text-align:center">
-    <img src="./images/DeveloperGuide/addModuleCommand_state6.png" alt="State diagram for AddModuleCommand Step 6"/>
-</div>
+
+
 
 **Step 6** :  `AddUtils` is called upon again to add the module's data to the user, by instantiating a new
 `PartialModule` and storing it in both `userModuleList` and `userModuleMap` via `Person`.
 
-<div style="text-align:center">
-    <img src="./images/DeveloperGuide/addModuleCommand_finalState.png" alt="Final state diagram for AddModuleCommand"/>
-</div>
+
+
 
 **Step 7** : `FileHandler`, `Logger`, `PartialModule`, `AddUtils` and `AddModuleCommand` are terminated.
 
 The following sequence diagram shows how the `AddModuleCommand` works:
 
-<div style="text-align:center">
-    <img src="./images/DeveloperGuide/addModuleCommand_sequence.png" alt="Sequence diagram for AddModuleCommand"/>
-</div>
+
+
 
 The following activity diagram summarizes what happens when the user executes an `AddModuleCommand` :
 
-<div style="text-align:center">
-    <img src="./images/DeveloperGuide/addModuleCommand_activity.png" alt="Activity diagram for AddModuleCommand"/>
-</div>
+
+
 
 #### Design consideration
 
@@ -195,9 +187,6 @@ Similar to the add module command, the edit module command is also executed by `
 
 Given below is an example usage scenario and how add module command behaves at each step.
 
-<div style="text-align:center">
-    <img src="./images/DeveloperGuide/editModuleCommand_initialState.png" alt="Initial state diagram for Edit Module Command"/>
-</div>
 
 
 __Step 1:__ The user calls the edit module command from the `AcademicPlannerParser` and  then `EditModuleCommand` will be initialized where its constructor would take in the same parameters as that of `AddModuleCommand`.
@@ -212,26 +201,15 @@ __Step 5:__ `isValidSemester()` or `isValidGrade()` is called to validate the se
 
 __Step 6:__ `updateModuleSemester()` or `updateModuleGrade()` is then called to conduct necessary changes to the information by accessing the module from `userModuleMap` and `userModuleList`.
 
-<div style="text-align:center">
-    <img src="./images/DeveloperGuide/editModuleCommand_finalState.png" alt="Final state diagram for Edit Module Command"/>
-</div>
 
 
 __Step 7:__ `EditModuleCommand`, `EditUtils` and `ModuleValidator` are terminated.
 
 The following sequence diagram shows how `EditModuleCommand` works.
 
-<div style="text-align:center">
-    <img src="./images/DeveloperGuide/editModuleCommand_sequence.png" alt="Sequence diagram for Edit Module Command"/>
-</div>
-
-
 
 The following diagram summarizes what happens when the user executes an `EditModuleCommand`: 
 
-<div style="text-align:center">
-    <img src="./images/DeveloperGuide/editModuleCommand_activity.png" alt="Activity diagram for Edit Module Command"/>
-</div>
 
 
 ### Academic Calendar Planner: Remove Module Feature
@@ -241,11 +219,6 @@ The following diagram summarizes what happens when the user executes an `EditMod
 The remove module command is executed by `AcademicPlannerParser` just like the commands for add and edit. This feature allows the user to delete any existing modules added to their Academic Planner.  by first accessing the specified `PartialModule` object within the `userModuleList`and `userModuleMap`.
 
 Given below is an example usage scenario and how remove module command behaves at each step.
-
-<div style="text-align:center">
-    <img src="./images/DeveloperGuide/removeModuleCommand_initialState.png" alt="Initial state diagram for Remove Module Command"/>
-</div>
-
 
 __Step 1:__ The user calls the remove module command from the `AcademicPlannerParser` and  then `RemoveModuleCommand` will be initialized where its constructor would take in the same parameters as that of `AddModuleCommand` and `EditModuleCommand`.
 
@@ -257,28 +230,11 @@ __Step 4:__ `removeModuleFromUserModuleList()` of `removeUtils` is then called t
 
 __Step 5:__ The`depopulate()` method deletes the module object by accessing it from `userModuleMap` and `userModuleList` before updating the both the hashmap and the array list.
 
-<div style="text-align:center">
-    <img src="./images/DeveloperGuide/removeModuleCommand_finalState.png" alt="Final state diagram for Remove Module Command"/>
-</div>
-
-
 __Step 6:__ `RemoveModuleCommand`, `RemoveUtils` and `ModuleValidator` are terminated.
 
 The following sequence diagram shows how `RemoveModuleCommand` works.
 
-<div style="text-align:center">
-    <img src="./images/DeveloperGuide/removeModuleCommand_sequence.png" alt="Sequence diagram for Remove Module Command"/>
-</div>
-
-
 The following diagram summarizes what happens when the user executes an `RemoveModuleCommand`: 
-
-<div style="text-align:center">
-    <img src="./images/DeveloperGuide/removeModuleCommand_activity.png" alt="Activity diagram for Remove Module Command"/>
-</div>
-
-
-
 
 ### CAP Calculator feature : Set S/U by semester feature
 
@@ -290,9 +246,8 @@ The following diagram summarizes what happens when the user executes an `RemoveM
 
  Given below is an example usage scenario and how `SetSuBySemesterCommand` beahves at each step.
 
-<div style="text-align:center">
-    <img src="./images/DeveloperGuide/setSuBySemesterCommand_initialState.png"/>
-</div>    
+
+
 
 __Step 1:__ The user calls the set S/U command from the `CapCalculatorParser` and the parameters `currentPerson` and `in` will be parsed into `SetSuParser`. `SetSuParser` will then ask for a set S/U method to be parsed. 
 
@@ -304,41 +259,27 @@ __Step 4:__ `SetSuUtils` is created and the method `promptUserForSemester()` of 
 
 __Step 5:__  The method `getSuListBySemester()` of `SetSuUtils` is then called to get a list of valid modules that the user can S/U.
 
-<div style="text-align:center">
-    <img src="./images/DeveloperGuide/setSuBySemesterCommand_State5.png"/>
-</div>    
 
 __Step 6:__  The method `showResultsToUser()` of `SetSuUtils` is then called to display the suggestions to user.
 
 __Step 7:__  `SetSuBySemesterCommmand` and `SetSuUltils` are terminated.
 
-<div style="text-align:center">
-    <img src="./images/DeveloperGuide/setSuBySemesterCommand_finalState.png"/>
-</div>    
 
 The following sequence diagram shows how `SetSuBySemesterCommand` works.
 
-<div style="text-align:center">
-    <img src="./images/DeveloperGuide/setSuBySemesterCommand_sequence.png"/>
-</div>
 
 The following diagram summarizes what happens when the user executes a `SetSuBySemesterCommand`: 
 
-<div style="text-align:center">
-    <img src="./images/DeveloperGuide/setSuBySemesterCommand_activity.png"/>
-</div>    
-
-
 ## Extra Guides and Information
 
-* [**About Us**](https://ay2021s1-cs2113t-f12-1.github.io/tp/AboutUs.html)
+* **About Us**
 * **Configuration guide**
 * **DevOps guide**
 * **Documentation guide**
-* [**Logging guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/LoggingGuide.html)
+* **Logging guide**
 
 * **Testing guide**
-* [**User guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/UserGuide.html)
+* **User guide**
 
 
 
