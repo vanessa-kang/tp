@@ -200,15 +200,17 @@ Ssers can choose from printing the full calendar by typing `full` or printing a 
 Expected output when user wishes to print the `full` calendar:
 
 <div style="text-align:center">
-    <img src="images/UserGuide/acadplan_viewfull.PNG" />
+    <img src="images/UserGuide/acadplan_viewfull.png" />
 </div>
+
 
 
 Expected output when user wishes to print a specific semester:
 
 <div style="text-align:center">
-    <img src="images/UserGuide/acadplan_viewsem.PNG" />
+    <img src="images/UserGuide/acadplan_viewsem.png" />
 </div>
+
 
 
 #### Printing help for academic calendar: `help`
@@ -216,8 +218,9 @@ Expected output when user wishes to print a specific semester:
 Input format: `help`
 
 <div style="text-align:center">
-    <img src="images/UserGuide/acadplan_help.PNG" />
+    <img src="images/UserGuide/acadplan_help.png" />
 </div>
+
 
 ​    
 
@@ -389,7 +392,6 @@ General | What is the name of the saved file? | The name of the saved file is `P
 * **DevOps guide**
 * **Documentation guide**
 * [**Logging guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/LoggingGuide.html)
-
 * **Testing guide**
 
 
