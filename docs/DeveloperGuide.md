@@ -330,13 +330,11 @@ The following diagram summarizes what happens when the user executes a `SetSuByS
 
 
 ## Extra Guides and Information
-
 * [**About Us**](https://ay2021s1-cs2113t-f12-1.github.io/tp/AboutUs.html)
 * **Configuration guide**
 * **DevOps guide**
 * **Documentation guide**
 * [**Logging guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/LoggingGuide.html)
-
 * **Testing guide**
 * [**User guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/UserGuide.html)
 
