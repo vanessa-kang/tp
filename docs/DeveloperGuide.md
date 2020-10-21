@@ -341,6 +341,7 @@ The following diagram summarizes what happens when the user executes an `SetSuBy
 * [**User guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/UserGuide.html)
 
 
+
 ## Appendix: Requirements
 
 ### Product scope
@@ -356,6 +357,8 @@ __Value proposition:__
 Provides NUS undergraduates with a platform to keep track of their academic progress and explore other possibilities with the plethora of modules available. In addition, provides NUS undergraduates with an avenue to have an automatic calculation
 of their scores and receive information regarding the use of their Satisfactory / Unsatisfactory options. 
 
+
+
 ### User stories
 
 | Version | As a ...                                                  | I want to ...                                                             | So that I can ...                                                                     |
@@ -368,6 +371,8 @@ of their scores and receive information regarding the use of their Satisfactory 
 | V2.0    | user of PlanNUS                                           | view module details                                                       | make an informed decision on which modules to take up during the semester             |
 | V2.0    | user of PlanNUS                                           | search modules by their partial keys                                      | view more modules with similar subject codes                                          |
 | V2.0    | undergraduate with at least 1 semester of study completed | have suggestions on which modules to mark as S/U                          | make an informed decision on which modules to S/U                                     |
+
+
 
 ### Use cases
 
@@ -405,9 +410,9 @@ __Extensions__
 
     Use case ends resumes at step 3.
 
-
-
 {More to be added}
+
+
 
 ### Non-Functional Requirements
 
@@ -421,9 +426,13 @@ __Extensions__
 * CAP Calculator
     * Data should be shared between applications in order to reduce redundant typing from the user
 
+
+
 ### Glossary
 
 {More to be added}
+
+
 
 
 
