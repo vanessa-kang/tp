@@ -193,9 +193,9 @@ __<ins>Caution:</ins>__
   
 #### Printing the academic calendar: `view`
 
-Input format: `view`z
+Input format: `view`
 
-Ssers can choose from printing the full calendar by typing `full` or printing a specific semester by typing a number from 1-10, inclusive.
+Users can choose from printing the full calendar by typing `full` or printing a specific semester by typing a number from 1-10, inclusive.
 
 Expected output when user wishes to print the `full` calendar:
 
