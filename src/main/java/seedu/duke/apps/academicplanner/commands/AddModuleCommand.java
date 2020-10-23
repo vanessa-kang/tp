@@ -13,6 +13,7 @@ import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+//@@author jerroldlam
 /**
  * Class representing an add module command from the academic planner.
  */

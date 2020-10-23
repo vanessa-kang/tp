@@ -4,6 +4,10 @@ import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.global.objects.Person;
 import java.util.HashMap;
 
+//@@author jerroldlam
+/**
+ * Class of a module validation object
+ */
 public class ModuleValidator {
     private static final int STARTING_SEMESTER_INDEX = 1;
     private static final int FINAL_SEMESTER_INDEX = 10;
@@ -12,7 +16,7 @@ public class ModuleValidator {
     private final HashMap<String, Integer> modulesAddedMap;
 
     /**
-     * Default constructor for EditUtils.
+     * Default constructor for ModuleValidator.
      *
      * @param allModules all modules offered by NUS
      * @param currentPerson current User
