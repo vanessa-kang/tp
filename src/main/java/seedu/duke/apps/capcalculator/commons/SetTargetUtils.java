@@ -25,7 +25,8 @@ public class SetTargetUtils {
     }
 
     /**
-     * Obtain the target CAP from the user.
+     * Returns the target Cap obtained from the user.
+     *
      * @throws InvalidCapException if the Cap given is greater than 5.00 or less than 0
      */
     public double getTargetCap() throws InvalidCapException {
@@ -39,7 +40,8 @@ public class SetTargetUtils {
     }
 
     /**
-     * Obtain the target MCs from the user.
+     * Returns the target MCs obtained from the user.
+     *
      * @throws InvalidCreditException if the module credit given less than 0
      */
     public int getTargetGradedMC() throws InvalidCreditException {
