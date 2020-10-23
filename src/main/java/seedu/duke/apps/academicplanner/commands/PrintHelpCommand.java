@@ -2,6 +2,7 @@ package seedu.duke.apps.academicplanner.commands;
 
 import seedu.duke.global.Command;
 
+//@@author jerroldlam
 /**
  * Class representing a print help command from the academic planner.
  */
