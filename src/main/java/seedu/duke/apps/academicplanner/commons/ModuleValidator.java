@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 //@@author jerroldlam
 /**
- * Class of a module validation object
+ * Class of a module validation object.
  */
 public class ModuleValidator {
     private static final int STARTING_SEMESTER_INDEX = 1;

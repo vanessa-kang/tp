@@ -32,7 +32,7 @@ public class LoggingTool {
     }
 
     /**
-     * Formats handlers to log to file and not console with Level.INFO and higher
+     * Formats handlers to log to file and not console with Level.INFO and higher.
      */
     private void formatHandlers() {
         logger.addHandler(fh);
@@ -41,7 +41,7 @@ public class LoggingTool {
     }
 
     /**
-     * Sets format for logger
+     * Sets format for logger.
      */
     private void formatLogger() {
         SimpleFormatter formatter = new SimpleFormatter();
