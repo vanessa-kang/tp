@@ -10,9 +10,9 @@ import seedu.duke.ui.Ui;
  * Class representing the Academic Planner Application.
  */
 public class AcademicPlannerApp extends App {
-    private static final String WELCOME_MESSAGE = "\nWelcome to Academic Planner!";
+    private static final String NEW_LINE = "\n";
+    private static final String WELCOME_MESSAGE = "Welcome to Academic Planner!";
     private static final String EXIT_MESSAGE = "Thank you for using Academic Planner!";
-    private static final String AWAIT_COMMAND = "Type in a command to continue...";
     private static final String COMMANDS_LIST = "Available commands are:\n"
             + "\tadd <module code>\n"
             + "\tedit <module code>\n"
@@ -44,12 +44,14 @@ public class AcademicPlannerApp extends App {
      * Main entry point for the Academic Planner Application.
      */
     public void run() {
+        ui.printLine();
         showWelcomeMessage();
         boolean isExit = false;
 
         while (!isExit) {
             try {
-                System.out.println(AWAIT_COMMAND);
+                ui.showAcademicAwaitCommand();
+                ui.printLine();
                 String userInput = ui.getScanner().nextLine();
                 Command commandInput = AcademicPlannerParser.parse(userInput, allModules, currentPerson, ui);
                 commandInput.execute();
@@ -58,6 +60,7 @@ public class AcademicPlannerApp extends App {
                 System.out.println(e.getMessage());
             }
         }
+        ui.printLine();
         showExitMessage();
     }
 
@@ -65,7 +68,7 @@ public class AcademicPlannerApp extends App {
      * Prints welcome message for Academic Planner.
      */
     private void showWelcomeMessage() {
-        System.out.println(WELCOME_MESSAGE);
+        System.out.println(WELCOME_MESSAGE + NEW_LINE);
         System.out.println(COMMANDS_LIST);
     }
 

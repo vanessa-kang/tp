@@ -1,8 +1,7 @@
-package seedu.duke.apps;
+package seedu.duke.apps.moduleloader;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.apps.moduleloader.exceptions.ModuleLoaderException;
 import seedu.duke.global.objects.FullModule;
 
