@@ -7,6 +7,7 @@ import seedu.duke.global.objects.Person;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+//@@author jerroldlam
 /**
  * Class representing add module utilities from the add module command.
  */
