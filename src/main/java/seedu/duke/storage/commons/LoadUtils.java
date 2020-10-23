@@ -14,6 +14,7 @@ import java.util.Scanner;
 import static java.lang.Integer.parseInt;
 import static seedu.duke.storage.commons.FieldValidator.printLoadDetails;
 
+//@@author harryleecp
 public class LoadUtils {
     private static final String NEW_LINE = "\n";
     private static final String TAB = "  ";

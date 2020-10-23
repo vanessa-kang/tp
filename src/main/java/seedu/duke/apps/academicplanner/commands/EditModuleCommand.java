@@ -8,6 +8,7 @@ import seedu.duke.global.Command;
 import seedu.duke.global.objects.Person;
 import java.util.Scanner;
 
+//@@author harryleecp
 /**
  * Class representing an edit module command from the academic planner.
  */
