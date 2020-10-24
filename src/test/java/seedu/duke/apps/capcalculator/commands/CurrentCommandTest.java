@@ -12,6 +12,7 @@ import seedu.duke.global.objects.Person;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+//@@author jerroldlam
 class CurrentCommandTest {
     Person currentPerson;
     ModuleLoader allModules;
