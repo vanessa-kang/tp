@@ -6,6 +6,7 @@ import seedu.duke.global.Command;
 import seedu.duke.global.objects.Person;
 import seedu.duke.ui.Ui;
 
+//@@author Khenus
 /**
  * Class representing the Academic Planner Application.
  */

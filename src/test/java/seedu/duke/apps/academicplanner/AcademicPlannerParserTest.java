@@ -19,7 +19,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 class AcademicPlannerParserTest {
-
     private static final String ERROR_INVALID_COMMAND = "INVALID COMMAND";
     public static final String NEW_LINE = "\n";
     private static final String EXITING_CURRENT_COMMAND = "Exiting current command back to Academic Planner Main Menu.";

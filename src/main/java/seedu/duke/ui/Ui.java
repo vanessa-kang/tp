@@ -2,6 +2,7 @@ package seedu.duke.ui;
 
 import java.util.Scanner;
 
+//@@author Khenus
 /**
  * Class representing the ui for PlanNUS.
  */

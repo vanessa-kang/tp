@@ -1,5 +1,6 @@
 package seedu.duke.global.exceptions;
 
+//@@author Khenus
 /**
  * Signals that an invalid command has been given in the main command parser.
  */

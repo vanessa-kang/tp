@@ -5,7 +5,6 @@ import seedu.duke.apps.capcalculator.exceptions.InvalidCreditException;
 import seedu.duke.global.Command;
 import seedu.duke.global.LoggingTool;
 import seedu.duke.global.objects.Person;
-import seedu.duke.ui.Ui;
 import seedu.duke.apps.capcalculator.commons.SetTargetUtils;
 
 import java.util.Scanner;

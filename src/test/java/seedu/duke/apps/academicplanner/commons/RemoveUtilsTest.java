@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RemoveUtilsTest {
-
     ModuleLoader allModules;
     Person currentPerson;
     ModuleValidator moduleValidator;
