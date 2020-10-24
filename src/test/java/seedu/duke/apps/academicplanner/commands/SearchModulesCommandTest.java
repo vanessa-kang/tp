@@ -8,7 +8,6 @@ import seedu.duke.apps.moduleloader.ModuleLoader;
 import java.util.ArrayList;
 
 class SearchModulesCommandTest {
-
     private static final String PARTIAL_CODE_TEST = "cg40".toUpperCase();
     private static final int PARTIAL_CODE_RESULT = 3;
     private static final ArrayList<String> PARTIAL_CODE_RESULT_LIST = new ArrayList<>() {{

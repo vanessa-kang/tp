@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+//@@author Khenus
 class ModuleLoaderTest {
     private static final int TOTAL_NUMBER_OF_MODULES = 12436;
     private static final int INDEX_OF_CS1010 = 1786;

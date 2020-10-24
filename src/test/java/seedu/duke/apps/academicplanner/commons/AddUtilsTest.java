@@ -13,7 +13,6 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 //@@author jerroldlam
 class AddUtilsTest {
-
     ModuleLoader allModules;
     Person currentPerson;
     AddUtils addUtils;

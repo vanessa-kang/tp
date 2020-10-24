@@ -14,7 +14,6 @@ import java.util.Scanner;
  * Class representing the set S/U by semester command for CAP Calculator.
  */
 public class SetSuBySemesterCommand extends Command {
-
     private SetSuUtils setSuUtils;
     private ArrayList<PartialModule> suList;
 

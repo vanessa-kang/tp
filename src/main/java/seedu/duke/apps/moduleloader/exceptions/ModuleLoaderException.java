@@ -1,5 +1,6 @@
 package seedu.duke.apps.moduleloader.exceptions;
 
+//@@author Khenus
 /**
  * Signals that an error has occured when loading modules.
  */
