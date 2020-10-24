@@ -27,3 +27,13 @@ This project contains three types of tests:
 * Hybrids of unit and integration tests that check multiple code units as well as how they are connected together
 
 ## End of Testing guide
+
+## Extra Guides and Information
+
+* [**About Us**](https://ay2021s1-cs2113t-f12-1.github.io/tp/AboutUs.html)
+* **Configuration guide**
+* [**Developer guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DeveloperGuide.html)
+* **DevOps guide**
+* **Documentation guide**
+* [**Logging guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/LoggingGuide.html)
+* [**User guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/UserGuide.html)
