@@ -37,5 +37,5 @@ With the CAP Calulator , PlanNUS will be able to tell you your current CAP and f
 * **DevOps guide**
 * **Documentation guide**
 * [**Logging guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/LoggingGuide.html)
-* **Testing guide**
+* [**Testing guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/TestingGuide.html)
 * [**User guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/UserGuide.html)
