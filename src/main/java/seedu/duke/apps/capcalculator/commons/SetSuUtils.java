@@ -11,6 +11,7 @@ import java.util.Scanner;
 import static java.util.stream.Collectors.toList;
 import static seedu.duke.apps.capcalculator.commons.CalculatorUtils.formatCapToString;
 
+//@@author JuZihao
 /**
  * Class representing common functions for the set S/U commands.
  */

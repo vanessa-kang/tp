@@ -8,6 +8,7 @@ import seedu.duke.global.objects.Person;
 
 import java.util.Scanner;
 
+//@@author JuZihao
 /**
  * Class representing the parser used for set su command.
  */

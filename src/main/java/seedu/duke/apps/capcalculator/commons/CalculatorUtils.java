@@ -244,6 +244,7 @@ public class CalculatorUtils {
         }
     }
 
+    //@@author JuZihao
     /**
      * Returns CAP score as a string.
      *

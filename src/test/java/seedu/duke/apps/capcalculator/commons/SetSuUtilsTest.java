@@ -16,6 +16,7 @@ import static java.util.stream.Collectors.toList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
+//@@author JuZihao
 class SetSuUtilsTest {
     private static final String EMPTY_LIST_ERROR = "Looks like your S/U list is empty!";
     private static final String INVALID_MODULE_ERROR = "Looks like the module you entered is not a valid module!";

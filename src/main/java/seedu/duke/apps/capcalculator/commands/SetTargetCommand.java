@@ -5,7 +5,6 @@ import seedu.duke.apps.capcalculator.exceptions.InvalidCreditException;
 import seedu.duke.global.Command;
 import seedu.duke.global.LoggingTool;
 import seedu.duke.global.objects.Person;
-import seedu.duke.ui.Ui;
 import seedu.duke.apps.capcalculator.commons.SetTargetUtils;
 
 import java.util.Scanner;
@@ -14,6 +13,7 @@ import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+//@@author JuZihao
 /**
  * Class representing the Set target CAP command for CAP Calculator.
  */

@@ -7,6 +7,7 @@ import seedu.duke.ui.Ui;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
+//@@author JuZihao
 /**
  * Class representing the CAP Calculator app in PlanNUS.
  */
