@@ -10,7 +10,7 @@ import seedu.duke.storage.exceptions.LoadFileException;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-//@author Khenus
+//@@author Khenus
 class LoadUtilsTest {
     private Person person;
     private String wrongFileName = "PlanNus.wrong";
