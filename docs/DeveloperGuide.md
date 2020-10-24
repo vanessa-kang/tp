@@ -85,9 +85,9 @@ The interaction within each package should ideally be as shown below.
 </div>
 *Note that while this is the ideal case, packages such as* `global`, `parser` *and* `ui` *might not strictly follow this structure due to these package serving a different function altogether (Refer to the sections below for more details.)*
 
-### Lifecycle of PlanNUS
+### Life cycle of PlanNUS
 
-The *sequence diagram* below shows how different packages and classes interact with each other throughout the whole lifecycle of PlanNUS.
+The <<sequence-diagram,*sequence diagram*>> below shows how different packages and classes interact with each other throughout the whole <<life-cycle,life cycle>> of PlanNUS.
 
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/Packages_Interaction.png" alt="Sequence diagram for lifecycle of PlanNUS"/>
@@ -332,7 +332,7 @@ The following diagram summarizes what happens when the user executes a `SetSuByS
 ## Extra Guides and Information
 
 * [**About Us**](https://ay2021s1-cs2113t-f12-1.github.io/tp/AboutUs.html)
-* [**Configuration guide**](Configuration.md)
+* [**Configuration guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/Configuration.html)
 * **DevOps guide**
 * **Documentation guide**
 * [**Logging guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/LoggingGuide.html)
@@ -417,6 +417,7 @@ __Extensions__
 ### Non-Functional Requirements
 
 * General
+    * Should work on any <<mainstream-os,mainstream OS>> as long as it has Java `11` or above installed.
     * Commands entered should be short and intuitive to reduce mistyping of commands
     * Program should be compatible on a wide range of devices
 * Academic Planner
@@ -430,10 +431,14 @@ __Extensions__
 
 ### Glossary
 
-{More to be added}
+[[mainstream-os]] Mainstream OS::
+Windows, Linux, Unix, OS-X
 
+[[life-cycle]] Life cycle::
+The duration in which the object is running and alive.
 
-
+[[sequence-diagram]] Sequence Diagram::
+A UML diagram that captures the interactions between multiple objects for a given scenario.
 
 
 ## Appendix: Instructions for manual testing
