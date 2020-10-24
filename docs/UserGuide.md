@@ -2,13 +2,18 @@
 
 PlanNUS is a __desktop application for planning academic journey__ with modules offered by National University of Singapore (NUS). The __Command Line Interface (CLI)__ will be required for the program to work.
 
+PlanNUS aims to patch the missing gap for students in NUS by providing an avenue for students to plan their full academic journey in NUS, not just a specific semester. PlanNUS also generate CAP statistics by getting information from
+the calendar that the user has entered to retrieve the user's current CAP and even suggest to user which modules to mark as satisfactory/unsatisfactory to have the highest CAP possible. PlanNUS also has saving and loading features which would
+reduce the hassle of entering the full academic calendar for each use.
+
+The section belows aims to explain how PlanNUS is used and the common errors faced by users. Sections can be easily navigated to by clicking on the hyperlinks in the table of contents.
 
 * Table of Contents
 {:toc}
 ## Quick Start
 
 1. Ensure that you have Java 11 or above installed.
-1. Download the latest version of `PlanNUS` [here](https://github.com/AY2021S1-CS2113T-F12-1/tp/releases).
+1. Download the latest version of `PlanNUS` [here](https://github.com/AY2021S1-CS2113T-F12-1/tp/releases "PlanNUS releases").
 1. Double click on _PlanNUS.jar_ to start up the program.
 1. If the previous step does not work, open up the command prompt.
 1. Go to the directory where the jar file is saved.
@@ -438,4 +443,4 @@ As per NUS [Grade Policy](http://www.nus.edu.sg/registrar/academic-information-p
 
 *Additional Grading options include S,U,CS,CU,IC,IP,AUD,EXE,W,WU. They hold no Academic Point Value.
 
-
+## End of user guide
