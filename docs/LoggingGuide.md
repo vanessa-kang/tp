@@ -28,7 +28,7 @@ Logger logger = new LoggingTool(<YOUR_LOGGER_NAME>,fh).initialize();
 ## Extra Guides and Information
 
 * [**About Us**](https://ay2021s1-cs2113t-f12-1.github.io/tp/AboutUs.html)
-* **Configuration guide**
+* [**Configuration guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/Configuration.html)
 * [**Developer guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DeveloperGuide.html)
 * **DevOps guide**
 * **Documentation guide**
