@@ -9,6 +9,7 @@ import java.util.Scanner;
 import static seedu.duke.apps.capcalculator.commons.CalculatorUtils.MAXIMUM_CAP;
 import static seedu.duke.apps.capcalculator.commons.CalculatorUtils.formatCapToString;
 
+//@@author JuZihao
 /**
  * Class representing the common Set Target functions in CAP Calculator.
  */

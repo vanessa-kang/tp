@@ -14,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
+//@@author JuZihao
 class SetSuParserTest {
 
     private static final String INVALID_SU_ERROR = "Number entered does not correspond to any S/U method.";
