@@ -1,14 +1,25 @@
 # User Guide for PlanNUS
 
+Hello user of PlanNUS! Welcome to our user guide for our humble software. In this user guide, you can find information regarding how to use PlanNUS and the common questions asked with regards to the usage of PlanNUS. We hope you find this software
+useful and we wish you all the best for your academic journey in NUS.
+
+## Overview
+
 PlanNUS is a __desktop application for planning academic journey__ with modules offered by National University of Singapore (NUS). The __Command Line Interface (CLI)__ will be required for the program to work.
 
+PlanNUS aims to patch the missing gap for students in NUS by providing an avenue for students to plan their full academic journey in NUS, not just a specific semester. PlanNUS also generate CAP statistics by getting information from
+the calendar that the user has entered to retrieve the user's current CAP and even suggest to user which modules to mark as satisfactory/unsatisfactory to have the highest CAP possible. PlanNUS also has saving and loading features which would
+reduce the hassle of entering the full academic calendar for each use.
+
+The sections below aims to explain how PlanNUS should be used, and the common errors faced by users. Sections can be easily navigated to by clicking on the hyperlinks in the table of contents.
 
 * Table of Contents
 {:toc}
+
 ## Quick Start
 
 1. Ensure that you have Java 11 or above installed.
-1. Download the latest version of `PlanNUS` [here](https://github.com/AY2021S1-CS2113T-F12-1/tp/releases).
+1. Download the latest version of `PlanNUS` [here](https://github.com/AY2021S1-CS2113T-F12-1/tp/releases "PlanNUS releases").
 1. Double click on _PlanNUS.jar_ to start up the program.
 1. If the previous step does not work, open up the command prompt.
 1. Go to the directory where the jar file is saved.
@@ -18,7 +29,7 @@ PlanNUS is a __desktop application for planning academic journey__ with modules 
 
 ## Command Summary
 
-Note that the following commands are case-insensitive.
+Note that the following commands are **case-insensitive**.
 
 * Initiate the __Academic Calendar Planner__: `acadPlan`
 
@@ -73,7 +84,7 @@ Input format: `add <module code>`
 * `add CS2113T`
 * `ADD cs2101`
 
-Upon entering the desired module, user will be prompted to enter the semester when this module had been or to be taken before keying in the grade as shown in the image below.
+Upon entering the add command with the module code, you will be prompted to enter the semester you wish to take the module and the corresponding grade attained.
 
 <div style="text-align:center">
     <img src="images/UserGuide/add_module.png" />
@@ -82,9 +93,11 @@ Upon entering the desired module, user will be prompted to enter the semester wh
 
 __<ins>Caution</ins>:__ 
 
-* Invalid module codes (i.e. Modules not offered by NUS) cannot be added into the calendar
-* Duplicate module codes cannot be added into the calendar as well  
-  
+* Invalid module codes (i.e. Modules not offered by NUS) cannot be added into the calendar.
+* Duplicate module codes cannot be added into the calendar as well.
+* Invalid semester indexes will be rejected by PlanNUS. For more information, visit [Appendix](#naming-convention-for-semester-indexes) for a list of valid semester indexes.
+* Invalid grade values will be rejected by PlanNUS. For more information, visit [Appendix](#grade-values) for a list of valid grade values.
+* When an invalid command is entered, you will be brought back to the main page of the academic planner, where you can re-enter the command with the correct information again.   
 
 
 
@@ -193,9 +206,9 @@ __<ins>Caution:</ins>__
   
 #### Printing the academic calendar: `view`
 
-Input format: `view`z
+Input format: `view`
 
-Ssers can choose from printing the full calendar by typing `full` or printing a specific semester by typing a number from 1-10, inclusive.
+Users can choose from printing the full calendar by typing `full` or printing a specific semester by typing a number from 1-10, inclusive.
 
 Expected output when user wishes to print the `full` calendar:
 
@@ -438,4 +451,4 @@ As per NUS [Grade Policy](http://www.nus.edu.sg/registrar/academic-information-p
 
 *Additional Grading options include S,U,CS,CU,IC,IP,AUD,EXE,W,WU. They hold no Academic Point Value.
 
-
+## End of user guide

@@ -9,6 +9,7 @@ import seedu.duke.global.objects.Person;
 import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+//@@author jerroldlam
 class AcademicCalendarSorterTest {
 
     Person currentPerson;

@@ -16,12 +16,14 @@ import static java.util.stream.Collectors.toList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
+//@@author JuZihao
 class SetSuUtilsTest {
     private static final String EMPTY_LIST_ERROR = "Looks like your S/U list is empty!";
     private static final String INVALID_MODULE_ERROR = "Looks like the module you entered is not a valid module!";
     private static final String EXITING_CURRENT_COMMAND =
             "Exiting current command back to CAP Calculator App Main Menu.";
     private static final String NEW_LINE = "\n";
+    private static final String DUPLICATE_MODULE_ERROR = "Looks like you have already added this module!";
 
     Person currentPerson;
     AddUtils addUtils;
@@ -55,6 +57,7 @@ class SetSuUtilsTest {
             filteredList = (ArrayList<PartialModule>) currentPerson.getModulesList().stream()
                     .filter((partialModule) -> partialModule.getCap() >= 0)
                     .collect(toList());
+            suList = new ArrayList<>();
 
         } catch (ModuleLoaderException e) {
             e.printStackTrace();
@@ -65,10 +68,10 @@ class SetSuUtilsTest {
     void execute_getSuListBySemester_result() {
         try {
             suList = setSuUtils.getSuListBySemester(1);
-            assertEquals(suList.size(),3);
+            assertEquals(3, suList.size());
 
             suList = setSuUtils.getSuListBySemester(2);
-            assertEquals(suList.size(),4);
+            assertEquals(4, suList.size());
         } catch (CapCalculatorException e) {
             fail();
         }
@@ -78,9 +81,9 @@ class SetSuUtilsTest {
     void execute_getSuListBySemester_exceptionThrown() {
         try {
             suList = setSuUtils.getSuListBySemester(4);
-            assertEquals(suList.size(),0);
+            assertEquals(0, suList.size());
         } catch (CapCalculatorException e) {
-            assertEquals(e.getMessage(),EMPTY_LIST_ERROR + NEW_LINE + EXITING_CURRENT_COMMAND);
+            assertEquals(EMPTY_LIST_ERROR + NEW_LINE + EXITING_CURRENT_COMMAND, e.getMessage());
         }
     }
 
@@ -88,14 +91,14 @@ class SetSuUtilsTest {
     void execute_getSuModule_result() {
         try {
             suModule = setSuUtils.getSuModule(filteredList, "CS1010");
-            assertEquals(suModule.getModuleCode(),"CS1010");
-            assertEquals(suModule.getCap(),4.50);
-            assertEquals(suModule.getModuleCredit(),4);
+            assertEquals("CS1010", suModule.getModuleCode());
+            assertEquals(4.50, suModule.getCap());
+            assertEquals(4, suModule.getModuleCredit());
 
             suModule = setSuUtils.getSuModule(filteredList, "CS1231");
-            assertEquals(suModule.getModuleCode(),"CS1231");
-            assertEquals(suModule.getCap(),3.50);
-            assertEquals(suModule.getModuleCredit(),4);
+            assertEquals("CS1231", suModule.getModuleCode());
+            assertEquals(3.50,suModule.getCap());
+            assertEquals(4, suModule.getModuleCredit());
         } catch (CapCalculatorException e) {
             fail();
         }
@@ -106,7 +109,34 @@ class SetSuUtilsTest {
         try {
             suModule = setSuUtils.getSuModule(filteredList, "MA1511");
         } catch (CapCalculatorException e) {
-            assertEquals(e.getMessage(),INVALID_MODULE_ERROR + NEW_LINE + EXITING_CURRENT_COMMAND);
+            assertEquals(INVALID_MODULE_ERROR + NEW_LINE + EXITING_CURRENT_COMMAND, e.getMessage());
+        }
+    }
+
+    @Test
+    void execute_addModuleToSuList_results() {
+        try {
+            suModule = setSuUtils.getSuModule(filteredList, "CS1231");
+            setSuUtils.addModuleToSuList(suList,suModule);
+            assertEquals(1, suList.size());
+
+            suModule = setSuUtils.getSuModule(filteredList, "CS1010");
+            setSuUtils.addModuleToSuList(suList,suModule);
+            assertEquals(2, suList.size());
+        } catch (CapCalculatorException e) {
+            fail();
+        }
+    }
+
+    @Test
+    void execute_addModuleToSuList_exceptionThrown() {
+        try {
+            suModule = setSuUtils.getSuModule(filteredList, "CS1231");
+            setSuUtils.addModuleToSuList(suList,suModule);
+            suModule = setSuUtils.getSuModule(filteredList, "CS1231");
+            setSuUtils.addModuleToSuList(suList,suModule);
+        } catch (CapCalculatorException e) {
+            assertEquals(DUPLICATE_MODULE_ERROR + NEW_LINE + EXITING_CURRENT_COMMAND, e.getMessage());
         }
     }
 }

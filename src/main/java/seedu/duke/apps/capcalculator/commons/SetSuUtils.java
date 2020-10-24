@@ -11,6 +11,7 @@ import java.util.Scanner;
 import static java.util.stream.Collectors.toList;
 import static seedu.duke.apps.capcalculator.commons.CalculatorUtils.formatCapToString;
 
+//@@author JuZihao
 /**
  * Class representing common functions for the set S/U commands.
  */
@@ -234,7 +235,7 @@ public class SetSuUtils {
      * @param moduleToSu the module to be added into the list
      * @throws CapCalculatorException if the module is already in the list
      */
-    private void addModuleToSuList(ArrayList<PartialModule> suList,
+    public void addModuleToSuList(ArrayList<PartialModule> suList,
                                    PartialModule moduleToSu) throws CapCalculatorException {
         if (suList.contains(moduleToSu)) {
             throw new CapCalculatorException(DUPLICATE_MODULE_ERROR);
@@ -297,7 +298,7 @@ public class SetSuUtils {
      * @param suList the list of modules to be S/Ued
      * @return boolean boolean
      */
-    public boolean isEmptyList(ArrayList<PartialModule> suList) {
+    private boolean isEmptyList(ArrayList<PartialModule> suList) {
         return suList.size() == 0;
     }
 

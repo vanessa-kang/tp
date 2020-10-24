@@ -62,14 +62,23 @@ public class Ui {
         System.out.println(HELP_MESSAGE);
     }
 
+    /**
+     * Prints general await command.
+     */
     public void showAwaitCommand() {
         System.out.println(NEW_LINE + AWAIT_COMMAND);
     }
 
+    /**
+     * Prints await command for academic calendar.
+     */
     public void showAcademicAwaitCommand() {
         System.out.println(NEW_LINE + ACADEMIC_AWAIT_COMMAND);
     }
 
+    /**
+     * Prints await command for CAP calculator.
+     */
     public void showCalculatorAwaitCommand() {
         System.out.println(NEW_LINE + CALCULATOR_AWAIT_COMMAND);
     }

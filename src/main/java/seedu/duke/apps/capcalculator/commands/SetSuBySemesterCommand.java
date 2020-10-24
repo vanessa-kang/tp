@@ -9,6 +9,7 @@ import seedu.duke.global.objects.Person;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+//@@author JuZihao
 /**
  * Class representing the set S/U by semester command for CAP Calculator.
  */

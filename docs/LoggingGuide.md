@@ -23,7 +23,7 @@ FileHandler fh = new FileHandler(<YOUR_LOG_FILE_NAME>);
 Logger logger = new LoggingTool(<YOUR_LOGGER_NAME>,fh).initialize();
 ```
 
-
+## End of logging guide
 
 ## Extra Guides and Information
 
@@ -32,6 +32,5 @@ Logger logger = new LoggingTool(<YOUR_LOGGER_NAME>,fh).initialize();
 * [**Developer guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DeveloperGuide.html)
 * **DevOps guide**
 * **Documentation guide**
-
-* **Testing guide**
+* [**Testing guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/TestingGuide.html)
 * [**User guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/UserGuide.html)
