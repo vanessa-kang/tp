@@ -18,6 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
+//@@author jerroldlam
 class AcademicPlannerParserTest {
 
     private static final String ERROR_INVALID_COMMAND = "INVALID COMMAND";
