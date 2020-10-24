@@ -7,7 +7,8 @@ import seedu.duke.apps.moduleloader.exceptions.ModuleLoaderException;
 import seedu.duke.global.objects.Person;
 import seedu.duke.storage.exceptions.LoadFileException;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 //@author Khenus
 class LoadUtilsTest {
