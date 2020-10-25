@@ -14,7 +14,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 //@@author harryleecp
 class EditUtilsTest {
-
     ModuleLoader allModules;
     ModuleValidator moduleValidator;
     Person currentPerson;

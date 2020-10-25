@@ -14,7 +14,6 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 //@@author JuZihao
 class CapCalculatorAppParserTest {
-
     private static final String INVALID_COMMAND_MESSAGE = "OOPS!!! I'm sorry, but I don't know what that means :-(";
     private Person currentPerson;
     private Ui ui;

@@ -8,7 +8,6 @@ import seedu.duke.apps.academicplanner.exceptions.AcademicException;
 import seedu.duke.apps.moduleloader.ModuleLoader;
 
 class ModuleDetailsCommandTest {
-
     private static final String VALID_CODE_TEST = "cs2101".toUpperCase();
     private static final String VALID_CODE_RESULT_CODE = "CS2101";
     private static final String VALID_CODE_RESULT_TITLE = "Effective Communication for Computing Professionals";

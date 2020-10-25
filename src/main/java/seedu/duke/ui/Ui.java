@@ -2,13 +2,14 @@ package seedu.duke.ui;
 
 import java.util.Scanner;
 
+//@@author Khenus
 /**
  * Class representing the ui for PlanNUS.
  */
 public class Ui {
     private static final String LINE = "____________________________________________________________";
+    private static final String STARS = "************************************************************";
     private static final String NEW_LINE = "\n";
-    private static final String TAB = "  ";
     private static final String WELCOME_MESSAGE = "Welcome to PlanNUS!";
     private static final String WELCOME_BACK_MESSAGE = "Welcome back to PlanNUS Main Menu!";
     private static final String AWAIT_COMMAND = "Type in a command to continue...";
@@ -36,6 +37,11 @@ public class Ui {
     public void printLine() {
         System.out.println(LINE);
     }
+
+    public void printStars() {
+        System.out.println(STARS);
+    }
+
 
     /**
      * Prints exit message for user just before termination of program.

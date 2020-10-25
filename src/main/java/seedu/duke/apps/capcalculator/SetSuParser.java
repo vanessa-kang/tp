@@ -5,8 +5,7 @@ import seedu.duke.apps.capcalculator.commands.SetSuBySemesterCommand;
 import seedu.duke.global.exceptions.CommandParserException;
 import seedu.duke.global.Command;
 import seedu.duke.global.objects.Person;
-
-import java.util.Scanner;
+import seedu.duke.ui.Ui;
 
 //@@author JuZihao
 /**
@@ -24,11 +23,11 @@ public class SetSuParser {
      * @return Command to be executed
      * @throws CommandParserException thrown when an invalid input is entered
      */
-    public static Command parse(String choice, Person currentPerson, Scanner in) throws CommandParserException {
+    public static Command parse(String choice, Person currentPerson, Ui ui) throws CommandParserException {
         if (choice.equals(BY_SEMESTER)) {
-            return new SetSuBySemesterCommand(currentPerson, in);
+            return new SetSuBySemesterCommand(currentPerson, ui);
         } else if (choice.equals(BY_MODULES)) {
-            return new SetSuByModuleCommand(currentPerson, in);
+            return new SetSuByModuleCommand(currentPerson, ui);
         } else {
             throw new CommandParserException(INVALID_SU_ERROR);
         }

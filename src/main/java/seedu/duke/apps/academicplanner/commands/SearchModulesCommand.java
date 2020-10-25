@@ -6,8 +6,8 @@ import seedu.duke.global.Command;
 import seedu.duke.global.objects.FullModule;
 import java.util.ArrayList;
 
+//@@author Vanessa-Kang
 public class SearchModulesCommand extends Command {
-
     private final ModuleLoader allModules;
     private String keyword;
     final ArrayList<String> matchList = new ArrayList<>();

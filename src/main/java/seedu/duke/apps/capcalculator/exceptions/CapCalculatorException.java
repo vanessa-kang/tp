@@ -1,5 +1,6 @@
 package seedu.duke.apps.capcalculator.exceptions;
 
+//@@author JuZihao
 /**
  * Signals that an invalid command has been given in the CAP Calculator App.
  */

@@ -13,7 +13,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 //@@author harryleecp
 class RemoveUtilsTest {
-
     ModuleLoader allModules;
     Person currentPerson;
     ModuleValidator moduleValidator;

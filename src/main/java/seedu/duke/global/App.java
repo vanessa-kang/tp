@@ -1,5 +1,6 @@
 package seedu.duke.global;
 
+//@@author Khenus
 /**
  * Class representing an application in PlanNUS.
  */

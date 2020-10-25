@@ -8,6 +8,7 @@ import seedu.duke.global.App;
 import seedu.duke.global.objects.Person;
 import seedu.duke.ui.Ui;
 
+//@@author Khenus
 /**
  * Class representing the parser for applications used in the main PlanNUS page.
  */
