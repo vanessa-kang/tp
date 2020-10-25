@@ -5,9 +5,9 @@ import seedu.duke.apps.capcalculator.exceptions.CapCalculatorException;
 import seedu.duke.global.Command;
 import seedu.duke.global.objects.PartialModule;
 import seedu.duke.global.objects.Person;
+import seedu.duke.ui.Ui;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 //@@author JuZihao
 /**
@@ -17,8 +17,8 @@ public class SetSuBySemesterCommand extends Command {
     private SetSuUtils setSuUtils;
     private ArrayList<PartialModule> suList;
 
-    public SetSuBySemesterCommand(Person currentPerson, Scanner in) {
-        this.setSuUtils = new SetSuUtils(currentPerson, in);
+    public SetSuBySemesterCommand(Person currentPerson, Ui ui) {
+        this.setSuUtils = new SetSuUtils(currentPerson, ui);
     }
 
     /**

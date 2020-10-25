@@ -14,8 +14,9 @@ import static seedu.duke.apps.capcalculator.commons.CalculatorUtils.formatCapToS
  * Class representing the common Set Target functions in CAP Calculator.
  */
 public class SetTargetUtils {
-    private static final String INVALID_CAP_MESSAGE = "Your target CAP cannot be greater than the maximum CAP of 5!";
-    private static final String INVALID_MC_MESSAGE = "Your target MC cannot be 0!";
+    private static final String MAXIMUM_CAP_ERROR = "Your target CAP cannot be greater than the maximum CAP of 5!";
+    private static final String MINIMUM_CAP_ERROR = "Your target CAP cannot be lower than the minimum CAP of 0!";
+    private static final String INVALID_MC_MESSAGE = "Your target MC cannot less than 0!";
 
     private Person currentPerson;
     private Scanner in;
@@ -35,8 +36,10 @@ public class SetTargetUtils {
         double targetCap = Double.parseDouble(in.nextLine());
         if (isValidCap(targetCap)) {
             return targetCap;
+        } else if (targetCap > MAXIMUM_CAP) {
+            throw new InvalidCapException(MAXIMUM_CAP_ERROR);
         } else {
-            throw new InvalidCapException(INVALID_CAP_MESSAGE);
+            throw new InvalidCapException(MINIMUM_CAP_ERROR);
         }
     }
 

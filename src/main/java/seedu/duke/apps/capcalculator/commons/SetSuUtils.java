@@ -3,6 +3,7 @@ package seedu.duke.apps.capcalculator.commons;
 import seedu.duke.apps.capcalculator.exceptions.CapCalculatorException;
 import seedu.duke.global.objects.PartialModule;
 import seedu.duke.global.objects.Person;
+import seedu.duke.ui.Ui;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -18,7 +19,10 @@ import static seedu.duke.apps.capcalculator.commons.CalculatorUtils.formatCapToS
 public class SetSuUtils {
     private static final String VALID_SEMESTERS = "Valid semesters are integers from 1 to 10, inclusive.";
     private static final String PROMPT_SU_SEMESTER_VALUE = "Please enter a semester you wish to S/U.";
-    private static final String SU_SUGGESTION_PROMPT = "The modules you should be S/Uing are:";
+    private static final String SU_SUGGESTION_PROMPT = "In order to obtain the highest Cap possible,"
+            + "the modules you should be S/Uing are:";
+    private static final String SINGLE_SU_SUGGESTION_PROMPT = "In order to obtain the highest Cap possible,"
+            + "the module you should be S/Uing is:";
     private static final String NO_SUGGESTION_PROMPT = "Looks like you do not have to S/U any modules!";
     private static final String PROMPT_MODULE_VALUE = "Please enter how many modules you wish to S/U.";
     private static final String INVALID_SEMESTER_ERROR = "Looks like the semester you entered is not valid!";
@@ -33,19 +37,19 @@ public class SetSuUtils {
     private static final int DISPLAY_PREFIX = 1;
 
     private Person currentPerson;
+    private Ui ui;
     private Scanner in;
-    private CalculatorUtils calculatorutils;
 
     /**
      * Instantiates a new Set su utils.
      *
      * @param currentPerson the current person
-     * @param in scanner for user inputs
+     * @param ui that deals with interaction with user
      */
-    public SetSuUtils(Person currentPerson, Scanner in) {
+    public SetSuUtils(Person currentPerson, Ui ui) {
         this.currentPerson = currentPerson;
-        this.in = in;
-        this.calculatorutils = new CalculatorUtils(currentPerson);
+        this.in = ui.getScanner();
+        this.ui = ui;
     }
 
     /**
@@ -117,6 +121,7 @@ public class SetSuUtils {
         double currentCap = currentPerson.getCurrentTotalMcxGrade() / (double)currentPerson.getCurrentMcAfterSU();
         int currentGradedMCs = currentPerson.getCurrentMcAfterSU();
         showInitialCapToUser(currentCap, currentGradedMCs);
+        ui.printStars();
         showCapAfterEachSu(suList, currentCap, currentPerson.getCurrentTotalMcxGrade(), currentGradedMCs);
     }
 
@@ -147,6 +152,7 @@ public class SetSuUtils {
             }
         }
         showBestResultsForSu(bestCap, bestGradedMCs);
+        ui.printStars();
         showSuggestedSuOptions(suList, numberOfModulesToSU);
     }
 
@@ -157,13 +163,18 @@ public class SetSuUtils {
      * @param numberOfModulesToSU the number of modules to S/U
      */
     public void showSuggestedSuOptions(ArrayList<PartialModule> suList, int numberOfModulesToSU) {
-        if (numberOfModulesToSU > 0) {
+        if (numberOfModulesToSU > 1) {
             System.out.println(SU_SUGGESTION_PROMPT);
             for (int i = 0; i < numberOfModulesToSU; i++) {
                 PartialModule moduleToSu = suList.get(i);
                 System.out.println(moduleToSu.getModuleCode() + " with grade " + moduleToSu.getGrade()
                         + " and modular credit of " + moduleToSu.getModuleCredit() + ".");
             }
+        } else if (numberOfModulesToSU == 1) {
+            System.out.println(SINGLE_SU_SUGGESTION_PROMPT);
+            PartialModule moduleToSu = suList.get(0);
+            System.out.println(moduleToSu.getModuleCode() + " with grade " + moduleToSu.getGrade()
+                    + " and modular credit of " + moduleToSu.getModuleCredit() + ".");
         } else {
             System.out.println(NO_SUGGESTION_PROMPT);
         }
