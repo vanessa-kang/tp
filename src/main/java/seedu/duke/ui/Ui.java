@@ -8,6 +8,7 @@ import java.util.Scanner;
  */
 public class Ui {
     private static final String LINE = "____________________________________________________________";
+    private static final String STARS = "************************************************************";
     private static final String NEW_LINE = "\n";
     private static final String TAB = "  ";
     private static final String WELCOME_MESSAGE = "Welcome to PlanNUS!";
@@ -37,6 +38,11 @@ public class Ui {
     public void printLine() {
         System.out.println(LINE);
     }
+
+    public void printStars() {
+        System.out.println(STARS);
+    }
+
 
     /**
      * Prints exit message for user just before termination of program.

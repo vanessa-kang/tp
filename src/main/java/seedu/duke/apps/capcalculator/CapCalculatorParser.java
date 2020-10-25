@@ -45,7 +45,7 @@ public class CapCalculatorParser {
         } else if (userInput.equals((SET_SU_COMMAND))) {
             promptUserForSuCommand();
             String choice = in.nextLine().trim();
-            return SetSuParser.parse(choice, currentPerson, in);
+            return SetSuParser.parse(choice, currentPerson, ui);
         } else {
             throw new CommandParserException(INVALID_COMMAND_MESSAGE);
         }
