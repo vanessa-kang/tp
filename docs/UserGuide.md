@@ -1,6 +1,6 @@
 # User Guide for PlanNUS
 
-Hello user of PlanNUS! Welcome to our user guide for our humble software. In this user guide, you can find information regarding how to use PlanNUS and the common questions asked with regards to the usage of PlanNUS. We hope you find this software
+Hello user of PlanNUS! Welcome to our user guide for our software. In this user guide, you can find information regarding how to use PlanNUS and the common questions asked with regards to the usage of PlanNUS. We hope you find this software
 useful and we wish you all the best for your academic journey in NUS.
 
 ## Overview
@@ -8,10 +8,10 @@ useful and we wish you all the best for your academic journey in NUS.
 PlanNUS is a __desktop application for planning academic journey__ with modules offered by National University of Singapore (NUS). The __Command Line Interface (CLI)__ will be required for the program to work.
 
 PlanNUS aims to patch the missing gap for students in NUS by providing an avenue for students to plan their full academic journey in NUS, not just a specific semester. PlanNUS also generate CAP statistics by getting information from
-the calendar that the user has entered to retrieve the user's current CAP and even suggest to user which modules to mark as satisfactory/unsatisfactory to have the highest CAP possible. PlanNUS also has saving and loading features which would
+the calendar that the user has entered to retrieve the user's current CAP and even provides suggestion to which modules the user should to mark as satisfactory/unsatisfactory (S/U) to obtain the highest CAP possible. PlanNUS also has saving and loading features which would
 reduce the hassle of entering the full academic calendar for each use.
 
-The sections below aims to explain how PlanNUS should be used, and the common errors faced by users. Sections can be easily navigated to by clicking on the hyperlinks in the table of contents.
+The sections below explain how PlanNUS should be used, and the common errors faced by users. Sections can be easily navigated to by clicking on the hyperlinks in the table of contents.
 
 * Table of Contents
 {:toc}
