@@ -59,17 +59,17 @@ Note that the following commands are **case-insensitive**.
 
 PlanNUS has two separate commands at the main page where the users can either choose to have an outlook of their potential academic journey or calculate their CAP. For each of these commands, there are more specific functions for configuration of user's desired choices.
 
-<div style="text-align:center">
+<table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/Main_Page_Features.png" />  
-</div>
+</div></td></tr></table>
 
 
 ### Academic Calendar Planner: `acadplan`
 Directs user to the page where he/she can plan a personalized academic journey in NUS by using `add`, `remove` , `view` or `edit` features as shown below.
 
-<div style="text-align:center">
+<table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/acadplan_features.png"/>
-</div>
+</div></td></tr></table>
 
 
 Input format: `acadplan`    
@@ -86,9 +86,9 @@ Input format: `add <module code>`
 
 Upon entering the add command with the module code, you will be prompted to enter the semester you wish to take the module and the corresponding grade attained.
 
-<div style="text-align:center">
+<table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/add_module.png" />
-</div>
+</div></td></tr></table>
 
 
 __<ins>Caution</ins>:__ 
@@ -110,25 +110,28 @@ Example of usage:
 * `edit CS2113T`
 * `EDIT cs2101`
 
-<div style="text-align:center">
+<table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/edit_module.png" />
-</div>
+</div></td></tr></table>
+
+
+
 
 
 As shown in the image, user can choose to edit either the _Semester_ or _Grade_ of the selected module. (__Note:__ Enter either `1` or `2` instead of the component's name)
 
 Expected output when user wishes to change the _Semester_.
 
-<div style="text-align:center">
+<table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/edit_module_semester.png" />
-</div>
+</div></td></tr></table>
 
 
 Expected output when user wishes to change the _Grade_.
 
-<div style="text-align:center">
+<table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/edit_module_grade.png" />
-</div>
+</div></td></tr></table>
 
 __<ins>Caution:</ins>__ 
 
@@ -146,9 +149,9 @@ Example of usage:
 * `remove cs2113T`
 * `REMOVE CS2101`
 
-<div style="text-align:center">
+<table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/remove_module.png" />
-</div>
+</div></td></tr></table>
 
 
 __<ins>Caution:</ins>__ 
@@ -167,9 +170,9 @@ Example of usage:
 * `details CS2101`
 * `DETAILS cs2113t`
 
-<div style="text-align:center">
+<table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/acadplan_details.png" />
-</div>
+</div></td></tr></table>
 
 
 As shown in the image, users can input the module that they wish to view further details about.
@@ -187,13 +190,13 @@ Example of usage:
 
 * `search CS21`
 * `SEARCH cg4002`
-<div style="text-align:center">
+<table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/acadplan_search_part.png" />
-</div>
+</div></td></tr></table>
 
-<div style="text-align:center">
+<table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/acadplan_search_full.png"/>
-</div>
+</div></td></tr></table>
 
 
 As shown above, users can enter a search key that contains either part of, or the whole module code.
@@ -212,17 +215,17 @@ Users can choose from printing the full calendar by typing `full` or printing a 
 
 Expected output when user wishes to print the `full` calendar:
 
-<div style="text-align:center">
+<table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/acadplan_viewfull.png" />
-</div>
+</div></td></tr></table>
 
 
 
 Expected output when user wishes to print a specific semester:
 
-<div style="text-align:center">
+<table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/acadplan_viewsem.png" />
-</div>
+</div></td></tr></table>
 
 
 
@@ -230,9 +233,9 @@ Expected output when user wishes to print a specific semester:
 
 Input format: `help`
 
-<div style="text-align:center">
+<table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/acadplan_help.png" />
-</div>
+</div></td></tr></table>
 
 
 ​    
@@ -241,9 +244,9 @@ Input format: `help`
 
 Directs user to the page where he/she can view the `current` CAP or even `set target` CAP to be met in the upcoming semester(s). 
 
-<div style="text-align:center">
+<table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_features.png" />
-</div>
+</div></td></tr></table>
 
 
 Input format: `capcalc`
@@ -253,9 +256,9 @@ Input format: `capcalc`
 
 The value of CAP depends entirely on the modules and with corresponding grades added by the user in Academic Calendar Planner.
 
-<div style="text-align:center">
+<table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_current.png" />
-</div>
+</div></td></tr></table>
 
 
 Input format: `current`
@@ -269,9 +272,9 @@ __<ins>Caution:</ins>__
 
 This is for the user to set a target CAP that he or she wishes to obtain for the next specified graded MCs.
 
-<div style="text-align:center">
+<table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_set_target.png" />
-</div>
+</div></td></tr></table>
 
 
 Input format: `set target`
@@ -286,9 +289,9 @@ __<ins>Caution:</ins>__
 
 This is for the user to set modules that he or she wishes to S/U.
 
-<div style="text-align:center">
+<table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_set_su_module.png" />
-</div>
+</div></td></tr></table>
 
 
 As shown in the image, user can choose to S/U by either a _Semester_ or some selected _Modules_. (__Note:__ Enter either `1` or `2` instead of the component's name)
@@ -301,9 +304,9 @@ Below shows the expected output when user wishes to S/U by _Semester_.
 
 User will be prompted to enter a specific semester that he or she wishes to S/U. The following will show if the entered *Semester* is valid.
 
-<div style="text-align:center">
+<table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_set_su_semester_output.png" />
-</div> 
+</div></td></tr></table> 
 
 
 __<ins>Caution:</ins>__ 
@@ -319,9 +322,9 @@ Below shows the expected output when user wishes to S/U by _Modules_.
 
 User will then be prompted to enter a specific number of modules to S/Ued and the module codes to be S/Ued. The following will show if the all the fields are valid.
 
-<div style="text-align:center">
+<table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_set_su_modules_output.png" />
-</div> 
+</div></td></tr></table> 
 
 
 __<ins>Caution:</ins>__ 
@@ -336,23 +339,23 @@ This command directs user back to the main page of PlanNUS after they are done u
 
 When user exits from the Academic Planner, expected output is as shown below.
 
-<div style="text-align:center">
+<table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/exit_acadplan.png" />
-</div> 
+</div></td></tr></table> 
 
 
 When user exits from the CAP calculator, expected output will be as follows:
 
-<div style="text-align:center">
+<table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/exit_capcalc.png" />
-</div> 
+</div></td></tr></table> 
 
 
 Last but not least, the expected output for exiting PlanNUS will be as such:
 
-<div style="text-align:center">
+<table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/exit_PlanNUS.png" />
-</div> 
+</div></td></tr></table> 
 
 
 Input format: `exit`
@@ -365,21 +368,21 @@ Upon running PlanNUS in command prompt, the program automatically looks for a te
 
 If the text file cannot be found, then the output will be as shown at the main page of PlanNUS after the list of commands.
 
-<div style="text-align:center">
+<table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/file_not_found.png" />
-</div> 
+</div></td></tr></table> 
 
 If an empty save file exist, the follow output will be displayed instead.
 
-<div style="text-align:center">
+<table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/file_is_empty.png" />
-</div> 
+</div></td></tr></table> 
 
 All the modules selected will be saved into _PlanNUS.txt_ after the user exits from the program. The next time when user runs the program again, it will load the configurations that were saved previously which will generate the below output.
 
-<div style="text-align:center">
+<table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/module_loaded.png" />
-</div> 
+</div></td></tr></table> 
 
 
 Note that the image above is just an example because it depends on the number of modules saved in the text file.
