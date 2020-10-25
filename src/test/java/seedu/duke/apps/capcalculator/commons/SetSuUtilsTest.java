@@ -40,6 +40,7 @@ class SetSuUtilsTest {
             currentPerson = new Person("Bobby");
             allModules = new ModuleLoader();
             addUtils = new AddUtils(allModules,currentPerson);
+            ui = new Ui();
 
             addUtils.addModuleToUser("CS1010",1,"A-",4);
             addUtils.addModuleToUser("CS1231",1,"B",4);

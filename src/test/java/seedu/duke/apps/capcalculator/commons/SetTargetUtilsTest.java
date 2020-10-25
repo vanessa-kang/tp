@@ -54,7 +54,7 @@ class SetTargetUtilsTest {
             utils.getTargetCap();
         });
 
-        assertTrue(exception.getMessage().contains("Your target CAP cannot be greater than the maximum CAP of 5!"));
+        assertTrue(exception.getMessage().contains("Your target CAP cannot be lower than the minimum CAP of 0!"));
     }
 
     @Test
@@ -82,6 +82,6 @@ class SetTargetUtilsTest {
             utils.getTargetGradedMC();
         });
 
-        assertTrue(exception.getMessage().contains("Your target MC cannot be 0!"));
+        assertTrue(exception.getMessage().contains("Your target MC cannot less than 0!"));
     }
 }
