@@ -1,7 +1,5 @@
 # PlanNUS
 
-[![codecov](https://codecov.io/gh/AY2021S1-CS2113T-F12-1/tp/branch/master/graph/badge.svg?token=LQ7FAYJKDB)](undefined)
-
 #### Foreword
 
 PlanNUS is a greenfield project which aims to solve the gap in undergraduate academic planning in NUS.
