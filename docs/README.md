@@ -1,5 +1,7 @@
 # PlanNUS
 
+[![codecov](https://codecov.io/gh/AY2021S1-CS2113T-F12-1/tp/branch/master/graph/badge.svg?token=LQ7FAYJKDB)](undefined)
+
 #### Foreword
 
 PlanNUS is a greenfield project which aims to solve the gap in undergraduate academic planning in NUS.
@@ -30,12 +32,12 @@ With the CAP Calculator , PlanNUS will be able to tell you your current CAP and 
     * Saving of Academic Calendar into text file
     * Loading of Academic Calendar from text file
 
-## Useful links:
+## Useful Links
 * [**About Us**](https://ay2021s1-cs2113t-f12-1.github.io/tp/AboutUs.html)
-* [**Configuration guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/Configuration.html)
+* [**Configuration guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/ConfigurationGuide.html)
 * [**Developer guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DeveloperGuide.html)
-* **DevOps guide**
-* **Documentation guide**
+* [**DevOps guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DevOpsGuide.html)
+* [**Documentation guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DocumentationGuide.html)
 * [**Logging guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/LoggingGuide.html)
 * [**Testing guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/TestingGuide.html)
 * [**User guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/UserGuide.html)
