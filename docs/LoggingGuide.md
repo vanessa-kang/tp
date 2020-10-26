@@ -23,7 +23,7 @@ FileHandler fh = new FileHandler(<YOUR_LOG_FILE_NAME>);
 Logger logger = new LoggingTool(<YOUR_LOGGER_NAME>,fh).initialize();
 ```
 
-## End of logging guide
+
 
 ## Useful Links
 

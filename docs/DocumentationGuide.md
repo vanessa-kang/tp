@@ -21,7 +21,6 @@
 * The UML diagrams were generated using [**draw.io**](https://app.diagrams.net/) (See the [**step-by-step guides**](https://drawio-app.com/learning/step-by-step-guides/view-all-exercises/)).
 
 
-
 ## Converting a web document into PDF format
 
 * Refer to the following guide [_[se-edu/guides]_ **Saving web documents as PDF files**](https://se-education.org/addressbook-level3/Documentation.html).

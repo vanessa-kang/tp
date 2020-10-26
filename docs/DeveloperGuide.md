@@ -160,7 +160,7 @@ or `IOException`. `FileHandler` and `Logger` classes from the _java API_ are ins
     <img src="./images/DeveloperGuide/addModuleCommand_finalState.png" alt="Final state diagram for AddModuleCommand"/>
 </div>
 
-**Step 7** : `FileHandler`, `Logger`, `PartialModule`, `AddUtils` and `AddModuleCommand` are terminated.
+**Step 7** : `FileHandler`, `Logger`, `PartialModule`, `ModuleValidator`, `AddUtils` and `AddModuleCommand` are terminated.
 
 The following sequence diagram shows how the `AddModuleCommand` works:
 

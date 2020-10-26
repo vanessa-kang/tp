@@ -26,7 +26,7 @@ This project contains three types of tests:
     * e.g. `src.test.java.seedu.duke.apps.academicplanner.AcademicPlannerParserTest`
 * Hybrids of unit and integration tests that check multiple code units as well as how they are connected together
 
-## End of Testing guide
+
 
 ## Useful Links
 
