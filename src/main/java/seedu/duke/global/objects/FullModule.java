@@ -31,11 +31,9 @@ import static org.apache.commons.lang3.builder.ToStringStyle.JSON_STYLE;
 //    "prerequisite",
 //    "corequisite"
 
-
+//@@author Khenus
 /**
  * A class created to store the full data of each mod after JSON conversion.
- *
- * @author Khenus Tan
  */
 public class FullModule {
     private String moduleCode;

@@ -3,8 +3,8 @@
 #### Foreword
 
 PlanNUS is a greenfield project which aims to solve the gap in undergraduate academic planning in NUS.
-With the `Academic Calendar Planner`,plaNUS will be able to assist undergraduate students in forecasting their academic journey for their 4 or 5 years in NUS.
-With the `CAP Calulator` , plaNUS will be able to tell you your current CAP and forecast future grades needed to achieve your target CAP.
+With the Academic Calendar Planner, PlanNUS will be able to assist undergraduate students in forecasting their academic journey for their 4 or 5 years in NUS.
+With the CAP Calculator , PlanNUS will be able to tell you your current CAP and forecast future grades needed to achieve your target CAP.
 
 ## Target User Profile
 
@@ -31,6 +31,11 @@ With the `CAP Calulator` , plaNUS will be able to tell you your current CAP and 
     * Loading of Academic Calendar from text file
 
 ## Useful links:
-* [User Guide](https://ay2021s1-cs2113t-f12-1.github.io/tp/UserGuide.html "User Guide")
-* [Developer Guide](https://ay2021s1-cs2113t-f12-1.github.io/tp/DeveloperGuide.html "Developer Guide")
-* [About Us](https://ay2021s1-cs2113t-f12-1.github.io/tp/AboutUs.html "About Us")
+* [**About Us**](https://ay2021s1-cs2113t-f12-1.github.io/tp/AboutUs.html)
+* [**Configuration guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/Configuration.html)
+* [**Developer guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DeveloperGuide.html)
+* **DevOps guide**
+* **Documentation guide**
+* [**Logging guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/LoggingGuide.html)
+* [**Testing guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/TestingGuide.html)
+* [**User guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/UserGuide.html)

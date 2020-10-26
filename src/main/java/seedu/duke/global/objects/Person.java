@@ -3,6 +3,7 @@ package seedu.duke.global.objects;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+//@@author jerroldlam
 /**
  * Class representing the user for PlanNUS.
  */
@@ -54,10 +55,6 @@ public class Person {
 
     public ArrayList<PartialModule> getModulesList() {
         return modulesList;
-    }
-
-    public void setModulesList(ArrayList<PartialModule> modulesList) {
-        this.modulesList = modulesList;
     }
 
     public HashMap<String, Integer> getModulesAddedMap() {

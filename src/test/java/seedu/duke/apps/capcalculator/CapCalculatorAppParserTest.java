@@ -11,10 +11,10 @@ import seedu.duke.ui.Ui;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
-import static seedu.duke.apps.capcalculator.CapCalculatorParser.INVALID_COMMAND_MESSAGE;
 
+//@@author JuZihao
 class CapCalculatorAppParserTest {
-
+    private static final String INVALID_COMMAND_MESSAGE = "OOPS!!! I'm sorry, but I don't know what that means :-(";
     private Person currentPerson;
     private Ui ui;
 
@@ -58,6 +58,12 @@ class CapCalculatorAppParserTest {
     public void parse_setTargetCommand_parsedCorrectly() {
         final String input = "set target";
         parseAndAssertCommandType(input, SetTargetCommand.class, currentPerson, ui);
+    }
+
+    @Test
+    public void parse_exitCommand_parsedCorrectly() {
+        final String input = "exit";
+        parseAndAssertCommandType(input, Command.class, currentPerson, ui);
     }
 
     /**

@@ -5,6 +5,7 @@ import seedu.duke.storage.exceptions.CorruptedSaveFileException;
 
 import static java.lang.Integer.parseInt;
 
+//@@author Khenus
 public class FieldValidator {
     private static final int SEMESTER_VALUE_POSITION = 0;
     private static final int MODULE_CODE_POSITION = 1;
@@ -49,7 +50,7 @@ public class FieldValidator {
         try {
             int currentSem = parseInt(lineItems[SEMESTER_VALUE_POSITION]);
 
-            if (currentSem > 10 && currentSem < 1) {
+            if (currentSem > 10 || currentSem < 1) {
                 isAllFieldValid = false;
                 details[INVALID_SEMESTER]++;
             }
@@ -70,7 +71,12 @@ public class FieldValidator {
 
         if (isAllFieldValid) {
             try {
-                parseInt(lineItems[MODULE_CREDIT_POSITION]);
+                int currentModuleCredit = parseInt(lineItems[MODULE_CREDIT_POSITION]);
+
+                if (currentModuleCredit < 0) {
+                    isAllFieldValid = false;
+                    details[INVALID_MC]++;
+                }
             } catch (NumberFormatException e) {
                 isAllFieldValid = false;
                 details[INVALID_MC]++;

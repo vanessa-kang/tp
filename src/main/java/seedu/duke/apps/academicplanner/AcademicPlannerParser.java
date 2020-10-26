@@ -1,6 +1,5 @@
 package seedu.duke.apps.academicplanner;
 
-
 import seedu.duke.apps.academicplanner.commands.AddModuleCommand;
 import seedu.duke.apps.academicplanner.commands.EditModuleCommand;
 import seedu.duke.apps.academicplanner.commands.ModuleDetailsCommand;
@@ -15,6 +14,7 @@ import seedu.duke.global.objects.Person;
 import seedu.duke.ui.Ui;
 import java.util.Scanner;
 
+//@@author jerroldlam
 /**
  * Class representing the parser for the academic parser. Used in the academic parser app.
  */

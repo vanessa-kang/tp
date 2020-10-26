@@ -9,12 +9,14 @@ import java.util.Scanner;
 import static seedu.duke.apps.capcalculator.commons.CalculatorUtils.MAXIMUM_CAP;
 import static seedu.duke.apps.capcalculator.commons.CalculatorUtils.formatCapToString;
 
+//@@author JuZihao
 /**
  * Class representing the common Set Target functions in CAP Calculator.
  */
 public class SetTargetUtils {
-    private static final String INVALID_CAP_MESSAGE = "Your target CAP cannot be greater than the maximum CAP of 5!";
-    private static final String INVALID_MC_MESSAGE = "Your target MC cannot be 0!";
+    private static final String MAXIMUM_CAP_ERROR = "Your target CAP cannot be greater than the maximum CAP of 5!";
+    private static final String MINIMUM_CAP_ERROR = "Your target CAP cannot be lower than the minimum CAP of 0!";
+    private static final String INVALID_MC_MESSAGE = "Your target MC cannot less than 0!";
 
     private Person currentPerson;
     private Scanner in;
@@ -25,7 +27,8 @@ public class SetTargetUtils {
     }
 
     /**
-     * Obtain the target CAP from the user.
+     * Returns the target Cap obtained from the user.
+     *
      * @throws InvalidCapException if the Cap given is greater than 5.00 or less than 0
      */
     public double getTargetCap() throws InvalidCapException {
@@ -33,13 +36,16 @@ public class SetTargetUtils {
         double targetCap = Double.parseDouble(in.nextLine());
         if (isValidCap(targetCap)) {
             return targetCap;
+        } else if (targetCap > MAXIMUM_CAP) {
+            throw new InvalidCapException(MAXIMUM_CAP_ERROR);
         } else {
-            throw new InvalidCapException(INVALID_CAP_MESSAGE);
+            throw new InvalidCapException(MINIMUM_CAP_ERROR);
         }
     }
 
     /**
-     * Obtain the target MCs from the user.
+     * Returns the target MCs obtained from the user.
+     *
      * @throws InvalidCreditException if the module credit given less than 0
      */
     public int getTargetGradedMC() throws InvalidCreditException {
@@ -61,7 +67,7 @@ public class SetTargetUtils {
      * @return boolean whether Cap is valid
      */
     private boolean isValidCap(double cap) {
-        return cap < MAXIMUM_CAP && cap <= 0;
+        return cap <= MAXIMUM_CAP && cap >= 0;
     }
 
     /**

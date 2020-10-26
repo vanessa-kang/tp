@@ -7,6 +7,7 @@ import seedu.duke.parser.AppParser;
 import seedu.duke.storage.Storage;
 import seedu.duke.ui.Ui;
 
+//@@author Khenus
 /**
  * Class representing main function of PlanNUS.
  */
@@ -39,17 +40,21 @@ public class PlanNus {
     public void run() {
         assert isExit : "Startup is unsuccessful";
 
-        ui.showWelcomeMessage();
+        ui.printLine();
         storage.loader(currentPerson);
+
+        ui.showWelcomeMessage();
 
         while (!isExit) {
             try {
                 ui.showAwaitCommand();
+                ui.printLine();
                 String userInput = ui.getScanner().nextLine();
                 App selectedApp = AppParser.parse(userInput, allModules, currentPerson, ui);
                 selectedApp.run();
                 isExit = selectedApp.getIsExit();
                 if (!isExit) {
+                    ui.printLine();
                     ui.showWelcomeBackMessage();
                 }
             } catch (Exception e) {

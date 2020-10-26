@@ -9,6 +9,7 @@ import seedu.duke.global.objects.Person;
 import java.util.HashMap;
 import java.util.Scanner;
 
+//@@author harryleecp
 /**
  * Class representing an remove module command from the academic planner.
  */
