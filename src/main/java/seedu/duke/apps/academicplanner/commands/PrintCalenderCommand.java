@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Scanner;
 
+//@@author vanessa-kang
 /**
  * Class representing a print module command from the academic planner.
  */
@@ -68,6 +69,7 @@ public class PrintCalenderCommand extends Command {
         }
     }
 
+    //@@author jerroldlam
     /**
      * Prints full academic calendar.
      */

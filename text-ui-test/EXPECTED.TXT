@@ -103,6 +103,7 @@ OOPS!!! I'm sorry, but I don't know what that means :-(
 
 Type in a command to continue...
 ____________________________________________________________
+Data successfully saved!
 ____________________________________________________________
 Thanks for using PlanNUS! We hope to see you again!
 ____________________________________________________________

@@ -8,7 +8,7 @@ Before reading this document, you are recommended to read through the user guide
 
 ## Setting up PlanNUS
 
-First and foremost, the following steps are assuming that you already have a [GitHub](https://github.com) account set up beforehand. Once this has been done, proceed to __fork__ this [repo](https://github.com/AY2021S1-CS2113T-F12-1/tp), and __clone__ the fork into your computer using [Sourcetree](<sourcetreeapp.com>) or any other _Git GUI_.
+First and foremost, the following steps are assuming that you already have a [GitHub](https://github.com) account set up beforehand. Once this has been done, proceed to __fork__ this [repo](https://github.com/AY2021S1-CS2113T-F12-1/tp), and __clone__ the fork into your computer using [Sourcetree](https://sourcetreeapp.com) or any other _Git GUI_.
 
 The _IDE_ to be used should contain the latest version of _Java_ as this is the main programming language for this application. Thus you are highly recommended to use Intellij IDEA.
 
@@ -85,9 +85,9 @@ The interaction within each package should ideally be as shown below.
 </div>
 *Note that while this is the ideal case, packages such as* `global`, `parser` *and* `ui` *might not strictly follow this structure due to these package serving a different function altogether (Refer to the sections below for more details.)*
 
-### Lifecycle of PlanNUS
+### Life cycle of PlanNUS
 
-The *sequence diagram* below shows how different packages and classes interact with each other throughout the whole lifecycle of PlanNUS.
+The <<sequence-diagram,*sequence diagram*>> below shows how different packages and classes interact with each other throughout the whole <<life-cycle,life cycle>> of PlanNUS.
 
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/Packages_Interaction.png" alt="Sequence diagram for lifecycle of PlanNUS"/>
@@ -332,12 +332,11 @@ The following diagram summarizes what happens when the user executes a `SetSuByS
 ## Extra Guides and Information
 
 * [**About Us**](https://ay2021s1-cs2113t-f12-1.github.io/tp/AboutUs.html)
-* **Configuration guide**
+* [**Configuration guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/Configuration.html)
 * **DevOps guide**
-* **Documentation guide**
+* [**Documentation guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DocumentationGuide.html)
 * [**Logging guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/LoggingGuide.html)
-
-* **Testing guide**
+* [**Testing guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/TestingGuide.html)
 * [**User guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/UserGuide.html)
 
 
@@ -417,6 +416,7 @@ __Extensions__
 ### Non-Functional Requirements
 
 * General
+    * Should work on any <<mainstream-os,mainstream OS>> as long as it has Java `11` or above installed.
     * Commands entered should be short and intuitive to reduce mistyping of commands
     * Program should be compatible on a wide range of devices
 * Academic Planner
@@ -430,10 +430,14 @@ __Extensions__
 
 ### Glossary
 
-{More to be added}
+[[mainstream-os]] Mainstream OS::
+Windows, Linux, Unix, OS-X
 
+[[life-cycle]] Life cycle::
+The duration in which the object is running and alive.
 
-
+[[sequence-diagram]] Sequence Diagram::
+A UML diagram that captures the interactions between multiple objects for a given scenario.
 
 
 ## Appendix: Instructions for manual testing

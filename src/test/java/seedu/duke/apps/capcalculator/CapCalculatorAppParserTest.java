@@ -12,8 +12,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
+//@@author JuZihao
 class CapCalculatorAppParserTest {
-
+    private static final String INVALID_COMMAND_MESSAGE = "OOPS!!! I'm sorry, but I don't know what that means :-(";
     private Person currentPerson;
     private Ui ui;
 
@@ -29,7 +30,7 @@ class CapCalculatorAppParserTest {
             final String emptyInput = "";
             CapCalculatorParser.parse(emptyInput, currentPerson, ui);
         } catch (Exception e) {
-            assertEquals("OOPS!!! I'm sorry, but I don't know what that means :-(", e.getMessage());
+            assertEquals(INVALID_COMMAND_MESSAGE, e.getMessage());
         }
     }
 
@@ -39,7 +40,7 @@ class CapCalculatorAppParserTest {
             final String unknownInput = "unknown command word";
             CapCalculatorParser.parse(unknownInput, currentPerson, ui);
         } catch (Exception e) {
-            assertEquals("OOPS!!! I'm sorry, but I don't know what that means :-(", e.getMessage());
+            assertEquals(INVALID_COMMAND_MESSAGE, e.getMessage());
         }
     }
 
@@ -57,6 +58,12 @@ class CapCalculatorAppParserTest {
     public void parse_setTargetCommand_parsedCorrectly() {
         final String input = "set target";
         parseAndAssertCommandType(input, SetTargetCommand.class, currentPerson, ui);
+    }
+
+    @Test
+    public void parse_exitCommand_parsedCorrectly() {
+        final String input = "exit";
+        parseAndAssertCommandType(input, Command.class, currentPerson, ui);
     }
 
     /**

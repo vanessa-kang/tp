@@ -4,6 +4,7 @@ import seedu.duke.global.objects.PartialModule;
 import seedu.duke.global.objects.Person;
 import java.text.DecimalFormat;
 
+//@@author Khenus
 /**
  * Class representing common functions for the CAP Calculator.
  */
@@ -244,6 +245,7 @@ public class CalculatorUtils {
         }
     }
 
+    //@@author JuZihao
     /**
      * Returns CAP score as a string.
      *

@@ -4,6 +4,7 @@ import seedu.duke.global.Command;
 import seedu.duke.global.objects.Person;
 import static seedu.duke.apps.capcalculator.commons.CalculatorUtils.formatCapToString;
 
+//@@author JuZihao
 /**
  * Class representing the Current CAP command for CAP Calculator.
  */

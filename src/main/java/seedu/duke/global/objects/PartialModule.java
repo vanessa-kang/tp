@@ -2,6 +2,7 @@ package seedu.duke.global.objects;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
+//@@author jerroldlam
 /**
  * Class representing module object to be stored in the Person object.
  * It is a truncated version of FullModule with only relevant fields.
@@ -54,6 +55,7 @@ public class PartialModule implements Comparable<PartialModule> {
         setCap(grade);
     }
 
+    //@@author JuZihao
     /**
      * Returns Academic points associated with letter grades.
      * If grade is a special grading option, returns -1.00.

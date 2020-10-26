@@ -6,6 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
+//@@author jerroldlam
 /**
  * Class representing logging tool to log into text file without standard IO.
  */
@@ -25,11 +26,25 @@ public class LoggingTool {
      * @return logger is configured
      */
     public Logger initialize() {
+        formatHandlers();
+        formatLogger();
+        return logger;
+    }
+
+    /**
+     * Formats handlers to log to file and not console with Level.INFO and higher.
+     */
+    private void formatHandlers() {
         logger.addHandler(fh);
-        SimpleFormatter formatter = new SimpleFormatter();
-        fh.setFormatter(formatter);
         logger.setUseParentHandlers(false);
         logger.setLevel(Level.INFO);
-        return logger;
+    }
+
+    /**
+     * Sets format for logger.
+     */
+    private void formatLogger() {
+        SimpleFormatter formatter = new SimpleFormatter();
+        fh.setFormatter(formatter);
     }
 }

@@ -1,14 +1,13 @@
 package seedu.duke.storage.commons;
 
+import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.Comparator;
 import seedu.duke.global.objects.PartialModule;
 import seedu.duke.global.objects.Person;
 import seedu.duke.storage.exceptions.SaveFileException;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Comparator;
-
+//@@author harryleecp
 public class SaveUtils {
     private static final String NEWLINE = "\n";
     private static final String SEPARATOR = "|";
@@ -49,7 +48,8 @@ public class SaveUtils {
 
             fw.write(textToSave);
             fw.close();
-        } catch (IOException e) {
+            System.out.println("Data successfully saved!");
+        } catch (Exception e) {
             throw new SaveFileException("Error accessing save file!");
         }
     }

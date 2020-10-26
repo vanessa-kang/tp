@@ -4,6 +4,7 @@ import seedu.duke.global.objects.PartialModule;
 import seedu.duke.global.objects.FullModule;
 import java.util.ArrayList;
 
+//@@author jerroldlam
 /**
  * Class representing the common print methods.
  */
@@ -33,6 +34,7 @@ public class PrintUtils {
         }
     }
 
+    //@@author vanessa-kang
     /**
      * Prints a single entry of item.
      *
