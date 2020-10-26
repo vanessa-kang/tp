@@ -17,3 +17,14 @@ __Diagrams__:
 __Converting a web document into PDF format__:
 
 * Refer to the following guide [_[se-edu/guides]_ **Saving web documents as PDF files**](https://se-education.org/addressbook-level3/Documentation.html).
+
+## End of Documentation Guide
+
+## Useful links:
+* [**About Us**](https://ay2021s1-cs2113t-f12-1.github.io/tp/AboutUs.html)
+* [**Configuration guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/Configuration.html)
+* [**Developer guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DeveloperGuide.html)
+* **DevOps guide**
+* [**Logging guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/LoggingGuide.html)
+* [**Testing guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/TestingGuide.html)
+* [**User guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/UserGuide.html)
