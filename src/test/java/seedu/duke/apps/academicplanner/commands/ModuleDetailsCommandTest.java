@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import seedu.duke.apps.academicplanner.exceptions.AcademicException;
 import seedu.duke.apps.moduleloader.ModuleLoader;
 
+//@@author vanessa-kang
 class ModuleDetailsCommandTest {
     private static final String VALID_CODE_TEST = "cs2101".toUpperCase();
     private static final String VALID_CODE_RESULT_CODE = "CS2101";
