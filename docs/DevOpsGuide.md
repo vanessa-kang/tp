@@ -26,6 +26,20 @@ Below shows how `Gradle` is being used in PlanNUS for important project tasks
 
 PlanNUS uses GitHub Actions for continuous integration. The necessary GitHub Actions configuration files exist as `.github/workflows/gradle.yml`. This file does not require further set up.
 
+## I/O Testing
+
+PlanNUS uses automated scripts located in the `./text-ui-test` folder to test for the correct output given a sequence of inputs. 
+
+To test for the input/output of PlanNUS
+
+1. Change needed input in `input.txt` located in `./text-ui-test` folder
+2. Change the expected output in `EXPECTED.TXT` located in `./text-ui-test` folder
+3. Run the scripts for testing
+   * On windows, run `runtest.bat`
+   * On UNIX systems, run `runtest.sh`
+4. The scripts will run and throws a warning message if the actual output differs from the expected output
+5. The actual output will be stored in `ACTUAL.TXT` located in `./text-ui-test` folder
+
 ## Making a release
 
 Here are the steps to create a new release.
