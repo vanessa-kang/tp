@@ -34,7 +34,7 @@ public class PrintUtils {
         }
     }
 
-    //@@author Vanessa-Kang
+    //@@author vanessa-kang
     /**
      * Prints a single entry of item.
      *

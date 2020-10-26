@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 import seedu.duke.apps.moduleloader.ModuleLoader;
 import java.util.ArrayList;
 
+//@@author vanessa-kang
 class SearchModulesCommandTest {
     private static final String PARTIAL_CODE_TEST = "cg40".toUpperCase();
     private static final int PARTIAL_CODE_RESULT = 3;
