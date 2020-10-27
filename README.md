@@ -1,7 +1,7 @@
 # PlanNUS
 
 <table><tr><td><div style="text-align:center">
-    <img src="images/PlanNUSLogo.png" />
+    <img src="docs/images/PlanNUSLogo.png" />
 </div></td></tr></table>
 
 #### Foreword
