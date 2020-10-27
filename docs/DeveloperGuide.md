@@ -152,7 +152,6 @@ and `String`. Below is a table of what each parameter corresponds to in the stat
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/addModuleCommand_state2.png" alt="State diagram for AddModuleCommand Step 2"/>
 </div>
-
 **Step 2** : `execute()` is called from the instance of `AddModuleCommand`. It can throw `AcademicException` 
 or `IOException`. `FileHandler` and `Logger` classes from the _java API_ are instantiated to handle logging for the remainder of the `execute()` method. 
 
@@ -181,7 +180,7 @@ The following sequence diagram shows how the `AddModuleCommand` works:
     <img src="./images/DeveloperGuide/addModuleCommand_sequence.png" alt="Sequence diagram for AddModuleCommand"/>
 </div>
 
-The following activity diagram summarizes what happens when the user executes an `AddModuleCommand` :
+The following activity diagram summarizes what happens when the user executes a `AddModuleCommand` :
 
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/addModuleCommand_activity.png" alt="Activity diagram for AddModuleCommand"/>
@@ -238,7 +237,7 @@ The following sequence diagram shows how `EditModuleCommand` works.
 
 
 
-The following diagram summarizes what happens when the user executes an `EditModuleCommand`: 
+The following diagram summarizes what happens when the user executes a `EditModuleCommand`: 
 
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/editModuleCommand_activity.png" alt="Activity diagram for Edit Module Command"/>
@@ -282,11 +281,65 @@ The following sequence diagram shows how `RemoveModuleCommand` works.
 </div>
 
 
-The following diagram summarizes what happens when the user executes an `RemoveModuleCommand`: 
+The following diagram summarizes what happens when the user executes a `RemoveModuleCommand`: 
 
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/removeModuleCommand_activity.png" alt="Activity diagram for Remove Module Command"/>
 </div>
+
+
+### Academic Calendar Planner: View Module Details Feature
+
+#### Current implementation
+
+View module details command is executed by `AcademicPlannerParser`. It allows the user to view the full details of any module offered by NUS, by accessing the specified `FullModule` object that corresponds to the module code entered by the user, and printing its attributes.
+
+Additionally, the view module details command extends the `Command` class and overrides its `execute()` command. An external class, `ModuleValidator` is called upon to validate the module code that the user has entered, as only the details of valid NUS modules can be displayed.
+
+Given below is an example usage scenario and how add module command behaves at each step.
+
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/moduleDetailsCommand_initialState.png" alt="Initial state diagram for Module Details Command"/>
+</div>
+
+
+
+__Step 1:__ The user calls the view module details command from the `AcademicPlannerParser`, which will initialise a `ModuleDetailsCommand`. `ModuleDetailsCommand`'s constructor takes in parameters of  `ModuleLoader` and `String`. Below is a table of what each parameter corresponds to in the state diagram of the program.
+
+| Parameter<br />(Class Name) |        Corresponds to<br />(Function of Class)         | Referred to as<br />(Variable Name) |
+| :-------------------------: | :----------------------------------------------------: | :---------------------------------: |
+|       `ModuleLoader`        |     Class representing all modules offered by NUS      |            `allModules`             |
+|          `String`           | Class representing the module code to print details of |            `moduleCode`             |
+
+__Step 2:__ `execute()` is called from the instance of `ModuleDetailsCommand`. It can throw `AcademicException`.
+
+__Step 3:__ `validateModuleCode()` is called to validate the user input, `moduleCode`, against `allModules`.
+
+__Step 4:__ `PrintUtils` is called to print the details of the module.
+
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/moduleDetailsCommand_finalState.png" alt="Final state diagram for Module Details Command"/>
+</div>
+
+
+
+__Step 5:__ `ModuleDetailsCommand`, `ModuleLoader` and `PrintUtils` are terminated.
+
+
+
+The following sequence diagram shows how `ModuleDetailsCommand` works.
+
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/moduleDetailsCommand_sequence.png"/>
+</div>
+
+
+The following diagram summarizes what happens when the user executes a `ModuleDetailsCommand`: 
+
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/moduleDetailsCommand_activity.png" alt="Activity diagram for View Module Details Command"/>
+</div>
+
 
 
 
@@ -299,7 +352,7 @@ The following diagram summarizes what happens when the user executes an `RemoveM
 
 `suList` will then be analysed to provide user with a list of suggested S/U modules to achieve a best Cap.
 
- Given below is an example usage scenario and how `SetSuBySemesterCommand` beahves at each step.
+ Given below is an example usage scenario and how `SetSuBySemesterCommand` behaves at each step.
 
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/setSuBySemesterCommand_initialState.png"/>
