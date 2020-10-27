@@ -8,9 +8,9 @@ import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.apps.moduleloader.exceptions.ModuleLoaderException;
 import seedu.duke.global.objects.PartialModule;
 import seedu.duke.global.objects.Person;
+import seedu.duke.ui.Ui;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import static java.util.stream.Collectors.toList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -29,7 +29,7 @@ class SetSuUtilsTest {
     AddUtils addUtils;
     SetSuUtils setSuUtils;
     ModuleLoader allModules;
-    Scanner in;
+    Ui ui;
     ArrayList<PartialModule> suList;
     PartialModule suModule;
     ArrayList<PartialModule> filteredList;
@@ -40,6 +40,7 @@ class SetSuUtilsTest {
             currentPerson = new Person("Bobby");
             allModules = new ModuleLoader();
             addUtils = new AddUtils(allModules,currentPerson);
+            ui = new Ui();
 
             addUtils.addModuleToUser("CS1010",1,"A-",4);
             addUtils.addModuleToUser("CS1231",1,"B",4);
@@ -53,7 +54,7 @@ class SetSuUtilsTest {
             addUtils.addModuleToUser("GER1000",2,"A",4);
             addUtils.addModuleToUser("GET1002",2,"B+",4);
 
-            setSuUtils = new SetSuUtils(currentPerson, in);
+            setSuUtils = new SetSuUtils(currentPerson, ui);
             filteredList = (ArrayList<PartialModule>) currentPerson.getModulesList().stream()
                     .filter((partialModule) -> partialModule.getCap() >= 0)
                     .collect(toList());

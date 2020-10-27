@@ -15,7 +15,7 @@ There are 2 ways to run tests on the code base of PlanNUS.
         * `gradlew clean test` for Windows
         * `./gradlew clean test` for Mac and Linux
     * For more information about using Gradle, take a look at [this tutorial](https://se-education.org/guides/tutorials/gradle.html "Gradle Tutorial"). 
-     
+    
 ## Types of test
 
 This project contains three types of tests:
@@ -26,14 +26,14 @@ This project contains three types of tests:
     * e.g. `src.test.java.seedu.duke.apps.academicplanner.AcademicPlannerParserTest`
 * Hybrids of unit and integration tests that check multiple code units as well as how they are connected together
 
-## End of Testing guide
 
-## Extra Guides and Information
+
+## Useful Links
 
 * [**About Us**](https://ay2021s1-cs2113t-f12-1.github.io/tp/AboutUs.html)
-* [**Configuration guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/Configuration.html)
+* [**Configuration guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/ConfigurationGuide.html)
 * [**Developer guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DeveloperGuide.html)
-* **DevOps guide**
-* **Documentation guide**
+* [**DevOps guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DevOpsGuide.html)
+* [**Documentation guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DocumentationGuide.html)
 * [**Logging guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/LoggingGuide.html)
 * [**User guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/UserGuide.html)

@@ -7,6 +7,7 @@ import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.global.Command;
 import seedu.duke.global.objects.FullModule;
 
+//@@author vanessa-kang
 public class ModuleDetailsCommand extends Command {
 
     private static final String ERROR_NOT_OFFERED = " IS NOT OFFERED BY NUS";

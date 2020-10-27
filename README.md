@@ -1,6 +1,6 @@
 # PlanNUS
 
-## Foreword
+#### Foreword
 
 PlanNUS is a greenfield project which aims to solve the gap in undergraduate academic planning in NUS.
 With the Academic Calendar Planner, PlanNUS will be able to assist undergraduate students in forecasting their academic journey for their 4 or 5 years in NUS.
@@ -14,28 +14,33 @@ With the CAP Calculator , PlanNUS will be able to tell you your current CAP and 
 ## Feature List (for V2.0)
 
 * Academic Calendar Planner
-    * Add module
-    * Edit module
-    * Remove module
-    * View module details
-    * Search for module by keyword
-    * Print Calendar
-        * Full Calendar
-        * Semester Calendar
+  * Add module
+  * Edit module
+  * Remove module
+  * View module details
+  * Search for module by keyword
+  * Print Calendar
+    * Full Calendar
+    * Semester Calendar
 * CAP Calculator
-    * Get current CAP
-    * Get results need for target CAP
-    * See possible CAP when setting as grade-less
+  * Get current CAP
+  * Get results need for target CAP
+  * See possible CAP when setting as grade-less
 * General
-    * Saving of Academic Calendar into text file
-    * Loading of Academic Calendar from text file
+  * Saving of Academic Calendar into text file
+  * Loading of Academic Calendar from text file
 
-## Useful links:
+## Useful Links
+
 * [**About Us**](https://ay2021s1-cs2113t-f12-1.github.io/tp/AboutUs.html)
-* [**Configuration guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/Configuration.html)
+* [**Configuration guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/ConfigurationGuide.html)
 * [**Developer guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DeveloperGuide.html)
+<<<<<<< HEAD
+* [**DevOps guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DevOpsGuide.html)
+=======
 * **DevOps guide**
-* **Documentation guide**
+>>>>>>> e6a9cb8d4bee8b16acc3109b3e01b23917a6b479
+* [**Documentation guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DocumentationGuide.html)
 * [**Logging guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/LoggingGuide.html)
 * [**Testing guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/TestingGuide.html)
 * [**User guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/UserGuide.html)

@@ -14,6 +14,5 @@ class CalculatorUtilsTest {
 
     @Test
     void isNaN_not() {
-
     }
 }
