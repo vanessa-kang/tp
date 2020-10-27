@@ -1,9 +1,17 @@
 # Developer Guide for PlanNUS
 
+<table><tr><td><div style="text-align:center">
+    <img src="images/PlanNUSLogo.png" />
+</div></td></tr></table>
+
 Before reading this document, you are recommended to read through the user guide.
+
+## Table of contents 
 
 * Table of contents
 {:toc}
+
+
 ## Setting up PlanNUS
 
 First and foremost, the following steps are assuming that you already have a [GitHub](https://github.com) account set up beforehand. Once this has been done, proceed to __fork__ this [repo](https://github.com/AY2021S1-CS2113T-F12-1/tp), and __clone__ the fork into your computer using [Sourcetree](https://sourcetreeapp.com) or any other _Git GUI_.

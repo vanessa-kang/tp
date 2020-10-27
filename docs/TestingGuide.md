@@ -1,5 +1,11 @@
 # Testing Guide for PlanNUS
 
+<table><tr><td><div style="text-align:center">
+    <img src="images/PlanNUSLogo.png" />
+</div></td></tr></table>
+
+## Table of content
+
 * Table of contents
 {:toc}
 

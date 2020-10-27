@@ -1,7 +1,14 @@
 # DevOps Guide for PlanNUS
 
+<table><tr><td><div style="text-align:center">
+    <img src="images/PlanNUSLogo.png" />
+</div></td></tr></table>
+
+## Table of contents
+
 * Table of contents
 {:toc}
+
 ## Build Automation
 
 PlanNUS uses `Gradle` for build automation and dependency management. 

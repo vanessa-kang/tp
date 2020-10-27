@@ -1,5 +1,9 @@
 # PlanNUS
 
+<table><tr><td><div style="text-align:center">
+    <img src="images/PlanNUSLogo.png" />
+</div></td></tr></table>
+
 #### Foreword
 
 PlanNUS is a greenfield project which aims to solve the gap in undergraduate academic planning in NUS.
@@ -35,11 +39,7 @@ With the CAP Calculator , PlanNUS will be able to tell you your current CAP and 
 * [**About Us**](https://ay2021s1-cs2113t-f12-1.github.io/tp/AboutUs.html)
 * [**Configuration guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/ConfigurationGuide.html)
 * [**Developer guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DeveloperGuide.html)
-<<<<<<< HEAD
 * [**DevOps guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DevOpsGuide.html)
-=======
-* **DevOps guide**
->>>>>>> e6a9cb8d4bee8b16acc3109b3e01b23917a6b479
 * [**Documentation guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DocumentationGuide.html)
 * [**Logging guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/LoggingGuide.html)
 * [**Testing guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/TestingGuide.html)

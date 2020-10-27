@@ -1,7 +1,13 @@
 # Logging Guide for PlanNUS
 
+<table><tr><td><div style="text-align:center">
+    <img src="images/PlanNUSLogo.png" />
+</div></td></tr></table>
+
+## Table of contents
 * Table of contents
 {:toc}
+
 ## Using Logging Tool in PlanNUS
 
 `LoggingTool` is available to use for accessible logging at the package `src.main.java.seedu.duke.global`. `LoggingTool`

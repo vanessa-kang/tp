@@ -1,5 +1,11 @@
 # Documentation Guide for PlanNUS
 
+<table><tr><td><div style="text-align:center">
+    <img src="images/PlanNUSLogo.png" />
+</div></td></tr></table>
+
+## Table of contents
+
 * Table of contents
 {:toc}
 ## Setting up and maintaining the project website
