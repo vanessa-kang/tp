@@ -4,7 +4,7 @@
     <img src="images/PlanNUSLogo.png" />
 </div></td></tr></table>
 
-Before reading this document, you are recommended to read through the user guide.
+Before reading this document, you are recommended to read through the [user guide](https://ay2021s1-cs2113t-f12-1.github.io/tp/UserGuide.html).
 
 ## Table of contents 
 

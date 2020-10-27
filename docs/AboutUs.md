@@ -1,5 +1,9 @@
 # About us
 
+<table><tr><td><div style="text-align:center">
+    <img src="images/PlanNUSLogo.png" />
+</div></td></tr></table>
+
 Display | Name | Github Profile | Portfolio
 ---|:---:|:---:|:---:
 ![](https://avatars3.githubusercontent.com/u/60382285?s=400) | Jerrold Lam |  [jerroldlam](https://github.com/jerroldlam "Github User Profile") | [Portfolio](team/Lam.md)
