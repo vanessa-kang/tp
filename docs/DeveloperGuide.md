@@ -102,20 +102,25 @@ The <<sequence-diagram,*sequence diagram*>> below shows how different packages a
 ### Details
 
 #### Global Component
+Classes used by multiple components part of the global component of PlanNUS. This includes classes such as `App`,`Command` and `LoggingTool`. The main object classes `PartialModule`, `FullModule` and `Person` are also within the global component.
 
-Classes used by multiple components are in the `src.main.java.global` package.
+**API** : `src.main.java.global`
 
 #### Storage Component
+The `Storage` component is responsible for the loading and saving of information from text files.
 
 **API** : `src.main.java.seedu.duke.storage`
 
 #### Parser Component
+For the architecture of PlanNUS, the `Parser` classes will belong under the application they will be parsing for. The role 
+of these parsers is to process the user's input and return the appropriate command with required parameters to initialise the command. The newly created objects will then be returned to the main command to be executed and thereafter, terminated. 
 
-{add in}
+**API** : `src.main.java.seedu.duke.parser.AppParser`, `src.main.java.seedu.duke.apps.academicplanner.AcademicPlannerParser`, `src.main.java.seedu.duke.apps.capcalculator.CapCalculatorParser` and `src.main.java.seedu.duke.apps.capcalculator.SetSuParser`
 
 #### Ui Component
+In PlanNUS, the `Ui` component is integral in initialising a `Scanner` class and passing it to methods where they require them. `Ui` also provides functions to output formatted lines to console to improve readability for the user.
 
-{add in}
+**API** : `src.main.java.seedu.duke.ui.Ui`
 
 
 ## Implementation
