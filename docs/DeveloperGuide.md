@@ -1,6 +1,12 @@
 # Developer Guide for PlanNUS
 
-Before reading this document, you are recommended to read through the user guide.
+<table><tr><td><div style="text-align:center">
+    <img src="images/PlanNUSLogo.png" />
+</div></td></tr></table>
+
+Before reading this document, you are recommended to read through the [user guide](https://ay2021s1-cs2113t-f12-1.github.io/tp/UserGuide.html).
+
+## Table of contents 
 
 * Table of contents
 {:toc}
@@ -162,7 +168,7 @@ or `IOException`. `FileHandler` and `Logger` classes from the _java API_ are ins
     <img src="./images/DeveloperGuide/addModuleCommand_finalState.png" alt="Final state diagram for AddModuleCommand"/>
 </div>
 
-**Step 7** : `FileHandler`, `Logger`, `PartialModule`, `AddUtils` and `AddModuleCommand` are terminated.
+**Step 7** : `FileHandler`, `Logger`, `PartialModule`, `ModuleValidator`, `AddUtils` and `AddModuleCommand` are terminated.
 
 The following sequence diagram shows how the `AddModuleCommand` works:
 
@@ -329,12 +335,12 @@ The following diagram summarizes what happens when the user executes a `SetSuByS
 </div>    
 
 
-## Extra Guides and Information
+## Useful Links
 
 * [**About Us**](https://ay2021s1-cs2113t-f12-1.github.io/tp/AboutUs.html)
-* [**Configuration guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/Configuration.html)
-* **DevOps guide**
-* **Documentation guide**
+* [**Configuration guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/ConfigurationGuide.html)
+* [**DevOps guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DevOpsGuide.html)
+* [**Documentation guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DocumentationGuide.html)
 * [**Logging guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/LoggingGuide.html)
 * [**Testing guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/TestingGuide.html)
 * [**User guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/UserGuide.html)

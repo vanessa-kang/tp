@@ -1,7 +1,13 @@
 # Logging Guide for PlanNUS
 
+<table><tr><td><div style="text-align:center">
+    <img src="images/PlanNUSLogo.png" />
+</div></td></tr></table>
+
+## Table of contents
 * Table of contents
 {:toc}
+
 ## Using Logging Tool in PlanNUS
 
 `LoggingTool` is available to use for accessible logging at the package `src.main.java.seedu.duke.global`. `LoggingTool`
@@ -23,14 +29,14 @@ FileHandler fh = new FileHandler(<YOUR_LOG_FILE_NAME>);
 Logger logger = new LoggingTool(<YOUR_LOGGER_NAME>,fh).initialize();
 ```
 
-## End of logging guide
 
-## Extra Guides and Information
+
+## Useful Links
 
 * [**About Us**](https://ay2021s1-cs2113t-f12-1.github.io/tp/AboutUs.html)
-* [**Configuration guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/Configuration.html)
+* [**Configuration guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/ConfigurationGuide.html)
 * [**Developer guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DeveloperGuide.html)
-* **DevOps guide**
-* **Documentation guide**
+* [**DevOps guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DevOpsGuide.html)
+* [**Documentation guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DocumentationGuide.html)
 * [**Testing guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/TestingGuide.html)
 * [**User guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/UserGuide.html)
