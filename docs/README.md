@@ -1,5 +1,9 @@
 # PlanNUS
 
+<table><tr><td><div style="text-align:center">
+    <img src="images/PlanNUSLogo.png" />
+</div></td></tr></table>
+
 #### Foreword
 
 PlanNUS is a greenfield project which aims to solve the gap in undergraduate academic planning in NUS.

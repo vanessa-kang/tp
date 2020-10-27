@@ -1,5 +1,9 @@
 # User Guide for PlanNUS
 
+<table><tr><td><div style="text-align:center">
+    <img src="images/PlanNUSLogo.png" />
+</div></td></tr></table>
+
 Hello user of PlanNUS! Welcome to our user guide for our software. In this user guide, you can find information regarding how to use PlanNUS and the common questions asked with regards to the usage of PlanNUS. We hope you find this software
 useful and we wish you all the best for your academic journey in NUS.
 
@@ -13,7 +17,7 @@ PlanNUS can also generate CAP statistics and even suggest to user which modules 
 
 PlanNUS also has saving and loading features which would reduce the hassle of entering the full academic calendar for each use.
 
-The sections below aims to explain how PlanNUS should be used, and the common errors faced by users. Sections can be easily navigated to by clicking on the hyperlinks in the table of contents.
+The sections below explain how PlanNUS should be used, and the common errors faced by users. Sections can be easily navigated to by clicking on the hyperlinks in the table of contents.
 
 ## Table of contents
 
@@ -463,3 +467,13 @@ As per NUS [Grade Policy](http://www.nus.edu.sg/registrar/academic-information-p
 *Additional Grading options include S,U,CS,CU,IC,IP,AUD,EXE,W,WU. They hold no Academic Point Value.
 
 ## End of user guide
+
+## Useful Links
+
+* [**About Us**](https://ay2021s1-cs2113t-f12-1.github.io/tp/AboutUs.html)
+* [**Configuration guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/ConfigurationGuide.html)
+* [**Developer guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DeveloperGuide.html)
+* [**DevOps guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DevOpsGuide.html)
+* [**Documentation guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DocumentationGuide.html)
+* [**Logging guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/LoggingGuide.html)
+* [**Testing guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/TestingGuide.html)
