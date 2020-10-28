@@ -118,6 +118,11 @@ of these parsers is to process the user's input and return the appropriate comma
 **API** : `src.main.java.seedu.duke.parser.AppParser`, `src.main.java.seedu.duke.apps.academicplanner.AcademicPlannerParser`, `src.main.java.seedu.duke.apps.capcalculator.CapCalculatorParser` and `src.main.java.seedu.duke.apps.capcalculator.SetSuParser`
 
 #### Ui Component
+
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/Ui_architecture.png" alt="Architecture diagram for Ui"/>
+</div>
+
 In PlanNUS, the `Ui` component is integral in initialising a `Scanner` class and passing it to methods where they require them. `Ui` also provides functions to output formatted lines to console to improve readability for the user.
 
 **API** : `src.main.java.seedu.duke.ui.Ui`
