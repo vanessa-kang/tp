@@ -102,7 +102,7 @@ The <<sequence-diagram,*sequence diagram*>> below shows how different packages a
 ### Details
 
 #### Global Component
-Classes used by multiple components part of the global component of PlanNUS. This includes classes such as `App`,`Command` and `LoggingTool`. The main object classes `PartialModule`, `FullModule` and `Person` are also within the global component.
+Classes used by multiple components part of the `global` component of PlanNUS. This includes classes such as `App`,`Command` and `LoggingTool`. The main object classes `PartialModule`, `FullModule` and `Person` are also within the global component.
 
 **API** : `src.main.java.global`
 
@@ -353,9 +353,9 @@ The following diagram summarizes what happens when the user executes a `ModuleDe
 
 #### Current implementation
 
-`SetSuBySemesterCommand` is executed by `CapCalculatorApp`. It provides users with a suggestion on how they can S/U their modules added in `AcademicPlannerApp` by retrieving the `userMduleList` from  the `Person` object and filter the list according to the semester provided to get a `suList`.
+`SetSuBySemesterCommand` is executed by `CapCalculatorApp`. It provides users with a suggestion on how they can S/U their modules added in `AcademicPlannerApp` by retrieving the `userModuleList` from  the `Person` object and filter the list according to the semester provided to get a `suList`.
 
-`suList` will then be analysed to provide user with a list of suggested S/U modules to achieve a best Cap.
+`suList` will then be analysed to provide user with a list of suggested S/U modules to achieve the best CAP.
 
  Given below is an example usage scenario and how `SetSuBySemesterCommand` behaves at each step.
 
