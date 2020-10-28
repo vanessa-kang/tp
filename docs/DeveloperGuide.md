@@ -1,6 +1,12 @@
 # Developer Guide for PlanNUS
 
-Before reading this document, you are recommended to read through the user guide.
+<table><tr><td><div style="text-align:center">
+    <img src="images/PlanNUSLogo.png" />
+</div></td></tr></table>
+
+Before reading this document, you are recommended to read through the [user guide](https://ay2021s1-cs2113t-f12-1.github.io/tp/UserGuide.html).
+
+## Table of contents 
 
 * Table of contents
 {:toc}
@@ -96,20 +102,25 @@ The <<sequence-diagram,*sequence diagram*>> below shows how different packages a
 ### Details
 
 #### Global Component
+Classes used by multiple components part of the global component of PlanNUS. This includes classes such as `App`,`Command` and `LoggingTool`. The main object classes `PartialModule`, `FullModule` and `Person` are also within the global component.
 
-Classes used by multiple components are in the `src.main.java.global` package.
+**API** : `src.main.java.global`
 
 #### Storage Component
+The `Storage` component is responsible for the loading and saving of information from text files.
 
 **API** : `src.main.java.seedu.duke.storage`
 
 #### Parser Component
+For the architecture of PlanNUS, the `Parser` classes will belong under the application they will be parsing for. The role 
+of these parsers is to process the user's input and return the appropriate command with required parameters to initialise the command. The newly created objects will then be returned to the main command to be executed and thereafter, terminated. 
 
-{add in}
+**API** : `src.main.java.seedu.duke.parser.AppParser`, `src.main.java.seedu.duke.apps.academicplanner.AcademicPlannerParser`, `src.main.java.seedu.duke.apps.capcalculator.CapCalculatorParser` and `src.main.java.seedu.duke.apps.capcalculator.SetSuParser`
 
 #### Ui Component
+In PlanNUS, the `Ui` component is integral in initialising a `Scanner` class and passing it to methods where they require them. `Ui` also provides functions to output formatted lines to console to improve readability for the user.
 
-{add in}
+**API** : `src.main.java.seedu.duke.ui.Ui`
 
 
 ## Implementation
@@ -141,7 +152,6 @@ and `String`. Below is a table of what each parameter corresponds to in the stat
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/addModuleCommand_state2.png" alt="State diagram for AddModuleCommand Step 2"/>
 </div>
-
 **Step 2** : `execute()` is called from the instance of `AddModuleCommand`. It can throw `AcademicException` 
 or `IOException`. `FileHandler` and `Logger` classes from the _java API_ are instantiated to handle logging for the remainder of the `execute()` method. 
 
@@ -162,7 +172,7 @@ or `IOException`. `FileHandler` and `Logger` classes from the _java API_ are ins
     <img src="./images/DeveloperGuide/addModuleCommand_finalState.png" alt="Final state diagram for AddModuleCommand"/>
 </div>
 
-**Step 7** : `FileHandler`, `Logger`, `PartialModule`, `AddUtils` and `AddModuleCommand` are terminated.
+**Step 7** : `FileHandler`, `Logger`, `PartialModule`, `ModuleValidator`, `AddUtils` and `AddModuleCommand` are terminated.
 
 The following sequence diagram shows how the `AddModuleCommand` works:
 
@@ -170,7 +180,7 @@ The following sequence diagram shows how the `AddModuleCommand` works:
     <img src="./images/DeveloperGuide/addModuleCommand_sequence.png" alt="Sequence diagram for AddModuleCommand"/>
 </div>
 
-The following activity diagram summarizes what happens when the user executes an `AddModuleCommand` :
+The following activity diagram summarizes what happens when the user executes a `AddModuleCommand` :
 
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/addModuleCommand_activity.png" alt="Activity diagram for AddModuleCommand"/>
@@ -227,7 +237,7 @@ The following sequence diagram shows how `EditModuleCommand` works.
 
 
 
-The following diagram summarizes what happens when the user executes an `EditModuleCommand`: 
+The following diagram summarizes what happens when the user executes a `EditModuleCommand`: 
 
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/editModuleCommand_activity.png" alt="Activity diagram for Edit Module Command"/>
@@ -271,11 +281,65 @@ The following sequence diagram shows how `RemoveModuleCommand` works.
 </div>
 
 
-The following diagram summarizes what happens when the user executes an `RemoveModuleCommand`: 
+The following diagram summarizes what happens when the user executes a `RemoveModuleCommand`: 
 
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/removeModuleCommand_activity.png" alt="Activity diagram for Remove Module Command"/>
 </div>
+
+
+### Academic Calendar Planner: View Module Details Feature
+
+#### Current implementation
+
+View module details command is executed by `AcademicPlannerParser`. It allows the user to view the full details of any module offered by NUS, by accessing the specified `FullModule` object that corresponds to the module code entered by the user, and printing its attributes.
+
+Additionally, the view module details command extends the `Command` class and overrides its `execute()` command. An external class, `ModuleValidator` is called upon to validate the module code that the user has entered, as only the details of valid NUS modules can be displayed.
+
+Given below is an example usage scenario and how add module command behaves at each step.
+
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/moduleDetailsCommand_initialState.png" alt="Initial state diagram for Module Details Command"/>
+</div>
+
+
+
+__Step 1:__ The user calls the view module details command from the `AcademicPlannerParser`, which will initialise a `ModuleDetailsCommand`. `ModuleDetailsCommand`'s constructor takes in parameters of  `ModuleLoader` and `String`. Below is a table of what each parameter corresponds to in the state diagram of the program.
+
+| Parameter<br />(Class Name) |        Corresponds to<br />(Function of Class)         | Referred to as<br />(Variable Name) |
+| :-------------------------: | :----------------------------------------------------: | :---------------------------------: |
+|       `ModuleLoader`        |     Class representing all modules offered by NUS      |            `allModules`             |
+|          `String`           | Class representing the module code to print details of |            `moduleCode`             |
+
+__Step 2:__ `execute()` is called from the instance of `ModuleDetailsCommand`. It can throw `AcademicException`.
+
+__Step 3:__ `validateModuleCode()` is called to validate the user input, `moduleCode`, against `allModules`.
+
+__Step 4:__ `PrintUtils` is called to print the details of the module.
+
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/moduleDetailsCommand_finalState.png" alt="Final state diagram for Module Details Command"/>
+</div>
+
+
+
+__Step 5:__ `ModuleDetailsCommand`, `ModuleLoader` and `PrintUtils` are terminated.
+
+
+
+The following sequence diagram shows how `ModuleDetailsCommand` works.
+
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/moduleDetailsCommand_sequence.png"/>
+</div>
+
+
+The following diagram summarizes what happens when the user executes a `ModuleDetailsCommand`: 
+
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/moduleDetailsCommand_activity.png" alt="Activity diagram for View Module Details Command"/>
+</div>
+
 
 
 
@@ -288,7 +352,7 @@ The following diagram summarizes what happens when the user executes an `RemoveM
 
 `suList` will then be analysed to provide user with a list of suggested S/U modules to achieve a best Cap.
 
- Given below is an example usage scenario and how `SetSuBySemesterCommand` beahves at each step.
+ Given below is an example usage scenario and how `SetSuBySemesterCommand` behaves at each step.
 
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/setSuBySemesterCommand_initialState.png"/>
@@ -329,11 +393,11 @@ The following diagram summarizes what happens when the user executes a `SetSuByS
 </div>    
 
 
-## Extra Guides and Information
+## Useful Links
 
 * [**About Us**](https://ay2021s1-cs2113t-f12-1.github.io/tp/AboutUs.html)
-* [**Configuration guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/Configuration.html)
-* **DevOps guide**
+* [**Configuration guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/ConfigurationGuide.html)
+* [**DevOps guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DevOpsGuide.html)
 * [**Documentation guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DocumentationGuide.html)
 * [**Logging guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/LoggingGuide.html)
 * [**Testing guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/TestingGuide.html)

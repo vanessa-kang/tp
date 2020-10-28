@@ -1,17 +1,25 @@
 # User Guide for PlanNUS
 
-Hello user of PlanNUS! Welcome to our user guide for our humble software. In this user guide, you can find information regarding how to use PlanNUS and the common questions asked with regards to the usage of PlanNUS. We hope you find this software
+<table><tr><td><div style="text-align:center">
+    <img src="images/PlanNUSLogo.png" />
+</div></td></tr></table>
+
+Hello user of PlanNUS! Welcome to our user guide for our software. In this user guide, you can find information regarding how to use PlanNUS and the common questions asked with regards to the usage of PlanNUS. We hope you find this software
 useful and we wish you all the best for your academic journey in NUS.
 
 ## Overview
 
 PlanNUS is a __desktop application for planning academic journey__ with modules offered by National University of Singapore (NUS). The __Command Line Interface (CLI)__ will be required for the program to work.
 
-PlanNUS aims to patch the missing gap for students in NUS by providing an avenue for students to plan their full academic journey in NUS, not just a specific semester. PlanNUS also generate CAP statistics by getting information from
-the calendar that the user has entered to retrieve the user's current CAP and even suggest to user which modules to mark as satisfactory/unsatisfactory to have the highest CAP possible. PlanNUS also has saving and loading features which would
-reduce the hassle of entering the full academic calendar for each use.
+PlanNUS aims to patch the gap for students in NUS by providing an avenue for students to plan their full academic journey in NUS. 
 
-The sections below aims to explain how PlanNUS should be used, and the common errors faced by users. Sections can be easily navigated to by clicking on the hyperlinks in the table of contents.
+PlanNUS can also generate CAP statistics and even suggest to user which modules to mark as satisfactory/unsatisfactory(S/U) to have the highest CAP possible. 
+
+PlanNUS also has saving and loading features which would reduce the hassle of entering the full academic calendar for each use.
+
+The sections below explain how PlanNUS should be used, and the common errors faced by users. Sections can be easily navigated to by clicking on the hyperlinks in the table of contents.
+
+## Table of contents
 
 * Table of Contents
 {:toc}
@@ -29,7 +37,7 @@ The sections below aims to explain how PlanNUS should be used, and the common er
 
 ## Command Summary
 
-Note that the following commands are **case-insensitive**.
+Note: All commands are **case-insensitive**.
 
 * Initiate the __Academic Calendar Planner__: `acadPlan`
 
@@ -57,7 +65,12 @@ Note that the following commands are **case-insensitive**.
 
 ## Features 
 
-PlanNUS has two separate commands at the main page where the users can either choose to have an outlook of their potential academic journey or calculate their CAP. For each of these commands, there are more specific functions for configuration of user's desired choices.
+PlanNUS has two separate commands at the main page where the users can either choose to:
+
+1. Have outlook of their potential academic journey
+1. Calculate their CAP
+
+For each of these commands, there are more specific functions for configuration of your desired choices.
 
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/Main_Page_Features.png" />  
@@ -67,13 +80,12 @@ PlanNUS has two separate commands at the main page where the users can either ch
 ### Academic Calendar Planner: `acadplan`
 Directs user to the page where he/she can plan a personalized academic journey in NUS by using `add`, `remove` , `view` or `edit` features as shown below.
 
+Input format: `acadplan` 
+
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/acadplan_features.png"/>
 </div></td></tr></table>
 
-
-Input format: `acadplan`    
-    
 
 #### Adding a module into the calendar: `add`
 
@@ -400,15 +412,15 @@ General | What is the name of the saved file? | The name of the saved file is `P
 
   
 
-## Extra Guides and Information
+## Useful Links
 
 * [**About Us**](https://ay2021s1-cs2113t-f12-1.github.io/tp/AboutUs.html)
-* **Configuration guide**
+* [**Configuration guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/ConfigurationGuide.html)
 * [**Developer guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DeveloperGuide.html)
-* **DevOps guide**
-* **Documentation guide**
+* [**DevOps guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DevOpsGuide.html)
+* [**Documentation guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DocumentationGuide.html)
 * [**Logging guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/LoggingGuide.html)
-* **Testing guide**
+* [**Testing guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/TestingGuide.html)
 
 
 
@@ -455,3 +467,13 @@ As per NUS [Grade Policy](http://www.nus.edu.sg/registrar/academic-information-p
 *Additional Grading options include S,U,CS,CU,IC,IP,AUD,EXE,W,WU. They hold no Academic Point Value.
 
 ## End of user guide
+
+## Useful Links
+
+* [**About Us**](https://ay2021s1-cs2113t-f12-1.github.io/tp/AboutUs.html)
+* [**Configuration guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/ConfigurationGuide.html)
+* [**Developer guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DeveloperGuide.html)
+* [**DevOps guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DevOpsGuide.html)
+* [**Documentation guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DocumentationGuide.html)
+* [**Logging guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/LoggingGuide.html)
+* [**Testing guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/TestingGuide.html)

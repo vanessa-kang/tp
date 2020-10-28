@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Scanner;
 
-//@@author Vanessa-Kang
+//@@author vanessa-kang
 /**
  * Class representing a print module command from the academic planner.
  */
