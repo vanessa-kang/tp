@@ -98,8 +98,11 @@ The <<sequence-diagram,*sequence diagram*>> below shows how different packages a
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/Packages_Interaction.png" alt="Sequence diagram for lifecycle of PlanNUS"/>
 </div>
-
 ### Details
+
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/Details_architecture.png" alt="Details architecture diagram of PlanNUS"/>
+</div>
 
 #### Global Component
 Classes used by multiple components part of the global component of PlanNUS. This includes classes such as `App`,`Command` and `LoggingTool`. The main object classes `PartialModule`, `FullModule` and `Person` are also within the global component.
@@ -107,6 +110,11 @@ Classes used by multiple components part of the global component of PlanNUS. Thi
 **API** : `src.main.java.global`
 
 #### Storage Component
+
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/Storage_architecture.png" alt="Storage architecture diagram of PlanNUS"/>
+</div>
+
 The `Storage` component is responsible for the loading and saving of information from text files.
 
 **API** : `src.main.java.seedu.duke.storage`
