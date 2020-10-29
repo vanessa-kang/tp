@@ -480,7 +480,7 @@ __Extensions__
 ### Non-Functional Requirements
 
 * General
-    * Should work on any [mainstream OS](#mainsteam-os) as long as it has Java `11` or above installed.
+    * Should work on any [mainstream OS](#mainstream-os) as long as it has Java `11` or above installed.
     * Commands entered should be short and intuitive to reduce mistyping of commands
     * Program should be compatible on a wide range of devices
 * Academic Planner
