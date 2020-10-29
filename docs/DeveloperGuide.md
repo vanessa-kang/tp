@@ -93,7 +93,7 @@ The interaction within each package should ideally be as shown below.
 
 ### Life cycle of PlanNUS
 
-The <<sequence-diagram,*sequence diagram*>> below shows how different packages and classes interact with each other throughout the whole <<life-cycle,life cycle>> of PlanNUS.
+The [*sequence diagram*](#sequence-diagram) below shows how different packages and classes interact with each other throughout the whole [life cycle](#life-cycle) of PlanNUS.
 
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/Packages_Interaction.png" alt="Sequence diagram for lifecycle of PlanNUS"/>
@@ -480,7 +480,7 @@ __Extensions__
 ### Non-Functional Requirements
 
 * General
-    * Should work on any <<mainstream-os,mainstream OS>> as long as it has Java `11` or above installed.
+    * Should work on any [mainstream OS](#mainsteam-os) as long as it has Java `11` or above installed.
     * Commands entered should be short and intuitive to reduce mistyping of commands
     * Program should be compatible on a wide range of devices
 * Academic Planner
@@ -494,13 +494,13 @@ __Extensions__
 
 ### Glossary
 
-[[mainstream-os]] Mainstream OS::
+#### Mainstream OS:
 Windows, Linux, Unix, OS-X
 
-[[life-cycle]] Life cycle::
+#### Life cycle:
 The duration in which the object is running and alive.
 
-[[sequence-diagram]] Sequence Diagram::
+#### Sequence Diagram:
 A UML diagram that captures the interactions between multiple objects for a given scenario.
 
 
