@@ -103,8 +103,12 @@ The [*sequence diagram*](#sequence-diagram) below shows how different packages a
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/Details_architecture.png" alt="Details architecture diagram of PlanNUS"/>
 </div>
-
 #### Global Component
+
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/Global_Diagram.png" alt="Storage architecture diagram of PlanNUS"/>
+</div>
+
 Classes used by multiple components part of the `global` component of PlanNUS. This includes classes such as `App`,`Command` and `LoggingTool`. The main object classes `PartialModule`, `FullModule` and `Person` are also within the global component.
 
 **API** : `src.main.java.global`
