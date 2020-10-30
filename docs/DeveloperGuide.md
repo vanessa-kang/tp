@@ -151,7 +151,8 @@ Given below is an example usage scenario and how add module command behaves at e
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/addModuleCommand_initialState.png" alt="Initial state diagram for AddModuleCommand"/>
 </div>
-**Step 1** : The user calls the add module command from the `AcademicPlannerParser`, which will initialise a 
+
+__Step 1__ : The user calls the add module command from the `AcademicPlannerParser`, which will initialise a 
 `AddModuleCommand`. `AddModuleCommand`'s constructor takes in parameters of `ModuleLoader`, `Person`,`Ui`, 
 and `String`. Below is a table of what each parameter corresponds to in the state diagram of the program.
 
@@ -165,27 +166,28 @@ and `String`. Below is a table of what each parameter corresponds to in the stat
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/addModuleCommand_state2.png" alt="State diagram for AddModuleCommand Step 2"/>
 </div>
-**Step 2** : `execute()` is called from the instance of `AddModuleCommand`. It can throw `AcademicException` 
+
+__Step 2__ : `execute()` is called from the instance of `AddModuleCommand`. It can throw `AcademicException` 
 or `IOException`. `FileHandler` and `Logger` classes from the _java API_ are instantiated to handle logging for the remainder of the `execute()` method. 
 
-**Step 3** : `in` then reads in the next two lines of input, which is the user's input for the desired semester for the `moduleCode` and `moduleCode`'s grades.
+__Step 3__ : `in` then reads in the next two lines of input, which is the user's input for the desired semester for the `moduleCode` and `moduleCode`'s grades.
 
-**Step 4** : `validateInputs()` is called to validate the user entered data against `allModules`.
+__Step 4__ : `validateInputs()` is called from `ModuleValidator` to validate the user entered data against `allModules`.
 
-**Step 5** : `AddUtils` is called upon to return module credit for `moduleCode` by `getModuleCreditForModule()`.
+__Step 5__ : `AddUtils` is called upon to return module credit for `moduleCode` by `getModuleCreditForModule()`.
 
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/addModuleCommand_state6.png" alt="State diagram for AddModuleCommand Step 6"/>
 </div>
 
-**Step 6** :  `AddUtils` is called upon again to add the module's data to the user, by instantiating a new
+__Step 6__ :  `AddUtils` is called upon again to add the module's data to the user, by instantiating a new
 `PartialModule` and storing it in both `userModuleList` and `userModuleMap` via `Person`.
 
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/addModuleCommand_finalState.png" alt="Final state diagram for AddModuleCommand"/>
 </div>
 
-**Step 7** : `FileHandler`, `Logger`, `PartialModule`, `ModuleValidator`, `AddUtils` and `AddModuleCommand` are terminated.
+__Step 7__ : `FileHandler`, `Logger`, `PartialModule`, `ModuleValidator`, `AddUtils` and `AddModuleCommand` are terminated.
 
 The following sequence diagram shows how the `AddModuleCommand` works:
 
@@ -507,13 +509,13 @@ __Extensions__
 
 ### Glossary
 
-#### Mainstream OS:
+#### Mainstream OS
 Windows, Linux, Unix, OS-X
 
-#### Life cycle:
+#### Life cycle
 The duration in which the object is running and alive.
 
-#### Sequence Diagram:
+#### Sequence Diagram
 A UML diagram that captures the interactions between multiple objects for a given scenario.
 
 
