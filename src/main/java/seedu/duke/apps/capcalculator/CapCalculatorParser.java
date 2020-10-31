@@ -34,6 +34,7 @@ public class CapCalculatorParser {
      */
     public static Command parse(String userInput, Person currentPerson, Ui ui) throws CommandParserException {
         Scanner in = ui.getScanner();
+        userInput = userInput.replaceAll("\\s+"," ");
         userInput = userInput.trim().toLowerCase();
 
         if (userInput.equals(CURRENT_COMMAND)) {
