@@ -93,7 +93,7 @@ The interaction within each package should ideally be as shown below.
 
 ### Life cycle of PlanNUS
 
-The <<sequence-diagram,*sequence diagram*>> below shows how different packages and classes interact with each other throughout the whole <<life-cycle,life cycle>> of PlanNUS.
+The [*sequence diagram*](#sequence-diagram) below shows how different packages and classes interact with each other throughout the whole [life cycle](#life-cycle) of PlanNUS.
 
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/Packages_Interaction.png" alt="Sequence diagram for lifecycle of PlanNUS"/>
@@ -104,9 +104,13 @@ The <<sequence-diagram,*sequence diagram*>> below shows how different packages a
     <img src="./images/DeveloperGuide/Details_architecture.png" alt="Details architecture diagram of PlanNUS"/>
 </div>
 
-
 #### Global Component
-Classes used by multiple components part of the global component of PlanNUS. This includes classes such as `App`,`Command` and `LoggingTool`. The main object classes `PartialModule`, `FullModule` and `Person` are also within the global component.
+
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/Global_Diagram.png" alt="Storage architecture diagram of PlanNUS"/>
+</div>
+
+Classes used by multiple components part of the `global` component of PlanNUS. This includes classes such as `App`,`Command` and `LoggingTool`. The main object classes `PartialModule`, `FullModule` and `Person` are also within the global component.
 
 **API** : `src.main.java.global`
 
@@ -128,6 +132,11 @@ of these parsers is to process the user's input and return the appropriate comma
 **API** : `src.main.java.seedu.duke.parser.AppParser`, `src.main.java.seedu.duke.apps.academicplanner.AcademicPlannerParser`, `src.main.java.seedu.duke.apps.capcalculator.CapCalculatorParser` and `src.main.java.seedu.duke.apps.capcalculator.SetSuParser`
 
 #### Ui Component
+
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/Ui_architecture.png" alt="Architecture diagram for Ui"/>
+</div>
+
 In PlanNUS, the `Ui` component is integral in initialising a `Scanner` class and passing it to methods where they require them. `Ui` also provides functions to output formatted lines to console to improve readability for the user.
 
 **API** : `src.main.java.seedu.duke.ui.Ui`
@@ -148,7 +157,8 @@ Given below is an example usage scenario and how add module command behaves at e
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/addModuleCommand_initialState.png" alt="Initial state diagram for AddModuleCommand"/>
 </div>
-**Step 1** : The user calls the add module command from the `AcademicPlannerParser`, which will initialise a 
+
+__Step 1__ : The user calls the add module command from the `AcademicPlannerParser`, which will initialise a 
 `AddModuleCommand`. `AddModuleCommand`'s constructor takes in parameters of `ModuleLoader`, `Person`,`Ui`, 
 and `String`. Below is a table of what each parameter corresponds to in the state diagram of the program.
 
@@ -162,27 +172,28 @@ and `String`. Below is a table of what each parameter corresponds to in the stat
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/addModuleCommand_state2.png" alt="State diagram for AddModuleCommand Step 2"/>
 </div>
-**Step 2** : `execute()` is called from the instance of `AddModuleCommand`. It can throw `AcademicException` 
+
+__Step 2__ : `execute()` is called from the instance of `AddModuleCommand`. It can throw `AcademicException` 
 or `IOException`. `FileHandler` and `Logger` classes from the _java API_ are instantiated to handle logging for the remainder of the `execute()` method. 
 
-**Step 3** : `in` then reads in the next two lines of input, which is the user's input for the desired semester for the `moduleCode` and `moduleCode`'s grades.
+__Step 3__ : `in` then reads in the next two lines of input, which is the user's input for the desired semester for the `moduleCode` and `moduleCode`'s grades.
 
-**Step 4** : `validateInputs()` is called to validate the user entered data against `allModules`.
+__Step 4__ : `validateInputs()` is called from `ModuleValidator` to validate the user entered data against `allModules`.
 
-**Step 5** : `AddUtils` is called upon to return module credit for `moduleCode` by `getModuleCreditForModule()`.
+__Step 5__ : `AddUtils` is called upon to return module credit for `moduleCode` by `getModuleCreditForModule()`.
 
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/addModuleCommand_state6.png" alt="State diagram for AddModuleCommand Step 6"/>
 </div>
 
-**Step 6** :  `AddUtils` is called upon again to add the module's data to the user, by instantiating a new
+__Step 6__ :  `AddUtils` is called upon again to add the module's data to the user, by instantiating a new
 `PartialModule` and storing it in both `userModuleList` and `userModuleMap` via `Person`.
 
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/addModuleCommand_finalState.png" alt="Final state diagram for AddModuleCommand"/>
 </div>
 
-**Step 7** : `FileHandler`, `Logger`, `PartialModule`, `ModuleValidator`, `AddUtils` and `AddModuleCommand` are terminated.
+__Step 7__ : `FileHandler`, `Logger`, `PartialModule`, `ModuleValidator`, `AddUtils` and `AddModuleCommand` are terminated.
 
 The following sequence diagram shows how the `AddModuleCommand` works:
 
@@ -358,9 +369,9 @@ The following diagram summarizes what happens when the user executes a `ModuleDe
 
 #### Current implementation
 
-`SetSuBySemesterCommand` is executed by `CapCalculatorApp`. It provides users with a suggestion on how they can S/U their modules added in `AcademicPlannerApp` by retrieving the `userMduleList` from  the `Person` object and filter the list according to the semester provided to get a `suList`.
+`SetSuBySemesterCommand` is executed by `CapCalculatorApp`. It provides users with a suggestion on how they can S/U their modules added in `AcademicPlannerApp` by retrieving the `userModuleList` from  the `Person` object and filter the list according to the semester provided to get a `suList`.
 
-`suList` will then be analysed to provide user with a list of suggested S/U modules to achieve a best Cap.
+`suList` will then be analysed to provide user with a list of suggested S/U modules to achieve the best CAP.
 
  Given below is an example usage scenario and how `SetSuBySemesterCommand` behaves at each step.
 
@@ -490,7 +501,7 @@ __Extensions__
 ### Non-Functional Requirements
 
 * General
-    * Should work on any <<mainstream-os,mainstream OS>> as long as it has Java `11` or above installed.
+    * Should work on any [mainstream OS](#mainstream-os) as long as it has Java `11` or above installed.
     * Commands entered should be short and intuitive to reduce mistyping of commands
     * Program should be compatible on a wide range of devices
 * Academic Planner
@@ -504,13 +515,13 @@ __Extensions__
 
 ### Glossary
 
-[[mainstream-os]] Mainstream OS::
+#### Mainstream OS
 Windows, Linux, Unix, OS-X
 
-[[life-cycle]] Life cycle::
+#### Life cycle
 The duration in which the object is running and alive.
 
-[[sequence-diagram]] Sequence Diagram::
+#### Sequence Diagram
 A UML diagram that captures the interactions between multiple objects for a given scenario.
 
 
