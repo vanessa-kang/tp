@@ -43,8 +43,7 @@ public class EditModuleCommand extends Command {
     public void execute() throws AcademicException {
         if (!moduleValidator.isModOfferedByNus(moduleCode)) {
             throw new AcademicException(ERROR_INVALID_MODULE);
-        }
-        else if (moduleValidator.isModTakenByUser(moduleCode)) {
+        } else if (moduleValidator.isModTakenByUser(moduleCode)) {
             System.out.println(PROMPT_EDIT_CHOICES);
             String choice = in.nextLine().trim();
 
