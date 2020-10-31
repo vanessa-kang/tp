@@ -25,6 +25,7 @@ public class AcademicPlannerParser {
     public static final String NEW_LINE = "\n";
     private static final String EXITING_CURRENT_COMMAND = "Exiting current command back to Academic Planner Main Menu.";
     private static final String ERROR_INVALID_COMMAND = "INVALID COMMAND";
+    private static final String ERROR_NO_PARAMETER = "NO PARAMETER AFTER COMMAND";
     private static final String ADD_COMMAND = "ADD";
     private static final String EDIT_COMMAND = "EDIT";
     private static final String REMOVE_COMMAND = "REMOVE";
@@ -74,7 +75,16 @@ public class AcademicPlannerParser {
             return new Command(true);
 
         } else {
-            throw new CommandParserException(ERROR_INVALID_COMMAND + NEW_LINE + EXITING_CURRENT_COMMAND);
+            switch (inputs[COMMAND_INDEX]) {
+            case ADD_COMMAND:
+                //Fallthrough
+            case EDIT_COMMAND:
+                //Fallthrough
+            case REMOVE_COMMAND:
+                throw new CommandParserException(ERROR_NO_PARAMETER + NEW_LINE + EXITING_CURRENT_COMMAND);
+            default:
+                throw new CommandParserException(ERROR_INVALID_COMMAND + NEW_LINE + EXITING_CURRENT_COMMAND);
+            }
         }
     }
 }
