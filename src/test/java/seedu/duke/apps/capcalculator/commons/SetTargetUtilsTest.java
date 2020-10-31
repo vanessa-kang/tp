@@ -82,6 +82,6 @@ class SetTargetUtilsTest {
             utils.getTargetGradedMC();
         });
 
-        assertTrue(exception.getMessage().contains("Your target MC cannot less than 0!"));
+        assertTrue(exception.getMessage().contains("Your target MC should be greater than 0!"));
     }
 }

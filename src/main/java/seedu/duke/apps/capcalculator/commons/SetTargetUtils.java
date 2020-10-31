@@ -16,7 +16,7 @@ import static seedu.duke.apps.capcalculator.commons.CalculatorUtils.formatCapToS
 public class SetTargetUtils {
     private static final String MAXIMUM_CAP_ERROR = "Your target CAP cannot be greater than the maximum CAP of 5!";
     private static final String MINIMUM_CAP_ERROR = "Your target CAP cannot be lower than the minimum CAP of 0!";
-    private static final String INVALID_MC_MESSAGE = "Your target MC cannot less than 0!";
+    private static final String INVALID_MC_MESSAGE = "Your target MC should be greater than 0!";
 
     private Person currentPerson;
     private Scanner in;

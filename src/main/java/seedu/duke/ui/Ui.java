@@ -39,7 +39,7 @@ public class Ui {
     }
 
     public void printStars() {
-        System.out.println(STARS);
+        System.out.println(NEW_LINE + STARS + NEW_LINE);
     }
 
 
