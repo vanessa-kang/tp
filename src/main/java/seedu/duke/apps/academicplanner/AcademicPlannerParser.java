@@ -47,7 +47,9 @@ public class AcademicPlannerParser {
      */
     public static Command parse(String userInput, ModuleLoader allModules, Person currentPerson, Ui ui)
         throws CommandParserException {
-        String[] inputs = userInput.toUpperCase().split(" ");
+
+        userInput = userInput.replaceAll("\\s+"," ");
+        String[] inputs = userInput.toUpperCase().split(" ",2);
         Scanner in = ui.getScanner();
 
         if (inputs[COMMAND_INDEX].equals(ADD_COMMAND) && inputs.length == CORRECT_COMMAND_LENGTH) {
