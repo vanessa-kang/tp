@@ -18,7 +18,7 @@ import java.util.logging.Logger;
  * Class representing an add module command from the academic planner.
  */
 public class AddModuleCommand extends Command {
-    private static final String ERROR_INVALID_COMMAND = "INVALID COMMAND";
+    public static final String ERROR_INVALID_INTEGER = "INVALID INTEGER";
     private static final String ERROR_INVALID_SEMESTER_INDEX = "INVALID SEMESTER INDEX";
     private static final String ERROR_INVALID_GRADE = "INVALID GRADE VALUE";
     private static final String ERROR_NOT_OFFERED = " IS NOT OFFERED BY NUS";
@@ -70,11 +70,12 @@ public class AddModuleCommand extends Command {
 
         promptUserToEnterSemester();
         String userInput = in.nextLine().trim();
+        int semesterValue = validateInputSemester(userInput);
 
         promptUserToEnterGrade();
         String gradeValue = in.nextLine().trim().toUpperCase();
+        validateInputGrade(gradeValue);
 
-        int semesterValue = validateInputs(userInput, gradeValue);
         int moduleCredit = addUtils.getModuleCreditForModule(moduleCode);
         
         addUtils.addModuleToUser(moduleCode, semesterValue, gradeValue, moduleCredit);
@@ -111,31 +112,23 @@ public class AddModuleCommand extends Command {
      * else throws Academic Exception.
      *
      * @param userInput semester value
-     * @param gradeValue grade value
      * @return semesterIndex
      * @throws AcademicException thrown when any input is invalid
      */
-    private int validateInputs(String userInput, String gradeValue) throws AcademicException {
+    private int validateInputSemester(String userInput) throws AcademicException {
         int semesterValue;
-
         try {
             semesterValue = Integer.parseInt(userInput);
         } catch (Exception e) {
             logger.log(Level.WARNING,"Semester entered is not an integer.");
             fh.close();
-            throw new AcademicException(ERROR_INVALID_COMMAND);
+            throw new AcademicException(ERROR_INVALID_INTEGER);
         }
 
         if (!ModuleValidator.isValidSemester(semesterValue)) {
             logger.log(Level.WARNING,"Semester entered is invalid.");
             fh.close();
             throw new AcademicException(ERROR_INVALID_SEMESTER_INDEX);
-        }
-
-        if (!moduleValidator.isValidGrade(gradeValue)) {
-            logger.log(Level.WARNING,"Grade entered is invalid.");
-            fh.close();
-            throw new AcademicException(ERROR_INVALID_GRADE);
         }
         return semesterValue;
     }
@@ -154,5 +147,19 @@ public class AddModuleCommand extends Command {
     private void promptUserToEnterSemester() {
         System.out.println("Semester you plan to take " + moduleCode.toUpperCase() + "?");
         System.out.println(VALID_SEMESTERS);
+    }
+
+    /**
+     * Throws exception if invalid grade is entered.
+     *
+     * @param gradeValue user input grade
+     * @throws AcademicException thrown when invalid grade is entered
+     */
+    private void validateInputGrade(String gradeValue) throws AcademicException {
+        if (!moduleValidator.isValidGrade(gradeValue)) {
+            logger.log(Level.WARNING,"Grade entered is invalid.");
+            fh.close();
+            throw new AcademicException(ERROR_INVALID_GRADE);
+        }
     }
 }
