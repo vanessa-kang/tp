@@ -103,6 +103,7 @@ The [*sequence diagram*](#sequence-diagram) below shows how different packages a
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/Details_architecture.png" alt="Details architecture diagram of PlanNUS"/>
 </div>
+
 #### Global Component
 
 <div style="text-align:center">
@@ -118,6 +119,7 @@ Classes used by multiple components part of the `global` component of PlanNUS. T
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/Storage_architecture.png" alt="Storage architecture diagram of PlanNUS"/>
 </div>
+
 
 The `Storage` component is responsible for the loading and saving of information from text files.
 
