@@ -4,7 +4,7 @@
     <img src="images/PlanNUSLogo.png" />
 </div></td></tr></table>
 
-Before reading this document, you are recommended to read through the [user guide](https://ay2021s1-cs2113t-f12-1.github.io/tp/UserGuide.html).
+Before reading this document, you are recommended to read through the [user guide](https://ay2021s1-cs2113t-f12-1.github.io/tp/UserGuide.html) first.
 
 ## Table of contents 
 
@@ -524,6 +524,16 @@ The duration in which the object is running and alive.
 #### Sequence Diagram
 A UML diagram that captures the interactions between multiple objects for a given scenario.
 
+## Features Coming Soon (V3.0 and beyond)
+
+* Logging of program to separate folders
+* Changing from `acadplan` to `capcalc` or vice versa from within each other
+* Support retaking of modules
+* Support max limit for the `Set SU` function in `capcalc`
+* Saving data after every command
+* Support discontinued modules from NUS
+* Support shortened commands for parsers
+* Support validation of requirements for modules
 
 ## Appendix: Instructions for manual testing
 
