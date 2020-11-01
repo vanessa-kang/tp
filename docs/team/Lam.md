@@ -8,6 +8,7 @@ With the CAP Calculator , PlanNUS will be able to tell you your current CAP and 
 
 ### Summary of Contributions
 
+* [Code Contributed](https://nus-cs2113-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=jerroldlam "Link to contributed code")
 * **New Feature:** Added the ability to add modules into their unique academic planner.
     * What it does: Allows the user to add a module which is offered by NUS into their academic calendar, one at a time.
     * Justification: This feature is one of the core features of PlanNUS and forms the basis of which PlanNUS is built upon.
@@ -41,6 +42,11 @@ With the CAP Calculator , PlanNUS will be able to tell you your current CAP and 
     * Developer Guide
         * Added documentation for `AddModuleCommand` and its flow in the program.
         * Added details of the `Ui` class
+* **Team-Based Tasks**
+    * Maintained issue tracker on the team's repository.
+    * Made necessary code quality enhancements.
+    * Resolved coding standard violations.
+    * Made numerous bug fixes for the code and found bugs to be resolved.
         
         
         
