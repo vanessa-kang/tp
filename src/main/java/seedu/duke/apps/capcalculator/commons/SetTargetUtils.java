@@ -6,8 +6,7 @@ import seedu.duke.global.objects.Person;
 
 import java.util.Scanner;
 
-import static seedu.duke.apps.capcalculator.commons.CalculatorUtils.MAXIMUM_CAP;
-import static seedu.duke.apps.capcalculator.commons.CalculatorUtils.formatCapToString;
+import static seedu.duke.apps.capcalculator.commons.CalculatorUtils.*;
 
 //@@author JuZihao
 /**
@@ -16,7 +15,11 @@ import static seedu.duke.apps.capcalculator.commons.CalculatorUtils.formatCapToS
 public class SetTargetUtils {
     private static final String MAXIMUM_CAP_ERROR = "Your target CAP cannot be greater than the maximum CAP of 5!";
     private static final String MINIMUM_CAP_ERROR = "Your target CAP cannot be lower than the minimum CAP of 0!";
-    private static final String INVALID_MC_MESSAGE = "Your target MC should be greater than 0!";
+    private static final String MINIMUM_MC_ERROR = "Your target MC should be greater than 0!";
+    private static final String MAXIMUM_MC_ERROR = "Your target MC should not be greater than 180!";
+    private static final String NOT_NUMBER_ERROR = "Looks like you did not enter an valid integer!";
+    private static final int MINIMUM_MC = 0;
+    private static final int MAXIMUM_MC = 180;
 
     private Person currentPerson;
     private Scanner in;
@@ -33,13 +36,17 @@ public class SetTargetUtils {
      */
     public double getTargetCap() throws InvalidCapException {
         System.out.println("What is your target CAP?");
-        double targetCap = Double.parseDouble(in.nextLine());
-        if (isValidCap(targetCap)) {
-            return targetCap;
-        } else if (targetCap > MAXIMUM_CAP) {
-            throw new InvalidCapException(MAXIMUM_CAP_ERROR);
-        } else {
-            throw new InvalidCapException(MINIMUM_CAP_ERROR);
+        try {
+            double targetCap = Double.parseDouble(in.nextLine());
+            if (isValidCap(targetCap)) {
+                return round(targetCap,2);
+            } else if (targetCap > MAXIMUM_CAP) {
+                throw new InvalidCapException(MAXIMUM_CAP_ERROR);
+            } else {
+                throw new InvalidCapException(MINIMUM_CAP_ERROR);
+            }
+        } catch (NumberFormatException e) {
+            throw new InvalidCapException(NOT_NUMBER_ERROR);
         }
     }
 
@@ -50,11 +57,17 @@ public class SetTargetUtils {
      */
     public int getTargetGradedMC() throws InvalidCreditException {
         System.out.println("How many graded MCs you are taking to achieve the target CAP?");
-        int targetGradedMC = Integer.parseInt(in.nextLine());
-        if (isValidCredits(targetGradedMC)) { 
-            return targetGradedMC;
-        } else {
-            throw new InvalidCreditException(INVALID_MC_MESSAGE);
+        try {
+            int targetGradedMC = Integer.parseInt(in.nextLine());
+            if (isValidCredits(targetGradedMC)) {
+                return targetGradedMC;
+            } else if (targetGradedMC > MINIMUM_MC){
+                throw new InvalidCreditException(MAXIMUM_MC_ERROR);
+            } else {
+                throw new InvalidCreditException(MINIMUM_MC_ERROR);
+            }
+        } catch (NumberFormatException e) {
+           throw new InvalidCreditException(NOT_NUMBER_ERROR);
         }
     }
 
@@ -78,7 +91,7 @@ public class SetTargetUtils {
      *  @return boolean whether MC is valid
      */
     private boolean isValidCredits(int credits) {
-        return credits > 0;
+        return credits > MINIMUM_MC && credits <= MAXIMUM_MC;
     }
 
     /**
@@ -88,11 +101,10 @@ public class SetTargetUtils {
         int totalMcToTarget = currentPerson.getCurrentMcAfterSU() + targetGradedMC;
         double targetCapxTargetMC = (double) totalMcToTarget * targetCap;
         double neededCap = (targetCapxTargetMC - currentPerson.getCurrentTotalMcxGrade()) / (double) targetGradedMC;
-
         if (isValidCap(neededCap)) {
             printTargetResultPossible(targetCap, targetGradedMC, neededCap);
         } else {
-            printTargetResultImpossible(targetCap, targetGradedMC);
+            printTargetResultImpossible(targetCap, targetGradedMC, neededCap);
         }
     }
 
@@ -102,9 +114,11 @@ public class SetTargetUtils {
      * @param targetCap user's targeted CAP.
      * @param targetGradedMC user's targeted MC.
      */
-    private void printTargetResultImpossible(double targetCap, int targetGradedMC) {
-        System.out.println("OOPS!! Looks like you are not able to achieve your target CAP of " + targetCap
+    private void printTargetResultImpossible(double targetCap, int targetGradedMC, double neededCap) {
+        System.out.println("OOPS!! Looks like in order to achieve your target CAP of " + targetCap
                 + " with you target MCs of " + targetGradedMC + ".");
+        System.out.println("You have to achieve a CAP of " + formatCapToString(neededCap)
+                + " for your next " + targetGradedMC + " MCs which is not possible!");
     }
 
     /**

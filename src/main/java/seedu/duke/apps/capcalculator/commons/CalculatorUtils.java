@@ -2,6 +2,9 @@ package seedu.duke.apps.capcalculator.commons;
 
 import seedu.duke.global.objects.PartialModule;
 import seedu.duke.global.objects.Person;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 //@@author Khenus
@@ -268,5 +271,20 @@ public class CalculatorUtils {
      */
     public static boolean isNaN(double academicPoint) {
         return (academicPoint != academicPoint);
+    }
+
+    /**
+     * Returns a double value that has been rounded at a given decimal place.
+     *
+     * @param value to be rounded
+     * @param places number of decimal points to be rounded
+     * @return a double value that has been rounded
+     */
+    public static double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        BigDecimal bd = BigDecimal.valueOf(value);
+        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
 }

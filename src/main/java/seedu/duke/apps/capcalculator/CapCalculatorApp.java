@@ -22,6 +22,7 @@ public class CapCalculatorApp extends App {
             + "\tcurrent\n"
             + "\tset target\n"
             + "\tset su\n"
+            + "\thelp\n"
             + "\texit";
 
     private final Person currentPerson;
