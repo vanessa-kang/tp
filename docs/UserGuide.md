@@ -39,7 +39,7 @@ The sections below explain how PlanNUS should be used, and the common errors fac
 
 Note: All commands are **case-insensitive**.
 
-* Initiate the __Academic Calendar Planner__: `acadPlan`
+* Initiate the __Academic Calendar Planner__: `acadplan`
 
 | __Action__                                  | __Command__                                                  |
 | ------------------------------------------- | ------------------------------------------------------------ |
@@ -51,7 +51,7 @@ Note: All commands are **case-insensitive**.
 | Exiting the Academic Planner                | `exit`                                                       |
 
 
-* Initiate the __CAP calculator__: `capCalc`
+* Initiate the __CAP calculator__: `capcalc`
 
 | __Action__                           | __Command__   |
 | ------------------------------------ | :------------ |
