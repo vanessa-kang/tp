@@ -6,7 +6,9 @@ import seedu.duke.global.objects.Person;
 
 import java.util.Scanner;
 
-import static seedu.duke.apps.capcalculator.commons.CalculatorUtils.*;
+import static seedu.duke.apps.capcalculator.commons.CalculatorUtils.round;
+import static seedu.duke.apps.capcalculator.commons.CalculatorUtils.formatCapToString;
+import static seedu.duke.apps.capcalculator.commons.CalculatorUtils.MAXIMUM_CAP;
 
 //@@author JuZihao
 /**
@@ -61,13 +63,13 @@ public class SetTargetUtils {
             int targetGradedMC = Integer.parseInt(in.nextLine());
             if (isValidCredits(targetGradedMC)) {
                 return targetGradedMC;
-            } else if (targetGradedMC > MINIMUM_MC){
+            } else if (targetGradedMC > MINIMUM_MC) {
                 throw new InvalidCreditException(MAXIMUM_MC_ERROR);
             } else {
                 throw new InvalidCreditException(MINIMUM_MC_ERROR);
             }
         } catch (NumberFormatException e) {
-           throw new InvalidCreditException(NOT_NUMBER_ERROR);
+            throw new InvalidCreditException(NOT_NUMBER_ERROR);
         }
     }
 
