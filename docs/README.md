@@ -15,7 +15,7 @@ With the CAP Calculator , PlanNUS will be able to tell you your current CAP and 
 1. All Fresh NUS Undergraduates
 1. NUS Undergraduates who have completed at least 1 semester of study
 
-## Feature List (for V2.0)
+## Feature List (for V2.1)
 
 * Academic Calendar Planner
     * Add module
@@ -33,6 +33,17 @@ With the CAP Calculator , PlanNUS will be able to tell you your current CAP and 
 * General
     * Saving of Academic Calendar into text file
     * Loading of Academic Calendar from text file
+    
+## Features Coming Soon (V3.0 and beyond)
+
+* Logging of program to separate folders
+* Changing from `acadplan` to `capcalc` or vice versa from within each other
+* Support retaking of modules
+* Support max limit for the `Set SU` function in `capcalc`
+* Saving data after every command
+* Support discontinued modules from NUS
+* Support shortened commands for parsers
+* Support validation of requirements for modules
 
 ## Useful Links
 * [**About Us**](https://ay2021s1-cs2113t-f12-1.github.io/tp/AboutUs.html)

@@ -24,6 +24,25 @@ The sections below explain how PlanNUS should be used, and the common errors fac
 * Table of Contents
 {:toc}
 
+## Feature List (for V2.1)
+
+* Academic Calendar Planner
+    * Add module
+    * Edit module
+    * Remove module
+    * View module details
+    * Search for module by keyword
+    * Print Calendar
+        * Full Calendar
+        * Semester Calendar
+* CAP Calculator
+    * Get current CAP
+    * Get results need for target CAP
+    * See possible CAP when setting as grade-less
+* General
+    * Saving of Academic Calendar into text file
+    * Loading of Academic Calendar from text file
+
 ## Quick Start
 
 1. Ensure that you have Java 11 or above installed.
@@ -465,5 +484,16 @@ As per NUS [Grade Policy](http://www.nus.edu.sg/registrar/academic-information-p
 | Additional Grading Options* |        -        |
 
 *Additional Grading options include S,U,CS,CU,IC,IP,AUD,EXE,W,WU. They hold no Academic Point Value.
+
+## Features Coming Soon (V3.0 and beyond)
+
+* Logging of program to separate folders
+* Changing from `acadplan` to `capcalc` or vice versa from within each other
+* Support retaking of modules
+* Support max limit for the `Set SU` function in `capcalc`
+* Saving data after every command
+* Support discontinued modules from NUS
+* Support shortened commands for parsers
+* Support validation of requirements for modules
 
 ## End of user guide
