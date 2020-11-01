@@ -39,7 +39,7 @@ The sections below explain how PlanNUS should be used, and the common errors fac
 
 Note: All commands are **case-insensitive**.
 
-* Initiate the __Academic Calendar Planner__: `acadPlan`
+* Initiate the __Academic Calendar Planner__: `acadplan`
 
 | __Action__                                  | __Command__                                                  |
 | ------------------------------------------- | ------------------------------------------------------------ |
@@ -50,8 +50,9 @@ Note: All commands are **case-insensitive**.
 | Printing help information                   | `help`                                                       |
 | Exiting the Academic Planner                | `exit`                                                       |
 
+**Note:** `acadplan` can only be called from `PlanNUS` main menu.
 
-* Initiate the __CAP calculator__: `capCalc`
+* Initiate the __CAP calculator__: `capcalc`
 
 | __Action__                           | __Command__   |
 | ------------------------------------ | :------------ |
@@ -61,7 +62,7 @@ Note: All commands are **case-insensitive**.
 | Make the module grade as S/U         | `set SU`      |
 | Exiting the CAP Calculator           | `exit`        |
 
-
+**Note:** `capcalc` can only be called from `PlanNUS` main menu.
 
 ## Features 
 
