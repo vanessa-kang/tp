@@ -15,8 +15,20 @@ bin/
 
 /text-ui-test/ACTUAL.txt
 text-ui-test/EXPECTED-UNIX.TXT
+<<<<<<< HEAD
 AddModuleCommand.log
 ModuleLoader.log
 PlanNUS.txt
 SetTargetCommand.log
 SetTargetCommand.log.1
+=======
+/text-ui-test/DIFF.TXT
+DIFF.TXT
+PlanNUS.txt
+AddModuleCommand.log
+ModuleLoader.log
+SetTargetCommand.log
+SetTargetCommand.log.1
+ModuleLoader.log.1
+AddModuleCommand.log.lck
+>>>>>>> 9f29ab1545d58d153e0d6e08a2591f05b9ebe0e6
