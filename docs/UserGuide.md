@@ -50,6 +50,7 @@ Note: All commands are **case-insensitive**.
 | Printing help information                   | `help`                                                       |
 | Exiting the Academic Planner                | `exit`                                                       |
 
+**Note:** `acadplan` can only be called from `PlanNUS` main menu.
 
 * Initiate the __CAP calculator__: `capcalc`
 
@@ -61,7 +62,7 @@ Note: All commands are **case-insensitive**.
 | Make the module grade as S/U         | `set SU`      |
 | Exiting the CAP Calculator           | `exit`        |
 
-
+**Note:** `capcalc` can only be called from `PlanNUS` main menu.
 
 ## Features 
 
