@@ -79,6 +79,7 @@ Available commands are:
 	current
 	set target
 	set su
+	help
 	exit
 
 Type in an CAP Calculator command to continue...
