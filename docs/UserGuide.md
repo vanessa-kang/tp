@@ -66,7 +66,7 @@ Note: All commands are **case-insensitive**.
 | Removing an existing module in the calendar | `remove <module code>`​ <br> e.g., `remove CS1010, REMOVE cs1231 , REMOVE CS2040` |
 | Editing an existing module in the calendar  | `edit <module code>`​ <br> e.g., `edit CS1010, EDIT cs1231 , EDIT CS2040` |
 | Printing the academic calendar              | `view`                                                       |
-| Printing help information                   | `help`                                                       |
+| Printing help information for academic planner| `help`                                                       |
 | Exiting the Academic Planner                | `exit`                                                       |
 
 **Note:** `acadplan` can only be called from `PlanNUS` main menu.
@@ -79,6 +79,7 @@ Note: All commands are **case-insensitive**.
 | Configure current CAP and graded MCs | `set current` |
 | Set target CAP                       | `set target`  |
 | Make the module grade as S/U         | `set SU`      |
+| Printing help information for CAP calculator| `help`|
 | Exiting the CAP Calculator           | `exit`        |
 
 **Note:** `capcalc` can only be called from `PlanNUS` main menu.
