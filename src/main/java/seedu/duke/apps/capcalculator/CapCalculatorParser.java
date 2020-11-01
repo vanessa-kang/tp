@@ -1,6 +1,7 @@
 package seedu.duke.apps.capcalculator;
 
 import seedu.duke.apps.capcalculator.commands.CurrentCommand;
+import seedu.duke.apps.capcalculator.commands.PrintHelpCommand;
 import seedu.duke.apps.capcalculator.commands.SetTargetCommand;
 import seedu.duke.global.exceptions.CommandParserException;
 import seedu.duke.global.Command;
@@ -22,6 +23,8 @@ public class CapCalculatorParser {
     private static final String SET_TARGET_COMMAND = "set target";
     private static final String SET_SU_COMMAND = "set su";
     private static final String EXIT_COMMAND = "exit";
+    private static final String HELP_COMMAND = "help";
+
 
     /**
      * Processes user input command and returns command to be executed.
@@ -47,6 +50,8 @@ public class CapCalculatorParser {
             promptUserForSuCommand();
             String choice = in.nextLine().trim();
             return SetSuParser.parse(choice, currentPerson, ui);
+        } else if (userInput.equals(HELP_COMMAND)) {
+            return new PrintHelpCommand();
         } else {
             throw new CommandParserException(INVALID_COMMAND_MESSAGE);
         }
