@@ -19,7 +19,8 @@ import static org.junit.jupiter.api.Assertions.fail;
 //@@author JuZihao
 class SetSuUtilsTest {
     private static final String EMPTY_LIST_ERROR = "Looks like your S/U list is empty!";
-    private static final String INVALID_MODULE_ERROR = "Looks like the module you entered is not a valid module!";
+    private static final String INVALID_MODULE_ERROR = "Looks like you did not take the module you entered "
+                        + "or the module you entered has a grade that cannot be S/Ued!";
     private static final String EXITING_CURRENT_COMMAND =
             "Exiting current command back to CAP Calculator App Main Menu.";
     private static final String NEW_LINE = "\n";

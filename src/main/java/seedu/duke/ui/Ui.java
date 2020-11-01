@@ -38,8 +38,12 @@ public class Ui {
         System.out.println(LINE);
     }
 
+    public void printNewLine() {
+        System.out.println(NEW_LINE);
+    }
+
     public void printStars() {
-        System.out.println(STARS);
+        System.out.println(NEW_LINE + STARS + NEW_LINE);
     }
 
 

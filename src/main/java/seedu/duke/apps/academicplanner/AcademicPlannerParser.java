@@ -25,7 +25,7 @@ public class AcademicPlannerParser {
     public static final String NEW_LINE = "\n";
     private static final String EXITING_CURRENT_COMMAND = "Exiting current command back to Academic Planner Main Menu.";
     private static final String ERROR_INVALID_COMMAND = "INVALID COMMAND";
-    private static final String ERROR_NO_PARAMETER = "NO PARAMETER AFTER COMMAND";
+    private static final String ERROR_NO_PARAMETER = " NO PARAMETER AFTER COMMAND";
     private static final String ADD_COMMAND = "ADD";
     private static final String EDIT_COMMAND = "EDIT";
     private static final String REMOVE_COMMAND = "REMOVE";
@@ -67,10 +67,10 @@ public class AcademicPlannerParser {
         } else if (inputs[COMMAND_INDEX].equals(HELP_COMMAND)) {
             return new PrintHelpCommand();
 
-        } else if (inputs[COMMAND_INDEX].equals(DETAILS_COMMAND)) {
+        } else if (inputs[COMMAND_INDEX].equals(DETAILS_COMMAND) && inputs.length == CORRECT_COMMAND_LENGTH) {
             return new ModuleDetailsCommand(allModules, inputs[MODULE_CODE_INDEX]);
           
-        } else if (inputs[COMMAND_INDEX].equals(SEARCH_COMMAND)) {
+        } else if (inputs[COMMAND_INDEX].equals(SEARCH_COMMAND) && inputs.length == CORRECT_COMMAND_LENGTH) {
             return new SearchModulesCommand(allModules, inputs[MODULE_CODE_INDEX]);
 
         } else if (inputs[COMMAND_INDEX].equals(EXIT_COMMAND)) {
@@ -79,11 +79,20 @@ public class AcademicPlannerParser {
         } else {
             switch (inputs[COMMAND_INDEX]) {
             case ADD_COMMAND:
-                //Fallthrough
+                throw new CommandParserException("ADD COMMAND :" + ERROR_NO_PARAMETER
+                        + NEW_LINE + EXITING_CURRENT_COMMAND);
             case EDIT_COMMAND:
-                //Fallthrough
+                throw new CommandParserException("EDIT COMMAND :" + ERROR_NO_PARAMETER
+                        + NEW_LINE + EXITING_CURRENT_COMMAND);
             case REMOVE_COMMAND:
-                throw new CommandParserException(ERROR_NO_PARAMETER + NEW_LINE + EXITING_CURRENT_COMMAND);
+                throw new CommandParserException("REMOVE COMMAND :" + ERROR_NO_PARAMETER
+                        + NEW_LINE + EXITING_CURRENT_COMMAND);
+            case SEARCH_COMMAND:
+                throw new CommandParserException("SEARCH COMMAND :" + ERROR_NO_PARAMETER
+                        + NEW_LINE + EXITING_CURRENT_COMMAND);
+            case DETAILS_COMMAND:
+                throw new CommandParserException("DETAILS COMMAND :" + ERROR_NO_PARAMETER
+                        + NEW_LINE + EXITING_CURRENT_COMMAND);
             default:
                 throw new CommandParserException(ERROR_INVALID_COMMAND + NEW_LINE + EXITING_CURRENT_COMMAND);
             }

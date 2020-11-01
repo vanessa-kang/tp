@@ -59,14 +59,14 @@ class SetTargetUtilsTest {
 
     @Test
     public void getTargetGradedMC_getTargetFromUser_success() throws InvalidCreditException {
-        String input = "200";
+        String input = "180";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         Scanner scan = new Scanner(in);
         Person person = new Person("testing");
 
         SetTargetUtils utils = new SetTargetUtils(person, scan);
 
-        assertEquals(200, utils.getTargetGradedMC());
+        assertEquals(180, utils.getTargetGradedMC());
     }
 
     @Test
@@ -82,6 +82,6 @@ class SetTargetUtilsTest {
             utils.getTargetGradedMC();
         });
 
-        assertTrue(exception.getMessage().contains("Your target MC cannot less than 0!"));
+        assertTrue(exception.getMessage().contains("Your target MC should be greater than 0!"));
     }
 }
