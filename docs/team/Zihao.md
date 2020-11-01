@@ -18,7 +18,7 @@ With the CAP Calculator , PlanNUS will be able to tell you your current CAP and 
    * Justification: This feature is allows the user to plan further.
    * Highlights: 
    
-   * **Documentation**
+* **Documentation**
     * User Guide
     * Developer Guide
         
