@@ -26,8 +26,11 @@ public class SetSuUtils {
     private static final String NO_SUGGESTION_PROMPT = "Looks like you do not have to S/U any modules!";
     private static final String PROMPT_MODULE_VALUE = "Please enter how many modules you wish to S/U.";
     private static final String INVALID_SEMESTER_ERROR = "Looks like the semester you entered is not valid!";
-    private static final String INVALID_NUMBER_ERROR = "Looks like the number of modules you entered is not valid!";
-    private static final String INVALID_MODULE_ERROR = "Looks like the module you entered is not a valid module!";
+    private static final String NOT_NUMBER_ERROR = "Looks like the semester you entered is not an integer!";
+    private static final String INVALID_NUMBER_ERROR = "Looks like the number of modules you "
+            + "entered is not an integer!";
+    private static final String INVALID_MODULE_ERROR = "Looks like you did not take the module you entered "
+            + "or the module you entered has a grade that cannot be S/Ued!";
     private static final String NUMBER_OUT_OF_BOUND_ERROR = "Looks like the number you entered "
             + "is more than the numbers of modules you took.";
     private static final String EMPTY_LIST_ERROR = "Looks like your S/U list is empty!";
@@ -69,7 +72,7 @@ public class SetSuUtils {
                 throw new CapCalculatorException(INVALID_SEMESTER_ERROR);
             }
         } catch (NumberFormatException e) {
-            throw new CapCalculatorException(INVALID_SEMESTER_ERROR);
+            throw new CapCalculatorException(NOT_NUMBER_ERROR);
         }
     }
 
@@ -145,6 +148,7 @@ public class SetSuUtils {
             System.out.println("S/U your module of " + module.getModuleCode() + " with grade " + module.getGrade()
                     + " will give you a CAP of: " + formatCapToString(totalMcxGrade / (double)currentGradedMCs));
             System.out.println("Your graded MCs after S/Uing this module is: " + currentGradedMCs);
+            ui.printNewLine();
             if (bestCap < (totalMcxGrade / (double)currentGradedMCs)) {
                 bestCap = totalMcxGrade / (double)currentGradedMCs;
                 bestGradedMCs = currentGradedMCs;
