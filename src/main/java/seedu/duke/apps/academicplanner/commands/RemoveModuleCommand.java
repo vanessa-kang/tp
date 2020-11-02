@@ -36,8 +36,7 @@ public class RemoveModuleCommand extends Command {
      */
     @Override
     public void execute() throws AcademicException {
-        if (!moduleValidator.isModOfferedByNus(moduleCode))
-        {
+        if (!moduleValidator.isModOfferedByNus(moduleCode)) {
             throw new AcademicException(ERROR_INVALID_MODULE);
         } else if (moduleValidator.isModTakenByUser(moduleCode)) {
             removeUtils.removeModuleFromUserModuleList(moduleCode);
