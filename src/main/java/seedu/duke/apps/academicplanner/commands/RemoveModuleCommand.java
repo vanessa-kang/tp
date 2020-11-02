@@ -14,7 +14,7 @@ import java.util.Scanner;
  * Class representing an remove module command from the academic planner.
  */
 public class RemoveModuleCommand extends Command {
-    private static final String ERROR_INVALID_COMMAND = "INVALID COMMAND";
+    private static final String ERROR_INVALID_MODULE = "The module you entered is not offered by NUS";
     private static final String ERROR_NOT_ADDED = "You have not added this module into your list yet";
     private static final String MODULE_REMOVED = "Module removed successfully.";
 
@@ -36,15 +36,14 @@ public class RemoveModuleCommand extends Command {
      */
     @Override
     public void execute() throws AcademicException {
-        try {
-            if (moduleValidator.isModTakenByUser(moduleCode)) {
-                removeUtils.removeModuleFromUserModuleList(moduleCode);
-                System.out.println(MODULE_REMOVED);
-            } else {
-                throw new AcademicException(ERROR_NOT_ADDED);
-            }
-        } catch (Exception e) {
-            throw new AcademicException(ERROR_INVALID_COMMAND);
+        if (!moduleValidator.isModOfferedByNus(moduleCode))
+        {
+            throw new AcademicException(ERROR_INVALID_MODULE);
+        } else if (moduleValidator.isModTakenByUser(moduleCode)) {
+            removeUtils.removeModuleFromUserModuleList(moduleCode);
+            System.out.println(MODULE_REMOVED);
+        } else {
+            throw new AcademicException(ERROR_NOT_ADDED);
         }
     }
 }
