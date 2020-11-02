@@ -14,6 +14,9 @@ import seedu.duke.global.objects.Person;
 import seedu.duke.ui.Ui;
 import java.util.Scanner;
 
+import static seedu.duke.parser.AppParser.ACADEMIC_PLANNER;
+import static seedu.duke.parser.AppParser.CAP_CALCULATOR;
+
 //@@author jerroldlam
 /**
  * Class representing the parser for the academic parser. Used in the academic parser app.
@@ -34,6 +37,8 @@ public class AcademicPlannerParser {
     private static final String HELP_COMMAND = "HELP";
     private static final String EXIT_COMMAND = "EXIT";
     private static final String DETAILS_COMMAND = "DETAILS";
+    private static final String ACADEMIC_PLANNER_COMMAND = "ACADPLAN";
+    private static final String TO_CAP_CALCULATOR = "CAPCALC";
 
     /**
      * Command to process the user inputs and to return the intended command with the correct parameters.
@@ -73,6 +78,9 @@ public class AcademicPlannerParser {
         } else if (inputs[COMMAND_INDEX].equals(SEARCH_COMMAND) && inputs.length == CORRECT_COMMAND_LENGTH) {
             return new SearchModulesCommand(allModules, inputs[MODULE_CODE_INDEX]);
 
+        } else if (inputs[COMMAND_INDEX].equals(TO_CAP_CALCULATOR)){
+            return new Command(true, true, CAP_CALCULATOR);
+
         } else if (inputs[COMMAND_INDEX].equals(EXIT_COMMAND)) {
             return new Command(true);
 
@@ -92,6 +100,9 @@ public class AcademicPlannerParser {
                         + NEW_LINE + EXITING_CURRENT_COMMAND);
             case DETAILS_COMMAND:
                 throw new CommandParserException("DETAILS COMMAND :" + ERROR_NO_PARAMETER
+                        + NEW_LINE + EXITING_CURRENT_COMMAND);
+            case ACADEMIC_PLANNER_COMMAND:
+                throw new CommandParserException("Sorry, you are already in Academic Planner!"
                         + NEW_LINE + EXITING_CURRENT_COMMAND);
             default:
                 throw new CommandParserException(ERROR_INVALID_COMMAND + NEW_LINE + EXITING_CURRENT_COMMAND);
