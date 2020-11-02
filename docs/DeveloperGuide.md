@@ -694,7 +694,6 @@ A UML diagram that captures the interactions between multiple objects for a give
 ## Features Coming Soon (V3.0 and beyond)
 
 * Logging of program to separate folders
-* Changing from `acadplan` to `capcalc` or vice versa from within each other
 * Support retaking of modules
 * Support max limit for the `Set SU` function in `capcalc`
 * Saving data after every command
