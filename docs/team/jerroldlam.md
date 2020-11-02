@@ -8,7 +8,7 @@ With the CAP Calculator , PlanNUS will be able to tell you your current CAP and 
 
 ### Summary of Contributions
 
-* [Code Contributed](https://nus-cs2113-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=jerroldlam "Link to contributed code")
+* Code contributed: [Reposense Link](https://nus-cs2113-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=jerroldlam "Link to contributed code")
 * **New Feature:** Added the ability to add modules into their unique academic planner.
     * What it does: Allows the user to add a module which is offered by NUS into their academic calendar, one at a time.
     * Justification: This feature is one of the core features of PlanNUS and forms the basis of which PlanNUS is built upon.
@@ -36,17 +36,20 @@ With the CAP Calculator , PlanNUS will be able to tell you your current CAP and 
     * Highlights: Following careful consideration of how logging will be used, the parameters are set up to allow different codes to easily log without requiring a huge chunk of code to initialise it.
 * **Documentation**
     * User Guide
-        * Added documentation for `AddModuleCommand`.
-        * Added Overview and introduction to user guide.
-        * Added appendix for relevant information regarding NUS modules and semester indexes.
+        * Added documentation for `AddModuleCommand` [#37](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/37)
+        * Added Overview and introduction to user guide [#137](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/152)
+        * Wrote appendix for relevant information regarding NUS modules and semester indexes [#57](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/57)
     * Developer Guide
-        * Added documentation for `AddModuleCommand` and its flow in the program.
-        * Added details of the `Ui` class
+        * Added documentation for `AddModuleCommand` and its flow in the program [#114](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/114)
+        * Added details of the `Ui` class [#172](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/172), [#175](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/175)
+        * Added Logging guide [#130](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/130)
 * **Team-Based Tasks**
-    * Maintained issue tracker on the team's repository.
-    * Made necessary code quality enhancements.
-    * Resolved coding standard violations.
-    * Made numerous bug fixes for the code and found bugs to be resolved.
+    * Maintained issue tracker on the team's repository
+    * Made necessary code quality enhancements [#36](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/59) ,[#65](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/65), [#100](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/100), [#101](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/101)
+    * Resolved coding standard violations
+    * Made numerous bug fixes for the code and found bugs to be resolved
+        * [#43](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/43), [#59](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/59), [#72](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/72), [#103](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/103), [#111](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/111), [#115](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/115), [#127](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/127), [#147](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/147), \
+        [#170](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/170), [#220](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/220), [#222](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/222)
         
         
         
