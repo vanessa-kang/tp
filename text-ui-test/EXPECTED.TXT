@@ -2,10 +2,29 @@ ____________________________________________________________
 Save file not found!
 It will be automatically created.
 
+             &&&&&&&&&&&&&&&&&&&&&&&&&
+           &&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+          &&&&&                     &&&&&
+        &&&&&                        &&&&&&
+       &&&&&            &&&&&&         &&&&&
+     &&&&&&         &&&&&&&&&&&&&&      &&&&&&
+    &&&&&         &&&&&        &&&&       &&&&&
+  &&&&&&          &&&&          &&&        &&&&&
+ &&&&&            &&&&          &&&          &&&&&
+ &&&&&            &&&&&&&&&&&&&&&            &&&&&
+  &&&&&           &&&&  &&&&&&&             &&&&&
+   &&&&&          &&&&                    &&&&&&
+     &&&&&        &&&&                   &&&&&
+      &&&&&       &&&&                 &&&&&&
+        &&&&&                         &&&&&
+         &&&&&                       &&&&&
+          &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+            &&&&&&&&&&&&&&&&&&&&&&&&&&&
+
 Welcome to PlanNUS!
-	For academic planner, type <acadplan>
-	For CAP calculator, type <capcalc>
-	To exit PlanNUS, type <exit>
+	For academic planner, type 'acadplan' or 'a'
+	For CAP calculator, type 'capcalc' or 'c'
+	To exit PlanNUS, type 'exit' or 'e'
 
 Type in a command to continue...
 ____________________________________________________________
@@ -18,6 +37,7 @@ Available commands are:
 	remove <module code>
 	details <module code>
 	search <module code key>
+	capcalc
 	view
 	help
 	exit
@@ -65,9 +85,9 @@ ____________________________________________________________
 Thank you for using Academic Planner!
 ____________________________________________________________
 Welcome back to PlanNUS Main Menu!
-	For academic planner, type <acadplan>
-	For CAP calculator, type <capcalc>
-	To exit PlanNUS, type <exit>
+	For academic planner, type 'acadplan' or 'a'
+	For CAP calculator, type 'capcalc' or 'c'
+	To exit PlanNUS, type 'exit' or 'e'
 
 Type in a command to continue...
 ____________________________________________________________
@@ -79,6 +99,7 @@ Available commands are:
 	current
 	set target
 	set su
+	acadplan
 	help
 	exit
 
@@ -94,9 +115,9 @@ ____________________________________________________________
 Thank you for using Cap Calculator!
 ____________________________________________________________
 Welcome back to PlanNUS Main Menu!
-	For academic planner, type <acadplan>
-	For CAP calculator, type <capcalc>
-	To exit PlanNUS, type <exit>
+	For academic planner, type 'acadplan' or 'a'
+	For CAP calculator, type 'capcalc' or 'c'
+	To exit PlanNUS, type 'exit' or 'e'
 
 Type in a command to continue...
 ____________________________________________________________
