@@ -7,6 +7,8 @@ import seedu.duke.ui.Ui;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
+import static seedu.duke.parser.AppParser.CAP_CALCULATOR;
+
 //@@author JuZihao
 /**
  * Class representing the CAP Calculator app in PlanNUS.
@@ -22,6 +24,7 @@ public class CapCalculatorApp extends App {
             + "\tcurrent\n"
             + "\tset target\n"
             + "\tset su\n"
+            + "\tacadplan\n"
             + "\thelp\n"
             + "\texit";
 
@@ -50,6 +53,15 @@ public class CapCalculatorApp extends App {
                 String userInput = ui.getScanner().nextLine();
                 Command commandInput = CapCalculatorParser.parse(userInput, currentPerson, ui);
                 commandInput.execute();
+
+                if (commandInput.getIsChangeApp()) {
+                    setIsChangeApp(commandInput.getIsChangeApp());
+                    setCurrentApp(commandInput.getNewApp());
+                } else {
+                    setIsChangeApp(false);
+                    setCurrentApp(CAP_CALCULATOR);
+                }
+
                 isExit = commandInput.getIsExit();
             } catch (NumberFormatException e) {
                 System.out.println(ERROR_INVALID_COMMAND + NEW_LINE + EXITING_CURRENT_COMMAND);

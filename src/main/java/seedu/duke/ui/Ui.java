@@ -10,15 +10,33 @@ public class Ui {
     private static final String LINE = "____________________________________________________________";
     private static final String STARS = "************************************************************";
     private static final String NEW_LINE = "\n";
+    private static final String LOGO = "             &&&&&&&&&&&&&&&&&&&&&&&&&            \n" +
+            "           &&&&&&&&&&&&&&&&&&&&&&&&&&&&&          \n" +
+            "          &&&&&                     &&&&&         \n" +
+            "        &&&&&                        &&&&&&       \n" +
+            "       &&&&&            &&&&&&         &&&&&      \n" +
+            "     &&&&&&         &&&&&&&&&&&&&&      &&&&&&    \n" +
+            "    &&&&&         &&&&&        &&&&       &&&&&   \n" +
+            "  &&&&&&          &&&&          &&&        &&&&&  \n" +
+            " &&&&&            &&&&          &&&          &&&&&\n" +
+            " &&&&&            &&&&&&&&&&&&&&&            &&&&&\n" +
+            "  &&&&&           &&&&  &&&&&&&             &&&&& \n" +
+            "   &&&&&          &&&&                    &&&&&&  \n" +
+            "     &&&&&        &&&&                   &&&&&    \n" +
+            "      &&&&&       &&&&                 &&&&&&     \n" +
+            "        &&&&&                         &&&&&       \n" +
+            "         &&&&&                       &&&&&        \n" +
+            "          &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&          \n" +
+            "            &&&&&&&&&&&&&&&&&&&&&&&&&&&     ";
     private static final String WELCOME_MESSAGE = "Welcome to PlanNUS!";
     private static final String WELCOME_BACK_MESSAGE = "Welcome back to PlanNUS Main Menu!";
     private static final String AWAIT_COMMAND = "Type in a command to continue...";
     private static final String ACADEMIC_AWAIT_COMMAND = "Type in an Academic Planner command to continue...";
     private static final String CALCULATOR_AWAIT_COMMAND = "Type in an CAP Calculator command to continue...";
     private static final String EXIT_MESSAGE = "Thanks for using PlanNUS! We hope to see you again!";
-    private static final String HELP_MESSAGE = "\tFor academic planner, type <acadplan>\n"
-            + "\tFor CAP calculator, type <capcalc>\n"
-            + "\tTo exit PlanNUS, type <exit>";
+    private static final String HELP_MESSAGE = "\tFor academic planner, type 'acadplan' or 'a'\n"
+            + "\tFor CAP calculator, type 'capcalc' or 'c'\n"
+            + "\tTo exit PlanNUS, type 'exit' or 'e'";
 
     private Scanner scanner;
 
@@ -68,7 +86,7 @@ public class Ui {
      * Prints welcome message for user upon first entry into PlanNUS.
      */
     public void showWelcomeMessage() {
-        System.out.println(NEW_LINE + WELCOME_MESSAGE);
+        System.out.println(NEW_LINE + LOGO + NEW_LINE + NEW_LINE + WELCOME_MESSAGE);
         System.out.println(HELP_MESSAGE);
     }
 
