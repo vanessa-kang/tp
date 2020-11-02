@@ -485,19 +485,19 @@ __MSS__
 __Extensions__
 
 - 1a. User did not specify a module code while adding a module.
-  - 1a1. PlanNUS shows an error message.
+  - 1a1. PlanNUS shows a _missing parameter_ error message.
     Use case ends.
 
 - 1b. User enters a module code that is not offered by NUS.
-  - 1b1. PlanNUS shows an error message.
+  - 1b1. PlanNUS shows an _invalid module code_ error message.
     Use case ends.
 
 - 3a. User enters an invalid semester.
-  - 3a1. PlanNUS shows an error message.
+  - 3a1. PlanNUS shows an _invalid semester_ error message.
     Use case ends.
 
 - 5a. User enters an invalid grade.
-  - 5a1. PlanNUS shows an error message.
+  - 5a1. PlanNUS shows an _invalid grade_ error message.
     Use case ends.
 
 
@@ -520,20 +520,20 @@ Use case ends.
 __Extensions__
 
 - 1a. User did not specify a module code while editing a module.
-  - 1a1. PlanNUS shows an error message.
+  - 1a1. PlanNUS shows a _missing parameter_ error message.
     Use case ends.
 
 - 1b. User enters a module code that is not offered by NUS.
-  - 1b1. PlanNUS shows an error message.
+  - 1b1.  PlanNUS shows an _invalid module code_ error message.
     Use case ends.
 - 1c. User enters a module code that is offered by NUS, but is not currently in the user's academic calendar.
-  - 1c1. PlanNUS shows an error message.
+  - 1c1. PlanNUS shows a _module not in calendar_ error message.
     Use case ends.
 - 3a. User chooses a feature that is invalid.
-  - 3a1. PlanNUS shows an error message.
+  - 3a1. PlanNUS shows an _invalid feature_ error message.
     Use case ends.
 - 5a. User enters an updated value that is invalid.
-  - 5a1. PlanNUS shows an error message.
+  - 5a1. PlanNUS shows an _invalid value_ error message.
     Use case ends.
 
 
@@ -553,14 +553,14 @@ __MSS__
 __Extensions__
 
 - 1a. User did not specify a module code while removing a module.
-  - 1a1. PlanNUS shows an error message.
+  - 1a1. PlanNUS shows a _missing parameter_ error message.
     Use case ends.
 
 - 1b. User enters a module code that is not offered by NUS.
-  - 1b1. PlanNUS shows an error message.
+  - 1b1.  PlanNUS shows an _invalid module code_ error message.
     Use case ends.
 - 1c. User enters a module code that is offered by NUS, but is not currently in the user's academic calendar.
-  - 1c1. PlanNUS shows an error message.
+  - 1c1. PlanNUS shows a _module not in calendar_ error message.
     Use case ends.
 
 
@@ -580,11 +580,11 @@ __MSS__
 __Extensions__
 
 - 1a. User did not specify a module code while viewing details of a module.
-  - 1a1. PlanNUS shows an error message.
+  - 1a1. PlanNUS shows a _missing parameter_ error message.
     Use case ends.
 
 - 1b. User enters a module code that is not offered by NUS.
-  - 1b1. PlanNUS shows an error message.
+  - 1b1.  PlanNUS shows an _invalid module code_ error message.
     Use case ends.
 
 
@@ -603,8 +603,8 @@ __MSS__
 
 __Extensions__
 
-- 1a. User did not specify a module code while viewing details of a module.
-  - 1a1. PlanNUS shows an error message.
+- 1a. User did not specify a module code while searching for a module.
+  - 1a1. PlanNUS shows a _missing parameter_ error message.
     Use case ends.
 
 
@@ -632,13 +632,13 @@ __MSS__
 __Extensions__
 
 - 1a. User's academic calendar is currently empty.
-  - 1a1. PlanNUS shows an error message.
+  - 1a1. PlanNUS shows an _empty calendar_ error message.
     Use case ends.
 - 3a. User did not specify a valid timeframe.
-  - 3a1. PlanNUS shows an error message.
+  - 3a1. PlanNUS shows an _invalid timeframe_ error message.
     Use case ends.
 - 3b. User specifies a valid semester, but there are no modules added to that semester yet.
-  - 3b1. PlanNUS shows an error message.
+  - 3b1. PlanNUS shows an _empty semester_ error message.
     Use case ends.
 
 
