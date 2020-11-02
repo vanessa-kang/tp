@@ -460,41 +460,208 @@ of their scores and receive information regarding the use of their Satisfactory 
 
 ### Use cases
 
-__Use case 1: Add a module__
 
-__Main Success Scenario (MSS)__ 
 
-1. User enters `acadplan` in the main menu of PlanNUS
+__Use case 1: Add a module to academic calendar__
 
-2. User enters the necessary command and module code 
+**Preconditions: User is in the Academic Planner app.**
 
-3. PlanNUS prompts user to enter the remaining information
+__MSS__ 
 
-4. PlanNUS adds the module
+1. User chooses to add a module to their academic calendar.
+
+2. PlanNUS prompts user to enter semeseter that they plan to take the module.
+
+3. User enters semester that they plan to take the module.
+
+4. PlanNUS prompts user to enter grade received for the module.
+
+5. User enters grade received for the module.
+
+6. PlanNUS adds the module to the user's academic calendar, and displays a confirmation message
 
    Use case ends.
 
 __Extensions__
 
-* 2a. The command entered is invalid.
+- 1a. User did not specify a module code while adding a module.
+  - 1a1. PlanNUS shows an error message.
+    Use case ends.
 
-  * 2a1. PlanNUS shows an error message.
+- 1b. User enters a module code that is not offered by NUS.
+  - 1b1. PlanNUS shows an error message.
+    Use case ends.
 
-  Use case ends.
+- 3a. User enters an invalid semester.
+  - 3a1. PlanNUS shows an error message.
+    Use case ends.
 
-* 2b. Module code entered is invalid.
+- 5a. User enters an invalid grade.
+  - 5a1. PlanNUS shows an error message.
+    Use case ends.
 
-  * 2b1. PlanNUS shows an error message.
 
-  Use case ends.
 
-* 3a. Invalid semester or grade is entered.
+**Use case 2: Edit a module in academic calendar**
 
-  * 3a1. PlanNUS shows an error message.
+**Preconditions: User is in the Academic Planner app.**
 
-    Use case ends resumes at step 3.
+__MSS__ 
 
-{More to be added}
+1. User chooses to edit a module currently in their academic calendar.
+2. PlanNUS prompts user to indicate the feature (semester/grade) that they would like to edit.
+3. User chooses feature to edit.
+4. PlanNUS prompts user to enter updated value for chosen feature.
+5. User enters updated value.
+6. PlanNUS edits the value accordingly, stores the updated value in the user's academic calendar, and displays a confirmation message.
+
+Use case ends.
+
+__Extensions__
+
+- 1a. User did not specify a module code while editing a module.
+  - 1a1. PlanNUS shows an error message.
+    Use case ends.
+
+- 1b. User enters a module code that is not offered by NUS.
+  - 1b1. PlanNUS shows an error message.
+    Use case ends.
+- 1c. User enters a module code that is offered by NUS, but is not currently in the user's academic calendar.
+  - 1c1. PlanNUS shows an error message.
+    Use case ends.
+- 3a. User chooses a feature that is invalid.
+  - 3a1. PlanNUS shows an error message.
+    Use case ends.
+- 5a. User enters an updated value that is invalid.
+  - 5a1. PlanNUS shows an error message.
+    Use case ends.
+
+
+
+**Use case 3: Remove a module from academic calendar**
+
+**Preconditions: User is in the Academic Planner app.**
+
+__MSS__ 
+
+1. User chooses to remove a module currently in their academic calendar.
+
+2. PlanNUS removes the corresponding module from the user's academic calendar, and displays a confirmation message.
+
+   Use case ends.
+
+__Extensions__
+
+- 1a. User did not specify a module code while removing a module.
+  - 1a1. PlanNUS shows an error message.
+    Use case ends.
+
+- 1b. User enters a module code that is not offered by NUS.
+  - 1b1. PlanNUS shows an error message.
+    Use case ends.
+- 1c. User enters a module code that is offered by NUS, but is not currently in the user's academic calendar.
+  - 1c1. PlanNUS shows an error message.
+    Use case ends.
+
+
+
+**Use case 4: View details of a module**
+
+**Preconditions: User is in the Academic Planner app.**
+
+__MSS__
+
+1. User chooses to view details of a module.
+
+2. PlanNUS prints the details of the corresponding module.
+
+   Use case ends.
+
+__Extensions__
+
+- 1a. User did not specify a module code while viewing details of a module.
+  - 1a1. PlanNUS shows an error message.
+    Use case ends.
+
+- 1b. User enters a module code that is not offered by NUS.
+  - 1b1. PlanNUS shows an error message.
+    Use case ends.
+
+
+
+**Use case 5: Search for a module**
+
+**Preconditions: User is in the Academic Planner app.**
+
+__MSS__
+
+1. User searches for a module, based on the module code.
+
+2. PlanNUS displays the search results, up to and including the first 10 results.
+
+   Use case ends.
+
+__Extensions__
+
+- 1a. User did not specify a module code while viewing details of a module.
+  - 1a1. PlanNUS shows an error message.
+    Use case ends.
+
+
+
+**Use case 6: View academic calendar**
+
+**Preconditions: User is in the Academic Planner app.**
+
+__MSS__
+
+1. User chooses to view their current academic calendar.
+
+2. PlanNUS prompts user to indicate their desired viewing timeframe, i.e. 
+
+   a) the full academic calendar, or 
+
+   b) view a particular semester only.
+
+3. User specifies their desired timeframe.
+
+4. PlanNUS displays the academic calendar accordingly.
+
+   Use case ends.
+
+__Extensions__
+
+- 1a. User's academic calendar is currently empty.
+  - 1a1. PlanNUS shows an error message.
+    Use case ends.
+- 3a. User did not specify a valid timeframe.
+  - 3a1. PlanNUS shows an error message.
+    Use case ends.
+- 3b. User specifies a valid semester, but there are no modules added to that semester yet.
+  - 3b1. PlanNUS shows an error message.
+    Use case ends.
+
+
+
+**Use case 7: View list of available commands **
+
+**Preconditions: User is in the Academic Planner app.**
+
+__MSS__
+
+1. User chooses to view the list of available commands in the Academic Planner app.
+2. PlanNUS displays the list of available commands.
+
+
+
+**Use case 8: Exit back to PlanNUS **
+
+**Preconditions: User is in the Academic Planner app.**
+
+__MSS__
+
+1. User chooses to exit from the Academic Planner app back to the PlanNUS main menu.
+2. PlanNUS exits back to the PlanNUS main menu.
 
 
 
