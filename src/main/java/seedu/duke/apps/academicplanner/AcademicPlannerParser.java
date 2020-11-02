@@ -78,7 +78,7 @@ public class AcademicPlannerParser {
         } else if (inputs[COMMAND_INDEX].equals(SEARCH_COMMAND) && inputs.length == CORRECT_COMMAND_LENGTH) {
             return new SearchModulesCommand(allModules, inputs[MODULE_CODE_INDEX]);
 
-        } else if (inputs[COMMAND_INDEX].equals(TO_CAP_CALCULATOR)){
+        } else if (inputs[COMMAND_INDEX].equals(TO_CAP_CALCULATOR)) {
             return new Command(true, true, CAP_CALCULATOR);
 
         } else if (inputs[COMMAND_INDEX].equals(EXIT_COMMAND)) {

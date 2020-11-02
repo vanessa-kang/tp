@@ -54,16 +54,16 @@ public class CapCalculatorParser {
             return SetSuParser.parse(choice, currentPerson, ui);
         } else if (userInput.equals(HELP_COMMAND)) {
             return new PrintHelpCommand();
-        } else if (userInput.equals(TO_ACADEMIC_PLANNER)){
+        } else if (userInput.equals(TO_ACADEMIC_PLANNER)) {
             return new Command(true, true, ACADEMIC_PLANNER);
         } else if (userInput.equals(EXIT_COMMAND)) {
             return new Command(true);
         } else {
             switch (userInput) {
-                case CAP_CALCULATOR_COMMAND:
-                    throw new CommandParserException("Sorry, you are already in CAP calculator!");
-                default:
-                    throw new CommandParserException(INVALID_COMMAND_MESSAGE);
+            case CAP_CALCULATOR_COMMAND:
+                throw new CommandParserException("Sorry, you are already in CAP calculator!");
+            default:
+                throw new CommandParserException(INVALID_COMMAND_MESSAGE);
             }
         }
     }
