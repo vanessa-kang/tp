@@ -17,12 +17,12 @@ public class AppParser {
     public static final int ACADEMIC_PLANNER = 1;
     public static final int CAP_CALCULATOR = 2;
 
-    private static final String ACADEMIC_PLAN_COMMAND = "acadplan";
-    private static final String CAP_CALCULATOR_COMMAND = "capcalc";
-    private static final String EXIT_COMMAND = "exit";
-    private static final String ACADEMIC_PLAN_SHORT_COMMAND = "a";
-    private static final String CAP_CALCULATOR_SHORT_COMMAND = "c";
-    private static final String EXIT_SHORT_COMMAND = "e";
+    private static final String ACADEMIC_PLAN_COMMAND = "ACADPLAN";
+    private static final String CAP_CALCULATOR_COMMAND = "CAPCALC";
+    private static final String EXIT_COMMAND = "EXIT";
+    private static final String ACADEMIC_PLAN_SHORT_COMMAND = "A";
+    private static final String CAP_CALCULATOR_SHORT_COMMAND = "C";
+    private static final String EXIT_SHORT_COMMAND = "E";
     private static final String INVALID_COMMAND_MESSAGE = "OOPS!!! I'm sorry, but I don't know what that means :-(";
 
     /**
@@ -37,7 +37,7 @@ public class AppParser {
      */
     public static App parse(String userInput, ModuleLoader allModules, Person currentPerson, Ui ui)
             throws AppParserException {
-        userInput = userInput.trim().toLowerCase();
+        userInput = userInput.trim().toUpperCase();
 
         if (userInput.equals(ACADEMIC_PLAN_COMMAND) || userInput.equals(ACADEMIC_PLAN_SHORT_COMMAND)) {
             return new AcademicPlannerApp(allModules, currentPerson, ui);
