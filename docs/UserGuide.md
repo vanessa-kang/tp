@@ -385,13 +385,29 @@ Below shows the expected output when user wishes to S/U by _Modules_.
 User will then be prompted to enter a specific number of modules to S/Ued and the module codes to be S/Ued. The following will show if the all the fields are valid.
 
 <table><tr><td><div style="text-align:center">
-    <img src="images/UserGuide/capcalc_set_su_modules_output.png" />
+    <img src="images/UserGuide/capcalc_set_su_modules_output1.png" />
 </div></td></tr></table>
+
+User is first displayed with *S/U list* which consists of a sorted list of valid modules according to their grades and the user’s current Cap and graded MCs.
+
 __<ins>Caution:</ins>__ 
 
 * Duplicate modules are not allowed.
 * Number of modules to be S/Ued should not be greater than number of modules taken by the user.
-  
+ 
+ <table><tr><td><div style="text-align:center">
+    <img src="images/UserGuide/capcalc_set_su_modules_output2.png" />
+</div></td></tr></table>
+
+
+Modules will be S/Ued starting from the lowest grade and display the corresponding updated cap to user.
+User will also be displayed with the highest Cap possible that the user can obtained.
+
+<table><tr><td><div style="text-align:center">
+    <img src="images/UserGuide/capcalc_set_su_modules_output3.png" />
+</div></td></tr></table>
+
+Lastly, user will be displayed with the modules that he or she should S/U in order to obtain the highest Cap possible.
 
 <br>
 
