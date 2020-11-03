@@ -77,7 +77,7 @@ Note: All commands are **case-insensitive**.
 | Searching for modules by keyword            | `search <module code key`<br>e.g. `search CS`, `SEARCH cs12`, `SEARCH CS2040` |
 | Switching to the _CAP Calculator_ app       | `capcalc`                                                    |
 | Printing the academic calendar              | `view`                                                       |
-| Printing help information for academic planner| `help`                                                       |
+| Printing help information for Academic Planner| `help`                                                       |
 | Exiting the Academic Planner                | `exit`                                                       |
 
 **Note:** `acadplan` can be called from both the `PlanNUS` main menu, and from within the _CAP Calculator_ app.
