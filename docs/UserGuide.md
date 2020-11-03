@@ -8,7 +8,7 @@ useful and we wish you all the best for your academic journey in NUS.
 
 <br>
 
-## Overview
+## 1. Overview
 
 PlanNUS is a __desktop application for planning academic journey__ with modules offered by National University of Singapore (NUS). The __Command Line Interface (CLI)__ will be required for the program to work.
 
@@ -22,13 +22,13 @@ The sections below explain how PlanNUS should be used, and the common errors fac
 
 <br>
 
-## Table of contents
+## 2. Table of contents
 
 * Table of Contents
 {:toc}
 <br>
 
-## Feature List (for V2.1)
+## 3. Feature List (for V2.1)
 
 * Academic Calendar Planner
     * Add module
@@ -49,7 +49,7 @@ The sections below explain how PlanNUS should be used, and the common errors fac
 
 <br>
 
-## Quick Start
+## 4. Quick Start
 
 1. Ensure that you have Java 11 or above installed.
 1. Download the latest version of `PlanNUS` [here](https://github.com/AY2021S1-CS2113T-F12-1/tp/releases "PlanNUS releases").
@@ -60,7 +60,7 @@ The sections below explain how PlanNUS should be used, and the common errors fac
 
 <br>
 
-## Command Summary
+## 5. Command Summary
 
 Note: All commands are **case-insensitive**.
 
@@ -99,7 +99,7 @@ Note: All commands are **case-insensitive**.
 
 <br>
 
-## Features 
+## 6. Features 
 
 PlanNUS has two separate commands at the main page where the users can either choose to:
 
@@ -113,7 +113,7 @@ For each of these commands, there are more specific functions for configuration 
 </div></td></tr></table>
 <br>
 
-### Academic Calendar Planner: `acadplan`
+### 6.1. Academic Calendar Planner: `acadplan`
 Directs user to the page where he/she can plan a personalized academic journey in NUS by using `add`, `remove` , `view` or `edit` features as shown below.
 
 Input format: `acadplan`  or `a`
@@ -124,7 +124,7 @@ Input format: `acadplan`  or `a`
 
 <br>
 
-#### Adding a module into the calendar: `add`
+#### 6.1.1. Adding a module into the calendar: `add`
 
 Input format: `add <module code>`
 
@@ -150,7 +150,7 @@ __<ins>Caution</ins>:__
 
 <br>
 
-#### Editing an existing module in the calendar: `edit`
+#### 6.1.2. Editing an existing module in the calendar: `edit`
 
 Input format: `edit <module code>`
 
@@ -183,7 +183,7 @@ __<ins>Caution:</ins>__
 <br>
 
 
-#### Removing an existing module in the calendar: `remove`
+#### 6.1.3. Removing an existing module in the calendar: `remove`
 
 Input format: `remove <module code>`
 
@@ -202,7 +202,7 @@ __<ins>Caution:</ins>__
 
 <br>
 
-#### Viewing the details of a module: `details`
+#### 6.1.4. Viewing the details of a module: `details`
 
 Input format: `details <module code>`
 
@@ -222,7 +222,7 @@ __<ins>Caution:</ins>__
 
 <br>
 
-#### Searching for module codes containing a keyword: `search`
+#### 6.1.5. Searching for module codes containing a keyword: `search`
 
 Input format: `search <module code key>`
 
@@ -247,7 +247,7 @@ __<ins>Caution:</ins>__
 
 <br>
 
-#### Switching to the _CAP Calculator_ app: `capcalc`
+#### 6.1.6. Switching to the _CAP Calculator_ app: `capcalc`
 
 Input format: `capcalc`
 
@@ -259,7 +259,7 @@ Users can choose to switch to the _CAP Calculator_ app from within the _Academic
 
 <br>
 
-#### Printing the academic calendar: `view`
+#### 6.1.7. Printing the academic calendar: `view`
 
 Input format: `view`
 
@@ -279,7 +279,7 @@ Expected output when user wishes to print a specific semester:
 <br>
 
 
-#### Printing help for academic calendar: `help`
+#### 6.1.8. Printing help for academic calendar: `help`
 
 Input format: `help`
 
@@ -289,7 +289,7 @@ Input format: `help`
 
 <br>
 
-### Cap Calculator: `capcalc`
+### 6.2. Cap Calculator: `capcalc`
 
 Directs user to the page where he/she can view the `current` CAP or even `set target` CAP to be met in the upcoming semester(s). 
 
@@ -302,7 +302,7 @@ Input format: `capcalc` or `c`
 <br>
 
 
-#### Printing current CAP and MCs taken: `current`
+#### 6.2.1. Printing current CAP and MCs taken: `current`
 
 The value of CAP depends entirely on the modules and with corresponding grades added by the user in Academic Calendar Planner.
 
@@ -317,7 +317,7 @@ __<ins>Caution:</ins>__
 
 <br>
 
-#### Set target CAP: `set target`
+#### 6.2.2. Set target CAP: `set target`
 
 This is for the user to set a target CAP that he or she wishes to obtain for the next specified graded MCs.
 
@@ -333,7 +333,7 @@ __<ins>Caution:</ins>__
 
 <br>
 
-#### Set S/U modules: `set su`
+#### 6.2.3. Set S/U modules: `set su`
 
 This is for the user to set modules that he or she wishes to S/U.
 
@@ -376,7 +376,7 @@ __<ins>Caution:</ins>__
 
 <br>
 
-#### Switching to the _Academic Planner_ app: `acadplan`
+#### 6.2.4. Switching to the _Academic Planner_ app: `acadplan`
 
 Input format: `acadplan`
 
@@ -388,7 +388,7 @@ Users can choose to switch to the _Academic Planner_ app from within the _CAP Ca
 
 <br>
 
-#### Printing help for CAP Calculator: `help`
+#### 6.2.5. Printing help for CAP Calculator: `help`
 
 Input format: `help`
 
@@ -398,7 +398,7 @@ Input format: `help`
 
 <br>
 
-### Exiting from a feature or PlanNUS: `exit`
+### 6.3. Exiting from a feature or PlanNUS: `exit`
 
 This command directs user back to the main page of PlanNUS after they are done using a feature or exits from the entire application itself.
 
@@ -421,7 +421,7 @@ Input format: `exit`
 
 ​    
 
-## Loading and Saving 
+## 7. Loading and Saving 
 
 Upon running PlanNUS in command prompt, the program automatically looks for a text file with the name _PlanNUS.txt_ within the same folder as _PlanNUS.jar_. 
 
@@ -448,7 +448,7 @@ Note that the image above is just an example because it depends on the number of
 
 <br>
 
-## FAQ
+## 8. FAQ
 
 Question Type|Question|Answer
 :---:|---|---
@@ -457,7 +457,9 @@ General | What is a valid semester index? | For the purpose of this planning sof
 General | What is a valid grade? | **Letter Grades**: A+, A, B+, B, B-, C+, C, D+, D, F , **Special Grades**: CS, CU, S, U, W, IC, IP, AUD, WU, EXE, **If you have yet to have a grade for the module**: NT
 General | What is the name of the saved file? | The name of the saved file is `PlanNUS.txt` and can be found at the base of the folder, in the same location as your PlanNUS.jar. 
 
-## <br>Useful Links
+<br>
+
+## 9. Useful Links
 
 * [**About Us**](https://ay2021s1-cs2113t-f12-1.github.io/tp/AboutUs.html)
 * [**Configuration guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/ConfigurationGuide.html)
@@ -467,9 +469,11 @@ General | What is the name of the saved file? | The name of the saved file is `P
 * [**Logging guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/LoggingGuide.html)
 * [**Testing guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/TestingGuide.html)
 
-## <br>Appendix
+<br>
 
-### Naming convention for semester indexes
+## 10. Appendix
+
+### 10.1. Naming convention for semester indexes
 
 For the purpose of this planning software, we have decided to limit the maximum number of semesters an undergraduate can take to 10, which is equivalent to 5 academic years. Each semester is indexed by an integer between 1 and 10. For a fresh undergraduate, they will begin at semester index of 1. For a year 3 student who is currently in semester 1, the semester index will be 5. Below is a table which illustrates the corresponding semester indexes for undergraduates.
 
@@ -488,7 +492,7 @@ For the purpose of this planning software, we have decided to limit the maximum 
 
 
 
-### Grade values
+### 10.2. Grade values
 
 As per NUS [Grade Policy](http://www.nus.edu.sg/registrar/academic-information-policies/undergraduate-students/modular-system "NUS Official Site"), letter grades will have a corresponding Academic Point attached to them. Special cases such as Satisfactory/Unsatisfactory (SU) grades can be captured by our software as well. Below is a table of grades and their corresponding grade value. Do note that the grades of forecasted modules should be declared as NT, short for Not Taken.
 
@@ -511,7 +515,7 @@ As per NUS [Grade Policy](http://www.nus.edu.sg/registrar/academic-information-p
 
 <br>
 
-## Features Coming Soon (V3.0 and beyond)
+## 11. Features Coming Soon (V3.0 and beyond)
 
 * Logging of program to separate folders
 * Support retaking of modules
