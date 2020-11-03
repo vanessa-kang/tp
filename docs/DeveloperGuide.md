@@ -495,18 +495,24 @@ __Extensions__
 
 - 1a. User did not specify a module code while adding a module.
   - 1a1. PlanNUS shows a _missing parameter_ error message.
-    Use case ends.
-
+    
+  Use case ends.
+  
 - 1b. User enters a module code that is not offered by NUS.
   - 1b1. PlanNUS shows an _invalid module code_ error message.
-    Use case ends.
-
+    
+  Use case ends.
+  
 - 3a. User enters an invalid semester.
+  
   - 3a1. PlanNUS shows an _invalid semester_ error message.
+  
     Use case ends.
-
+  
 - 5a. User enters an invalid grade.
+  
   - 5a1. PlanNUS shows an _invalid grade_ error message.
+    
     Use case ends.
 
 <br>
@@ -530,19 +536,28 @@ __Extensions__
 
 - 1a. User did not specify a module code while editing a module.
   - 1a1. PlanNUS shows a _missing parameter_ error message.
-    Use case ends.
-
+    
+  Use case ends.
+  
 - 1b. User enters a module code that is not offered by NUS.
+  
   - 1b1.  PlanNUS shows an _invalid module code_ error message.
+    
     Use case ends.
 - 1c. User enters a module code that is offered by NUS, but is not currently in the user's academic calendar.
+  
   - 1c1. PlanNUS shows a _module not in calendar_ error message.
+    
     Use case ends.
 - 3a. User chooses a feature that is invalid.
+  
   - 3a1. PlanNUS shows an _invalid feature_ error message.
+    
     Use case ends.
 - 5a. User enters an updated value that is invalid.
+  
   - 5a1. PlanNUS shows an _invalid value_ error message.
+    
     Use case ends.
 
 <br>
@@ -563,13 +578,18 @@ __Extensions__
 
 - 1a. User did not specify a module code while removing a module.
   - 1a1. PlanNUS shows a _missing parameter_ error message.
-    Use case ends.
-
+    
+  Use case ends.
+  
 - 1b. User enters a module code that is not offered by NUS.
+  
   - 1b1.  PlanNUS shows an _invalid module code_ error message.
+    
     Use case ends.
 - 1c. User enters a module code that is offered by NUS, but is not currently in the user's academic calendar.
+  
   - 1c1. PlanNUS shows a _module not in calendar_ error message.
+    
     Use case ends.
 
 <br>
@@ -590,10 +610,12 @@ __Extensions__
 
 - 1a. User did not specify a module code while viewing details of a module.
   - 1a1. PlanNUS shows a _missing parameter_ error message.
-    Use case ends.
-
+    
+  Use case ends.
+  
 - 1b. User enters a module code that is not offered by NUS.
   - 1b1.  PlanNUS shows an _invalid module code_ error message.
+    
     Use case ends.
 
 <br>
@@ -614,6 +636,7 @@ __Extensions__
 
 - 1a. User did not specify a module code while searching for a module.
   - 1a1. PlanNUS shows a _missing parameter_ error message.
+    
     Use case ends.
 
 <br>
@@ -642,17 +665,20 @@ __Extensions__
 
 - 1a. User's academic calendar is currently empty.
   - 1a1. PlanNUS shows an _empty calendar_ error message.
+    
     Use case ends.
 - 3a. User did not specify a valid timeframe.
   - 3a1. PlanNUS shows an _invalid timeframe_ error message.
+    
     Use case ends.
 - 3b. User specifies a valid semester, but there are no modules added to that semester yet.
   - 3b1. PlanNUS shows an _empty semester_ error message.
+    
     Use case ends.
 
 <br>
 
-**Use case 7: View list of available commands **
+**Use case 7: View list of available commands**
 
 **Preconditions: User is in the Academic Planner app.**
 
@@ -663,7 +689,7 @@ __MSS__
 
 <br>
 
-**Use case 8: Exit back to PlanNUS **
+**Use case 8: Exit back to PlanNUS**
 
 **Preconditions: User is in the Academic Planner app.**
 
@@ -744,21 +770,31 @@ Given below are instructions to test the app manually.
 1. Entering the _Academic Planner_ app from the main menu
 
    1. Test case: `acadplan` or `a`
+
       Expected: PlanNUS enters the _Academic Planner_ app.
+
 2. Entering the _CAP Calculator_ app from the main menu
 
    1. Test case: `capcalc` or `c`
+
       Expected: PlanNUS enters the _CAP Calculator_ app.
+
 3. Switching to the _CAP Calculator_ app while in the _Academic Planner_ app
 
    1. Test case: `capcalc`
+
       Expected: PlanNUS enters the _CAP Calculator_ app.
+
 4. Switching to the _Academic Planner_ app while in the _CAP Calculator_ app
 
    1. Test case: `acadplan`
+
       Expected: PlanNUS enters the _Academic Planner_ app.
+
 5. Exiting to the main menu while in either the _Academic Planner_ or _CAP Calculator_ app
+
    1. Test case: `exit`
+
       Expected: PlanNUS exits to the main menu.
 
 <br>
@@ -766,17 +802,29 @@ Given below are instructions to test the app manually.
 **Adding a module to the academic calendar**
 
 1. Prerequisites: User is currently in the _Academic Planner_ app.
+
 2. Test case - all inputs are valid
+
    Input: `add cs1010`
+
    Expected: PlanNUS prompts user to enter semester that they plan to take the module.
+
    Input: `2`
+
    Expected: PlanNUS prompts user to enter grade received for the module.
+
    Input: `B+`
+
    Expected: PlanNUS adds the module, with the associated semester and grade information, to the user's academic calendar. Prints a _module added_ confirmation message.
+
 3. Test case - invalid module code
+
    Input: `add cs1111`
+
    Expected: PlanNUS shows a _module not offered by NUS_ error message, and exits back to the _Academic Planner_ app.
+
 4. Other incorrect inputs to try: no module code, invalid semester indexes, invalid grades.
+
    Expected: PlanNUS shows an error message, and exits back to the _Academic Planner_ app. No module is added to the user's academic calendar.
 
 <br>
@@ -784,15 +832,23 @@ Given below are instructions to test the app manually.
 **Editing a module currently in the academic calendar**
 
 1. Prerequisites: User is currently in the _Academic Planner_ app.
+
 2. Test case - all inputs are valid. 
+
    Input: `edit cs1010`
-   Expected: PlanNUS prompts user to enter number corresponding to feature to be edited 
-   (1 - semester, 2 - grade).
+
+   Expected: PlanNUS prompts user to enter number corresponding to feature to be edited (1 - semester, 2 - grade).
+
    Input: `1`
+
    Expected: PlanNUS prompts user to enter new semester value.
+
    Input: `5`
+
    Expected: PlanNUS edits semester accordingly, and prints a _update successful_ confirmation message.
+
 3. Other incorrect inputs to try: no module code, invalid module codes, valid module codes that are not in the user's academic calendar, invalid features, invalid semester indexes, invalid grades.
+
    Expected: PlanNUS shows an error message, and exits back to the _Academic Planner_ app. No module features are edited.
 
 <br>
@@ -800,10 +856,15 @@ Given below are instructions to test the app manually.
 **Removing a module from the academic calendar**
 
 1. Prerequisites: User is currently in the _Academic Planner_ app.
+
 2. Test case - all inputs are valid
+
    Input: `remove cs1010`
+
    Expected: PlanNUS removes module from user's academic calendar, and prints a _remove successful_ confirmation message.
+
 3. Other incorrect inputs to try: no module code, invalid module codes, valid module codes that are not in the user's academic calendar.
+
    Expected: PlanNUS shows an error message, and exits back to the _Academic Planner_ app. No module is removed from the user's academic calendar.
 
 <br>
@@ -811,10 +872,15 @@ Given below are instructions to test the app manually.
 **Viewing the details of a module**
 
 1. Prerequisites: User is currently in the _Academic Planner_ app.
+
 2. Test case - all inputs are valid.
+
    Input: `details cs1231`
+
    Expected: PlanNUS prints the details of the corresponding module.
+
 3. Other incorrect inputs to try: no module code, invalid module codes.
+
    Expected: PlanNUS shows an error message, and exits back to the _Academic Planner_ app. No module details are printed.
 
 <br>
@@ -822,10 +888,15 @@ Given below are instructions to test the app manually.
 **Searching for modules that contain a keyword**
 
 1. Prerequisites: User is currently in the _Academic Planner_ app.
+
 2. Test case - all inputs are valid.
+
    Input: `search cg2`
+
    Expected: PlanNUS prints the modules that contain the keyword, up to the first 10 results.
+
 3. Other incorrect inputs to try: no search key.
+
    Expected: PlanNUS shows an error message, and exits back to the _Academic Planner_ app. No search results are printed.
 
 <br>
@@ -833,20 +904,31 @@ Given below are instructions to test the app manually.
 **Viewing the academic calendar**
 
 1. Prerequisites: User is currently in the _Academic Planner_ app.
+
 2. Test case - all inputs are valid
+
    Input: `view`
+
    Expected: PlanNUS prompts user to choose a viewing timeframe - the full academic calendar, or a specific semester.
+
    Input: `full`
+
    Expected: PlanNUS prints the user's full academic calendar.
-3. Other incorrect inputs to try: `view` when the academic calendar is empty, invalid viewing timeframe chosen. Expected: PlanNUS shows an error message, and exits back to the _Academic Planner_ app. No academic planner is printed.
+
+3. Other incorrect inputs to try: `view` when the academic calendar is empty, invalid viewing timeframe chosen. 
+
+   Expected: PlanNUS shows an error message, and exits back to the _Academic Planner_ app. No academic planner is printed.
 
 <br>
 
 **Printing help for academic calendar**
 
 1. Prerequisites: User is currently in the _Academic Planner_ app.
+
 2. Test case - all inputs are valid
+
    Input: `help`
+
    Expected: PlanNUS prints a list of available commands in the _Academic Planner_ app.
 
 <br>
