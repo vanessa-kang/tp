@@ -116,6 +116,7 @@ For each of these commands, there are more specific functions for configuration 
 
 
 ### 6.1. Academic Calendar Planner: `acadplan`
+
 Directs user to the page where he/she can plan a personalized academic journey in NUS by using `add`, `remove` , `view` or `edit` features as shown below.
 
 Input format: `acadplan`  or `a`
@@ -278,9 +279,9 @@ Input format: `help`
 
 #### 6.1.8. Switching to the _CAP Calculator_ app: `capcalc`
 
-Input format: `capcalc`
-
 Users can choose to switch to the _CAP Calculator_ app from within the _Academic Planner_ app.
+
+Input format: `capcalc`
 
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/acadplan_capcalcswitch.png" height="400" />
@@ -304,8 +305,6 @@ Input format: `capcalc` or `c`
 
 #### 6.2.1. Printing current CAP and MCs taken: `current`
 
-The value of CAP depends entirely on the modules and with corresponding grades added by the user in Academic Calendar Planner.
-
 Input format: `current`
 
 <table><tr><td><div style="text-align:center">
@@ -314,7 +313,8 @@ Input format: `current`
 
 __<ins>Caution:</ins>__
 
-* If there are no modules added, the current CAP and graded MCs are set to 0
+* The value of CAP depends entirely on the modules and with corresponding grades added by the user in Academic Calendar Planner.
+* If there are no modules added, the current CAP and graded MCs are set to 0.
 
 <br>
 
@@ -342,6 +342,7 @@ This is for the user to set modules that he or she wishes to S/U.
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_set_su_module.png" />
 </div></td></tr></table>
+
 As shown in the image, user can choose to S/U by either a _Semester_ or some selected _Modules_. (__Note:__ Enter either `1` or `2` instead of the component's name)
 
 
@@ -355,7 +356,6 @@ User will be prompted to enter a specific semester that he or she wishes to S/U.
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_set_su_semester_output1.png" />
 </div></td></tr></table> 
-
 
 User is first displayed with *S/U list* which consists of a sorted list of valid modules according to their grades and the user’s current Cap and graded MCs.
 
