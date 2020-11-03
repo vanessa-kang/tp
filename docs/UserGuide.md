@@ -86,25 +86,14 @@ Note: All commands are **case-insensitive**.
 
 * Initiate the __CAP Calculator__: `capcalc`
 
-<<<<<<< HEAD
-| __Action__                           | __Command__   |
-| ------------------------------------ | :------------ |
-| Printing current CAP and MCs taken   | `current`     |
-| Configure current CAP and graded MCs | `set current` |
-| Set target CAP                       | `set target`  |
-| Make the module grade as S/U         | `set SU`      |
-| Printing help information for CAP calculator| `help`|
-| Exiting the CAP Calculator           | `exit`        |
-=======
 | __Action__                              | __Command__  |
 | --------------------------------------- | :----------- |
 | Printing current CAP and MCs taken      | `current`    |
 | Setting target CAP                      | `set target` |
 | Marking a module grade as S/U           | `set su`     |
 | Switching to the _Academic Planner_ app | `acadplan`   |
-| Printing help information               | `help`       |
+| Printing help information for CAP Calculator| `help`       |
 | Exiting the CAP Calculator              | `exit`       |
->>>>>>> a855dea750443d16a9c72b76639f3c7095346c1d
 
 **Note:** `capcalc` can be called from both the `PlanNUS` main menu, and from within the _Academic Planner_ app.
 
@@ -304,11 +293,11 @@ Input format: `help`
 
 Directs user to the page where he/she can view the `current` CAP or even `set target` CAP to be met in the upcoming semester(s). 
 
+Input format: `capcalc` or `c`
+
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_features.png" height="350" />
 </div></td></tr></table>
-
-Input format: `capcalc` or `c`
 
 <br>
 
@@ -317,10 +306,11 @@ Input format: `capcalc` or `c`
 
 The value of CAP depends entirely on the modules and with corresponding grades added by the user in Academic Calendar Planner.
 
+Input format: `current`
+
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_current.png" />
 </div></td></tr></table>
-Input format: `current`
 
 __<ins>Caution:</ins>__
 
@@ -332,15 +322,16 @@ __<ins>Caution:</ins>__
 
 This is for the user to set a target CAP that he or she wishes to obtain for the next specified graded MCs.
 
+Input format: `set target`
+
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_set_target.png" />
 </div></td></tr></table>
-Input format: `set target`
 
 __<ins>Caution:</ins>__
 
 * CAP should be between 0.00 to 5.00 inclusive.
-* Minimum MC should be greater than 0.
+* MC should be between than 1 to 180 inclusive.
 
 <br>
 
@@ -362,12 +353,29 @@ Below shows the expected output when user wishes to S/U by _Semester_.
 User will be prompted to enter a specific semester that he or she wishes to S/U. The following will show if the entered *Semester* is valid.
 
 <table><tr><td><div style="text-align:center">
-    <img src="images/UserGuide/capcalc_set_su_semester_output.png" />
+    <img src="images/UserGuide/capcalc_set_su_semester_output1.png" />
 </div></td></tr></table> 
+
+
+User is first displayed with *S/U list* which consists of a sorted list of valid modules according to their grades and the user’s current Cap and graded MCs.
+
 __<ins>Caution:</ins>__ 
 
 * Only modules that can be S/Ued are added into the S/U list.
 * Modules with special grades are filtered out.
+
+<table><tr><td><div style="text-align:center">
+    <img src="images/UserGuide/capcalc_set_su_semester_output2.png" />
+</div></td></tr></table> 
+
+Modules will be S/Ued starting from the lowest grade and display the corresponding updated cap to user.
+User will also be displayed with the highest Cap possible that the user can obtained.
+
+<table><tr><td><div style="text-align:center">
+    <img src="images/UserGuide/capcalc_set_su_semester_output3.png" />
+</div></td></tr></table> 
+
+Lastly, user will be displayed with the modules that he or she should S/U in order to obtain the highest Cap possible.
 
 ##### Set S/U by modules
 
@@ -378,7 +386,7 @@ User will then be prompted to enter a specific number of modules to S/Ued and th
 
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_set_su_modules_output.png" />
-</div></td></tr></table> 
+</div></td></tr></table>
 __<ins>Caution:</ins>__ 
 
 * Duplicate modules are not allowed.
@@ -413,6 +421,8 @@ Input format: `help`
 
 This command directs user back to the main page of PlanNUS after they are done using a feature or exits from the entire application itself.
 
+Input format: `exit`
+
 When user exits from the Academic Planner, expected output is as shown below.
 
 <table><tr><td><div style="text-align:center">
@@ -428,7 +438,6 @@ Last but not least, the expected output for exiting PlanNUS will be as such:
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/exit_PlanNUS.png" />
 </div></td></tr></table> 
-Input format: `exit`
 
 ​    
 
