@@ -75,9 +75,9 @@ Note: All commands are **case-insensitive**.
 | Removing an existing module in the calendar | `remove <module code>`​ <br> e.g., `remove CS1010, REMOVE cs1231 , REMOVE CS2040` |
 | Viewing the details of a module             | `details <module code>` <br>e.g. `details CS1010`, `DETAILS cs1231`, `DETAILS CS2040` |
 | Searching for modules by keyword            | `search <module code key`<br>e.g. `search CS`, `SEARCH cs12`, `SEARCH CS2040` |
-| Switching to the _CAP Calculator_ app       | `capcalc`                                                    |
 | Printing the academic calendar              | `view`                                                       |
 | Printing help information for Academic Planner| `help`                                                       |
+| Switching to the _CAP Calculator_ app       | `capcalc`                                                    |
 | Exiting the Academic Planner                | `exit`                                                       |
 
 **Note:** `acadplan` can be called from both the `PlanNUS` main menu, and from within the _CAP Calculator_ app.
@@ -91,8 +91,8 @@ Note: All commands are **case-insensitive**.
 | Printing current CAP and MCs taken      | `current`    |
 | Setting target CAP                      | `set target` |
 | Marking a module grade as S/U           | `set su`     |
-| Switching to the _Academic Planner_ app | `acadplan`   |
 | Printing help information for CAP Calculator| `help`       |
+| Switching to the _Academic Planner_ app | `acadplan`   |
 | Exiting the CAP Calculator              | `exit`       |
 
 **Note:** `capcalc` can be called from both the `PlanNUS` main menu, and from within the _Academic Planner_ app.
@@ -411,7 +411,17 @@ Lastly, user will be displayed with the modules that he or she should S/U in ord
 
 <br>
 
-#### 6.2.4. Switching to the _Academic Planner_ app: `acadplan`
+#### 6.2.4. Printing help for CAP Calculator: `help`
+
+Input format: `help`
+
+<table><tr><td><div style="text-align:center">
+    <img src="images/UserGuide/capcalc_help.png" height="300"/>
+</div></td></tr></table>
+
+<br>
+
+#### 6.2.5. Switching to the _Academic Planner_ app: `acadplan`
 
 Input format: `acadplan`
 
@@ -419,16 +429,6 @@ Users can choose to switch to the _Academic Planner_ app from within the _CAP Ca
 
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_acadplanswitch.png" height="400" />
-</div></td></tr></table>
-
-<br>
-
-#### 6.2.5. Printing help for CAP Calculator: `help`
-
-Input format: `help`
-
-<table><tr><td><div style="text-align:center">
-    <img src="images/UserGuide/capcalc_help.png" height="300"/>
 </div></td></tr></table>
 
 <br>
