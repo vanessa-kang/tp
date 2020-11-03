@@ -111,7 +111,9 @@ For each of these commands, there are more specific functions for configuration 
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/Main_Page_Features.png" />  
 </div></td></tr></table>
+
 <br>
+
 
 ### 6.1. Academic Calendar Planner: `acadplan`
 Directs user to the page where he/she can plan a personalized academic journey in NUS by using `add`, `remove` , `view` or `edit` features as shown below.
@@ -182,7 +184,6 @@ __<ins>Caution:</ins>__
 
 <br>
 
-
 #### 6.1.3. Removing an existing module in the calendar: `remove`
 
 Input format: `remove <module code>`
@@ -199,7 +200,6 @@ __<ins>Caution:</ins>__
 
 * Only modules that have been added into the calendar can be removed
   
-
 <br>
 
 #### 6.1.4. Viewing the details of a module: `details`
@@ -242,24 +242,11 @@ As shown above, users can enter a search key that contains either part of, or th
 __<ins>Caution:</ins>__ 
 
 * This feature currently only supports searching by module code.
-* Only up to the first 10 results are displayed.
-  
+* Only up to the first 10 results are displayed.  
 
 <br>
 
-#### 6.1.6. Switching to the _CAP Calculator_ app: `capcalc`
-
-Input format: `capcalc`
-
-Users can choose to switch to the _CAP Calculator_ app from within the _Academic Planner_ app.
-
-<table><tr><td><div style="text-align:center">
-    <img src="images/UserGuide/acadplan_capcalcswitch.png" height="400" />
-</div></td></tr></table>
-
-<br>
-
-#### 6.1.7. Printing the academic calendar: `view`
+#### 6.1.6. Printing the academic calendar: `view`
 
 Input format: `view`
 
@@ -276,10 +263,10 @@ Expected output when user wishes to print a specific semester:
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/acadplan_viewsem.png" />
 </div></td></tr></table>
+
 <br>
 
-
-#### 6.1.8. Printing help for academic calendar: `help`
+#### 6.1.7. Printing help for academic calendar: `help`
 
 Input format: `help`
 
@@ -288,6 +275,19 @@ Input format: `help`
 </div></td></tr></table>
 
 <br>
+
+#### 6.1.8. Switching to the _CAP Calculator_ app: `capcalc`
+
+Input format: `capcalc`
+
+Users can choose to switch to the _CAP Calculator_ app from within the _Academic Planner_ app.
+
+<table><tr><td><div style="text-align:center">
+    <img src="images/UserGuide/acadplan_capcalcswitch.png" height="400" />
+</div></td></tr></table>
+
+<br>
+
 
 ### 6.2. Cap Calculator: `capcalc`
 
