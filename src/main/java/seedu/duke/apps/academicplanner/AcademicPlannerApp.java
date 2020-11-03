@@ -6,6 +6,8 @@ import seedu.duke.global.Command;
 import seedu.duke.global.objects.Person;
 import seedu.duke.ui.Ui;
 
+import static seedu.duke.parser.AppParser.ACADEMIC_PLANNER;
+
 //@@author Khenus
 /**
  * Class representing the Academic Planner Application.
@@ -20,6 +22,7 @@ public class AcademicPlannerApp extends App {
             + "\tremove <module code>\n"
             + "\tdetails <module code>\n"
             + "\tsearch <module code key>\n"
+            + "\tcapcalc\n"
             + "\tview\n"
             + "\thelp\n"
             + "\texit";
@@ -56,6 +59,15 @@ public class AcademicPlannerApp extends App {
                 String userInput = ui.getScanner().nextLine();
                 Command commandInput = AcademicPlannerParser.parse(userInput, allModules, currentPerson, ui);
                 commandInput.execute();
+
+                if (commandInput.getIsChangeApp()) {
+                    setIsChangeApp(commandInput.getIsChangeApp());
+                    setCurrentApp(commandInput.getNewApp());
+                } else {
+                    setIsChangeApp(false);
+                    setCurrentApp(ACADEMIC_PLANNER);
+                }
+
                 isExit = commandInput.getIsExit();
             } catch (Exception e) {
                 System.out.println(e.getMessage());

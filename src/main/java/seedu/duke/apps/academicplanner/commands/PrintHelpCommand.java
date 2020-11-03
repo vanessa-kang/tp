@@ -14,6 +14,7 @@ public class PrintHelpCommand extends Command {
             + "\tremove <module code>\n"
             + "\tdetails <module code>\n"
             + "\tsearch <module code key>\n"
+            + "\tcapcalc\n"
             + "\tview\n"
             + "\thelp\n"
             + "\texit";
