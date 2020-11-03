@@ -13,12 +13,26 @@ With the CAP Calculator , PlanNUS will be able to tell you your current CAP and 
    * What it does: Allows the user to display his or her current Cap, graded MCs and total MCs after adding some modules inside Academic Planner.
    * Justification: This feature is the basic feature for Cap Calculator and it provides the details user needed for the rest of the other features.
    * Highlights: The implementation of this feature was initally set to have a time complexity of O(n) where n is the number of moudules that the user has added. The time complexity is then improved to be O(1) after some updates.
+   
 * **New Feature:** Added the ability to set a target Cap given some graded MCs.
    * What it does: Informs the user what his or her Cap have to be for a given graded MCs in order to achieve his or her target Cap.
-   * Justification: This feature is allows the user to plan further.
+   * Justification: This feature is allows the user to plan for upcoming semester or for the rest of his or her university curriculum.
+   * Highlights: 
+   
+* **New Feature:** Added the ability to provide suggestion on S/U to users.
+   * What it does: Provide details on what modules to S/U in order to achieve the highest Cap possible.
+   * Justification: This feature is allows the user to plan for S/U modules after result release.
    * Highlights: 
    
 * **Documentation**
     * User Guide
+      * Added documentation for features `set target` and `set su`. [#16](https://github.com/AY2021S1-CS2113T-F12-1/tp/issues/16)
     * Developer Guide
-        
+      * Added documentation for `set su` and its flow. [#89](https://github.com/AY2021S1-CS2113T-F12-1/tp/issues/89)
+      * Added documentation for Glossary. [#177](https://github.com/AY2021S1-CS2113T-F12-1/tp/issues/171)
+      * Added documentation for Configuration Guide.
+      
+* **Team-Based Tasks**
+  * Made bug fixes to the code and bugs to be resolved.
+    * [#25](https://github.com/AY2021S1-CS2113T-F12-1/tp/issues/25), [#38](https://github.com/AY2021S1-CS2113T-F12-1/tp/issues/38), [#71](https://github.com/AY2021S1-CS2113T-F12-1/tp/issues/71), [#107](https://github.com/AY2021S1-CS2113T-F12-1/tp/issues/107), [#162](https://github.com/AY2021S1-CS2113T-F12-1/tp/issues/162), [#184](https://github.com/AY2021S1-CS2113T-F12-1/tp/issues/184), [#185](https://github.com/AY2021S1-CS2113T-F12-1/tp/issues/185), [#194](https://github.com/AY2021S1-CS2113T-F12-1/tp/issues/194), [#195](https://github.com/AY2021S1-CS2113T-F12-1/tp/issues/195), [#202](https://github.com/AY2021S1-CS2113T-F12-1/tp/issues/202), [#203](https://github.com/AY2021S1-CS2113T-F12-1/tp/issues/203), [#216](https://github.com/AY2021S1-CS2113T-F12-1/tp/issues/216) , [#217](https://github.com/AY2021S1-CS2113T-F12-1/tp/issues/217)
+   * Improve code quality and standards. [#45](https://github.com/AY2021S1-CS2113T-F12-1/tp/issues/45)
