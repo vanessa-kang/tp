@@ -3,9 +3,10 @@
 <table><tr><td><div style="text-align:center">
     <img src="images/PlanNUSLogo.png" />
 </div></td></tr></table>
-
 Hello user of PlanNUS! Welcome to our user guide for our software. In this user guide, you can find information regarding how to use PlanNUS and the common questions asked with regards to the usage of PlanNUS. We hope you find this software
 useful and we wish you all the best for your academic journey in NUS.
+
+<br>
 
 ## Overview
 
@@ -19,10 +20,13 @@ PlanNUS also has saving and loading features which would reduce the hassle of en
 
 The sections below explain how PlanNUS should be used, and the common errors faced by users. Sections can be easily navigated to by clicking on the hyperlinks in the table of contents.
 
+<br>
+
 ## Table of contents
 
 * Table of Contents
 {:toc}
+<br>
 
 ## Feature List (for V2.1)
 
@@ -43,6 +47,8 @@ The sections below explain how PlanNUS should be used, and the common errors fac
     * Saving of Academic Calendar into text file
     * Loading of Academic Calendar from text file
 
+<br>
+
 ## Quick Start
 
 1. Ensure that you have Java 11 or above installed.
@@ -52,36 +58,46 @@ The sections below explain how PlanNUS should be used, and the common errors fac
 1. Go to the directory where the jar file is saved.
 1. Enter the following command `java -jar PlanNus.jar`
 
-
+<br>
 
 ## Command Summary
 
 Note: All commands are **case-insensitive**.
+
+<br>
 
 * Initiate the __Academic Calendar Planner__: `acadplan`
 
 | __Action__                                  | __Command__                                                  |
 | ------------------------------------------- | ------------------------------------------------------------ |
 | Adding a module into the calendar           | `add <module code>`​ <br> e.g., `add CS1010, ADD cs1231 , ADD CS2040` |
-| Removing an existing module in the calendar | `remove <module code>`​ <br> e.g., `remove CS1010, REMOVE cs1231 , REMOVE CS2040` |
 | Editing an existing module in the calendar  | `edit <module code>`​ <br> e.g., `edit CS1010, EDIT cs1231 , EDIT CS2040` |
+| Removing an existing module in the calendar | `remove <module code>`​ <br> e.g., `remove CS1010, REMOVE cs1231 , REMOVE CS2040` |
+| Viewing the details of a module             | `details <module code>` <br>e.g. `details CS1010`, `DETAILS cs1231`, `DETAILS CS2040` |
+| Searching for modules by keyword            | `search <module code key`<br>e.g. `search CS`, `SEARCH cs12`, `SEARCH CS2040` |
+| Switching to the _CAP Calculator_ app       | `capcalc`                                                    |
 | Printing the academic calendar              | `view`                                                       |
 | Printing help information                   | `help`                                                       |
 | Exiting the Academic Planner                | `exit`                                                       |
 
-**Note:** `acadplan` can only be called from `PlanNUS` main menu.
+**Note:** `acadplan` can be called from both the `PlanNUS` main menu, and from within the _CAP Calculator_ app.
 
-* Initiate the __CAP calculator__: `capcalc`
+<br>
 
-| __Action__                           | __Command__   |
-| ------------------------------------ | :------------ |
-| Printing current CAP and MCs taken   | `current`     |
-| Configure current CAP and graded MCs | `set current` |
-| Set target CAP                       | `set target`  |
-| Make the module grade as S/U         | `set SU`      |
-| Exiting the CAP Calculator           | `exit`        |
+* Initiate the __CAP Calculator__: `capcalc`
 
-**Note:** `capcalc` can only be called from `PlanNUS` main menu.
+| __Action__                              | __Command__  |
+| --------------------------------------- | :----------- |
+| Printing current CAP and MCs taken      | `current`    |
+| Setting target CAP                      | `set target` |
+| Marking a module grade as S/U           | `set su`     |
+| Switching to the _Academic Planner_ app | `acadplan`   |
+| Printing help information               | `help`       |
+| Exiting the CAP Calculator              | `exit`       |
+
+**Note:** `capcalc` can be called from both the `PlanNUS` main menu, and from within the _Academic Planner_ app.
+
+<br>
 
 ## Features 
 
@@ -95,17 +111,18 @@ For each of these commands, there are more specific functions for configuration 
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/Main_Page_Features.png" />  
 </div></td></tr></table>
-
+<br>
 
 ### Academic Calendar Planner: `acadplan`
 Directs user to the page where he/she can plan a personalized academic journey in NUS by using `add`, `remove` , `view` or `edit` features as shown below.
 
-Input format: `acadplan` 
+Input format: `acadplan`  or `a`
 
 <table><tr><td><div style="text-align:center">
-    <img src="images/UserGuide/acadplan_features.png"/>
+    <img src="images/UserGuide/acadplan_features.png" height="350"/>
 </div></td></tr></table>
 
+<br>
 
 #### Adding a module into the calendar: `add`
 
@@ -131,7 +148,7 @@ __<ins>Caution</ins>:__
 * Invalid grade values will be rejected by PlanNUS. For more information, visit [Appendix](#grade-values) for a list of valid grade values.
 * When an invalid command is entered, you will be brought back to the main page of the academic planner, where you can re-enter the command with the correct information again.   
 
-
+<br>
 
 #### Editing an existing module in the calendar: `edit`
 
@@ -146,10 +163,6 @@ Example of usage:
     <img src="images/UserGuide/edit_module.png" />
 </div></td></tr></table>
 
-
-
-
-
 As shown in the image, user can choose to edit either the _Semester_ or _Grade_ of the selected module. (__Note:__ Enter either `1` or `2` instead of the component's name)
 
 Expected output when user wishes to change the _Semester_.
@@ -157,8 +170,6 @@ Expected output when user wishes to change the _Semester_.
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/edit_module_semester.png" />
 </div></td></tr></table>
-
-
 Expected output when user wishes to change the _Grade_.
 
 <table><tr><td><div style="text-align:center">
@@ -169,7 +180,7 @@ __<ins>Caution:</ins>__
 
 * Only modules that have been added into the calendar can be edited
 
-
+<br>
 
 
 #### Removing an existing module in the calendar: `remove`
@@ -184,14 +195,12 @@ Example of usage:
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/remove_module.png" />
 </div></td></tr></table>
-
-
 __<ins>Caution:</ins>__ 
 
 * Only modules that have been added into the calendar can be removed
   
 
-
+<br>
 
 #### Viewing the details of a module: `details`
 
@@ -205,15 +214,14 @@ Example of usage:
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/acadplan_details.png" />
 </div></td></tr></table>
-
-
 As shown in the image, users can input the module that they wish to view further details about.
 
 __<ins>Caution:</ins>__ 
 
 * No information will be printed if the module is not offered by NUS.
-  
-  
+
+<br>
+
 #### Searching for module codes containing a keyword: `search`
 
 Input format: `search <module code key>`
@@ -229,8 +237,6 @@ Example of usage:
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/acadplan_search_full.png"/>
 </div></td></tr></table>
-
-
 As shown above, users can enter a search key that contains either part of, or the whole module code.
 
 __<ins>Caution:</ins>__ 
@@ -238,7 +244,21 @@ __<ins>Caution:</ins>__
 * This feature currently only supports searching by module code.
 * Only up to the first 10 results are displayed.
   
-  
+
+<br>
+
+#### Switching to the _CAP Calculator_ app: `capcalc`
+
+Input format: `capcalc`
+
+Users can choose to switch to the _CAP Calculator_ app from within the _Academic Planner_ app.
+
+<table><tr><td><div style="text-align:center">
+    <img src="images/UserGuide/acadplan_capcalcswitch.png" height="400" />
+</div></td></tr></table>
+
+<br>
+
 #### Printing the academic calendar: `view`
 
 Input format: `view`
@@ -251,14 +271,12 @@ Expected output when user wishes to print the `full` calendar:
     <img src="images/UserGuide/acadplan_viewfull.png" />
 </div></td></tr></table>
 
-
-
 Expected output when user wishes to print a specific semester:
 
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/acadplan_viewsem.png" />
 </div></td></tr></table>
-
+<br>
 
 
 #### Printing help for academic calendar: `help`
@@ -266,22 +284,22 @@ Expected output when user wishes to print a specific semester:
 Input format: `help`
 
 <table><tr><td><div style="text-align:center">
-    <img src="images/UserGuide/acadplan_help.png" />
+    <img src="images/UserGuide/acadplan_help.png" height="350"/>
 </div></td></tr></table>
 
-
-​    
+<br>
 
 ### Cap Calculator: `capcalc`
 
 Directs user to the page where he/she can view the `current` CAP or even `set target` CAP to be met in the upcoming semester(s). 
 
 <table><tr><td><div style="text-align:center">
-    <img src="images/UserGuide/capcalc_features.png" />
+    <img src="images/UserGuide/capcalc_features.png" height="350" />
 </div></td></tr></table>
 
+Input format: `capcalc` or `c`
 
-Input format: `capcalc`
+<br>
 
 
 #### Printing current CAP and MCs taken: `current`
@@ -291,15 +309,14 @@ The value of CAP depends entirely on the modules and with corresponding grades a
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_current.png" />
 </div></td></tr></table>
-
-
 Input format: `current`
 
 __<ins>Caution:</ins>__
 
 * If there are no modules added, the current CAP and graded MCs are set to 0
-  
-  
+
+<br>
+
 #### Set target CAP: `set target`
 
 This is for the user to set a target CAP that he or she wishes to obtain for the next specified graded MCs.
@@ -307,16 +324,15 @@ This is for the user to set a target CAP that he or she wishes to obtain for the
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_set_target.png" />
 </div></td></tr></table>
-
-
 Input format: `set target`
 
 __<ins>Caution:</ins>__
 
 * CAP should be between 0.00 to 5.00 inclusive.
 * Minimum MC should be greater than 0.
-  
-  
+
+<br>
+
 #### Set S/U modules: `set su`
 
 This is for the user to set modules that he or she wishes to S/U.
@@ -324,8 +340,6 @@ This is for the user to set modules that he or she wishes to S/U.
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_set_su_module.png" />
 </div></td></tr></table>
-
-
 As shown in the image, user can choose to S/U by either a _Semester_ or some selected _Modules_. (__Note:__ Enter either `1` or `2` instead of the component's name)
 
 
@@ -339,14 +353,11 @@ User will be prompted to enter a specific semester that he or she wishes to S/U.
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_set_su_semester_output.png" />
 </div></td></tr></table> 
-
-
 __<ins>Caution:</ins>__ 
 
 * Only modules that can be S/Ued are added into the S/U list.
 * Modules with special grades are filtered out.
-  
-  
+
 ##### Set S/U by modules
 
 Below shows the expected output when user wishes to S/U by _Modules_.
@@ -357,14 +368,36 @@ User will then be prompted to enter a specific number of modules to S/Ued and th
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_set_su_modules_output.png" />
 </div></td></tr></table> 
-
-
 __<ins>Caution:</ins>__ 
 
 * Duplicate modules are not allowed.
 * Number of modules to be S/Ued should not be greater than number of modules taken by the user.
   
-  
+
+<br>
+
+#### Switching to the _Academic Planner_ app: `acadplan`
+
+Input format: `acadplan`
+
+Users can choose to switch to the _Academic Planner_ app from within the _CAP Calculator_ app.
+
+<table><tr><td><div style="text-align:center">
+    <img src="images/UserGuide/capcalc_acadplanswitch.png" height="400" />
+</div></td></tr></table>
+
+<br>
+
+#### Printing help for CAP Calculator: `help`
+
+Input format: `help`
+
+<table><tr><td><div style="text-align:center">
+    <img src="images/UserGuide/capcalc_help.png" height="300"/>
+</div></td></tr></table>
+
+<br>
+
 ### Exiting from a feature or PlanNUS: `exit`
 
 This command directs user back to the main page of PlanNUS after they are done using a feature or exits from the entire application itself.
@@ -374,22 +407,16 @@ When user exits from the Academic Planner, expected output is as shown below.
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/exit_acadplan.png" />
 </div></td></tr></table> 
-
-
 When user exits from the CAP calculator, expected output will be as follows:
 
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/exit_capcalc.png" />
 </div></td></tr></table> 
-
-
 Last but not least, the expected output for exiting PlanNUS will be as such:
 
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/exit_PlanNUS.png" />
 </div></td></tr></table> 
-
-
 Input format: `exit`
 
 ​    
@@ -419,7 +446,7 @@ All the modules selected will be saved into _PlanNUS.txt_ after the user exits f
 
 Note that the image above is just an example because it depends on the number of modules saved in the text file.
 
-
+<br>
 
 ## FAQ
 
@@ -428,11 +455,9 @@ Question Type|Question|Answer
 General | How do I check which modules are offered by NUS? | For more info on which modules are offered by NUS, visit [here](https://nusmods.com/modules?sem[0]=1&sem[1]=2&sem[2]=3&sem[3]=4 "NUSMODS").
 General | What is a valid semester index? | For the purpose of this planning software, we have come to a decision to limit the maximum number of semesters an undergraduate can take to 10, which is 5 academic years. The notation they are represented by is by an integer of value 1 to 10. For a fresh undergraduate, they will begin at semester index of 1. For a year 3 student who is currently in semester 1, the semester index will be 5. Please refer to the appendix for more information.
 General | What is a valid grade? | **Letter Grades**: A+, A, B+, B, B-, C+, C, D+, D, F , **Special Grades**: CS, CU, S, U, W, IC, IP, AUD, WU, EXE, **If you have yet to have a grade for the module**: NT
-General | What is the name of the saved file? | The name of the saved file is `PlanNUS.txt` and can be found at the base of the folder, in the same location as your PlanNUS.jar.
+General | What is the name of the saved file? | The name of the saved file is `PlanNUS.txt` and can be found at the base of the folder, in the same location as your PlanNUS.jar. 
 
-  
-
-## Useful Links
+## <br>Useful Links
 
 * [**About Us**](https://ay2021s1-cs2113t-f12-1.github.io/tp/AboutUs.html)
 * [**Configuration guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/ConfigurationGuide.html)
@@ -442,8 +467,7 @@ General | What is the name of the saved file? | The name of the saved file is `P
 * [**Logging guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/LoggingGuide.html)
 * [**Testing guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/TestingGuide.html)
 
-
-## Appendix
+## <br>Appendix
 
 ### Naming convention for semester indexes
 
@@ -485,6 +509,8 @@ As per NUS [Grade Policy](http://www.nus.edu.sg/registrar/academic-information-p
 
 *Additional Grading options include S,U,CS,CU,IC,IP,AUD,EXE,W,WU. They hold no Academic Point Value.
 
+<br>
+
 ## Features Coming Soon (V3.0 and beyond)
 
 * Logging of program to separate folders
@@ -495,4 +521,6 @@ As per NUS [Grade Policy](http://www.nus.edu.sg/registrar/academic-information-p
 * Support shortened commands for parsers
 * Support validation of requirements for modules
 
-## End of user guide
+<br>
+
+# End of user guide
