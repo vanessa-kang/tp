@@ -13,8 +13,6 @@ import seedu.duke.global.Command;
 import seedu.duke.global.objects.Person;
 import seedu.duke.ui.Ui;
 import java.util.Scanner;
-
-import static seedu.duke.parser.AppParser.ACADEMIC_PLANNER;
 import static seedu.duke.parser.AppParser.CAP_CALCULATOR;
 
 //@@author jerroldlam
@@ -29,6 +27,7 @@ public class AcademicPlannerParser {
     private static final String EXITING_CURRENT_COMMAND = "Exiting current command back to Academic Planner Main Menu.";
     private static final String ERROR_INVALID_COMMAND = "INVALID COMMAND";
     private static final String ERROR_NO_PARAMETER = " NO PARAMETER AFTER COMMAND";
+    private static final String ERROR_IN_ACADPLAN = "Sorry, you are already in Academic Planner!";
     private static final String ADD_COMMAND = "ADD";
     private static final String EDIT_COMMAND = "EDIT";
     private static final String REMOVE_COMMAND = "REMOVE";
@@ -38,7 +37,7 @@ public class AcademicPlannerParser {
     private static final String EXIT_COMMAND = "EXIT";
     private static final String DETAILS_COMMAND = "DETAILS";
     private static final String ACADEMIC_PLANNER_COMMAND = "ACADPLAN";
-    private static final String TO_CAP_CALCULATOR = "CAPCALC";
+    private static final String TO_CAP_CALCULATOR_COMMAND = "CAPCALC";
 
     /**
      * Command to process the user inputs and to return the intended command with the correct parameters.
@@ -53,60 +52,94 @@ public class AcademicPlannerParser {
     public static Command parse(String userInput, ModuleLoader allModules, Person currentPerson, Ui ui)
         throws CommandParserException {
 
-        userInput = userInput.replaceAll("\\s+"," ");
-        String[] inputs = userInput.toUpperCase().split(" ",2);
+        String[] inputs = processInput(userInput);
+        String userCommand = inputs[COMMAND_INDEX];
         Scanner in = ui.getScanner();
 
-        if (inputs[COMMAND_INDEX].equals(ADD_COMMAND) && inputs.length == CORRECT_COMMAND_LENGTH) {
+        if (userCommand.equals(ADD_COMMAND) && hasParameter(inputs)) {
             return new AddModuleCommand(allModules, currentPerson, in, inputs[MODULE_CODE_INDEX]);
 
-        } else if (inputs[COMMAND_INDEX].equals(EDIT_COMMAND) && inputs.length == CORRECT_COMMAND_LENGTH) {
+        } else if (userCommand.equals(EDIT_COMMAND) && hasParameter(inputs)) {
             return new EditModuleCommand(allModules, currentPerson, in, inputs[MODULE_CODE_INDEX]);
 
-        } else if (inputs[COMMAND_INDEX].equals(REMOVE_COMMAND) && inputs.length == CORRECT_COMMAND_LENGTH) {
+        } else if (userCommand.equals(REMOVE_COMMAND) && hasParameter(inputs)) {
             return new RemoveModuleCommand(allModules, currentPerson, in, inputs[MODULE_CODE_INDEX]);
 
-        } else if (inputs[COMMAND_INDEX].equals(VIEW_COMMAND)) {
+        } else if (userCommand.equals(VIEW_COMMAND)) {
             return new PrintCalenderCommand(currentPerson, in);
 
-        } else if (inputs[COMMAND_INDEX].equals(HELP_COMMAND)) {
+        } else if (userCommand.equals(HELP_COMMAND)) {
             return new PrintHelpCommand();
 
-        } else if (inputs[COMMAND_INDEX].equals(DETAILS_COMMAND) && inputs.length == CORRECT_COMMAND_LENGTH) {
+        } else if (userCommand.equals(DETAILS_COMMAND) && hasParameter(inputs)) {
             return new ModuleDetailsCommand(allModules, inputs[MODULE_CODE_INDEX]);
           
-        } else if (inputs[COMMAND_INDEX].equals(SEARCH_COMMAND) && inputs.length == CORRECT_COMMAND_LENGTH) {
+        } else if (userCommand.equals(SEARCH_COMMAND) && hasParameter(inputs)) {
             return new SearchModulesCommand(allModules, inputs[MODULE_CODE_INDEX]);
 
-        } else if (inputs[COMMAND_INDEX].equals(TO_CAP_CALCULATOR)) {
+        } else if (userCommand.equals(TO_CAP_CALCULATOR_COMMAND)) {
             return new Command(true, true, CAP_CALCULATOR);
 
-        } else if (inputs[COMMAND_INDEX].equals(EXIT_COMMAND)) {
+        } else if (userCommand.equals(EXIT_COMMAND)) {
             return new Command(true);
 
         } else {
-            switch (inputs[COMMAND_INDEX]) {
-            case ADD_COMMAND:
-                throw new CommandParserException("ADD COMMAND :" + ERROR_NO_PARAMETER
-                        + NEW_LINE + EXITING_CURRENT_COMMAND);
-            case EDIT_COMMAND:
-                throw new CommandParserException("EDIT COMMAND :" + ERROR_NO_PARAMETER
-                        + NEW_LINE + EXITING_CURRENT_COMMAND);
-            case REMOVE_COMMAND:
-                throw new CommandParserException("REMOVE COMMAND :" + ERROR_NO_PARAMETER
-                        + NEW_LINE + EXITING_CURRENT_COMMAND);
-            case SEARCH_COMMAND:
-                throw new CommandParserException("SEARCH COMMAND :" + ERROR_NO_PARAMETER
-                        + NEW_LINE + EXITING_CURRENT_COMMAND);
-            case DETAILS_COMMAND:
-                throw new CommandParserException("DETAILS COMMAND :" + ERROR_NO_PARAMETER
-                        + NEW_LINE + EXITING_CURRENT_COMMAND);
-            case ACADEMIC_PLANNER_COMMAND:
-                throw new CommandParserException("Sorry, you are already in Academic Planner!"
-                        + NEW_LINE + EXITING_CURRENT_COMMAND);
-            default:
-                throw new CommandParserException(ERROR_INVALID_COMMAND + NEW_LINE + EXITING_CURRENT_COMMAND);
-            }
+            String errorMessage = determineError(inputs);
+            throw new CommandParserException(errorMessage);
         }
+    }
+
+    /**
+     * Processes user input to remove whitespaces and return a string array.
+     *
+     * @param userInput user input
+     * @return string array
+     */
+    private static String[] processInput(String userInput) {
+        userInput = userInput.replaceAll("\\s+"," ");
+        String[] inputs = userInput.toUpperCase().split(" ",2);
+        return inputs;
+    }
+
+    /**
+     * Checks for the type of error and returns corresponding message.
+     *
+     * @param inputs user input
+     * @return error message
+     */
+    private static String determineError(String[] inputs) {
+        switch (inputs[COMMAND_INDEX]) {
+        case ADD_COMMAND:
+            return("ADD COMMAND :" + ERROR_NO_PARAMETER
+                    + NEW_LINE + EXITING_CURRENT_COMMAND);
+        case EDIT_COMMAND:
+            return("EDIT COMMAND :" + ERROR_NO_PARAMETER
+                    + NEW_LINE + EXITING_CURRENT_COMMAND);
+        case REMOVE_COMMAND:
+            return("REMOVE COMMAND :" + ERROR_NO_PARAMETER
+                    + NEW_LINE + EXITING_CURRENT_COMMAND);
+        case SEARCH_COMMAND:
+            return("SEARCH COMMAND :" + ERROR_NO_PARAMETER
+                    + NEW_LINE + EXITING_CURRENT_COMMAND);
+        case DETAILS_COMMAND:
+            return("DETAILS COMMAND :" + ERROR_NO_PARAMETER
+                    + NEW_LINE + EXITING_CURRENT_COMMAND);
+        case ACADEMIC_PLANNER_COMMAND:
+            return(ERROR_IN_ACADPLAN
+                    + NEW_LINE + EXITING_CURRENT_COMMAND);
+        default:
+            return(ERROR_INVALID_COMMAND + NEW_LINE + EXITING_CURRENT_COMMAND);
+        }
+    }
+
+    /**
+     * Returns true if input has parameter attached at the end after command,
+     * else returns false.
+     *
+     * @param inputs user input
+     * @return true or false
+     */
+    private static boolean hasParameter(String[] inputs) {
+        return inputs.length == CORRECT_COMMAND_LENGTH;
     }
 }
