@@ -14,10 +14,10 @@ PlanNUS is a greenfield, CLI-based project which aims to solve the gap in underg
     * Highlights: This feature handles the flow of data within PlanNUS to provide users with the ability to toggle between apps seemlessly. It also ensures proper allocation and usage of memory space to prevent unexpected crashes due to memory leak.
     
 
-* **New Feature:** 
-    * What it does:
-    * Justification: 
-    * Highlights: 
+* **New Functionality:** Created a JavaScript program to clean up all module informatiom retrieve from NUSMODS API.
+    * What it does: Removal of extra information and reformated needed information to allow for ease of conversion from Javascript Object Notation (JSON) to Plain Old Java Object (POJO).
+    * Justification: The creation of this program is to assist in removing irrelavant data and reformatting nested objects from all 12436 modules within the JSON file to improve both spatial and temporal efficiencies during the eventual conversion of JSON into POJO in PlanNUS.
+    * Highlights: This program allows for the formatting of specific output fields, removal of irrelavant information from the final output, counting of total number of modules, finding the length of the longest module name, the minimum MC across all modules offered and searching of a specific module within the list final list.
 
 * **New Feature:** 
     * What it does:
