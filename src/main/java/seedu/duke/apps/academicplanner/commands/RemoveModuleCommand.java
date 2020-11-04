@@ -6,6 +6,7 @@ import seedu.duke.apps.academicplanner.commons.RemoveUtils;
 import seedu.duke.apps.academicplanner.exceptions.AcademicException;
 import seedu.duke.global.Command;
 import seedu.duke.global.objects.Person;
+import seedu.duke.ui.Ui;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -20,13 +21,11 @@ public class RemoveModuleCommand extends Command {
 
     private RemoveUtils removeUtils;
     private ModuleValidator moduleValidator;
-    private HashMap<String, Integer> modulesAddedMap;
     private String moduleCode;
 
-    public RemoveModuleCommand(ModuleLoader allModules, Person currentPerson, Scanner in, String moduleCode) {
+    public RemoveModuleCommand(ModuleLoader allModules, Person currentPerson, String moduleCode) {
         this.removeUtils = new RemoveUtils(currentPerson);
         this.moduleValidator = new ModuleValidator(allModules, currentPerson);
-        this.modulesAddedMap = currentPerson.getModulesAddedMap();
         this.moduleCode = moduleCode;
     }
 

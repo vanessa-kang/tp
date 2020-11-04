@@ -6,6 +6,8 @@ import seedu.duke.apps.academicplanner.commons.ModuleValidator;
 import seedu.duke.apps.academicplanner.exceptions.AcademicException;
 import seedu.duke.global.Command;
 import seedu.duke.global.objects.Person;
+import seedu.duke.ui.Ui;
+
 import java.util.Scanner;
 
 //@@author harryleecp
@@ -24,13 +26,15 @@ public class EditModuleCommand extends Command {
 
     private EditUtils editUtils;
     private ModuleValidator moduleValidator;
+    private Ui ui;
     private Scanner in;
     private String moduleCode;
 
-    public EditModuleCommand(ModuleLoader allModules, Person currentPerson, Scanner in, String moduleCode) {
+    public EditModuleCommand(ModuleLoader allModules, Person currentPerson, Ui ui, String moduleCode) {
         this.editUtils = new EditUtils(allModules, currentPerson);
         this.moduleValidator = new ModuleValidator(allModules, currentPerson);
-        this.in = in;
+        this.ui = ui;
+        this.in = ui.getScanner();
         this.moduleCode = moduleCode;
     }
 

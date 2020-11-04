@@ -14,7 +14,13 @@ public class LoggingTool {
     Logger logger;
     FileHandler fh;
 
-    public LoggingTool(String loggerName, FileHandler fh) throws IOException {
+    /**
+     * Default constructor for LoggingTool.
+     *
+     * @param loggerName name of logger
+     * @param fh FileHandler for Logger to log to
+     */
+    public LoggingTool(String loggerName, FileHandler fh) {
         logger = Logger.getLogger(loggerName);
         this.fh = fh;
     }

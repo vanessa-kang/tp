@@ -147,8 +147,8 @@ __<ins>Caution</ins>:__
 
 * Invalid module codes (i.e. Modules not offered by NUS) cannot be added into the calendar.
 * Duplicate module codes cannot be added into the calendar as well.
-* Invalid semester indexes will be rejected by PlanNUS. For more information, visit [Appendix](#naming-convention-for-semester-indexes) for a list of valid semester indexes.
-* Invalid grade values will be rejected by PlanNUS. For more information, visit [Appendix](#grade-values) for a list of valid grade values.
+* Invalid semester indexes will be rejected by PlanNUS. For more information, visit [Appendix](#101-naming-convention-for-semester-indexes) for a list of valid semester indexes.
+* Invalid grade values will be rejected by PlanNUS. For more information, visit [Appendix](#102-grade-values) for a list of valid grade values.
 * When an invalid command is entered, you will be brought back to the main page of the academic planner, where you can re-enter the command with the correct information again.   
 
 <br>
