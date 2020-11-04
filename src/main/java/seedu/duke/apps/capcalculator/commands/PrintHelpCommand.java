@@ -12,6 +12,7 @@ public class PrintHelpCommand extends Command {
             + "\tcurrent\n"
             + "\tset target\n"
             + "\tset su\n"
+            + "\tacadplan\n"
             + "\thelp\n"
             + "\texit";
 
