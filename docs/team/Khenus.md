@@ -19,10 +19,15 @@ PlanNUS is a greenfield, CLI-based project which aims to solve the gap in underg
     * Justification: The creation of this program is to assist in removing irrelavant data and reformatting nested objects from all 12436 modules within the JSON file retrieved from NUSMODS API to improve both spatial and temporal efficiencies during the eventual conversion of JSON into POJO in PlanNUS.
     * Highlights: This program allows for the formatting of specific output fields, removal of irrelavant information from the final list, counting of total number of modules offered, finding the length of the longest module name, the minimum MC across all modules offered and searching of a specific module within the final list.
 
-* **New Feature:** 
+* **New Functionality:** Creation of `ModuleLoader` class
+    * What it does: The `ModuleLoader` class allows for the creation of a Plain Old Java Object (POJO) and HashMap from the formatted Javascript Object Notatiom (JSON) file containing information for all modules offered in NUS using GSON library from Google.
+    * Justification: This class creates an ArrayList for fellow developers to access module information when needed. 
+    * Highlights: 
+
+* **New Functionality:** 
     * What it does:
     * Justification: 
-    * Highlights: 
+    * Highlights:
 
 * Formatting JSON object data retrieved from NUSMODs with JavaScript
 * Loading all module data into PlanNUS
