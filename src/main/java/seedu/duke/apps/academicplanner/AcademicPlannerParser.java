@@ -57,13 +57,13 @@ public class AcademicPlannerParser {
         Scanner in = ui.getScanner();
 
         if (userCommand.equals(ADD_COMMAND) && hasParameter(inputs)) {
-            return new AddModuleCommand(allModules, currentPerson, in, inputs[MODULE_CODE_INDEX]);
+            return new AddModuleCommand(allModules, currentPerson, ui, inputs[MODULE_CODE_INDEX]);
 
         } else if (userCommand.equals(EDIT_COMMAND) && hasParameter(inputs)) {
-            return new EditModuleCommand(allModules, currentPerson, in, inputs[MODULE_CODE_INDEX]);
+            return new EditModuleCommand(allModules, currentPerson, ui, inputs[MODULE_CODE_INDEX]);
 
         } else if (userCommand.equals(REMOVE_COMMAND) && hasParameter(inputs)) {
-            return new RemoveModuleCommand(allModules, currentPerson, in, inputs[MODULE_CODE_INDEX]);
+            return new RemoveModuleCommand(allModules, currentPerson, inputs[MODULE_CODE_INDEX]);
 
         } else if (userCommand.equals(VIEW_COMMAND)) {
             return new PrintCalenderCommand(currentPerson, in);
@@ -110,25 +110,25 @@ public class AcademicPlannerParser {
     private static String determineError(String[] inputs) {
         switch (inputs[COMMAND_INDEX]) {
         case ADD_COMMAND:
-            return("ADD COMMAND :" + ERROR_NO_PARAMETER
+            return ("ADD COMMAND :" + ERROR_NO_PARAMETER
                     + NEW_LINE + EXITING_CURRENT_COMMAND);
         case EDIT_COMMAND:
-            return("EDIT COMMAND :" + ERROR_NO_PARAMETER
+            return ("EDIT COMMAND :" + ERROR_NO_PARAMETER
                     + NEW_LINE + EXITING_CURRENT_COMMAND);
         case REMOVE_COMMAND:
-            return("REMOVE COMMAND :" + ERROR_NO_PARAMETER
+            return ("REMOVE COMMAND :" + ERROR_NO_PARAMETER
                     + NEW_LINE + EXITING_CURRENT_COMMAND);
         case SEARCH_COMMAND:
-            return("SEARCH COMMAND :" + ERROR_NO_PARAMETER
+            return ("SEARCH COMMAND :" + ERROR_NO_PARAMETER
                     + NEW_LINE + EXITING_CURRENT_COMMAND);
         case DETAILS_COMMAND:
-            return("DETAILS COMMAND :" + ERROR_NO_PARAMETER
+            return ("DETAILS COMMAND :" + ERROR_NO_PARAMETER
                     + NEW_LINE + EXITING_CURRENT_COMMAND);
         case ACADEMIC_PLANNER_COMMAND:
-            return(ERROR_IN_ACADPLAN
+            return (ERROR_IN_ACADPLAN
                     + NEW_LINE + EXITING_CURRENT_COMMAND);
         default:
-            return(ERROR_INVALID_COMMAND + NEW_LINE + EXITING_CURRENT_COMMAND);
+            return (ERROR_INVALID_COMMAND + NEW_LINE + EXITING_CURRENT_COMMAND);
         }
     }
 

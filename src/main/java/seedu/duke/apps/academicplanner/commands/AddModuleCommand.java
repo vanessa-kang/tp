@@ -7,6 +7,8 @@ import seedu.duke.apps.academicplanner.exceptions.AcademicException;
 import seedu.duke.global.Command;
 import seedu.duke.global.LoggingTool;
 import seedu.duke.global.objects.Person;
+import seedu.duke.ui.Ui;
+
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.logging.FileHandler;
@@ -35,6 +37,7 @@ public class AddModuleCommand extends Command {
     private static FileHandler fh;
     private AddUtils addUtils;
     private ModuleValidator moduleValidator;
+    private Ui ui;
     private Scanner in;
     private String moduleCode;
 
@@ -43,13 +46,14 @@ public class AddModuleCommand extends Command {
      *
      * @param allModules all modules offered by NUS
      * @param currentPerson current user
-     * @param in scanner
+     * @param ui Ui
      * @param moduleCode module code
      */
-    public AddModuleCommand(ModuleLoader allModules, Person currentPerson, Scanner in, String moduleCode) {
+    public AddModuleCommand(ModuleLoader allModules, Person currentPerson, Ui ui, String moduleCode) {
         this.addUtils = new AddUtils(allModules, currentPerson);
         this.moduleValidator = new ModuleValidator(allModules, currentPerson);
-        this.in = in;
+        this.ui = ui;
+        this.in = ui.getScanner();
         this.moduleCode = moduleCode;
     }
 
