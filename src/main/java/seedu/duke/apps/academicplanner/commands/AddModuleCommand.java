@@ -62,29 +62,69 @@ public class AddModuleCommand extends Command {
      */
     @Override
     public void execute() throws AcademicException, IOException {
-        fh = new FileHandler(LOG_FILE_NAME);
-        logger = new LoggingTool(LOGGER_NAME,fh).initialize();
+        initialiseLogger();
         logger.log(Level.INFO,"Executing add command.");
 
         validateModuleCode();
 
-        promptUserToEnterSemester();
-        String userInput = in.nextLine().trim();
-        int semesterValue = validateInputSemester(userInput);
+        int semesterValue = getSemesterValue();
+        String gradeValue = getGradeValue();
+        int moduleCredit = addUtils.getModuleCreditForModule(moduleCode);
 
+        assertInputs(semesterValue, moduleCredit);
+        addUtils.addModuleToUser(moduleCode, semesterValue, gradeValue, moduleCredit);
+
+        logger.log(Level.INFO,"Finished executing add command.");
+        fh.close();
+    }
+
+    /**
+     * Prompts and accepts user input for grade value.
+     * Also checks for grade value validity.
+     *
+     * @return Valid Grade value
+     * @throws AcademicException when invalid grade value is given
+     */
+    private String getGradeValue() throws AcademicException {
         promptUserToEnterGrade();
         String gradeValue = in.nextLine().trim().toUpperCase();
         validateInputGrade(gradeValue);
+        return gradeValue;
+    }
 
-        int moduleCredit = addUtils.getModuleCreditForModule(moduleCode);
-        
-        addUtils.addModuleToUser(moduleCode, semesterValue, gradeValue, moduleCredit);
+    /**
+     * Prompts and accepts user input for semester value.
+     * Also checks for semester value validity.
+     *
+     * @return valid semester value
+     * @throws AcademicException when invalid semester value is given
+     */
+    private int getSemesterValue() throws AcademicException {
+        promptUserToEnterSemester();
+        String userInput = in.nextLine().trim();
+        int semesterValue = validateInputSemester(userInput);
+        return semesterValue;
+    }
 
+    /**
+     * Initialises logger for use.
+     *
+     * @throws IOException when logger fails to initialise
+     */
+    private void initialiseLogger() throws IOException {
+        fh = new FileHandler(LOG_FILE_NAME);
+        logger = new LoggingTool(LOGGER_NAME,fh).initialize();
+    }
+
+    /**
+     * Validates critical inputs via assertions.
+     *
+     * @param semesterValue input semester value
+     * @param moduleCredit module credit retrieved from NUSMODS API
+     */
+    private void assertInputs(int semesterValue, int moduleCredit) {
         assert semesterValue > 0;
         assert moduleCredit >= 0;
-
-        logger.log(Level.INFO,"Finish executing add command.");
-        fh.close();
     }
 
     /**
