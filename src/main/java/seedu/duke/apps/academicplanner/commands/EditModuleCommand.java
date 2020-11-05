@@ -1,12 +1,13 @@
 package seedu.duke.apps.academicplanner.commands;
 
-import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.apps.academicplanner.commons.EditUtils;
 import seedu.duke.apps.academicplanner.commons.ModuleValidator;
 import seedu.duke.apps.academicplanner.exceptions.AcademicException;
+import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.global.Command;
 import seedu.duke.global.objects.Person;
 import seedu.duke.ui.Ui;
+import seedu.duke.storage.Storage;
 
 import java.util.Scanner;
 
@@ -27,15 +28,19 @@ public class EditModuleCommand extends Command {
     private EditUtils editUtils;
     private ModuleValidator moduleValidator;
     private Ui ui;
+    private Person currentPerson;
     private Scanner in;
     private String moduleCode;
-
-    public EditModuleCommand(ModuleLoader allModules, Person currentPerson, Ui ui, String moduleCode) {
+    private Storage storage;
+  
+    public EditModuleCommand(ModuleLoader allModules, Person currentPerson, Scanner in, String moduleCode, Storage storage) {
         this.editUtils = new EditUtils(allModules, currentPerson);
         this.moduleValidator = new ModuleValidator(allModules, currentPerson);
         this.ui = ui;
         this.in = ui.getScanner();
         this.moduleCode = moduleCode;
+        this.currentPerson = currentPerson;
+        this.storage = storage;
     }
 
     /**
@@ -52,8 +57,10 @@ public class EditModuleCommand extends Command {
 
             if (choice.equals(EDIT_SEMESTER)) {
                 editUtils.editModuleSemester(in, moduleCode);
+                storage.saver(currentPerson);
             } else if (choice.equals(EDIT_GRADE)) {
                 editUtils.editModuleGrade(in, moduleCode);
+                storage.saver(currentPerson);
             } else {
                 throw new AcademicException(ERROR_EDIT_OPTION);
             }
