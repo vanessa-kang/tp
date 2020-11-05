@@ -6,11 +6,7 @@ import seedu.duke.apps.academicplanner.exceptions.AcademicException;
 import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.global.Command;
 import seedu.duke.global.objects.Person;
-import seedu.duke.ui.Ui;
 import seedu.duke.storage.Storage;
-
-import java.util.HashMap;
-import java.util.Scanner;
 
 //@@author harryleecp
 /**
@@ -21,13 +17,13 @@ public class RemoveModuleCommand extends Command {
     private static final String ERROR_NOT_ADDED = "You have not added this module into your list yet";
     private static final String MODULE_REMOVED = "Module removed successfully.";
 
-    private Person currentPerson;
     private RemoveUtils removeUtils;
     private ModuleValidator moduleValidator;
+    private Person currentPerson;
     private String moduleCode;
     private Storage storage;
 
-    public RemoveModuleCommand(ModuleLoader allModules, Person currentPerson, Scanner in, String moduleCode, Storage storage) {
+    public RemoveModuleCommand(ModuleLoader allModules, Person currentPerson, String moduleCode, Storage storage) {
         this.removeUtils = new RemoveUtils(currentPerson);
         this.moduleValidator = new ModuleValidator(allModules, currentPerson);
         this.moduleCode = moduleCode;

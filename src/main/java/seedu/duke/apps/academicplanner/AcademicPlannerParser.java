@@ -47,21 +47,21 @@ public class AcademicPlannerParser {
      * @throws CommandParserException to return with error message
      */
     public static Command parse(String userInput, ModuleLoader allModules, Person currentPerson, Ui ui, Storage storage)
-        throws CommandParserException {
+            throws CommandParserException {
 
         String[] inputs = processInput(userInput);
         String userCommand = inputs[COMMAND_INDEX];
         Scanner in = ui.getScanner();
 
-        if (inputs[COMMAND_INDEX].equals(ADD_COMMAND) && inputs.length == CORRECT_COMMAND_LENGTH) {
-            return new AddModuleCommand(allModules, currentPerson, in, inputs[MODULE_CODE_INDEX], storage);
+        if (userCommand.equals(ADD_COMMAND) && hasParameter(inputs)) {
+            return new AddModuleCommand(allModules, currentPerson, ui, inputs[MODULE_CODE_INDEX], storage);
 
-        } else if (inputs[COMMAND_INDEX].equals(EDIT_COMMAND) && inputs.length == CORRECT_COMMAND_LENGTH) {
-            return new EditModuleCommand(allModules, currentPerson, in, inputs[MODULE_CODE_INDEX], storage);
+        } else if (userCommand.equals(EDIT_COMMAND) && hasParameter(inputs)) {
+            return new EditModuleCommand(allModules, currentPerson, ui, inputs[MODULE_CODE_INDEX], storage);
 
-        } else if (inputs[COMMAND_INDEX].equals(REMOVE_COMMAND) && inputs.length == CORRECT_COMMAND_LENGTH) {
-            return new RemoveModuleCommand(allModules, currentPerson, in, inputs[MODULE_CODE_INDEX], storage);
-          
+        } else if (userCommand.equals(REMOVE_COMMAND) && hasParameter(inputs)) {
+            return new RemoveModuleCommand(allModules, currentPerson, inputs[MODULE_CODE_INDEX], storage);
+
         } else if (userCommand.equals(VIEW_COMMAND)) {
             return new PrintCalenderCommand(currentPerson, in);
 
@@ -70,7 +70,7 @@ public class AcademicPlannerParser {
 
         } else if (userCommand.equals(DETAILS_COMMAND) && hasParameter(inputs)) {
             return new ModuleDetailsCommand(allModules, inputs[MODULE_CODE_INDEX]);
-          
+
         } else if (userCommand.equals(SEARCH_COMMAND) && hasParameter(inputs)) {
             return new SearchModulesCommand(allModules, inputs[MODULE_CODE_INDEX]);
 

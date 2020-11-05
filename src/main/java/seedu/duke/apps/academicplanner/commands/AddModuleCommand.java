@@ -7,8 +7,8 @@ import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.global.Command;
 import seedu.duke.global.LoggingTool;
 import seedu.duke.global.objects.Person;
-import seedu.duke.ui.Ui;
 import seedu.duke.storage.Storage;
+import seedu.duke.ui.Ui;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -38,8 +38,8 @@ public class AddModuleCommand extends Command {
     private static FileHandler fh;
     private AddUtils addUtils;
     private ModuleValidator moduleValidator;
-    private Ui ui;
     private Person currentPerson;
+    private Ui ui;
     private Scanner in;
     private String moduleCode;
     private Storage storage;
@@ -52,7 +52,7 @@ public class AddModuleCommand extends Command {
      * @param ui Ui
      * @param moduleCode module code
      */
-    public AddModuleCommand(ModuleLoader allModules, Person currentPerson, Scanner in, String moduleCode, Storage storage) {
+    public AddModuleCommand(ModuleLoader allModules, Person currentPerson, Ui ui, String moduleCode, Storage storage) {
         this.addUtils = new AddUtils(allModules, currentPerson);
         this.moduleValidator = new ModuleValidator(allModules, currentPerson);
         this.ui = ui;
@@ -85,6 +85,8 @@ public class AddModuleCommand extends Command {
 
         logger.log(Level.INFO,"Finished executing add command.");
         fh.close();
+
+        storage.saver(currentPerson);
     }
 
     /**
@@ -134,9 +136,6 @@ public class AddModuleCommand extends Command {
     private void assertInputs(int semesterValue, int moduleCredit) {
         assert semesterValue > 0;
         assert moduleCredit >= 0;
-
-        logger.log(Level.INFO,"Finish executing add command.");
-        fh.close();
     }
 
     /**
