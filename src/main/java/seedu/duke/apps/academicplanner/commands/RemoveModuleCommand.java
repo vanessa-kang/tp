@@ -1,14 +1,12 @@
 package seedu.duke.apps.academicplanner.commands;
 
-import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.apps.academicplanner.commons.ModuleValidator;
 import seedu.duke.apps.academicplanner.commons.RemoveUtils;
 import seedu.duke.apps.academicplanner.exceptions.AcademicException;
+import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.global.Command;
 import seedu.duke.global.objects.Person;
-import seedu.duke.ui.Ui;
-import java.util.HashMap;
-import java.util.Scanner;
+import seedu.duke.storage.Storage;
 
 //@@author harryleecp
 /**
@@ -21,12 +19,16 @@ public class RemoveModuleCommand extends Command {
 
     private RemoveUtils removeUtils;
     private ModuleValidator moduleValidator;
+    private Person currentPerson;
     private String moduleCode;
+    private Storage storage;
 
-    public RemoveModuleCommand(ModuleLoader allModules, Person currentPerson, String moduleCode) {
+    public RemoveModuleCommand(ModuleLoader allModules, Person currentPerson, String moduleCode, Storage storage) {
         this.removeUtils = new RemoveUtils(currentPerson);
         this.moduleValidator = new ModuleValidator(allModules, currentPerson);
         this.moduleCode = moduleCode;
+        this.currentPerson = currentPerson;
+        this.storage = storage;
     }
 
     /**
@@ -40,6 +42,7 @@ public class RemoveModuleCommand extends Command {
         } else if (moduleValidator.isModTakenByUser(moduleCode)) {
             removeUtils.removeModuleFromUserModuleList(moduleCode);
             System.out.println(MODULE_REMOVED);
+            storage.saver(currentPerson);
         } else {
             throw new AcademicException(ERROR_NOT_ADDED);
         }

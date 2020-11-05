@@ -1,12 +1,13 @@
 package seedu.duke.apps.academicplanner.commands;
 
-import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.apps.academicplanner.commons.AddUtils;
 import seedu.duke.apps.academicplanner.commons.ModuleValidator;
 import seedu.duke.apps.academicplanner.exceptions.AcademicException;
+import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.global.Command;
 import seedu.duke.global.LoggingTool;
 import seedu.duke.global.objects.Person;
+import seedu.duke.storage.Storage;
 import seedu.duke.ui.Ui;
 
 import java.io.IOException;
@@ -37,9 +38,11 @@ public class AddModuleCommand extends Command {
     private static FileHandler fh;
     private AddUtils addUtils;
     private ModuleValidator moduleValidator;
+    private Person currentPerson;
     private Ui ui;
     private Scanner in;
     private String moduleCode;
+    private Storage storage;
 
     /**
      * Default constructor for Add Module command.
@@ -49,12 +52,14 @@ public class AddModuleCommand extends Command {
      * @param ui Ui
      * @param moduleCode module code
      */
-    public AddModuleCommand(ModuleLoader allModules, Person currentPerson, Ui ui, String moduleCode) {
+    public AddModuleCommand(ModuleLoader allModules, Person currentPerson, Ui ui, String moduleCode, Storage storage) {
         this.addUtils = new AddUtils(allModules, currentPerson);
         this.moduleValidator = new ModuleValidator(allModules, currentPerson);
         this.ui = ui;
         this.in = ui.getScanner();
         this.moduleCode = moduleCode;
+        this.currentPerson = currentPerson;
+        this.storage = storage;
     }
 
     /**
@@ -80,6 +85,8 @@ public class AddModuleCommand extends Command {
 
         logger.log(Level.INFO,"Finished executing add command.");
         fh.close();
+
+        storage.saver(currentPerson);
     }
 
     /**

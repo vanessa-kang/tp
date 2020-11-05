@@ -52,6 +52,7 @@ Valid grades are:
 	Special Grades: CS, CU, S, U, W, IC, IP, AUD, WU, EXE
 	If you have yet to have a grade for the module: NT
 CS1010 added into Semester 2.
+Data successfully saved!
 
 Type in an Academic Planner command to continue...
 ____________________________________________________________

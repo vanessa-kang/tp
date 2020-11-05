@@ -2,17 +2,20 @@ package seedu.duke.apps.academicplanner;
 
 import seedu.duke.apps.academicplanner.commands.AddModuleCommand;
 import seedu.duke.apps.academicplanner.commands.EditModuleCommand;
+import seedu.duke.apps.academicplanner.commands.RemoveModuleCommand;
+import seedu.duke.apps.academicplanner.commands.SearchModulesCommand;
 import seedu.duke.apps.academicplanner.commands.ModuleDetailsCommand;
 import seedu.duke.apps.academicplanner.commands.PrintCalenderCommand;
 import seedu.duke.apps.academicplanner.commands.PrintHelpCommand;
-import seedu.duke.apps.academicplanner.commands.RemoveModuleCommand;
-import seedu.duke.apps.academicplanner.commands.SearchModulesCommand;
 import seedu.duke.apps.moduleloader.ModuleLoader;
-import seedu.duke.global.exceptions.CommandParserException;
 import seedu.duke.global.Command;
+import seedu.duke.global.exceptions.CommandParserException;
 import seedu.duke.global.objects.Person;
+import seedu.duke.storage.Storage;
 import seedu.duke.ui.Ui;
+
 import java.util.Scanner;
+
 import static seedu.duke.parser.AppParser.CAP_CALCULATOR;
 
 //@@author jerroldlam
@@ -49,7 +52,7 @@ public class AcademicPlannerParser {
      * @return Command to be executed
      * @throws CommandParserException to return with error message
      */
-    public static Command parse(String userInput, ModuleLoader allModules, Person currentPerson, Ui ui)
+    public static Command parse(String userInput, ModuleLoader allModules, Person currentPerson, Ui ui, Storage storage)
         throws CommandParserException {
 
         String[] inputs = processInput(userInput);
@@ -57,13 +60,13 @@ public class AcademicPlannerParser {
         Scanner in = ui.getScanner();
 
         if (userCommand.equals(ADD_COMMAND) && hasParameter(inputs)) {
-            return new AddModuleCommand(allModules, currentPerson, ui, inputs[MODULE_CODE_INDEX]);
+            return new AddModuleCommand(allModules, currentPerson, ui, inputs[MODULE_CODE_INDEX], storage);
 
         } else if (userCommand.equals(EDIT_COMMAND) && hasParameter(inputs)) {
-            return new EditModuleCommand(allModules, currentPerson, ui, inputs[MODULE_CODE_INDEX]);
+            return new EditModuleCommand(allModules, currentPerson, ui, inputs[MODULE_CODE_INDEX], storage);
 
         } else if (userCommand.equals(REMOVE_COMMAND) && hasParameter(inputs)) {
-            return new RemoveModuleCommand(allModules, currentPerson, inputs[MODULE_CODE_INDEX]);
+            return new RemoveModuleCommand(allModules, currentPerson, inputs[MODULE_CODE_INDEX], storage);
 
         } else if (userCommand.equals(VIEW_COMMAND)) {
             return new PrintCalenderCommand(currentPerson, in);
@@ -73,7 +76,7 @@ public class AcademicPlannerParser {
 
         } else if (userCommand.equals(DETAILS_COMMAND) && hasParameter(inputs)) {
             return new ModuleDetailsCommand(allModules, inputs[MODULE_CODE_INDEX]);
-          
+
         } else if (userCommand.equals(SEARCH_COMMAND) && hasParameter(inputs)) {
             return new SearchModulesCommand(allModules, inputs[MODULE_CODE_INDEX]);
 
