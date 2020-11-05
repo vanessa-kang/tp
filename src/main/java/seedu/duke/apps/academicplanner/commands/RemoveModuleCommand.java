@@ -1,11 +1,13 @@
 package seedu.duke.apps.academicplanner.commands;
 
-import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.apps.academicplanner.commons.ModuleValidator;
 import seedu.duke.apps.academicplanner.commons.RemoveUtils;
 import seedu.duke.apps.academicplanner.exceptions.AcademicException;
+import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.global.Command;
 import seedu.duke.global.objects.Person;
+import seedu.duke.storage.Storage;
+
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -18,16 +20,20 @@ public class RemoveModuleCommand extends Command {
     private static final String ERROR_NOT_ADDED = "You have not added this module into your list yet";
     private static final String MODULE_REMOVED = "Module removed successfully.";
 
+    private Person currentPerson;
     private RemoveUtils removeUtils;
     private ModuleValidator moduleValidator;
     private HashMap<String, Integer> modulesAddedMap;
     private String moduleCode;
+    private Storage storage;
 
-    public RemoveModuleCommand(ModuleLoader allModules, Person currentPerson, Scanner in, String moduleCode) {
+    public RemoveModuleCommand(ModuleLoader allModules, Person currentPerson, Scanner in, String moduleCode, Storage storage) {
         this.removeUtils = new RemoveUtils(currentPerson);
         this.moduleValidator = new ModuleValidator(allModules, currentPerson);
         this.modulesAddedMap = currentPerson.getModulesAddedMap();
         this.moduleCode = moduleCode;
+        this.currentPerson = currentPerson;
+        this.storage = storage;
     }
 
     /**
@@ -41,6 +47,7 @@ public class RemoveModuleCommand extends Command {
         } else if (moduleValidator.isModTakenByUser(moduleCode)) {
             removeUtils.removeModuleFromUserModuleList(moduleCode);
             System.out.println(MODULE_REMOVED);
+            storage.saver(currentPerson);
         } else {
             throw new AcademicException(ERROR_NOT_ADDED);
         }

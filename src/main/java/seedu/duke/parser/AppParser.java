@@ -3,9 +3,10 @@ package seedu.duke.parser;
 import seedu.duke.apps.academicplanner.AcademicPlannerApp;
 import seedu.duke.apps.capcalculator.CapCalculatorApp;
 import seedu.duke.apps.moduleloader.ModuleLoader;
-import seedu.duke.global.exceptions.AppParserException;
 import seedu.duke.global.App;
+import seedu.duke.global.exceptions.AppParserException;
 import seedu.duke.global.objects.Person;
+import seedu.duke.storage.Storage;
 import seedu.duke.ui.Ui;
 
 //@@author Khenus
@@ -35,12 +36,12 @@ public class AppParser {
      * @return app to be run
      * @throws AppParserException thrown when an invalid command is give
      */
-    public static App parse(String userInput, ModuleLoader allModules, Person currentPerson, Ui ui)
+    public static App parse(String userInput, ModuleLoader allModules, Person currentPerson, Ui ui, Storage storage)
             throws AppParserException {
         userInput = userInput.trim().toUpperCase();
 
         if (userInput.equals(ACADEMIC_PLAN_COMMAND) || userInput.equals(ACADEMIC_PLAN_SHORT_COMMAND)) {
-            return new AcademicPlannerApp(allModules, currentPerson, ui);
+            return new AcademicPlannerApp(allModules, currentPerson, ui, storage);
         } else if (userInput.equals(CAP_CALCULATOR_COMMAND) || userInput.equals(CAP_CALCULATOR_SHORT_COMMAND)) {
             return new CapCalculatorApp(currentPerson, ui);
         } else if (userInput.equals(EXIT_COMMAND) || userInput.equals(EXIT_SHORT_COMMAND)) {
@@ -60,11 +61,11 @@ public class AppParser {
      * @return app to be run
      * @throws AppParserException thrown when an invalid command is give
      */
-    public static App specialParse(int newApp, ModuleLoader allModules, Person currentPerson, Ui ui)
+    public static App specialParse(int newApp, ModuleLoader allModules, Person currentPerson, Ui ui, Storage storage)
             throws AppParserException {
 
         if (newApp == ACADEMIC_PLANNER) {
-            return new AcademicPlannerApp(allModules, currentPerson, ui);
+            return new AcademicPlannerApp(allModules, currentPerson, ui, storage);
         } else if (newApp == CAP_CALCULATOR) {
             return new CapCalculatorApp(currentPerson, ui);
         } else if (newApp == MENU_PAGE) {

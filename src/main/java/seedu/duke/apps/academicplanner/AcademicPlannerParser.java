@@ -1,20 +1,15 @@
 package seedu.duke.apps.academicplanner;
 
-import seedu.duke.apps.academicplanner.commands.AddModuleCommand;
-import seedu.duke.apps.academicplanner.commands.EditModuleCommand;
-import seedu.duke.apps.academicplanner.commands.ModuleDetailsCommand;
-import seedu.duke.apps.academicplanner.commands.PrintCalenderCommand;
-import seedu.duke.apps.academicplanner.commands.PrintHelpCommand;
-import seedu.duke.apps.academicplanner.commands.RemoveModuleCommand;
-import seedu.duke.apps.academicplanner.commands.SearchModulesCommand;
+import seedu.duke.apps.academicplanner.commands.*;
 import seedu.duke.apps.moduleloader.ModuleLoader;
-import seedu.duke.global.exceptions.CommandParserException;
 import seedu.duke.global.Command;
+import seedu.duke.global.exceptions.CommandParserException;
 import seedu.duke.global.objects.Person;
+import seedu.duke.storage.Storage;
 import seedu.duke.ui.Ui;
+
 import java.util.Scanner;
 
-import static seedu.duke.parser.AppParser.ACADEMIC_PLANNER;
 import static seedu.duke.parser.AppParser.CAP_CALCULATOR;
 
 //@@author jerroldlam
@@ -50,7 +45,7 @@ public class AcademicPlannerParser {
      * @return Command to be executed
      * @throws CommandParserException to return with error message
      */
-    public static Command parse(String userInput, ModuleLoader allModules, Person currentPerson, Ui ui)
+    public static Command parse(String userInput, ModuleLoader allModules, Person currentPerson, Ui ui, Storage storage)
         throws CommandParserException {
 
         userInput = userInput.replaceAll("\\s+"," ");
@@ -58,13 +53,13 @@ public class AcademicPlannerParser {
         Scanner in = ui.getScanner();
 
         if (inputs[COMMAND_INDEX].equals(ADD_COMMAND) && inputs.length == CORRECT_COMMAND_LENGTH) {
-            return new AddModuleCommand(allModules, currentPerson, in, inputs[MODULE_CODE_INDEX]);
+            return new AddModuleCommand(allModules, currentPerson, in, inputs[MODULE_CODE_INDEX], storage);
 
         } else if (inputs[COMMAND_INDEX].equals(EDIT_COMMAND) && inputs.length == CORRECT_COMMAND_LENGTH) {
-            return new EditModuleCommand(allModules, currentPerson, in, inputs[MODULE_CODE_INDEX]);
+            return new EditModuleCommand(allModules, currentPerson, in, inputs[MODULE_CODE_INDEX], storage);
 
         } else if (inputs[COMMAND_INDEX].equals(REMOVE_COMMAND) && inputs.length == CORRECT_COMMAND_LENGTH) {
-            return new RemoveModuleCommand(allModules, currentPerson, in, inputs[MODULE_CODE_INDEX]);
+            return new RemoveModuleCommand(allModules, currentPerson, in, inputs[MODULE_CODE_INDEX], storage);
 
         } else if (inputs[COMMAND_INDEX].equals(VIEW_COMMAND)) {
             return new PrintCalenderCommand(currentPerson, in);
