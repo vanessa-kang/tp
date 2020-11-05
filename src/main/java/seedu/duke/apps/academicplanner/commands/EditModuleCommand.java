@@ -6,6 +6,7 @@ import seedu.duke.apps.academicplanner.exceptions.AcademicException;
 import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.global.Command;
 import seedu.duke.global.objects.Person;
+import seedu.duke.ui.Ui;
 import seedu.duke.storage.Storage;
 
 import java.util.Scanner;
@@ -26,15 +27,17 @@ public class EditModuleCommand extends Command {
 
     private EditUtils editUtils;
     private ModuleValidator moduleValidator;
+    private Ui ui;
     private Person currentPerson;
     private Scanner in;
     private String moduleCode;
     private Storage storage;
-
+  
     public EditModuleCommand(ModuleLoader allModules, Person currentPerson, Scanner in, String moduleCode, Storage storage) {
         this.editUtils = new EditUtils(allModules, currentPerson);
         this.moduleValidator = new ModuleValidator(allModules, currentPerson);
-        this.in = in;
+        this.ui = ui;
+        this.in = ui.getScanner();
         this.moduleCode = moduleCode;
         this.currentPerson = currentPerson;
         this.storage = storage;

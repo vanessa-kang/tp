@@ -13,16 +13,17 @@ With the CAP Calculator , PlanNUS will be able to tell you your current CAP and 
    * What it does: Allows the user to display his or her current Cap, graded MCs and total MCs after adding some modules inside Academic Planner.
    * Justification: This feature is the basic feature for Cap Calculator and it provides the details user needed for the rest of the other features.
    * Highlights: The implementation of this feature was initally set to have a time complexity of O(n) where n is the number of moudules that the user has added. The time complexity is then improved to be O(1) after some updates.
+   * Credits: Improvements are made due to Khenus's `CalculatorUtils`.
    
 * **New Feature:** Added the ability to set a target Cap given some graded MCs.
    * What it does: Informs the user what his or her Cap have to be for a given graded MCs in order to achieve his or her target Cap.
-   * Justification: This feature is allows the user to plan for upcoming semester or for the rest of his or her university curriculum.
-   * Highlights: 
+   * Justification: This feature is allows the user to plan for upcoming semester or even for the rest of his or her university curriculum.
+   * Highlights: This enhancement takes CAP and MC information that is provided by the user in Acadamic Planner. Thus, it is important that this enhancement is extracting the correct information for its purpose to avoid a wrongly displayed result. 
    
 * **New Feature:** Added the ability to provide suggestion on S/U to users.
    * What it does: Provide details on what modules to S/U in order to achieve the highest Cap possible.
    * Justification: This feature is allows the user to plan for S/U modules after result release.
-   * Highlights: 
+   * Highlights: This enhancement is affected by the module list in the `Person` object. Thus, it is cruicial to filter out modules that cannot be S/Ued to provide user with the correct information and suggestion that allows them to achieve the best Cap.
    
 * **Documentation**
     * User Guide
