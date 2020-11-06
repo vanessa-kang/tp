@@ -55,14 +55,14 @@ public class PlanNus {
                 App selectedApp;
 
                 if (isChangeApp) {
-                    selectedApp = AppParser.specialParse(currentApp, allModules, currentPerson, ui);
+                    selectedApp = AppParser.specialParse(currentApp, allModules, currentPerson, ui, storage);
                     isChangeApp = false;
                     currentApp = MENU_PAGE;
                 } else {
                     ui.showAwaitCommand();
                     ui.printLine();
                     String userInput = ui.getScanner().nextLine();
-                    selectedApp = AppParser.parse(userInput, allModules, currentPerson, ui);
+                    selectedApp = AppParser.parse(userInput, allModules, currentPerson, ui, storage);
                 }
 
                 selectedApp.run();

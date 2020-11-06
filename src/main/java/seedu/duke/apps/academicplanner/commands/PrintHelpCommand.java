@@ -8,7 +8,8 @@ import seedu.duke.global.Command;
  */
 public class PrintHelpCommand extends Command {
 
-    private static final String COMMANDS_LIST = "Available commands are:\n"
+    private static final String COMMANDS_LIST = "____________________________________________________________\n"
+            + "Available commands are:\n"
             + "\tadd <module code>\n"
             + "\tedit <module code>\n"
             + "\tremove <module code>\n"

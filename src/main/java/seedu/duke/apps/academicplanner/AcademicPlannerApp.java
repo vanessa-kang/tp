@@ -4,6 +4,7 @@ import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.global.App;
 import seedu.duke.global.Command;
 import seedu.duke.global.objects.Person;
+import seedu.duke.storage.Storage;
 import seedu.duke.ui.Ui;
 
 import static seedu.duke.parser.AppParser.ACADEMIC_PLANNER;
@@ -30,6 +31,7 @@ public class AcademicPlannerApp extends App {
     private final ModuleLoader allModules;
     private final Person currentPerson;
     private Ui ui;
+    private Storage storage;
 
     /**
      * Default constructor for Academic Planner App.
@@ -38,10 +40,11 @@ public class AcademicPlannerApp extends App {
      * @param currentPerson current user
      * @param ui ui of PlanNUS
      */
-    public AcademicPlannerApp(ModuleLoader allModules, Person currentPerson, Ui ui) {
+    public AcademicPlannerApp(ModuleLoader allModules, Person currentPerson, Ui ui, Storage storage) {
         this.allModules = allModules;
         this.currentPerson = currentPerson;
         this.ui = ui;
+        this.storage = storage;
     }
 
     /**
@@ -57,7 +60,7 @@ public class AcademicPlannerApp extends App {
                 ui.showAcademicAwaitCommand();
                 ui.printLine();
                 String userInput = ui.getScanner().nextLine();
-                Command commandInput = AcademicPlannerParser.parse(userInput, allModules, currentPerson, ui);
+                Command commandInput = AcademicPlannerParser.parse(userInput, allModules, currentPerson, ui, storage);
                 commandInput.execute();
 
                 if (commandInput.getIsChangeApp()) {

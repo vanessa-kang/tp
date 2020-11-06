@@ -126,4 +126,31 @@ public class ModuleValidator {
             return false;
         }
     }
+
+    /**
+     * Returns true if grade is a valid retakeable grade,
+     * else returns false.
+     *
+     * @param grade grade to check
+     * @return boolean
+     */
+    public boolean isRetakeGrade(String grade) {
+        switch (grade.toUpperCase()) {
+        case "F":
+            //Fallthrough
+        case "CU" :
+            //Fallthrough
+        case "U":
+            //Fallthrough
+        case "W":
+            //Fallthrough
+        case "AUD":
+            //Fallthrough
+        case "WU":
+            //Fallthrough
+            return true;
+        default:
+            return false;
+        }
+    }
 }

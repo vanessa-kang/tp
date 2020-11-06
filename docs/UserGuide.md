@@ -122,8 +122,9 @@ Directs user to the page where he/she can plan a personalized academic journey i
 Input format: `acadplan`  or `a`
 
 <table><tr><td><div style="text-align:center">
-    <img src="images/UserGuide/acadplan_features.png" height="350"/>
+    <img src="images/UserGuide/acadplan_features.png" />
 </div></td></tr></table>
+
 
 <br>
 
@@ -201,6 +202,7 @@ __<ins>Caution:</ins>__
 
 * Only modules that have been added into the calendar can be removed
   
+
 <br>
 
 #### 6.1.4. Viewing the details of a module: `details`
@@ -272,8 +274,9 @@ Expected output when user wishes to print a specific semester:
 Input format: `help`
 
 <table><tr><td><div style="text-align:center">
-    <img src="images/UserGuide/acadplan_help.png" height="350"/>
+    <img src="images/UserGuide/acadplan_help.png" />
 </div></td></tr></table>
+
 
 <br>
 
@@ -284,21 +287,23 @@ Users can choose to switch to the _CAP Calculator_ app from within the _Academic
 Input format: `capcalc`
 
 <table><tr><td><div style="text-align:center">
-    <img src="images/UserGuide/acadplan_capcalcswitch.png" height="400" />
+    <img src="images/UserGuide/acadplan_capcalcswitch.png" />
 </div></td></tr></table>
+
 
 <br>
 
 
 ### 6.2. Cap Calculator: `capcalc`
 
-Directs user to the page where he/she can view the `current` CAP or even `set target` CAP to be met in the upcoming semester(s). 
+Directs user to the page where he/she can view the `current` CAP or even `set target` CAP to be met in the upcoming semester(s) from **Main Menu**. 
 
 Input format: `capcalc` or `c`
 
 <table><tr><td><div style="text-align:center">
-    <img src="images/UserGuide/capcalc_features.png" height="350" />
+    <img src="images/UserGuide/capcalc_features.png"  />
 </div></td></tr></table>
+
 
 <br>
 
@@ -394,7 +399,7 @@ __<ins>Caution:</ins>__
 
 * Duplicate modules are not allowed.
 * Number of modules to be S/Ued should not be greater than number of modules taken by the user.
- 
+
  <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_set_su_modules_output2.png" />
 </div></td></tr></table>
@@ -416,8 +421,9 @@ Lastly, user will be displayed with the modules that he or she should S/U in ord
 Input format: `help`
 
 <table><tr><td><div style="text-align:center">
-    <img src="images/UserGuide/capcalc_help.png" height="300"/>
+    <img src="images/UserGuide/capcalc_help.png" />
 </div></td></tr></table>
+
 
 <br>
 
@@ -428,8 +434,9 @@ Input format: `acadplan`
 Users can choose to switch to the _Academic Planner_ app from within the _CAP Calculator_ app.
 
 <table><tr><td><div style="text-align:center">
-    <img src="images/UserGuide/capcalc_acadplanswitch.png" height="400" />
+    <img src="images/UserGuide/capcalc_acadplanswitch.png" />
 </div></td></tr></table>
+
 
 <br>
 
