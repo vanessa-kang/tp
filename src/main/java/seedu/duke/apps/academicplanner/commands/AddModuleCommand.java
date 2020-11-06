@@ -6,11 +6,13 @@ import seedu.duke.apps.academicplanner.exceptions.AcademicException;
 import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.global.Command;
 import seedu.duke.global.LoggingTool;
+import seedu.duke.global.objects.PartialModule;
 import seedu.duke.global.objects.Person;
 import seedu.duke.storage.Storage;
 import seedu.duke.ui.Ui;
-
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
@@ -31,6 +33,7 @@ public class AddModuleCommand extends Command {
             + "\tSpecial Grades: CS, CU, S, U, W, IC, IP, AUD, WU, EXE\n"
             + "\tIf you have yet to have a grade for the module: NT";
     private static final String VALID_SEMESTERS = "\tValid semesters are integers from 1 to 10, inclusive";
+    private static final String RETAKE_MOD = "This is a module that you are retaking!";
     private static final String LOG_FILE_NAME = "AddModuleCommand.log";
     private static final String LOGGER_NAME = "AddModuleCommand";
 
@@ -152,10 +155,28 @@ public class AddModuleCommand extends Command {
         }
 
         if (moduleValidator.isModTakenByUser(moduleCode)) {
-            logger.log(Level.WARNING,"Module entered is duplicated.");
-            fh.close();
-            throw new AcademicException(ERROR_DUPLICATE_MOD);
+            PartialModule module = getPartialModule();
+            if (moduleValidator.isRetakeGrade(module.getGrade())) {
+                System.out.println(RETAKE_MOD);
+            } else {
+                logger.log(Level.WARNING, "Module entered is duplicated.");
+                fh.close();
+                throw new AcademicException(ERROR_DUPLICATE_MOD);
+            }
         }
+    }
+
+    /**
+     * Returns partial module object of module code.
+     *
+     * @return PartialModule
+     */
+    private PartialModule getPartialModule() {
+        HashMap<String, Integer> modulesAddedMap = currentPerson.getModulesAddedMap();
+        ArrayList<PartialModule> modulesAddedList = currentPerson.getModulesList();
+        Integer moduleIndex = modulesAddedMap.get(moduleCode);
+        PartialModule module = modulesAddedList.get(moduleIndex);
+        return module;
     }
 
     /**
