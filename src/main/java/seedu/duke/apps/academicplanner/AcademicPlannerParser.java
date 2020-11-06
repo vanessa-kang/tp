@@ -56,7 +56,7 @@ public class AcademicPlannerParser {
     public static Command parse(String userInput, ModuleLoader allModules, Person currentPerson, Ui ui, Storage storage)
         throws CommandParserException {
 
-        String[] inputs = processInput(userInput);
+        String[] inputs = processInput(userInput.trim());
         String userCommand = inputs[COMMAND_INDEX];
         Scanner in = ui.getScanner();
 
