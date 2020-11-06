@@ -3,8 +3,7 @@
 ## Overview
 
 PlanNUS is a greenfield, CLI-based project which aims to solve the gap in undergraduate academic planning in NUS.
-With the Academic Calendar Planner, PlanNUS will be able to assist undergraduate students in forecasting their academic journey for their 4 or 5 years in NUS.
-With the CAP Calculator , PlanNUS will be able to tell you your current CAP and forecast future grades needed to achieve your target CAP.
+It aims to assist students in NUS by providing them an avenue to easily plan their academic calendar, both for the past and the future. The CAP calculator is by far the most convenient implementation as it leverages on existing data in the academic planner to obtain grade statistics, allowing for hassle-free and worry-free calculations.
 
 ### Summary of Contributions
 
