@@ -46,7 +46,7 @@ public class CapCalculatorParser {
         if (userInput.equals(CURRENT_COMMAND)) {
             return new CurrentCommand(currentPerson);
         } else if (userInput.equals(SET_TARGET_COMMAND)) {
-            return new SetTargetCommand(currentPerson, in);
+            return new SetTargetCommand(currentPerson, ui);
         } else if (userInput.equals((SET_SU_COMMAND))) {
             promptUserForSuCommand();
             String choice = in.nextLine().trim();

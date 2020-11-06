@@ -156,7 +156,7 @@ public class AcademicPlannerParser {
      * @param inputs user input
      * @return boolean
      */
-    private static boolean hasNoParameter(String[] inputs) {
+    public static boolean hasNoParameter(String[] inputs) {
         return inputs.length == 1;
     }
 }
