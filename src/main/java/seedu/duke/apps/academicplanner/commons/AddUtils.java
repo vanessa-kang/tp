@@ -16,7 +16,7 @@ public class AddUtils {
 
     private final ModuleLoader allModules;
     private final ArrayList<PartialModule> modulesList;
-    private final HashMap<String, Integer> modulesAddedMap;
+    private final HashMap<String, ArrayList<Integer>> modulesAddedMap;
     private final CalculatorUtils calculatorUtils;
 
     /**
@@ -60,7 +60,18 @@ public class AddUtils {
      */
     private void populate(String moduleCode, PartialModule newModuleToAdd) {
         modulesList.add(newModuleToAdd);
-        modulesAddedMap.put(moduleCode, modulesList.size() - 1);
+        ArrayList<Integer> addedModuleIndex = modulesAddedMap.get(moduleCode);
+
+        if (addedModuleIndex == null || addedModuleIndex.size() == 0) {
+            ArrayList<Integer> integerArrayToAdd = new ArrayList<>();
+            integerArrayToAdd.add(modulesList.size() - 1);
+            modulesAddedMap.put(moduleCode, integerArrayToAdd);
+        } else {
+            addedModuleIndex.add(modulesList.size() - 1);
+            modulesAddedMap.put(moduleCode, addedModuleIndex);
+        }
+
+
     }
 
     /**

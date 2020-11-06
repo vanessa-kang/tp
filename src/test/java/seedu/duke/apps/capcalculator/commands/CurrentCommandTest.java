@@ -101,7 +101,7 @@ class CurrentCommandTest {
         CurrentCommand currentCommand = new CurrentCommand(currentPerson);
         double currentCap = currentCommand.getCurrentCap();
         assertEquals(5, currentCap);
-        editUtils.updateModuleGrade("CS1010", "A-");
+        editUtils.updateModuleGrade("A-", 0);
         currentCap = currentCommand.getCurrentCap();
         assertEquals(4.5, currentCap);
     }
@@ -112,7 +112,7 @@ class CurrentCommandTest {
         CurrentCommand currentCommand = new CurrentCommand(currentPerson);
         double currentCap = currentCommand.getCurrentCap();
         assertEquals(5, currentCap);
-        editUtils.updateModuleGrade("CS1010", "S");
+        editUtils.updateModuleGrade("S", 0);
         currentCap = currentCommand.getCurrentCap();
         boolean isNan = Double.isNaN(currentCap);
         assertTrue(isNan);
