@@ -1,11 +1,14 @@
 package seedu.duke.apps.academicplanner.commons;
 
-import seedu.duke.apps.capcalculator.commons.CalculatorUtils;
-import seedu.duke.global.objects.PartialModule;
-import seedu.duke.global.objects.Person;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
+import static seedu.duke.apps.academicplanner.commons.SharedUtils.getEntryToBeEdited;
+import seedu.duke.apps.capcalculator.commons.CalculatorUtils;
+import seedu.duke.global.objects.PartialModule;
+import seedu.duke.global.objects.Person;
+import seedu.duke.ui.Ui;
 
 //@@author harryleecp
 /**
@@ -14,21 +17,23 @@ import java.util.Map;
 public class RemoveUtils {
     private static final int FROM_REMOVE = 3;
 
-    private final Map<String, Integer> modulesAddedMap;
+    private final Map<String, ArrayList<Integer>> modulesAddedMap;
     private final ArrayList<PartialModule> modulesList;
     private final CalculatorUtils calculatorUtils;
     private final Person currentPerson;
+    private final Ui ui;
 
     /**
      * Default constructor for RemoveUtils.
      *
      * @param currentPerson current user
      */
-    public RemoveUtils(Person currentPerson) {
+    public RemoveUtils(Ui ui, Person currentPerson) {
         this.modulesList = currentPerson.getModulesList();
         this.calculatorUtils = new CalculatorUtils(currentPerson);
         this.modulesAddedMap = currentPerson.getModulesAddedMap();
         this.currentPerson = currentPerson;
+        this.ui = ui;
     }
 
     /**
@@ -38,15 +43,22 @@ public class RemoveUtils {
      * @param moduleCode module to remove.
      */
     public void removeModuleFromUserModuleList(String moduleCode) {
+        Scanner in = ui.getScanner();
         final int totalNumberOfModules = modulesList.size();
 
-        Integer moduleIndex = modulesAddedMap.get(moduleCode);
-        PartialModule module = modulesList.get(moduleIndex);
+        try {
+            int indexToRemove = getEntryToBeEdited(in, moduleCode, currentPerson, FROM_REMOVE);
 
-        calculatorUtils.updateCap(FROM_REMOVE, module);
-        depopulate(module);
+            ArrayList<Integer> moduleIndexList = modulesAddedMap.get(moduleCode);
+            PartialModule module = modulesList.get(moduleIndexList.get(indexToRemove));
 
-        assert modulesList.size() == totalNumberOfModules - 1;
+            calculatorUtils.updateCap(FROM_REMOVE, module);
+            depopulate(module);
+
+            assert modulesList.size() == totalNumberOfModules - 1;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     /**
@@ -63,9 +75,16 @@ public class RemoveUtils {
      * Updates hashmap with the new module list.
      */
     private void updateHashmap() {
-        HashMap<String, Integer> newModuleAddedMap = new HashMap<>();
+        HashMap<String, ArrayList<Integer>> newModuleAddedMap = new HashMap<>();
         for (int i = 0; i < modulesList.size(); i++) {
-            newModuleAddedMap.put(modulesList.get(i).getModuleCode(), i);
+            String currentModuleCode = modulesList.get(i).getModuleCode();
+            if (newModuleAddedMap.containsKey(currentModuleCode)) {
+                newModuleAddedMap.get(currentModuleCode).add(i);
+            } else {
+                ArrayList<Integer> newIndexArray = new ArrayList<>();
+                newIndexArray.add(i);
+                newModuleAddedMap.put(modulesList.get(i).getModuleCode(), newIndexArray);
+            }
         }
         currentPerson.setModulesAddedMap(newModuleAddedMap);
     }
