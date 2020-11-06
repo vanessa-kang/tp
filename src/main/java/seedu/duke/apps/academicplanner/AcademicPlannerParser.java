@@ -60,13 +60,13 @@ public class AcademicPlannerParser {
         Scanner in = ui.getScanner();
 
         if (userCommand.equals(ADD_COMMAND) && hasParameter(inputs)) {
-            return new AddModuleCommand(allModules, currentPerson, ui, inputs[MODULE_CODE_INDEX], storage);
+            return new AddModuleCommand(allModules, currentPerson, ui, inputs[MODULE_CODE_INDEX].trim(), storage);
 
         } else if (userCommand.equals(EDIT_COMMAND) && hasParameter(inputs)) {
-            return new EditModuleCommand(allModules, currentPerson, ui, inputs[MODULE_CODE_INDEX], storage);
+            return new EditModuleCommand(allModules, currentPerson, ui, inputs[MODULE_CODE_INDEX].trim(), storage);
 
         } else if (userCommand.equals(REMOVE_COMMAND) && hasParameter(inputs)) {
-            return new RemoveModuleCommand(allModules, currentPerson, inputs[MODULE_CODE_INDEX], storage);
+            return new RemoveModuleCommand(allModules, currentPerson, inputs[MODULE_CODE_INDEX].trim(), storage);
 
         } else if (userCommand.equals(VIEW_COMMAND)) {
             return new PrintCalenderCommand(currentPerson, in);
@@ -75,10 +75,10 @@ public class AcademicPlannerParser {
             return new PrintHelpCommand();
 
         } else if (userCommand.equals(DETAILS_COMMAND) && hasParameter(inputs)) {
-            return new ModuleDetailsCommand(allModules, inputs[MODULE_CODE_INDEX]);
+            return new ModuleDetailsCommand(allModules, inputs[MODULE_CODE_INDEX].trim());
 
         } else if (userCommand.equals(SEARCH_COMMAND) && hasParameter(inputs)) {
-            return new SearchModulesCommand(allModules, inputs[MODULE_CODE_INDEX]);
+            return new SearchModulesCommand(allModules, inputs[MODULE_CODE_INDEX].trim());
 
         } else if (userCommand.equals(TO_CAP_CALCULATOR_COMMAND)) {
             return new Command(true, true, CAP_CALCULATOR);
