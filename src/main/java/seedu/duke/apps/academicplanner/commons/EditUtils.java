@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 import static seedu.duke.apps.academicplanner.commons.SharedUtils.getEntryToBeEdited;
+import static seedu.duke.apps.academicplanner.commons.SharedUtils.verifyRepeatedSemester;
+
 import seedu.duke.apps.academicplanner.exceptions.AcademicException;
 import seedu.duke.apps.capcalculator.commons.CalculatorUtils;
 import seedu.duke.apps.moduleloader.ModuleLoader;
@@ -57,7 +59,7 @@ public class EditUtils {
      * @throws AcademicException invalid grade
      */
     public void editModuleGrade(Scanner in, String moduleCode) throws AcademicException {
-        int indexToUpdate = getEntryToBeEdited(in, moduleCode, currentPerson, FROM_EDIT);
+        final int indexToUpdate = getEntryToBeEdited(in, moduleCode, currentPerson, FROM_EDIT);
 
         System.out.println(PROMPT_NEW_GRADE);
         System.out.println(VALID_GRADES);
@@ -105,7 +107,7 @@ public class EditUtils {
      * @throws AcademicException invalid semester index
      */
     public void editModuleSemester(Scanner in, String moduleCode) throws AcademicException {
-        int indexToUpdate = getEntryToBeEdited(in, moduleCode, currentPerson, FROM_EDIT);
+        final int indexToUpdate = getEntryToBeEdited(in, moduleCode, currentPerson, FROM_EDIT);
 
         System.out.println(PROMPT_NEW_SEMESTER_VALUE);
         System.out.println(VALID_SEMESTERS);
@@ -114,6 +116,8 @@ public class EditUtils {
         if (!ModuleValidator.isValidSemester(parseInt(newValue))) {
             throw new AcademicException(ERROR_INVALID_SEMESTER_INDEX);
         }
+
+        verifyRepeatedSemester(parseInt(newValue), currentPerson, moduleCode);
 
         ArrayList<Integer> moduleIndexList = modulesAddedMap.get(moduleCode);
         updateModuleSemester(newValue, moduleIndexList.get(indexToUpdate));

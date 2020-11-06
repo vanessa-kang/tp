@@ -25,7 +25,8 @@ public class RemoveModuleCommand extends Command {
     private Storage storage;
     private Ui ui;
 
-    public RemoveModuleCommand(ModuleLoader allModules, Person currentPerson, Ui ui, String moduleCode, Storage storage) {
+    public RemoveModuleCommand(ModuleLoader allModules, Person currentPerson,
+                               Ui ui, String moduleCode, Storage storage) {
         this.removeUtils = new RemoveUtils(ui, currentPerson);
         this.moduleValidator = new ModuleValidator(allModules, currentPerson);
         this.moduleCode = moduleCode;

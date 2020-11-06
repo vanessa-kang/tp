@@ -8,6 +8,7 @@ import seedu.duke.apps.academicplanner.commons.RemoveUtils;
 import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.apps.moduleloader.exceptions.ModuleLoaderException;
 import seedu.duke.global.objects.Person;
+import seedu.duke.ui.Ui;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -25,7 +26,7 @@ class CurrentCommandTest {
         currentPerson = new Person("Bob");
         allModules = new ModuleLoader();
         addUtils = new AddUtils(allModules,currentPerson);
-        removeUtils = new RemoveUtils(currentPerson);
+        removeUtils = new RemoveUtils(new Ui(), currentPerson);
         editUtils = new EditUtils(allModules, currentPerson);
     }
 

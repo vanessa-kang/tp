@@ -6,6 +6,7 @@ import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.apps.moduleloader.exceptions.ModuleLoaderException;
 import seedu.duke.global.objects.PartialModule;
 import seedu.duke.global.objects.Person;
+import seedu.duke.ui.Ui;
 
 import java.util.ArrayList;
 
@@ -26,7 +27,7 @@ class RemoveUtilsTest {
             currentPerson = new Person("Bob");
             addUtils = new AddUtils(allModules,currentPerson);
             moduleValidator = new ModuleValidator(allModules,currentPerson);
-            removeUtils = new RemoveUtils(currentPerson);
+            removeUtils = new RemoveUtils(new Ui(), currentPerson);
         } catch (ModuleLoaderException e) {
             System.out.println(e.getMessage());
         }
