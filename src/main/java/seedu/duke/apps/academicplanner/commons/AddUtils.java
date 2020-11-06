@@ -70,8 +70,6 @@ public class AddUtils {
             addedModuleIndex.add(modulesList.size() - 1);
             modulesAddedMap.put(moduleCode, addedModuleIndex);
         }
-
-
     }
 
     /**

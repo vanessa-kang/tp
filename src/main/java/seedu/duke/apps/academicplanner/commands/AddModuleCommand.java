@@ -29,7 +29,8 @@ public class AddModuleCommand extends Command {
     private static final String ERROR_INVALID_SEMESTER_INDEX = "INVALID SEMESTER INDEX";
     private static final String ERROR_INVALID_GRADE = "INVALID GRADE VALUE";
     private static final String ERROR_NOT_OFFERED = " IS NOT OFFERED BY NUS";
-    private static final String ERROR_DUPLICATE_MOD = "You already have this mod on your calendar!";
+    private static final String ERROR_DUPLICATE_MOD
+            = "You already have this mod on your calendar and you cannot retake!";
     private static final String VALID_GRADES = "Valid grades are:\n"
             + "\tLetter Grades: A+, A, A-, B+, B, B-, C+, C, D+, D, F\n"
             + "\tSpecial Grades: CS, CU, S, U, W, IC, IP, AUD, WU, EXE\n"
@@ -191,8 +192,20 @@ public class AddModuleCommand extends Command {
         HashMap<String, ArrayList<Integer>> modulesAddedMap = currentPerson.getModulesAddedMap();
         ArrayList<PartialModule> modulesAddedList = currentPerson.getModulesList();
 
-        Integer moduleIndex = modulesAddedMap.get(moduleCode).get(0);
-        PartialModule module = modulesAddedList.get(moduleIndex);
+        ArrayList<Integer> moduleIndexList = modulesAddedMap.get(moduleCode);
+
+        int highestCapIndex = moduleIndexList.get(0);
+        double highestCap = modulesAddedList.get(highestCapIndex).getCap();
+
+        for (int i = 0; i < moduleIndexList.size(); i++) {
+            double currentCap = modulesAddedList.get(moduleIndexList.get(i)).getCap();
+            if (currentCap > highestCap) {
+                highestCapIndex = moduleIndexList.get(i);
+                highestCap = currentCap;
+            }
+        }
+
+        PartialModule module = modulesAddedList.get(highestCapIndex);
         return module;
     }
 
