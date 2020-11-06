@@ -37,9 +37,7 @@ With the CAP Calculator , PlanNUS will be able to tell you your current CAP and 
 ## Features Coming Soon (V3.0 and beyond)
 
 * Logging of program to separate folders
-* Support retaking of modules
 * Support max limit for the `Set SU` function in `capcalc`
-* Saving data after every command
 * Support discontinued modules from NUS
 * Support shortened commands for parsers
 * Support validation of requirements for modules
