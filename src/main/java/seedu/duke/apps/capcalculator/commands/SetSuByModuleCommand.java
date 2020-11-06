@@ -8,7 +8,6 @@ import seedu.duke.global.objects.Person;
 import seedu.duke.ui.Ui;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 //@@author JuZihao
 /**

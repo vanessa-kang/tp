@@ -11,7 +11,6 @@ import seedu.duke.ui.Ui;
 import java.util.Scanner;
 
 import static seedu.duke.parser.AppParser.ACADEMIC_PLANNER;
-import static seedu.duke.parser.AppParser.CAP_CALCULATOR;
 
 //@@author JuZihao
 /**
