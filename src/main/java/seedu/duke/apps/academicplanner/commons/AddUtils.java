@@ -13,6 +13,7 @@ import java.util.HashMap;
  */
 public class AddUtils {
     private static final int FROM_ADD = 1;
+    private static final int EMPTY = 0;
 
     private final ModuleLoader allModules;
     private final ArrayList<PartialModule> modulesList;
@@ -62,7 +63,7 @@ public class AddUtils {
         modulesList.add(newModuleToAdd);
         ArrayList<Integer> addedModuleIndex = modulesAddedMap.get(moduleCode);
 
-        if (addedModuleIndex == null || addedModuleIndex.size() == 0) {
+        if (addedModuleIndex == null || addedModuleIndex.size() == EMPTY) {
             ArrayList<Integer> integerArrayToAdd = new ArrayList<>();
             integerArrayToAdd.add(modulesList.size() - 1);
             modulesAddedMap.put(moduleCode, integerArrayToAdd);

@@ -167,20 +167,24 @@ public class AddModuleCommand extends Command {
 
             if (moduleValidator.isRetakeGrade(module.getGrade())) {
                 isRetake = true;
-                ArrayList<PartialModule> allOccurrencesOfModule
-                        = getAllOccurrencesOfModule(currentPerson, moduleCode);
-
-                System.out.println(RETAKE_MOD);
-                printAllOccurrencesOfModule(allOccurrencesOfModule);
-                System.out.println(WARNING);
+                printRetakeHelp();
             } else {
                 logger.log(Level.WARNING, "Module entered is duplicated.");
                 fh.close();
                 throw new AcademicException(ERROR_DUPLICATE_MOD);
             }
         }
-
         return isRetake;
+    }
+
+    /**
+     * Prints help information for retaking modules.
+     */
+    private void printRetakeHelp() {
+        ArrayList<PartialModule> allOccurrencesOfModule = getAllOccurrencesOfModule(currentPerson, moduleCode);
+        System.out.println(RETAKE_MOD);
+        printAllOccurrencesOfModule(allOccurrencesOfModule);
+        System.out.println(WARNING);
     }
 
     /**
@@ -191,22 +195,36 @@ public class AddModuleCommand extends Command {
     private PartialModule getPartialModule() {
         HashMap<String, ArrayList<Integer>> modulesAddedMap = currentPerson.getModulesAddedMap();
         ArrayList<PartialModule> modulesAddedList = currentPerson.getModulesList();
-
         ArrayList<Integer> moduleIndexList = modulesAddedMap.get(moduleCode);
 
         int highestCapIndex = moduleIndexList.get(0);
         double highestCap = modulesAddedList.get(highestCapIndex).getCap();
 
-        for (int i = 0; i < moduleIndexList.size(); i++) {
-            double currentCap = modulesAddedList.get(moduleIndexList.get(i)).getCap();
-            if (currentCap > highestCap) {
-                highestCapIndex = moduleIndexList.get(i);
-                highestCap = currentCap;
-            }
-        }
+        highestCapIndex = getHighestCapModuleIndex(modulesAddedList, moduleIndexList, highestCapIndex, highestCap);
 
         PartialModule module = modulesAddedList.get(highestCapIndex);
         return module;
+    }
+
+    /**
+     * Returns the index of the highest scoring grade of the module.
+     *
+     * @param modulesAddedList List of PartialModule
+     * @param moduleIndexList List of index of module
+     * @param highestCapIndex Index of the current highest grade
+     * @param highestCap highest grade value
+     * @return index of the highest cap
+     */
+    private int getHighestCapModuleIndex(ArrayList<PartialModule> modulesAddedList, ArrayList<Integer> moduleIndexList,
+                                         int highestCapIndex, double highestCap) {
+        for (int index = 0; index < moduleIndexList.size(); index++) {
+            double currentCap = modulesAddedList.get(moduleIndexList.get(index)).getCap();
+            if (currentCap > highestCap) {
+                highestCapIndex = moduleIndexList.get(index);
+                highestCap = currentCap;
+            }
+        }
+        return highestCapIndex;
     }
 
     /**
