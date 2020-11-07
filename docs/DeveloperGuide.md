@@ -373,7 +373,6 @@ The following diagram summarizes what happens when the user executes a `ModuleDe
     <img src="./images/DeveloperGuide/moduleDetailsCommand_activity.png" alt="Activity diagram for View Module Details Command"/>
 </div>
 <br>
-<!-- @@author JuZihao -->
 
 ### 4.5. CAP Calculator feature : Set S/U by semester feature
 
@@ -423,7 +422,6 @@ The following diagram summarizes what happens when the user executes a `SetSuByS
     <img src="./images/DeveloperGuide/setSuBySemesterCommand_activity.png"/>
 </div>    
 <br>
-<!-- @@author-->
 
 ## 5. Useful Links
 
