@@ -524,10 +524,15 @@ __Extensions__
 __MSS__ 
 
 1. User chooses to edit a module currently in their academic calendar.
+
 2. PlanNUS prompts user to indicate the feature (semester/grade) that they would like to edit.
+
 3. User chooses feature to edit.
+
 4. PlanNUS prompts user to enter updated value for chosen feature.
+
 5. User enters updated value.
+
 6. PlanNUS edits the value accordingly, stores the updated value in the user's academic calendar, and displays a confirmation message.
 
 Use case ends.
@@ -647,7 +652,7 @@ __Extensions__
 
 __MSS__
 
-1. User chooses to view their current academic calendar.
+1. User chooses to view his or her current academic calendar.
 
 2. PlanNUS prompts user to indicate their desired viewing timeframe, i.e. 
 
@@ -680,23 +685,144 @@ __Extensions__
 
 **Use case 7: View list of available commands**
 
-**Preconditions: User is in the Academic Planner app.**
+**Preconditions: User is in the Academic Planner app or CAP Calculator app.**
 
 __MSS__
 
 1. User chooses to view the list of available commands in the Academic Planner app.
+
 2. PlanNUS displays the list of available commands.
 
 <br>
 
 **Use case 8: Exit back to PlanNUS**
 
-**Preconditions: User is in the Academic Planner app.**
+**Preconditions: User is in the Academic Planner app or CAP Calculator app.**
 
 __MSS__
 
 1. User chooses to exit from the Academic Planner app back to the PlanNUS main menu.
+
 2. PlanNUS exits back to the PlanNUS main menu.
+
+<br>
+
+**Use case 9: View current results in CAP Calculator**
+
+**Preconditions: User is in the CAP Calculator app.**
+
+__MSS__ 
+
+1. User chooses to view his or her current results.
+
+2. PlanNUS displays user's current results.
+
+Use case ends.
+
+<br>
+
+**Use case 10: Set target CAP in CAP Calculator**
+
+**Preconditions: User is in the CAP Calculator app.**
+
+__MSS__ 
+
+1. User chooses to set a target in CAP Calculator.
+
+2. PlanNUS prompts user for a target CAP.
+
+3. User enters a target CAP.
+
+4. PlanNus prompts user for number of graded MCs to achieve that target CAP.
+
+5. User enters a target graded MCs.
+
+6. PlanNus displays user with the results needed to achieve the target CAP.
+
+Use case ends.
+
+__Extensions__
+
+- 3a. User did not enter a valid target CAP.
+  - 3a1. PlanNUS shows an _invalid CAP_ error message.
+    
+    Use case ends.
+- 5a. User provides a valid target CAP, but the target MCs is not valid.
+  - 5a1. PlanNUS shows an _invalid MCs_ error message.
+    
+    Use case ends.
+
+<br>
+
+**Use case 11a: Set S/U by semester in CAP Calculator**
+
+**Preconditions: User is in the CAP Calculator app.**
+
+__MSS__ 
+
+1. User chooses to set S/U in CAP Calculator.
+
+2. PlanNUS prompts user for his or her desired set S/U method.
+    a) Set S/U by semester, or
+    
+    b) Set S/U by modules
+
+3. User enters to set S/U by semester.
+
+4. PlanNus prompts user for the semester that he or she wishes to S/U.
+
+5. PlanNus displays user with the the best CAP possible and the modules.
+
+Use case ends.
+
+__Extensions__
+
+- 3a. User did not enter a valid semester.
+  - 3a1. PlanNUS shows an _invalid semester_ error message.
+    
+    Use case ends.
+
+<br>
+
+**Use case 11b: Set S/U by modules in CAP Calculator**
+
+**Preconditions: User is in the CAP Calculator app.**
+
+__MSS__ 
+
+1. User chooses to set S/U in CAP Calculator.
+
+2. PlanNUS prompts user for his or her desired set S/U method.
+    a) Set S/U by semester, or
+    
+    b) Set S/U by modules
+
+3. User enters to set S/U by modules.
+
+4. PlanNus prompts user for number of modules that he or she wishes to S/U.
+
+5. PlanNus prompts user for the module codes that he or she wishes to S/U.
+
+6. User enters to the module codes.
+
+7. PlanNus displays user with the the best CAP possible and the modules.
+
+Use case ends.
+
+__Extensions__
+
+- 3a. User did not enter an integer.
+  - 3a1. PlanNUS shows an _invalid number_ error message.
+  
+- 3b. User enters a number that is too large.
+  - 3b1. PlanNUS shows a _number out of bound_ error message.
+
+    Use case ends.
+- 5a. User did not enter a valid module code.
+  - 5a1. PlanNUS shows an _invalid module_ error message.
+  
+- 5b. User enters a duplicated module code.
+  -5b1. PlanNUS shows a _duplicate module_ error message.
 
 <br>
 
