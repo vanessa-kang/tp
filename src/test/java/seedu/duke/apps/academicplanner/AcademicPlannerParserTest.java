@@ -82,6 +82,7 @@ class AcademicPlannerParserTest {
         final String input = "details cs1010";
         parseAndAssertCommandType(input,ModuleDetailsCommand.class,allModules,currentPerson,ui,storage);
     }
+
     @Test
     void parse_addModuleCommandWithSpaces_correct() {
         final String input = "   add    cs1010    ";
@@ -202,7 +203,8 @@ class AcademicPlannerParserTest {
         try {
             AcademicPlannerParser.parse(input,allModules,currentPerson,ui,storage);
         } catch (Exception e) {
-            assertEquals("ACADPLAN COMMAND:" + ERROR_HAS_PARAMETER + NEW_LINE + EXITING_CURRENT_COMMAND, e.getMessage());
+            assertEquals("ACADPLAN COMMAND:" + ERROR_HAS_PARAMETER + NEW_LINE
+                    + EXITING_CURRENT_COMMAND, e.getMessage());
         }
     }
 
