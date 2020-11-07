@@ -2,6 +2,7 @@ package seedu.duke.apps.academicplanner.commons;
 
 import static java.lang.Integer.parseInt;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 import seedu.duke.apps.academicplanner.exceptions.AcademicException;
 import seedu.duke.global.objects.PartialModule;
@@ -138,15 +139,85 @@ public class SharedUtils {
      * @param moduleCode Module code to be edited
      * @throws AcademicException Throws exception if the semester to be change already exists
      */
-    public static void verifyRepeatedSemester(int semesterValue, Person currentPerson, String moduleCode)
-            throws AcademicException {
+    public static void verifyRepeatedSemester(int semesterValue, Person currentPerson,
+        String moduleCode, ArrayList<PartialModule> userModuleList) throws AcademicException {
         ArrayList<Integer> moduleIndexList = currentPerson.getModulesAddedMap().get(moduleCode);
 
         for (int i = 0; i < moduleIndexList.size(); i++) {
-            if (semesterValue == moduleIndexList.get(i)) {
+            if (semesterValue == userModuleList.get(moduleIndexList.get(i)).getSemesterIndex()) {
                 String errorMessage = String.format("%s already exist in semester %d!", moduleCode, semesterValue);
                 throw new AcademicException(errorMessage);
             }
         }
+    }
+
+    public static boolean notAllowedSemesterUpdateForward(int newSemester,
+            ArrayList<Integer> moduleIndexList, ArrayList<PartialModule> userModuleList) {
+
+        ModuleValidator validator = new ModuleValidator();
+        int latestSemester = getLatestSemester(userModuleList, moduleIndexList);
+        PartialModule latestSemesterModule = userModuleList.get(moduleIndexList.get(latestSemester - 1));
+
+        if (newSemester > latestSemester && !validator.isRetakeGrade(latestSemesterModule.getGrade())) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Checks user is updating from fail to passing grade.
+     *
+     * @param previousGrade User's previous grade
+     * @param newGrade User's new grade
+     *
+     * @return User is updating from fail to passing grade.
+     */
+    public static boolean fromFailingToPass(String previousGrade, String newGrade) {
+        ModuleValidator validator = new ModuleValidator();
+
+        boolean isFailPrevious = validator.isRetakeGrade(previousGrade);
+        boolean isFailNew = validator.isRetakeGrade(newGrade);
+
+        return (isFailPrevious == true && isFailNew == false);
+    }
+
+
+    /**
+     * Returns the latest semester taken for the module.
+     *
+     * @param modulesAddedList List of modules added
+     * @return latestSemester
+     */
+    public static int getLatestSemester(ArrayList<PartialModule> modulesAddedList, ArrayList<Integer> indexArrayList) {
+        int latestSemester = modulesAddedList.get(0).getSemesterIndex();
+
+        for (int index = 0; index < indexArrayList.size(); index++) {
+            Integer currentIndexForModule = indexArrayList.get(index);
+            int currentSemester = modulesAddedList.get(currentIndexForModule).getSemesterIndex();
+
+            if (currentSemester > latestSemester) {
+                latestSemester = currentSemester;
+            }
+        }
+
+        return latestSemester;
+    }
+
+    //@@author harryleecp
+    public static void updateHashmap(ArrayList<PartialModule> modulesList, Person currentPerson) {
+        HashMap<String, ArrayList<Integer>> newModuleAddedMap = new HashMap<>();
+        for (int i = 0; i < modulesList.size(); i++) {
+            String currentModuleCode = modulesList.get(i).getModuleCode();
+
+            if (newModuleAddedMap.containsKey(currentModuleCode)) {
+                newModuleAddedMap.get(currentModuleCode).add(i);
+            } else {
+                ArrayList<Integer> newIndexArray = new ArrayList<>();
+                newIndexArray.add(i);
+                newModuleAddedMap.put(modulesList.get(i).getModuleCode(), newIndexArray);
+            }
+        }
+        currentPerson.setModulesAddedMap(newModuleAddedMap);
     }
 }

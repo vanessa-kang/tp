@@ -3,6 +3,7 @@ package seedu.duke.storage.commons;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Comparator;
+import static seedu.duke.apps.academicplanner.commons.SharedUtils.updateHashmap;
 import seedu.duke.global.objects.PartialModule;
 import seedu.duke.global.objects.Person;
 import seedu.duke.storage.exceptions.SaveFileException;
@@ -36,6 +37,8 @@ public class SaveUtils {
             FileWriter fw = new FileWriter(fileName);
             ArrayList<PartialModule> sortedBySem = currentPerson.getModulesList();
             sortedBySem.sort(Comparator.comparing(PartialModule::getSemesterIndex));
+
+            updateHashmap(currentPerson.getModulesList(), currentPerson);
 
             String textToSave = "";
 
