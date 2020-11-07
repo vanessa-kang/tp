@@ -30,6 +30,7 @@ public class AcademicPlannerParser {
     private static final String EXITING_CURRENT_COMMAND = "Exiting current command back to Academic Planner Main Menu.";
     private static final String ERROR_INVALID_COMMAND = "INVALID COMMAND";
     private static final String ERROR_NO_PARAMETER = " NO PARAMETER AFTER COMMAND";
+    private static final String ERROR_HAS_PARAMETER = " NO PARAMETER ALLOWED AFTER COMMAND";
     private static final String ERROR_IN_ACADPLAN = "Sorry, you are already in Academic Planner!";
     private static final String ADD_COMMAND = "ADD";
     private static final String EDIT_COMMAND = "EDIT";
@@ -55,40 +56,42 @@ public class AcademicPlannerParser {
     public static Command parse(String userInput, ModuleLoader allModules, Person currentPerson, Ui ui, Storage storage)
         throws CommandParserException {
 
-        String[] inputs = processInput(userInput);
+        String[] inputs = processInput(userInput.trim());
         String userCommand = inputs[COMMAND_INDEX];
         Scanner in = ui.getScanner();
 
         if (userCommand.equals(ADD_COMMAND) && hasParameter(inputs)) {
-            return new AddModuleCommand(allModules, currentPerson, ui, inputs[MODULE_CODE_INDEX], storage);
+            return new AddModuleCommand(allModules, currentPerson, ui, inputs[MODULE_CODE_INDEX].trim(), storage);
 
         } else if (userCommand.equals(EDIT_COMMAND) && hasParameter(inputs)) {
-            return new EditModuleCommand(allModules, currentPerson, ui, inputs[MODULE_CODE_INDEX], storage);
+            return new EditModuleCommand(allModules, currentPerson, ui, inputs[MODULE_CODE_INDEX].trim(), storage);
 
         } else if (userCommand.equals(REMOVE_COMMAND) && hasParameter(inputs)) {
-            return new RemoveModuleCommand(allModules, currentPerson, inputs[MODULE_CODE_INDEX], storage);
+            return new RemoveModuleCommand(allModules, currentPerson, ui, inputs[MODULE_CODE_INDEX].trim(), storage);
 
-        } else if (userCommand.equals(VIEW_COMMAND)) {
+        } else if (userCommand.equals(VIEW_COMMAND) && hasNoParameter(inputs)) {
             return new PrintCalenderCommand(currentPerson, in);
 
-        } else if (userCommand.equals(HELP_COMMAND)) {
+        } else if (userCommand.equals(HELP_COMMAND) && hasNoParameter(inputs)) {
             return new PrintHelpCommand();
 
         } else if (userCommand.equals(DETAILS_COMMAND) && hasParameter(inputs)) {
-            return new ModuleDetailsCommand(allModules, inputs[MODULE_CODE_INDEX]);
+            return new ModuleDetailsCommand(allModules, inputs[MODULE_CODE_INDEX].trim());
 
         } else if (userCommand.equals(SEARCH_COMMAND) && hasParameter(inputs)) {
-            return new SearchModulesCommand(allModules, inputs[MODULE_CODE_INDEX]);
+            return new SearchModulesCommand(allModules, inputs[MODULE_CODE_INDEX].trim());
 
-        } else if (userCommand.equals(TO_CAP_CALCULATOR_COMMAND)) {
+        } else if (userCommand.equals(TO_CAP_CALCULATOR_COMMAND) && hasNoParameter(inputs)) {
             return new Command(true, true, CAP_CALCULATOR);
 
-        } else if (userCommand.equals(EXIT_COMMAND)) {
+        } else if (userCommand.equals(EXIT_COMMAND) && hasNoParameter(inputs)) {
             return new Command(true);
 
+        } else if (userCommand.equals(ACADEMIC_PLANNER_COMMAND) && hasNoParameter(inputs)) {
+            throw new CommandParserException(ERROR_IN_ACADPLAN + NEW_LINE + EXITING_CURRENT_COMMAND);
         } else {
             String errorMessage = determineError(inputs);
-            throw new CommandParserException(errorMessage);
+            throw new CommandParserException(errorMessage + NEW_LINE + EXITING_CURRENT_COMMAND);
         }
     }
 
@@ -98,7 +101,7 @@ public class AcademicPlannerParser {
      * @param userInput user input
      * @return string array
      */
-    private static String[] processInput(String userInput) {
+    public static String[] processInput(String userInput) {
         userInput = userInput.replaceAll("\\s+"," ");
         String[] inputs = userInput.toUpperCase().split(" ",2);
         return inputs;
@@ -113,25 +116,27 @@ public class AcademicPlannerParser {
     private static String determineError(String[] inputs) {
         switch (inputs[COMMAND_INDEX]) {
         case ADD_COMMAND:
-            return ("ADD COMMAND :" + ERROR_NO_PARAMETER
-                    + NEW_LINE + EXITING_CURRENT_COMMAND);
+            return ("ADD COMMAND:" + ERROR_NO_PARAMETER);
         case EDIT_COMMAND:
-            return ("EDIT COMMAND :" + ERROR_NO_PARAMETER
-                    + NEW_LINE + EXITING_CURRENT_COMMAND);
+            return ("EDIT COMMAND:" + ERROR_NO_PARAMETER);
         case REMOVE_COMMAND:
-            return ("REMOVE COMMAND :" + ERROR_NO_PARAMETER
-                    + NEW_LINE + EXITING_CURRENT_COMMAND);
+            return ("REMOVE COMMAND:" + ERROR_NO_PARAMETER);
         case SEARCH_COMMAND:
-            return ("SEARCH COMMAND :" + ERROR_NO_PARAMETER
-                    + NEW_LINE + EXITING_CURRENT_COMMAND);
+            return ("SEARCH COMMAND:" + ERROR_NO_PARAMETER);
         case DETAILS_COMMAND:
-            return ("DETAILS COMMAND :" + ERROR_NO_PARAMETER
-                    + NEW_LINE + EXITING_CURRENT_COMMAND);
+            return ("DETAILS COMMAND:" + ERROR_NO_PARAMETER);
         case ACADEMIC_PLANNER_COMMAND:
-            return (ERROR_IN_ACADPLAN
-                    + NEW_LINE + EXITING_CURRENT_COMMAND);
+            return ("ACADPLAN COMMAND:" + ERROR_HAS_PARAMETER);
+        case VIEW_COMMAND:
+            return ("VIEW COMMAND:" + ERROR_HAS_PARAMETER);
+        case HELP_COMMAND:
+            return ("HELP COMMAND:" + ERROR_HAS_PARAMETER);
+        case EXIT_COMMAND:
+            return ("EXIT COMMAND:" + ERROR_HAS_PARAMETER);
+        case TO_CAP_CALCULATOR_COMMAND:
+            return ("CAPCALC COMMAND:" + ERROR_HAS_PARAMETER);
         default:
-            return (ERROR_INVALID_COMMAND + NEW_LINE + EXITING_CURRENT_COMMAND);
+            return (ERROR_INVALID_COMMAND);
         }
     }
 
@@ -144,5 +149,16 @@ public class AcademicPlannerParser {
      */
     private static boolean hasParameter(String[] inputs) {
         return inputs.length == CORRECT_COMMAND_LENGTH;
+    }
+
+    /**
+     * Returns true if input only has a command,
+     * else returns false.
+     *
+     * @param inputs user input
+     * @return boolean
+     */
+    public static boolean hasNoParameter(String[] inputs) {
+        return inputs.length == 1;
     }
 }

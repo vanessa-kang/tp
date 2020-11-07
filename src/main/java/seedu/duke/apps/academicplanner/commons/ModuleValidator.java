@@ -1,8 +1,9 @@
 package seedu.duke.apps.academicplanner.commons;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.global.objects.Person;
-import java.util.HashMap;
 
 //@@author jerroldlam
 /**
@@ -13,7 +14,7 @@ public class ModuleValidator {
     private static final int FINAL_SEMESTER_INDEX = 10;
 
     private final ModuleLoader allModules;
-    private final HashMap<String, Integer> modulesAddedMap;
+    private final HashMap<String, ArrayList<Integer>> modulesAddedMap;
 
     /**
      * Default constructor for ModuleValidator.

@@ -3,8 +3,7 @@
 ## Overview
 
 PlanNUS is a greenfield, CLI-based project which aims to solve the gap in undergraduate academic planning in NUS.
-With the Academic Calendar Planner, PlanNUS will be able to assist undergraduate students in forecasting their academic journey for their 4 or 5 years in NUS.
-With the CAP Calculator , PlanNUS will be able to tell you your current CAP and forecast future grades needed to achieve your target CAP.
+It aims to assist students in NUS by providing them an avenue to easily plan their academic calendar, both for the past and the future. The CAP calculator is by far the most convenient implementation as it leverages on existing data in the academic planner to obtain grade statistics, allowing for hassle-free and worry-free calculations.
 
 ### Summary of Contributions
 
@@ -50,7 +49,7 @@ With the CAP Calculator , PlanNUS will be able to tell you your current CAP and 
     * Made numerous bug fixes for the code and found bugs to be resolved
         * [#43](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/43), [#59](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/59), [#72](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/72), [#103](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/103), [#111](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/111), [#115](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/115), [#127](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/127), [#147](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/147), \
         [#170](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/170), [#220](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/220), [#222](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/222)
-* **Contributions to the User Guide (Extracts)**
+* **Contributions to the User Guide (Extracts without pictures)**
     * Semester Naming Conventions
         * For the purpose of this planning software, we have decided to limit the maximum number of semesters an undergraduate can take to 10, which is equivalent to 5 academic years. Each semester is indexed by an integer between 1 and 10. For a fresh undergraduate, they will begin at semester index of 1. For a year 3 student who is currently in semester 1, the semester index will be 5. Below is a table which illustrates the corresponding semester indexes for undergraduates.
           
@@ -97,7 +96,7 @@ With the CAP Calculator , PlanNUS will be able to tell you your current CAP and 
           PlanNUS also has saving and loading features which would reduce the hassle of entering the full academic calendar for each use.
           
           The sections below explain how PlanNUS should be used, and the common errors faced by users. Sections can be easily navigated to by clicking on the hyperlinks in the table of contents.
-* Contributions to the Developer Guide (Extracts)
+* Contributions to the Developer Guide (Extracts without pictures)
     * Implementation for `AddModuleCommand`
         * Add module command is executed by `AcademicPlannerParser`. It allows users to add modules into their Academic Planner by instantiating a new `PartialModule` object and adding it into the `userModuleList` and `userModuleMap`. Both the list and hashmap are the _java API_, which are used by importing them. The `Person` object is used to encapsulate both `userModuleList` and `userModuleMap`.
           

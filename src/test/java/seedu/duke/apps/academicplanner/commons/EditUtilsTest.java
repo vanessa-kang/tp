@@ -1,16 +1,14 @@
 package seedu.duke.apps.academicplanner.commons;
 
+import java.util.ArrayList;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.apps.moduleloader.exceptions.ModuleLoaderException;
 import seedu.duke.global.objects.PartialModule;
 import seedu.duke.global.objects.Person;
-
-import java.util.ArrayList;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 //@@author harryleecp
 class EditUtilsTest {
@@ -44,7 +42,7 @@ class EditUtilsTest {
     void updateModuleGrade_nonEmptyList_success() {
         setup();
 
-        editUtils.updateModuleGrade("CS1010", "A-");
+        editUtils.updateModuleGrade("A-", 0);
         assertEquals(modulesList.size(), 1);
         for (PartialModule m : modulesList) {
             if (m.getModuleCode().equalsIgnoreCase("CS1010")) {
@@ -61,7 +59,7 @@ class EditUtilsTest {
     void updateModuleSemester_nonEmptyList_success() {
         setup();
 
-        editUtils.updateModuleSemester("CS1010", "3");
+        editUtils.updateModuleSemester("3", 0);
         assertEquals(modulesList.size(), 1);
         for (PartialModule m : modulesList) {
             if (m.getModuleCode().equalsIgnoreCase("CS1010")) {

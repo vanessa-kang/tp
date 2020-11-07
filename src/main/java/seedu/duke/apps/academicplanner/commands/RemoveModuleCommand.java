@@ -7,6 +7,7 @@ import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.global.Command;
 import seedu.duke.global.objects.Person;
 import seedu.duke.storage.Storage;
+import seedu.duke.ui.Ui;
 
 //@@author harryleecp
 /**
@@ -22,13 +23,16 @@ public class RemoveModuleCommand extends Command {
     private Person currentPerson;
     private String moduleCode;
     private Storage storage;
+    private Ui ui;
 
-    public RemoveModuleCommand(ModuleLoader allModules, Person currentPerson, String moduleCode, Storage storage) {
-        this.removeUtils = new RemoveUtils(currentPerson);
+    public RemoveModuleCommand(ModuleLoader allModules, Person currentPerson,
+                               Ui ui, String moduleCode, Storage storage) {
+        this.removeUtils = new RemoveUtils(ui, currentPerson);
         this.moduleValidator = new ModuleValidator(allModules, currentPerson);
         this.moduleCode = moduleCode;
         this.currentPerson = currentPerson;
         this.storage = storage;
+        this.ui = ui;
     }
 
     /**
