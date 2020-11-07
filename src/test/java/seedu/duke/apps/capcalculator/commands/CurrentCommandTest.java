@@ -8,6 +8,7 @@ import seedu.duke.apps.academicplanner.commons.RemoveUtils;
 import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.apps.moduleloader.exceptions.ModuleLoaderException;
 import seedu.duke.global.objects.Person;
+import seedu.duke.ui.Ui;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -25,7 +26,7 @@ class CurrentCommandTest {
         currentPerson = new Person("Bob");
         allModules = new ModuleLoader();
         addUtils = new AddUtils(allModules,currentPerson);
-        removeUtils = new RemoveUtils(currentPerson);
+        removeUtils = new RemoveUtils(new Ui(), currentPerson);
         editUtils = new EditUtils(allModules, currentPerson);
     }
 
@@ -101,7 +102,7 @@ class CurrentCommandTest {
         CurrentCommand currentCommand = new CurrentCommand(currentPerson);
         double currentCap = currentCommand.getCurrentCap();
         assertEquals(5, currentCap);
-        editUtils.updateModuleGrade("CS1010", "A-");
+        editUtils.updateModuleGrade("A-", 0);
         currentCap = currentCommand.getCurrentCap();
         assertEquals(4.5, currentCap);
     }
@@ -112,7 +113,7 @@ class CurrentCommandTest {
         CurrentCommand currentCommand = new CurrentCommand(currentPerson);
         double currentCap = currentCommand.getCurrentCap();
         assertEquals(5, currentCap);
-        editUtils.updateModuleGrade("CS1010", "S");
+        editUtils.updateModuleGrade("S", 0);
         currentCap = currentCommand.getCurrentCap();
         boolean isNan = Double.isNaN(currentCap);
         assertTrue(isNan);
