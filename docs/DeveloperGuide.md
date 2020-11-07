@@ -374,6 +374,7 @@ The following diagram summarizes what happens when the user executes a `ModuleDe
 </div>
 <br>
 <!-- @@author JuZihao -->
+
 ### 4.5. CAP Calculator feature : Set S/U by semester feature
 
 #### 4.5.1. Current implementation
@@ -423,6 +424,7 @@ The following diagram summarizes what happens when the user executes a `SetSuByS
 </div>    
 <br>
 <!-- @@author-->
+
 ## 5. Useful Links
 
 * [**About Us**](https://ay2021s1-cs2113t-f12-1.github.io/tp/AboutUs.html)
