@@ -50,7 +50,6 @@ public class AddModuleCommand extends Command {
     private AddUtils addUtils;
     private ModuleValidator moduleValidator;
     private Person currentPerson;
-    private Ui ui;
     private Scanner in;
     private String moduleCode;
     private Storage storage;
@@ -66,7 +65,6 @@ public class AddModuleCommand extends Command {
     public AddModuleCommand(ModuleLoader allModules, Person currentPerson, Ui ui, String moduleCode, Storage storage) {
         this.addUtils = new AddUtils(allModules, currentPerson);
         this.moduleValidator = new ModuleValidator(allModules, currentPerson);
-        this.ui = ui;
         this.in = ui.getScanner();
         this.moduleCode = moduleCode;
         this.currentPerson = currentPerson;
