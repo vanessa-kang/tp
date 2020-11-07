@@ -24,6 +24,9 @@ class AcademicPlannerParserTest {
     private static final String ERROR_INVALID_COMMAND = "INVALID COMMAND";
     public static final String NEW_LINE = "\n";
     private static final String EXITING_CURRENT_COMMAND = "Exiting current command back to Academic Planner Main Menu.";
+    private static final String ERROR_IN_ACADPLAN = "Sorry, you are already in Academic Planner!";
+    private static final String ERROR_NO_PARAMETER = " NO PARAMETER AFTER COMMAND";
+    private static final String ERROR_HAS_PARAMETER = " NO PARAMETER ALLOWED AFTER COMMAND";
 
     private Person currentPerson;
     private Ui ui;
@@ -79,6 +82,23 @@ class AcademicPlannerParserTest {
         final String input = "details cs1010";
         parseAndAssertCommandType(input,ModuleDetailsCommand.class,allModules,currentPerson,ui,storage);
     }
+    @Test
+    void parse_addModuleCommandWithSpaces_correct() {
+        final String input = "   add    cs1010    ";
+        parseAndAssertCommandType(input,AddModuleCommand.class,allModules,currentPerson,ui,storage);
+    }
+
+    @Test
+    void parse_editModuleCommandWithSpaces_correct() {
+        final String input = "   edit     cs1010   ";
+        parseAndAssertCommandType(input, EditModuleCommand.class,allModules,currentPerson,ui,storage);
+    }
+
+    @Test
+    void parse_moduleDetailsWithSpaces_correct() {
+        final String input = "   details    cs1010   ";
+        parseAndAssertCommandType(input,ModuleDetailsCommand.class,allModules,currentPerson,ui,storage);
+    }
 
     @Test
     void parse_printModuleCommand_correct() {
@@ -102,6 +122,128 @@ class AcademicPlannerParserTest {
     void parse_searchModuleCommand_correct() {
         final String input = "search cs10";
         parseAndAssertCommandType(input,SearchModulesCommand.class,allModules,currentPerson,ui,storage);
+    }
+
+    @Test
+    void parse_capCalcCommand_correct() {
+        final String input = "capcalc";
+        parseAndAssertCommandType(input,Command.class,allModules,currentPerson,ui,storage);
+    }
+
+    @Test
+    void parse_exitCommand_correct() {
+        final String input = "exit";
+        parseAndAssertCommandType(input,Command.class,allModules,currentPerson,ui,storage);
+    }
+
+    @Test
+    void parse_acadPlanCommand_exception() {
+        final String input = "acadplan";
+        try {
+            AcademicPlannerParser.parse(input,allModules,currentPerson,ui,storage);
+        } catch (Exception e) {
+            assertEquals(ERROR_IN_ACADPLAN + NEW_LINE + EXITING_CURRENT_COMMAND, e.getMessage());
+        }
+    }
+
+    @Test
+    void parse_incompleteAddCommand_exception() {
+        final String input = "add";
+        try {
+            AcademicPlannerParser.parse(input,allModules,currentPerson,ui,storage);
+        } catch (Exception e) {
+            assertEquals("ADD COMMAND:" + ERROR_NO_PARAMETER + NEW_LINE + EXITING_CURRENT_COMMAND, e.getMessage());
+        }
+    }
+
+    @Test
+    void parse_incompleteEditCommand_exception() {
+        final String input = "edit";
+        try {
+            AcademicPlannerParser.parse(input,allModules,currentPerson,ui,storage);
+        } catch (Exception e) {
+            assertEquals("EDIT COMMAND:" + ERROR_NO_PARAMETER + NEW_LINE + EXITING_CURRENT_COMMAND, e.getMessage());
+        }
+    }
+
+    @Test
+    void parse_incompleteRemoveCommand_exception() {
+        final String input = "remove";
+        try {
+            AcademicPlannerParser.parse(input,allModules,currentPerson,ui,storage);
+        } catch (Exception e) {
+            assertEquals("REMOVE COMMAND:" + ERROR_NO_PARAMETER + NEW_LINE + EXITING_CURRENT_COMMAND, e.getMessage());
+        }
+    }
+
+    @Test
+    void parse_incompleteSearchCommand_exception() {
+        final String input = "search";
+        try {
+            AcademicPlannerParser.parse(input,allModules,currentPerson,ui,storage);
+        } catch (Exception e) {
+            assertEquals("SEARCH COMMAND:" + ERROR_NO_PARAMETER + NEW_LINE + EXITING_CURRENT_COMMAND, e.getMessage());
+        }
+    }
+
+    @Test
+    void parse_incompleteDetailsCommand_exception() {
+        final String input = "details";
+        try {
+            AcademicPlannerParser.parse(input,allModules,currentPerson,ui,storage);
+        } catch (Exception e) {
+            assertEquals("DETAILS COMMAND:" + ERROR_NO_PARAMETER + NEW_LINE + EXITING_CURRENT_COMMAND, e.getMessage());
+        }
+    }
+
+    @Test
+    void parse_acadplanCommandTooManyParameters_exception() {
+        final String input = "acadplan potato peeler joe biden";
+        try {
+            AcademicPlannerParser.parse(input,allModules,currentPerson,ui,storage);
+        } catch (Exception e) {
+            assertEquals("ACADPLAN COMMAND:" + ERROR_HAS_PARAMETER + NEW_LINE + EXITING_CURRENT_COMMAND, e.getMessage());
+        }
+    }
+
+    @Test
+    void parse_viewCommandTooManyParameters_exception() {
+        final String input = "view potato peeler joe biden";
+        try {
+            AcademicPlannerParser.parse(input,allModules,currentPerson,ui,storage);
+        } catch (Exception e) {
+            assertEquals("VIEW COMMAND:" + ERROR_HAS_PARAMETER + NEW_LINE + EXITING_CURRENT_COMMAND, e.getMessage());
+        }
+    }
+
+    @Test
+    void parse_helpCommandTooManyParameters_exception() {
+        final String input = "help potato peeler joe biden";
+        try {
+            AcademicPlannerParser.parse(input,allModules,currentPerson,ui,storage);
+        } catch (Exception e) {
+            assertEquals("HELP COMMAND:" + ERROR_HAS_PARAMETER + NEW_LINE + EXITING_CURRENT_COMMAND, e.getMessage());
+        }
+    }
+
+    @Test
+    void parse_exitCommandTooManyParameters_exception() {
+        final String input = "exit potato peeler joe biden";
+        try {
+            AcademicPlannerParser.parse(input,allModules,currentPerson,ui,storage);
+        } catch (Exception e) {
+            assertEquals("EXIT COMMAND:" + ERROR_HAS_PARAMETER + NEW_LINE + EXITING_CURRENT_COMMAND, e.getMessage());
+        }
+    }
+
+    @Test
+    void parse_capcalcCommandTooManyParameters_exception() {
+        final String input = "capcalc potato peeler joe biden";
+        try {
+            AcademicPlannerParser.parse(input,allModules,currentPerson,ui,storage);
+        } catch (Exception e) {
+            assertEquals("CAPCALC COMMAND:" + ERROR_HAS_PARAMETER + NEW_LINE + EXITING_CURRENT_COMMAND, e.getMessage());
+        }
     }
 
     private <T extends Command> void parseAndAssertCommandType(String input, Class<T> expectedCommandClass,
