@@ -255,32 +255,62 @@ public class AddModuleCommand extends Command {
         }
 
         if (isRetake) {
-            ArrayList<PartialModule> modulesAddedList = currentPerson.getModulesList();
-
-            int latestSemester = modulesAddedList.get(0).getSemesterIndex();
-
-            for (int i = 0; i < modulesAddedList.size(); i++) {
-                int currentSemester = modulesAddedList.get(i).getSemesterIndex();
-
-                if (currentSemester > latestSemester) {
-                    latestSemester = currentSemester;
-                }
-            }
-
-            if (semesterValue <= latestSemester) {
-                throw new AcademicException(INVALID_RETAKE_SEMESTER_LESS + latestSemester + "!");
-            }
-
-            for (int i = 0; i < modulesAddedList.size(); i++) {
-                int currentSemester = modulesAddedList.get(i).getSemesterIndex();
-                String currentModule = modulesAddedList.get(i).getModuleCode();
-
-                if (currentSemester == semesterValue && currentModule.contains(moduleCode)) {
-                    throw new AcademicException(INVALID_RETAKE_SEMESTER);
-                }
-            }
+            validateRetakeParameters(semesterValue);
         }
         return semesterValue;
+    }
+
+    /**
+     * Validates the user inputs as per retake requirements.
+     *
+     * @param semesterValue semester of the retake module
+     * @throws AcademicException when invalid inputs are given
+     */
+    private void validateRetakeParameters(int semesterValue) throws AcademicException {
+        ArrayList<PartialModule> modulesAddedList = currentPerson.getModulesList();
+        int latestSemester = getLatestSemester(modulesAddedList);
+        if (semesterValue <= latestSemester) {
+            throw new AcademicException(INVALID_RETAKE_SEMESTER_LESS + latestSemester + "!");
+        }
+        checkValidityRetakeSemester(semesterValue, modulesAddedList);
+    }
+
+    /**
+     * Checks the validity of the retake semester adn throws AcademicException if invalid.
+     *
+     * @param semesterValue semeterIndex
+     * @param modulesAddedList list of added modules
+     * @throws AcademicException when invalid semester to retake is chosen
+     */
+    private void checkValidityRetakeSemester(int semesterValue, ArrayList<PartialModule> modulesAddedList)
+            throws AcademicException {
+        for (int i = 0; i < modulesAddedList.size(); i++) {
+            int currentSemester = modulesAddedList.get(i).getSemesterIndex();
+            String currentModule = modulesAddedList.get(i).getModuleCode();
+
+            if (currentSemester == semesterValue && currentModule.contains(moduleCode)) {
+                throw new AcademicException(INVALID_RETAKE_SEMESTER);
+            }
+        }
+    }
+
+    /**
+     * Returns the latest semester taken for the module.
+     *
+     * @param modulesAddedList List of modules added
+     * @return lastestSemester
+     */
+    private int getLatestSemester(ArrayList<PartialModule> modulesAddedList) {
+        int latestSemester = modulesAddedList.get(0).getSemesterIndex();
+
+        for (int i = 0; i < modulesAddedList.size(); i++) {
+            int currentSemester = modulesAddedList.get(i).getSemesterIndex();
+
+            if (currentSemester > latestSemester) {
+                latestSemester = currentSemester;
+            }
+        }
+        return latestSemester;
     }
 
     /**
