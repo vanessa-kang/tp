@@ -43,7 +43,7 @@ The ***Architecture Diagram*** given above explains the high-level design of Pla
 
 #### 3.2.1. PlanNus
 
-`PlanNus` class contains the `main` and `run` method, which is responsible for
+`PlanNus` class contains the `main` and `run` method, which is responsible for the following:
 
   * At launch
 
@@ -67,8 +67,8 @@ The ***Architecture Diagram*** given above explains the high-level design of Pla
 #### 3.2.2. Global, Ui, Parser, Storage, Apps
 
 * The `global` package contains classes, exceptions and objects that are required across the whole app. 
-* The `ui` package contains the class that is responsible for sharing one `scanner` class across the whole app to prevent multiple IO streams
-* The `parser` package contains the class that handles user's app selection
+* The `ui` package contains the class which is responsible for sharing one `scanner` class across the whole app to prevent multiple IO streams
+* The `parser` package contains the class which handles user's app selection
 * The `storage` package handles loading and saving of user's data to a save file.
 * Packages for Available apps such as Academic Planner and CAP Calculator are stored within `apps` package
 
@@ -76,10 +76,10 @@ The ***Architecture Diagram*** given above explains the high-level design of Pla
 
 ### 3.3. Project Structure
 
-Each package in the PlanNUS as given above follows the following file structure where applicable:
+Each package in PlanNUS as given above follows the following file structure where applicable:
 
-* A functional class that acts as the entry point to that module
-* A parser class that parses user input into executable commands by PlanNUS
+* A functional class which acts as the entry point to that module
+* A parser class which parses user input into executable commands by PlanNUS
 
 * `commands`: A package that handles all executable commands given by parser
 * `commons`: A package with the utilities and shared classes across the parent package
@@ -116,7 +116,7 @@ The [*sequence diagram*](#sequence-diagram) below shows how different packages a
     <img src="./images/DeveloperGuide/Global_Diagram.png" alt="Storage architecture diagram of PlanNUS"/>
 </div>
 
-Classes used by multiple components part of the `global` component of PlanNUS. This includes classes such as `App`,`Command` and `LoggingTool`. The main object classes `PartialModule`, `FullModule` and `Person` are also within the global component.
+Classes used by multiple components are part of the `global` component of PlanNUS. This includes classes such as `App`,`Command` and `LoggingTool`. The main object classes `PartialModule`, `FullModule` and `Person` are also within the global component.
 
 **API** : `src.main.java.global`
 
@@ -180,7 +180,7 @@ and `String`. Below is a table of what each parameter corresponds to in the stat
 |:---:|:---:|:---:|
 |`ModuleLoader`| Class representing all modules offered by NUS | `allModules` |
 |`Person`| Class representing current user's information | `currentPerson`|
-|`Ui`| Class representing java's default scanner class | `in`|
+|`Ui`| Class encapsulating java's default scanner class | `in`|
 |`String` | Class representing the module code to be added | `moduleCode`|
 
 <div style="text-align:center">
@@ -190,9 +190,9 @@ and `String`. Below is a table of what each parameter corresponds to in the stat
 __Step 2__ : `execute()` is called from the instance of `AddModuleCommand`. It can throw `AcademicException` 
 or `IOException`. `FileHandler` and `Logger` classes from the _java API_ are instantiated to handle logging for the remainder of the `execute()` method. 
 
-__Step 3__ : `in` then reads in the next two lines of input, which is the user's input for the desired semester for the `moduleCode` and `moduleCode`'s grades.
+__Step 3__ : `in` then reads in the line of input, which is the user's input for the desired semester for the `moduleCode`. This is then validated against `allModules`, while accounting for `isRetake` variable. 
 
-__Step 4__ : `validateInputs()` is called from `ModuleValidator` to validate the user entered data against `allModules`.
+__Step 4__ : The next line of input is read from `in`, which is the user's input for grade value, which is also validated by `ModuleValidator`.
 
 __Step 5__ : `AddUtils` is called upon to return module credit for `moduleCode` by `getModuleCreditForModule()`.
 
