@@ -42,6 +42,8 @@ public class AddModuleCommand extends Command {
     private static final String LOGGER_NAME = "AddModuleCommand";
     private static final String INVALID_RETAKE_SEMESTER
             = "Cannot retake this module in any of the semester listed above!";
+    private static final String INVALID_RETAKE_SEMESTER_LESS
+            = "Cannot retake this module before semester ";
 
     private static Logger logger;
     private static FileHandler fh;
@@ -254,6 +256,20 @@ public class AddModuleCommand extends Command {
 
         if (isRetake) {
             ArrayList<PartialModule> modulesAddedList = currentPerson.getModulesList();
+
+            int latestSemester = modulesAddedList.get(0).getSemesterIndex();
+
+            for (int i = 0; i < modulesAddedList.size(); i++) {
+                int currentSemester = modulesAddedList.get(i).getSemesterIndex();
+
+                if (currentSemester > latestSemester) {
+                    latestSemester = currentSemester;
+                }
+            }
+
+            if (semesterValue <= latestSemester) {
+                throw new AcademicException(INVALID_RETAKE_SEMESTER_LESS + latestSemester + "!");
+            }
 
             for (int i = 0; i < modulesAddedList.size(); i++) {
                 int currentSemester = modulesAddedList.get(i).getSemesterIndex();

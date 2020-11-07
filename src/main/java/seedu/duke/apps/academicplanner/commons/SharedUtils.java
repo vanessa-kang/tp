@@ -37,6 +37,10 @@ public class SharedUtils {
 
         ArrayList<PartialModule> allOccurrencesOfModule = new ArrayList<>();
 
+        if (occurrenceList == null) {
+            return allOccurrencesOfModule;
+        }
+
         for (int i = 0; i < occurrenceList.size(); i++) {
             allOccurrencesOfModule.add(modulesAddedList.get(occurrenceList.get(i)));
         }
