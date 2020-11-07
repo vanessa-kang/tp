@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 import static seedu.duke.apps.academicplanner.commons.SharedUtils.getEntryToBeEdited;
+
+import seedu.duke.apps.academicplanner.exceptions.AcademicException;
 import seedu.duke.apps.capcalculator.commons.CalculatorUtils;
 import seedu.duke.global.objects.PartialModule;
 import seedu.duke.global.objects.Person;
@@ -42,23 +44,19 @@ public class RemoveUtils {
      *
      * @param moduleCode module to remove.
      */
-    public void removeModuleFromUserModuleList(String moduleCode) {
+    public void removeModuleFromUserModuleList(String moduleCode) throws AcademicException {
         Scanner in = ui.getScanner();
         final int totalNumberOfModules = modulesList.size();
 
-        try {
-            int indexToRemove = getEntryToBeEdited(in, moduleCode, currentPerson, FROM_REMOVE);
+        int indexToRemove = getEntryToBeEdited(in, moduleCode, currentPerson, FROM_REMOVE);
 
-            ArrayList<Integer> moduleIndexList = modulesAddedMap.get(moduleCode);
-            PartialModule module = modulesList.get(moduleIndexList.get(indexToRemove));
+        ArrayList<Integer> moduleIndexList = modulesAddedMap.get(moduleCode);
+        PartialModule module = modulesList.get(moduleIndexList.get(indexToRemove));
 
-            calculatorUtils.updateCap(FROM_REMOVE, module);
-            depopulate(module);
+        calculatorUtils.updateCap(FROM_REMOVE, module);
+        depopulate(module);
 
-            assert modulesList.size() == totalNumberOfModules - 1;
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        assert modulesList.size() == totalNumberOfModules - 1;
     }
 
     /**

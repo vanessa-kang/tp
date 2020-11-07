@@ -11,6 +11,7 @@ import seedu.duke.ui.Ui;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 //@@author harryleecp
 class RemoveUtilsTest {
@@ -41,7 +42,11 @@ class RemoveUtilsTest {
         assertEquals(modulesList.size(),0);
         addUtils.addModuleToUser("CS1010",1,"A+",4);
         assertEquals(modulesList.size(),1);
-        removeUtils.removeModuleFromUserModuleList("CS1010");
-        assertEquals(modulesList.size(), 0);
+        try {
+            removeUtils.removeModuleFromUserModuleList("CS1010");
+            assertEquals(modulesList.size(), 0);
+        } catch (Exception e) {
+            fail();
+        }
     }
 }
