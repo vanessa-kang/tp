@@ -34,7 +34,6 @@ public class SaveUtils {
      */
     public void save() throws SaveFileException {
         try {
-            FileWriter fw = new FileWriter(fileName);
             ArrayList<PartialModule> sortedBySem = currentPerson.getModulesList();
             sortedBySem.sort(Comparator.comparing(PartialModule::getSemesterIndex));
 
@@ -49,6 +48,7 @@ public class SaveUtils {
                         + item.getModuleCredit() + NEWLINE;
             }
 
+            FileWriter fw = new FileWriter(fileName);
             fw.write(textToSave);
             fw.close();
             System.out.println("Data successfully saved!");
