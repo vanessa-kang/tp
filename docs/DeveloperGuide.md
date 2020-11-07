@@ -137,6 +137,10 @@ The `Storage` component is responsible for the loading and saving of information
 
 #### 3.5.3. Parser Component
 
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/Parser_architecture.png" alt="Parser diagram for Ui"/>
+</div>
+
 For the architecture of PlanNUS, the `Parser` classes will belong under the application they will be parsing for. The role 
 of these parsers is to process the user's input and return the appropriate command with required parameters to initialise the command. The newly created objects will then be returned to the main command to be executed and thereafter, terminated. 
 
