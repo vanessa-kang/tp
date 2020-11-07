@@ -6,6 +6,7 @@ import seedu.duke.global.Command;
 import seedu.duke.global.LoggingTool;
 import seedu.duke.global.objects.Person;
 import seedu.duke.apps.capcalculator.commons.SetTargetUtils;
+import seedu.duke.ui.Ui;
 
 import java.util.Scanner;
 import java.io.IOException;
@@ -26,8 +27,8 @@ public class SetTargetCommand extends Command {
     private static FileHandler fh;
     private SetTargetUtils setTargetUtils;
 
-    public SetTargetCommand(Person currentPerson, Scanner in) {
-        this.setTargetUtils = new SetTargetUtils(currentPerson, in);
+    public SetTargetCommand(Person currentPerson, Ui ui) {
+        this.setTargetUtils = new SetTargetUtils(currentPerson, ui.getScanner());
     }
 
     /**

@@ -87,6 +87,8 @@ public class AcademicPlannerParser {
         } else if (userCommand.equals(EXIT_COMMAND) && hasNoParameter(inputs)) {
             return new Command(true);
 
+        } else if (userCommand.equals(ACADEMIC_PLANNER_COMMAND) && hasNoParameter(inputs)) {
+            throw new CommandParserException(ERROR_IN_ACADPLAN + NEW_LINE + EXITING_CURRENT_COMMAND);
         } else {
             String errorMessage = determineError(inputs);
             throw new CommandParserException(errorMessage + NEW_LINE + EXITING_CURRENT_COMMAND);
@@ -99,7 +101,7 @@ public class AcademicPlannerParser {
      * @param userInput user input
      * @return string array
      */
-    private static String[] processInput(String userInput) {
+    public static String[] processInput(String userInput) {
         userInput = userInput.replaceAll("\\s+"," ");
         String[] inputs = userInput.toUpperCase().split(" ",2);
         return inputs;
@@ -124,7 +126,7 @@ public class AcademicPlannerParser {
         case DETAILS_COMMAND:
             return ("DETAILS COMMAND:" + ERROR_NO_PARAMETER);
         case ACADEMIC_PLANNER_COMMAND:
-            return (ERROR_IN_ACADPLAN);
+            return ("ACADPLAN COMMAND:" + ERROR_HAS_PARAMETER);
         case VIEW_COMMAND:
             return ("VIEW COMMAND:" + ERROR_HAS_PARAMETER);
         case HELP_COMMAND:
@@ -156,7 +158,7 @@ public class AcademicPlannerParser {
      * @param inputs user input
      * @return boolean
      */
-    private static boolean hasNoParameter(String[] inputs) {
+    public static boolean hasNoParameter(String[] inputs) {
         return inputs.length == 1;
     }
 }
