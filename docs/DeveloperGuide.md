@@ -822,7 +822,7 @@ __Extensions__
   - 5a1. PlanNUS shows an _invalid module_ error message.
   
 - 5b. User enters a duplicated module code.
-  -5b1. PlanNUS shows a _duplicate module_ error message.
+  - 5b1. PlanNUS shows a _duplicate module_ error message.
 
 <br>
 
