@@ -14,7 +14,7 @@ PlanNUS is a __desktop application for planning academic journey__ with modules 
 
 PlanNUS aims to patch the gap for students in NUS by providing an avenue for students to plan their full academic journey in NUS. 
 
-PlanNUS can also generate CAP statistics and even suggest to user which modules to mark as satisfactory/unsatisfactory(S/U) to have the highest CAP possible. 
+PlanNUS can also generate CAP statistics and even suggest to you which modules to mark as satisfactory/unsatisfactory(S/U) to have the highest CAP possible. 
 
 PlanNUS also has saving and loading features which would reduce the hassle of entering the full academic calendar for each use.
 
@@ -335,7 +335,7 @@ Input format: `current`
 
 __<ins>Caution:</ins>__
 
-* The value of CAP depends entirely on the modules and with corresponding grades added by the user in Academic Calendar Planner.
+* The value of CAP depends entirely on the modules and with corresponding grades added by you in the Academic Calendar Planner.
 * If there are no modules added, the current CAP and graded MCs are set to 0.
 
 <br>
@@ -370,7 +370,7 @@ As shown in the image, you can choose to S/U by either a _Semester_ or some sele
 
 ##### Set S/U by semester
 
-Below shows the expected output when user wishes to S/U by _Semester_.
+Below shows the expected output when you wish to S/U by _Semester_.
 
 
 You will be prompted to enter a specific semester that you wish to S/U. The following will show if the entered *Semester* is valid.
@@ -452,7 +452,7 @@ This command is for you to switch to `acadplan`.
 
 Input format: `acadplan`
 
-Users can choose to switch to the _Academic Planner_ app from within the _CAP Calculator_ app.
+You can choose to switch to the _Academic Planner_ app from within the _CAP Calculator_ app.
 
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_acadplanswitch.png" />
