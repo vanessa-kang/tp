@@ -22,7 +22,7 @@ public class CurrentCommand extends Command {
     @Override
     public void execute() {
         double currentCap = getCurrentCap();
-        System.out.println("Your current now CAP is: " + formatCapToString(currentCap));
+        System.out.println("Your current CAP is: " + formatCapToString(currentCap));
         System.out.println("Number of graded MCs taken is: " + currentPerson.getCurrentMcAfterSU());
         System.out.println("Total number of MCs taken is: " + currentPerson.getCurrentMc());
     }
