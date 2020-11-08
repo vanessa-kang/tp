@@ -2,7 +2,9 @@ package seedu.duke.apps.academicplanner.commons;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import seedu.duke.apps.moduleloader.ModuleLoader;
+import seedu.duke.global.objects.FullModule;
 import seedu.duke.global.objects.Person;
 
 //@@author jerroldlam
@@ -77,6 +79,21 @@ public class ModuleValidator {
      */
     public static boolean isValidSemester(int semesterIndex) {
         return (semesterIndex >= STARTING_SEMESTER_INDEX && semesterIndex <= FINAL_SEMESTER_INDEX);
+    }
+
+    /**
+     * Gets the module credit for a certain module code from actual database.
+     *
+     * @param moduleCode Module code to be retrieved
+     *
+     * @return Module credit
+     */
+    public Integer getModuleCreditFromDatabase(String moduleCode) {
+        Map<String, Integer> moduleMapReference = allModules.getModuleMap();
+        FullModule[] moduleArray = allModules.getModuleFullDetails();
+
+        Integer moduleCodeIndex = moduleMapReference.get(moduleCode);
+        return moduleArray[moduleCodeIndex].getModuleCredit();
     }
 
     /**
