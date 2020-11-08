@@ -113,6 +113,8 @@ The [*sequence diagram*](#sequence-diagram) below shows how different packages a
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/Details_architecture.png" alt="Details architecture diagram of PlanNUS"/>
 </div>
+Note that the above diagram is only intended for showing the connections to PlanNus main class rather than between individual classes.
+
 <br>
 
 #### 3.5.1. Global Component
@@ -140,7 +142,7 @@ note that the diagram below only shows the connections to plannus main class. It
 </div>
 
 
-The `Storage` component is responsible for the loading and saving of information from text files.
+The `Storage` component is responsible for the loading and saving of information from text files which can happen in two types of scenarios. The first type would be through the use of commands specified in the diagram which can be found in the _Academic Planner_ app. Alternatively, the user may also exit from the program using the commands within the application itself. This is to prevent loss of data when the user terminates the program by closing the command prompt or using the _ctrl-c_ command.
 
 **API** : `src.main.java.seedu.duke.storage`
 
@@ -587,19 +589,19 @@ __Extensions__
   - 1b1.  PlanNUS shows an _invalid module code_ error message.
     
     Use case ends.
-    
+  
 - 1c. User enters a module code that is offered by NUS, but is not currently in the user's academic calendar.
   
   - 1c1. PlanNUS shows a _module not in calendar_ error message.
     
     Use case ends.
-    
+  
 - 3a. User chooses a feature that is invalid.
   
   - 3a1. PlanNUS shows an _invalid feature_ error message.
     
     Use case ends.
-    
+  
 - 5a. User enters an updated value that is invalid.
   
   - 5a1. PlanNUS shows an _invalid value_ error message.
@@ -633,7 +635,7 @@ __Extensions__
   - 1b1.  PlanNUS shows an _invalid module code_ error message.
     
     Use case ends.
-    
+  
 - 1c. User enters a module code that is offered by NUS, but is not currently in the user's academic calendar.
   
   - 1c1. PlanNUS shows a _module not in calendar_ error message.
@@ -794,7 +796,7 @@ __Extensions__
   - 3a1. PlanNUS shows an _invalid CAP_ error message.
     
     Use case ends.
-    
+  
 - 5a. User provides a valid target CAP, but the target MCs is not valid.
   - 5a1. PlanNUS shows an _invalid MCs_ error message.
     
@@ -871,7 +873,7 @@ __Extensions__
   - 3b1. PlanNUS shows a _number out of bound_ error message.
 
     Use case ends.
-    
+  
 - 5a. User did not enter a valid module code.
 
   - 5a1. PlanNUS shows an _invalid module_ error message.
