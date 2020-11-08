@@ -55,7 +55,7 @@ The ***Architecture Diagram*** given above explains the high-level design of Pla
 
        * Loading previous save file into PlanNUS if available
 
-       * Unified of entry point to available apps in PlanNUS
+       * Unified entry point to available apps in PlanNUS
 
   * While running
 
