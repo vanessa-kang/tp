@@ -76,8 +76,10 @@ public class FieldValidator {
         if (isAllFieldValid) {
             try {
                 int currentModuleCredit = parseInt(lineItems[MODULE_CREDIT_POSITION]);
+                Integer actualModuleCredit
+                        = moduleValidator.getModuleCreditFromDatabase(lineItems[MODULE_CODE_POSITION]);
 
-                if (currentModuleCredit < 0) {
+                if (currentModuleCredit != actualModuleCredit) {
                     isAllFieldValid = false;
                     details[INVALID_MC]++;
                 }
