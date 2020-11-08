@@ -174,17 +174,14 @@ Example of usage:
 * `edit CS2113T`
 * `EDIT cs2101`
 
-<table><tr><td><div style="text-align:center">
-    <img src="images/UserGuide/edit_module.png" />
-</div></td></tr></table>
-
-As shown in the image, you can choose to edit either the _Semester_ or _Grade_ of the selected module. (__Note:__ Enter either `1` or `2` instead of the component's name)
+As shown in the images below, you can choose to edit either the _Semester_ or _Grade_ of the selected module. (__Note:__ Enter either `1` or `2` instead of the component's name)
 
 Expected output when you wish to change the _Semester_.
 
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/edit_module_semester.png" />
 </div></td></tr></table>
+
 Expected output when you wish to change the _Grade_.
 
 <table><tr><td><div style="text-align:center">
