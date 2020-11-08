@@ -169,6 +169,8 @@ of these parsers is to process the user's input and return the appropriate comma
     <img src="./images/DeveloperGuide/Ui_architecture.png" alt="Architecture diagram for Ui"/>
 </div>
 
+Note: XYZ stand for any class. For example, `XYZParser` refers to `AppParser`,`AcademicPlannerParser` etc.
+
 In PlanNUS, the `Ui` component is integral in initialising a `Scanner` class and passing it to methods where they require them. `Ui` also provides functions to output formatted lines to console to improve readability for the user.
 
 **API** : `src.main.java.seedu.duke.ui.Ui`
