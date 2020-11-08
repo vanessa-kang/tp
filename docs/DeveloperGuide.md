@@ -55,11 +55,12 @@ The ***Architecture Diagram*** given above explains the high-level design of Pla
 
        * Loading previous save file into PlanNUS if available
 
-       * Creation of entry point to available apps in PlanNUS
+       * Unified entry point to available apps in PlanNUS
 
   * While running
 
        * Continuously prompt user for app selection
+       * Save after every change in `AcadPlan`
 
   * At shut down
 
@@ -116,13 +117,17 @@ The [*sequence diagram*](#sequence-diagram) below shows how different packages a
 
 #### 3.5.1. Global Component
 
+Note that the diagram below only shows the connections to `PlanNus` class. It does not show connections between individual classes.
+
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/Global_Diagram.png" alt="Storage architecture diagram of PlanNUS"/>
 </div>
 
 Classes used by multiple components are part of the `global` component of PlanNUS. This includes classes such as `App`,`Command` and `LoggingTool`. The main object classes `PartialModule`, `FullModule` and `Person` are also within the global component.
 
-**API** : `src.main.java.global`
+note that the diagram below only shows the connections to plannus main class. It does not show connections between individual classes
+
+**API** : `src.main.java.seedu.duke.global`
 
 <br>
 
@@ -204,7 +209,8 @@ and `String`. Below is a table of what each parameter corresponds to in the stat
 __Step 2__ : `execute()` is called from the instance of `AddModuleCommand`. It can throw `AcademicException` 
 or `IOException`. `FileHandler` and `Logger` classes from the _java API_ are instantiated to handle logging for the remainder of the `execute()` method. 
 
-__Step 3__ : `in` then reads in the line of input, which is the user's input for the desired semester for the `moduleCode`. This is then validated against `allModules`, while accounting for `isRetake` variable. 
+__Step 3__ : `in` then reads in the next line of input, which is the user's input for the desired semester for the `moduleCode`. This is then validated against `allModules`, while accounting for `isRetake` variable. `isRetake` is a flag varaible which indicates that
+the module newly entered by the user is a module that is going to be retaken.
 
 __Step 4__ : The next line of input is read from `in`, which is the user's input for grade value, which is also validated by `ModuleValidator`.
 
@@ -221,7 +227,7 @@ __Step 6__ :  `AddUtils` is called upon again to add the module's data to the us
     <img src="./images/DeveloperGuide/addModuleCommand_finalState.png" alt="Final state diagram for AddModuleCommand"/>
 </div>
 
-__Step 7__ : `FileHandler`, `Logger`, `PartialModule`, `ModuleValidator`, `AddUtils` and `AddModuleCommand` are terminated.
+__Step 7__ : `FileHandler`, `Logger`, `ModuleValidator`, `AddUtils` and `AddModuleCommand` are terminated. `PartialModule` is not terminated as it is now referenced by `userModuleList` and `userModuleMap` in `Person`.
 
 The following sequence diagram shows how the `AddModuleCommand` works:
 
