@@ -106,7 +106,7 @@ Available commands are:
 
 Type in an CAP Calculator command to continue...
 ____________________________________________________________
-Your current now CAP is: 5
+Your current CAP is: 5
 Number of graded MCs taken is: 4
 Total number of MCs taken is: 4
 
