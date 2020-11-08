@@ -45,7 +45,7 @@ public class PlanNus {
         assert isExit : "Startup is unsuccessful";
 
         File file = new File("logs");
-        file.mkdir();
+        file.mkdirs();
 
         boolean isChangeApp = false;
         int currentApp = MENU_PAGE;
