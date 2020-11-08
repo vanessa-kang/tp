@@ -55,11 +55,12 @@ The ***Architecture Diagram*** given above explains the high-level design of Pla
 
        * Loading previous save file into PlanNUS if available
 
-       * Creation of entry point to available apps in PlanNUS
+       * Unified entry point to available apps in PlanNUS
 
   * While running
 
        * Continuously prompt user for app selection
+       * Save after every change in `AcadPlan`
 
   * At shut down
 
@@ -118,13 +119,17 @@ Note that the above diagram is only intended for showing the connections to Plan
 
 #### 3.5.1. Global Component
 
+Note that the diagram below only shows the connections to `PlanNus` class. It does not show connections between individual classes.
+
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/Global_Diagram.png" alt="Storage architecture diagram of PlanNUS"/>
 </div>
 
 Classes used by multiple components are part of the `global` component of PlanNUS. This includes classes such as `App`,`Command` and `LoggingTool`. The main object classes `PartialModule`, `FullModule` and `Person` are also within the global component.
 
-**API** : `src.main.java.global`
+note that the diagram below only shows the connections to plannus main class. It does not show connections between individual classes
+
+**API** : `src.main.java.seedu.duke.global`
 
 <br>
 
@@ -166,6 +171,8 @@ of these parsers is to process the user's input and return the appropriate comma
     <img src="./images/DeveloperGuide/Ui_architecture.png" alt="Architecture diagram for Ui"/>
 </div>
 
+Note: XYZ stand for any class. For example, `XYZParser` refers to `AppParser`,`AcademicPlannerParser` etc.
+
 In PlanNUS, the `Ui` component is integral in initialising a `Scanner` class and passing it to methods where they require them. `Ui` also provides functions to output formatted lines to console to improve readability for the user.
 
 **API** : `src.main.java.seedu.duke.ui.Ui`
@@ -206,7 +213,8 @@ and `String`. Below is a table of what each parameter corresponds to in the stat
 __Step 2__ : `execute()` is called from the instance of `AddModuleCommand`. It can throw `AcademicException` 
 or `IOException`. `FileHandler` and `Logger` classes from the _java API_ are instantiated to handle logging for the remainder of the `execute()` method. 
 
-__Step 3__ : `in` then reads in the line of input, which is the user's input for the desired semester for the `moduleCode`. This is then validated against `allModules`, while accounting for `isRetake` variable. 
+__Step 3__ : `in` then reads in the next line of input, which is the user's input for the desired semester for the `moduleCode`. This is then validated against `allModules`, while accounting for `isRetake` variable. `isRetake` is a flag varaible which indicates that
+the module newly entered by the user is a module that is going to be retaken.
 
 __Step 4__ : The next line of input is read from `in`, which is the user's input for grade value, which is also validated by `ModuleValidator`.
 
@@ -223,7 +231,7 @@ __Step 6__ :  `AddUtils` is called upon again to add the module's data to the us
     <img src="./images/DeveloperGuide/addModuleCommand_finalState.png" alt="Final state diagram for AddModuleCommand"/>
 </div>
 
-__Step 7__ : `FileHandler`, `Logger`, `PartialModule`, `ModuleValidator`, `AddUtils` and `AddModuleCommand` are terminated.
+__Step 7__ : `FileHandler`, `Logger`, `ModuleValidator`, `AddUtils` and `AddModuleCommand` are terminated. `PartialModule` is not terminated as it is now referenced by `userModuleList` and `userModuleMap` in `Person`.
 
 The following sequence diagram shows how the `AddModuleCommand` works:
 
@@ -653,7 +661,7 @@ __Extensions__
 - 1a. User did not specify a module code while viewing details of a module.
   - 1a1. PlanNUS shows a _missing parameter_ error message.
     
-    Use case ends.
+  Use case ends.
   
 - 1b. User enters a module code that is not offered by NUS.
   - 1b1.  PlanNUS shows an _invalid module code_ error message.
@@ -938,46 +946,56 @@ Given below are instructions to test the app manually.
 
 1. Initial launch
 
-   1.  Download the jar file and copy it into an empty folder.
-   2.  Open a command prompt and navigate to the folder.
+   1. Download the jar file and copy it into an empty folder.
+
+   2. Open a command prompt and navigate to the folder.
+
    3.  Enter `java -jar PlanNus.jar` and press enter to launch the app.
+       
        Expected: The PlanNUS main menu is displayed, and the save file is loaded. If a save file does not exist, a new one is created.
 
 2. Shutdown
    1. Test case: `exit`
-      Expected: PlanNUS saves data from the current session, prints a goodbye message, and exits the app entirely.
+      
+      Expected: PlanNUS saves data from the current session, prints a goodbye message, and exits the software entirely.
 
 <br>
 
-**Entering and exiting the various apps**
+**Entering and exiting apps**
 
-1. Entering the _Academic Planner_ app from the main menu
+1. Entering apps from the main menu
 
-   1. Test case: `acadplan` or `a`
+   1. Test case - entering the _Academic Planner_ app.
 
-      Expected: PlanNUS enters the _Academic Planner_ app.
-
-2. Entering the _CAP Calculator_ app from the main menu
-
-   1. Test case: `capcalc` or `c`
-
-      Expected: PlanNUS enters the _CAP Calculator_ app.
-
-3. Switching to the _CAP Calculator_ app while in the _Academic Planner_ app
-
-   1. Test case: `capcalc`
-
-      Expected: PlanNUS enters the _CAP Calculator_ app.
-
-4. Switching to the _Academic Planner_ app while in the _CAP Calculator_ app
-
-   1. Test case: `acadplan`
+      Input: `acadplan` or `a`
 
       Expected: PlanNUS enters the _Academic Planner_ app.
 
-5. Exiting to the main menu while in either the _Academic Planner_ or _CAP Calculator_ app
+   2. Test case - entering the _CAP Calculator_ app.
 
-   1. Test case: `exit`
+      Input: `capcalc` or `c`
+
+      Expected: PlanNUS enters the _CAP Calculator_ app.
+
+2. Switching between apps
+
+   1. Test case - switching to the _CAP Calculator_ app while in the _Academic Planner_ app.
+
+      Input: `capcalc`
+
+      Expected: PlanNUS enters the _CAP Calculator_ app.
+
+   2. Test case - Switching to the _Academic Planner_ app while in the _CAP Calculator_ app.
+
+      Input: `acadplan`
+
+      Expected: PlanNUS enters the _Academic Planner_ app.
+
+3. Exiting to the main menu from within an app.
+
+   1. Test case - exiting to the main menu.
+
+      Input: `exit`
 
       Expected: PlanNUS exits to the main menu.
 
@@ -987,21 +1005,21 @@ Given below are instructions to test the app manually.
 
 1. Prerequisites: User is currently in the _Academic Planner_ app.
 
-2. Test case - all inputs are valid
+2. Test case - all inputs are valid.
 
-   Input: `add cs1010`
+   Input: `add cs2113t`
 
    Expected: PlanNUS prompts user to enter semester that they plan to take the module.
 
-   Input: `2`
+   Input: `1`
 
    Expected: PlanNUS prompts user to enter grade received for the module.
 
-   Input: `B+`
+   Input: `NT`
 
    Expected: PlanNUS adds the module, with the associated semester and grade information, to the user's academic calendar. Prints a _module added_ confirmation message.
 
-3. Test case - invalid module code
+3. Test case - invalid module code.
 
    Input: `add cs1111`
 
@@ -1015,23 +1033,41 @@ Given below are instructions to test the app manually.
 
 **Editing a module currently in the academic calendar**
 
-1. Prerequisites: User is currently in the _Academic Planner_ app.
+1. Prerequisites: User is currently in the _Academic Planner_ app, and the module being edited is currently in their academic calendar.
 
-2. Test case - all inputs are valid. 
+2. Test case - all inputs are valid. Feature being edited is semester.
 
-   Input: `edit cs1010`
+   Input: `edit cs2113t`
 
-   Expected: PlanNUS prompts user to enter number corresponding to feature to be edited (1 - semester, 2 - grade).
+   Expected: PlanNUS prompts user to enter number corresponding to feature to be edited.
+
+   (1 - semester, 2 - grade).
 
    Input: `1`
 
    Expected: PlanNUS prompts user to enter new semester value.
 
-   Input: `5`
+   Input: `3`
 
    Expected: PlanNUS edits semester accordingly, and prints a _update successful_ confirmation message.
 
-3. Other incorrect inputs to try: no module code, invalid module codes, valid module codes that are not in the user's academic calendar, invalid features, invalid semester indexes, invalid grades.
+3. Test case - all inputs are valid. Feature being edited is grade.
+
+   Input: `edit cs2113t`
+
+   Expected: PlanNUS prompts user to enter number corresponding to feature to be edited.
+
+   (1 - semester, 2 - grade).
+
+   Input: `2`
+
+   Expected: PlanNUS prompts user to enter new grade.
+
+   Input: `A+`
+
+   Expected: PlanNUS edits grade accordingly, and prints a _update successful_ confirmation message.
+
+4. Other incorrect inputs to try: no module code, invalid module codes, valid module codes that are not in the user's academic calendar, invalid features, invalid semester indexes, invalid grades.
 
    Expected: PlanNUS shows an error message, and exits back to the _Academic Planner_ app. No module features are edited.
 
@@ -1039,11 +1075,11 @@ Given below are instructions to test the app manually.
 
 **Removing a module from the academic calendar**
 
-1. Prerequisites: User is currently in the _Academic Planner_ app.
+1. Prerequisites: User is currently in the _Academic Planner_ app, and the module being removed is currently in their academic calendar.
 
-2. Test case - all inputs are valid
+2. Test case - all inputs are valid.
 
-   Input: `remove cs1010`
+   Input: `remove cs2113t`
 
    Expected: PlanNUS removes module from user's academic calendar, and prints a _remove successful_ confirmation message.
 
@@ -1059,7 +1095,7 @@ Given below are instructions to test the app manually.
 
 2. Test case - all inputs are valid.
 
-   Input: `details cs1231`
+   Input: `details cs2101`
 
    Expected: PlanNUS prints the details of the corresponding module.
 
@@ -1075,7 +1111,7 @@ Given below are instructions to test the app manually.
 
 2. Test case - all inputs are valid.
 
-   Input: `search cg2`
+   Input: `search cs21`
 
    Expected: PlanNUS prints the modules that contain the keyword, up to the first 10 results.
 
@@ -1087,13 +1123,15 @@ Given below are instructions to test the app manually.
 
 **Viewing the academic calendar**
 
-1. Prerequisites: User is currently in the _Academic Planner_ app.
+1. Prerequisites: User is currently in the _Academic Planner_ app, and their academic calendar is currently not empty.
 
-2. Test case - all inputs are valid
+2. Test case - all inputs are valid.
 
    Input: `view`
 
-   Expected: PlanNUS prompts user to choose a viewing timeframe - the full academic calendar, or a specific semester.
+   Expected: PlanNUS prompts user to choose a viewing timeframe.
+
+   (`full` - full academic calendar, `1-10` - specific semester)
 
    Input: `full`
 
@@ -1105,15 +1143,97 @@ Given below are instructions to test the app manually.
 
 <br>
 
-**Printing help for academic calendar**
+**Viewing current CAP**
 
-1. Prerequisites: User is currently in the _Academic Planner_ app.
+1. Prerequisites: User is currently in the _CAP Calculator_ app.
 
-2. Test case - all inputs are valid
+2. Test case - all inputs are valid.
+
+   Input: `current`
+
+   Expected: PlanNUS prints the user's current CAP, total graded MCs and total MCs taken.
+
+<br>
+
+**Setting a target CAP**
+
+1. Prerequisites: User is currently in the _CAP Calculator_ app.
+
+2. Test case - all inputs are valid.
+
+   Input: `set target`
+
+   Expected: PlanNUS prompts user to enter their target CAP.
+
+   Input: `4.3`
+
+   Expected: PlanNUS prompts user to enter the number of graded MCs they are taking to achieve the target cap.
+
+   Input: `50`
+
+   Expected: PlanNUS prints the minimum CAP required in order to achieve the target CAP.
+
+3. Other incorrect inputs to try: target CAP not within `0.00-5.00` inclusive, number of graded MCs not within `1-180` inclusive.
+
+   Expected: PlanNUS shows an error message, and exits back to the _CAP Calculator_ app. No CAP advice is printed.
+
+<br>
+
+**Setting SU**
+
+1. Prerequisites: User is currently in the _CAP Calculator_ app, and their academic calendar is currently not empty.
+
+2. Test case - all inputs are valid. Set S/U by semester.
+
+   Input: `set su`
+
+   Expected: PlanNUS prompts user to enter number corresponding to S/U method
+
+   (1 - semester, 2 - modules)
+
+   Input: `1`
+
+   Expected: PlanNUS prompts user to enter semester that they wish to S/U.
+
+   Input: `1`
+
+   Expected: PlanNUS prints the current S/U list, possible S/U scenarios, and S/U advice.
+
+3. Test case - all inputs are valid. Set S/U by modules.
+
+   Input: `set su`
+
+   Expected: PlanNUS prompts user to enter number corresponding to S/U method
+
+   (1 - semester, 2 - modules)
+
+   Input: `2`
+
+   Expected: PlanNUS prompts user to enter the number of modules that they wish to S/U.
+
+   Input: `2`
+
+   Expected: PlanNUS prompts user to enter the modules that they wish to S/U.
+
+   Input: `CS1231`, then `CS1010`
+
+   Expected: PlanNUS prints the current S/U list, possible S/U scenarios, and S/U advice.
+
+4. Other incorrect inputs to try: invalid S/U methods, invalid semester indexes, invalid number of modules (greater than the number of modules that have been taken), invalid module codes, valid module codes that are not in the user's academic calendar.
+
+   Expected: PlanNUS shows an error message, and exits back to the _CAP Calculator_ app. No S/U advice is printed.
+
+<br>
+
+**Printing list of available commands**
+
+1. Prerequisites: User is currently in the _Academic Planner_ or _CAP Calculator_ app.
+
+2. Test case - all inputs are valid.
 
    Input: `help`
 
-   Expected: PlanNUS prints a list of available commands in the _Academic Planner_ app.
+   Expected: PlanNUS prints a list of available commands in the app that the user is currently in.
 
 <br>
 
