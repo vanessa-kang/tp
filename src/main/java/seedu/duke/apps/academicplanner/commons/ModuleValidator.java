@@ -38,6 +38,15 @@ public class ModuleValidator {
     }
 
     /**
+     * Overload constructor for SharedUtils.
+     *
+     */
+    public ModuleValidator() {
+        this.allModules = null;
+        this.modulesAddedMap = null;
+    }
+
+    /**
      * Returns true if module code is offered by NUS,
      * else returns false.
      * @param moduleCode input module code
@@ -148,6 +157,10 @@ public class ModuleValidator {
         case "AUD":
             //Fallthrough
         case "WU":
+            //Fallthrough
+        case "EXE":
+            //Fallthrough
+        case "IC":
             //Fallthrough
             return true;
         default:
