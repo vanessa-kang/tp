@@ -39,7 +39,11 @@ public class ModuleLoader {
     public ModuleLoader() throws ModuleLoaderException {
         try {
             fh = new FileHandler(LOG_FILE_NAME);
-            logger = new LoggingTool(LOGGER_NAME,fh).initialize();
+            try {
+                logger = new LoggingTool(LOGGER_NAME, fh).initialize();
+            } catch (Exception e) {
+                System.out.println("Logger failed to initialize.");
+            }
             moduleMap = new HashMap<>();
             Gson gson = new Gson();
 

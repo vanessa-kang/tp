@@ -45,7 +45,10 @@ public class PlanNus {
         assert isExit : "Startup is unsuccessful";
 
         File file = new File("logs");
-        file.mkdirs();
+        boolean isDirectoryCreated = file.mkdirs();
+        if (!isDirectoryCreated) {
+            System.out.println("Failed Creating logs Directory");
+        }
 
         boolean isChangeApp = false;
         int currentApp = MENU_PAGE;

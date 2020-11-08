@@ -38,7 +38,11 @@ public class SetTargetCommand extends Command {
     public void execute() {
         try {
             fh = new FileHandler(LOG_FILE_NAME);
-            logger = new LoggingTool(LOGGER_NAME,fh).initialize();
+            try {
+                logger = new LoggingTool(LOGGER_NAME, fh).initialize();
+            } catch (Exception e) {
+                System.out.println("Logger failed to initialize.");
+            }
             logger.log(Level.INFO,"Executing set target command.");
             double targetCap = setTargetUtils.getTargetCap();
             int targetMCs = setTargetUtils.getTargetGradedMC();
