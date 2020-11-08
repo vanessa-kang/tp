@@ -76,7 +76,8 @@ public class LoadUtils {
                     lineItems[i] = lineItems[i].trim().toUpperCase();
                 }
 
-                boolean isEntryValid = new FieldValidator(details, lineItems, moduleValidator).validate();
+                boolean isEntryValid
+                        = new FieldValidator(details, lineItems, moduleValidator, currentPerson).validate();
 
                 if (!isEntryValid) {
                     isAllEntryValid = false;
