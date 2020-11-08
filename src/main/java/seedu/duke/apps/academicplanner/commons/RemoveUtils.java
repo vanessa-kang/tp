@@ -1,11 +1,10 @@
 package seedu.duke.apps.academicplanner.commons;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 import static seedu.duke.apps.academicplanner.commons.SharedUtils.getEntryToBeEdited;
-
+import static seedu.duke.apps.academicplanner.commons.SharedUtils.updateHashmap;
 import seedu.duke.apps.academicplanner.exceptions.AcademicException;
 import seedu.duke.apps.capcalculator.commons.CalculatorUtils;
 import seedu.duke.global.objects.PartialModule;
@@ -49,13 +48,12 @@ public class RemoveUtils {
         final int totalNumberOfModules = modulesList.size();
 
         int indexToRemove = getEntryToBeEdited(in, moduleCode, currentPerson, FROM_REMOVE);
-
         ArrayList<Integer> moduleIndexList = modulesAddedMap.get(moduleCode);
+
         PartialModule module = modulesList.get(moduleIndexList.get(indexToRemove));
-
         calculatorUtils.updateCap(FROM_REMOVE, module);
-        depopulate(module);
 
+        depopulate(module);
         assert modulesList.size() == totalNumberOfModules - 1;
     }
 
@@ -66,24 +64,6 @@ public class RemoveUtils {
      */
     private void depopulate(PartialModule module) {
         modulesList.remove(module);
-        updateHashmap();
-    }
-
-    /**
-     * Updates hashmap with the new module list.
-     */
-    private void updateHashmap() {
-        HashMap<String, ArrayList<Integer>> newModuleAddedMap = new HashMap<>();
-        for (int i = 0; i < modulesList.size(); i++) {
-            String currentModuleCode = modulesList.get(i).getModuleCode();
-            if (newModuleAddedMap.containsKey(currentModuleCode)) {
-                newModuleAddedMap.get(currentModuleCode).add(i);
-            } else {
-                ArrayList<Integer> newIndexArray = new ArrayList<>();
-                newIndexArray.add(i);
-                newModuleAddedMap.put(modulesList.get(i).getModuleCode(), newIndexArray);
-            }
-        }
-        currentPerson.setModulesAddedMap(newModuleAddedMap);
+        updateHashmap(modulesList, currentPerson);
     }
 }
