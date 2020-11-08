@@ -15,6 +15,8 @@ Before reading this document, you are recommended to read through the [user guid
 
 ## 2. Setting up PlanNUS
 
+<!-- @@author harryleecp -->
+
 First and foremost, the following steps are assuming that you already have a [GitHub](https://github.com) account set up beforehand. Once this has been done, proceed to __fork__ this [repo](https://github.com/AY2021S1-CS2113T-F12-1/tp), and __clone__ the fork into your computer using [Sourcetree](https://sourcetreeapp.com) or any other _Git GUI_.
 
 The _IDE_ to be used should contain the latest version of _Java_ as this is the main programming language for this application. Thus you are highly recommended to use Intellij IDEA.
@@ -30,6 +32,8 @@ The following are remaining steps to be taken to finish the set up:
 ## 3. Design
 
 ### 3.1. Architecture
+
+<!-- @@author Khenus -->
 
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/Architecture.png" alt="Architecture diagram of PlanNUS"/>
@@ -124,6 +128,8 @@ Classes used by multiple components are part of the `global` component of PlanNU
 
 #### 3.5.2. Storage Component
 
+<!-- @@author harryleecp -->
+
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/Storage_architecture.png" alt="Storage architecture diagram of PlanNUS"/>
 </div>
@@ -137,6 +143,8 @@ The `Storage` component is responsible for the loading and saving of information
 
 #### 3.5.3. Parser Component
 
+<!-- @@author JuZihao -->
+
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/Parser_architecture.png" alt="Parser diagram for Ui"/>
 </div>
@@ -149,6 +157,8 @@ of these parsers is to process the user's input and return the appropriate comma
 <br>
 
 #### 3.5.4. Ui Component
+
+<!-- @@author jerroldlam -->
 
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/Ui_architecture.png" alt="Architecture diagram for Ui"/>
@@ -225,7 +235,7 @@ The following activity diagram summarizes what happens when the user executes a 
     <img src="./images/DeveloperGuide/addModuleCommand_activity.png" alt="Activity diagram for AddModuleCommand"/>
 </div>
 
-#### 4.1.2. Design consideration
+#### 4.1.2. Design considerations
 
 The following options were considered when implementing commands:
 
@@ -239,6 +249,8 @@ The following options were considered when implementing commands:
 <br>
 
 ### 4.2. Academic Calendar Planner: Edit Module Feature
+
+<!-- @@author harryleecp -->
 
 #### 4.2.1. Current implementation
 
@@ -329,6 +341,8 @@ The following diagram summarizes what happens when the user executes a `RemoveMo
 
 ### 4.4. Academic Calendar Planner: View Module Details Feature
 
+<!-- @@author Vanessa-Kang -->
+
 #### 4.4.1. Current implementation
 
 View module details command is executed by `AcademicPlannerParser`. It allows the user to view the full details of any module offered by NUS, by accessing the specified `FullModule` object that corresponds to the module code entered by the user, and printing its attributes.
@@ -380,6 +394,8 @@ The following diagram summarizes what happens when the user executes a `ModuleDe
 
 ### 4.5. CAP Calculator feature : Set S/U by semester feature
 
+<!-- @@author JuZihao -->
+
 #### 4.5.1. Current implementation
 
 `SetSuBySemesterCommand` is executed by `CapCalculatorApp`. It provides users with a suggestion on how they can S/U their modules added in `AcademicPlannerApp` by retrieving the `userModuleList` from  the `Person` object and filter the list according to the semester provided to get a `suList`.
@@ -427,6 +443,8 @@ The following diagram summarizes what happens when the user executes a `SetSuByS
 </div>    
 <br>
 
+<!-- @@author -->
+
 ## 5. Useful Links
 
 * [**About Us**](https://ay2021s1-cs2113t-f12-1.github.io/tp/AboutUs.html)
@@ -472,6 +490,8 @@ of their scores and receive information regarding the use of their Satisfactory 
 <br>
 
 ### 6.3. Use cases
+
+<!-- @@author Vanessa-Kang -->
 
 <br>
 
@@ -853,6 +873,8 @@ __Extensions__
 
 ### 6.4. Non-Functional Requirements
 
+<!-- @@author jerroldlam -->
+
 * General
     * Should work on any [mainstream OS](#mainstream-os) as long as it has Java `11` or above installed.
     * Commands entered should be short and intuitive to reduce mistyping of commands
@@ -868,6 +890,8 @@ __Extensions__
 
 ### 6.5. Glossary
 
+<!-- @@author JuZihao -->
+
 #### Mainstream OS
 Windows, Linux, Unix, OS-X
 
@@ -878,6 +902,8 @@ The duration in which the object is running and alive.
 A UML diagram that captures the interactions between multiple objects for a given scenario.
 
 <br>
+
+<!-- @@author -->
 
 ## 7. Features Coming Soon (V3.0 and beyond)
 
@@ -890,6 +916,8 @@ A UML diagram that captures the interactions between multiple objects for a give
 <br>
 
 ## 8. Appendix: Instructions for manual testing
+
+<!-- @@author Vanessa-Kang -->
 
 <br>
 
