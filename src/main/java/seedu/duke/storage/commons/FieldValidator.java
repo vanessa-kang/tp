@@ -1,9 +1,11 @@
 package seedu.duke.storage.commons;
 
-import seedu.duke.apps.academicplanner.commons.ModuleValidator;
-import seedu.duke.storage.exceptions.CorruptedSaveFileException;
-
 import static java.lang.Integer.parseInt;
+import seedu.duke.apps.academicplanner.commons.ModuleValidator;
+import static seedu.duke.apps.academicplanner.commons.SharedUtils.getLargestCapForModule;
+import seedu.duke.global.objects.PartialModule;
+import seedu.duke.global.objects.Person;
+import seedu.duke.storage.exceptions.CorruptedSaveFileException;
 
 //@@author Khenus
 public class FieldValidator {
@@ -23,6 +25,7 @@ public class FieldValidator {
     private boolean isAllFieldValid;
     private int[] details;
     private String[] lineItems;
+    private Person currentPerson;
 
     /**
      * Default constructor for Field Validator.
@@ -32,11 +35,12 @@ public class FieldValidator {
      * @param moduleValidator Module validator to check validity of modules from save file
      */
 
-    public FieldValidator(int[] details, String[] lineItems, ModuleValidator moduleValidator) {
+    public FieldValidator(int[] details, String[] lineItems, ModuleValidator moduleValidator, Person currentPerson) {
         this.details = details;
         this.lineItems = lineItems;
         this.isAllFieldValid = true;
         this.moduleValidator = moduleValidator;
+        this.currentPerson = currentPerson;
     }
 
     /**
@@ -80,6 +84,28 @@ public class FieldValidator {
             } catch (NumberFormatException e) {
                 isAllFieldValid = false;
                 details[INVALID_MC]++;
+            }
+        }
+
+        if (isAllFieldValid) {
+            PartialModule moduleWithLargestCap
+                    = getLargestCapForModule(currentPerson, lineItems[MODULE_CODE_POSITION]);
+            PartialModule testModule = new PartialModule(lineItems[MODULE_CODE_POSITION],
+                    parseInt(lineItems[SEMESTER_VALUE_POSITION]), lineItems[MODULE_GRADE_POSITION],
+                    parseInt(lineItems[MODULE_CREDIT_POSITION]));
+
+            if (moduleWithLargestCap != null) {
+                ModuleValidator validator = new ModuleValidator();
+
+                if (!validator.isRetakeGrade(moduleWithLargestCap.getGrade())) {
+                    isAllFieldValid = false;
+                    details[INVALID_GRADE]++;
+                }
+
+                if (isAllFieldValid && moduleWithLargestCap.getCap() >= testModule.getCap()) {
+                    isAllFieldValid = false;
+                    details[INVALID_GRADE]++;
+                }
             }
         }
 

@@ -17,6 +17,10 @@ public class CalculatorUtils {
     private static final int FROM_REMOVE = 3;
     private static final DecimalFormat formatFinalCap = new DecimalFormat("#.##");
     protected static final double MAXIMUM_CAP = 5.00;
+    protected static final double F_GRADE_CAP = 0.00;
+    protected static final double U_GRADE_CAP = -2.00;
+    protected static final double NON_GRADED_CAP = -3.00;
+    protected static final double S_GRADE_CAP = -1.00;
 
     private final Person currentPerson;
 
@@ -88,7 +92,7 @@ public class CalculatorUtils {
      * @return boolean
      */
     private boolean isGraded(double cap) {
-        return cap > -1.00;
+        return cap >= F_GRADE_CAP;
     }
 
     /**
@@ -99,7 +103,7 @@ public class CalculatorUtils {
      * @return boolean
      */
     private boolean isSu(double cap) {
-        return cap == -1.00;
+        return (cap == S_GRADE_CAP);
     }
 
     /**
@@ -110,7 +114,7 @@ public class CalculatorUtils {
      * @return boolean
      */
     private boolean isNonGraded(double cap) {
-        return cap == -2.00;
+        return cap == NON_GRADED_CAP || cap == U_GRADE_CAP;
     }
 
     /**

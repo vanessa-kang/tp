@@ -15,6 +15,8 @@ Before reading this document, you are recommended to read through the [user guid
 
 ## 2. Setting up PlanNUS
 
+<!-- @@author harryleecp -->
+
 First and foremost, the following steps are assuming that you already have a [GitHub](https://github.com) account set up beforehand. Once this has been done, proceed to __fork__ this [repo](https://github.com/AY2021S1-CS2113T-F12-1/tp), and __clone__ the fork into your computer using [Sourcetree](https://sourcetreeapp.com) or any other _Git GUI_.
 
 The _IDE_ to be used should contain the latest version of _Java_ as this is the main programming language for this application. Thus you are highly recommended to use Intellij IDEA.
@@ -31,6 +33,8 @@ The following are remaining steps to be taken to finish the set up:
 
 ### 3.1. Architecture
 
+<!-- @@author Khenus -->
+
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/Architecture.png" alt="Architecture diagram of PlanNUS"/>
 </div>
@@ -43,7 +47,7 @@ The ***Architecture Diagram*** given above explains the high-level design of Pla
 
 #### 3.2.1. PlanNus
 
-`PlanNus` class contains the `main` and `run` method, which is responsible for
+`PlanNus` class contains the `main` and `run` method, which is responsible for the following:
 
   * At launch
 
@@ -67,8 +71,8 @@ The ***Architecture Diagram*** given above explains the high-level design of Pla
 #### 3.2.2. Global, Ui, Parser, Storage, Apps
 
 * The `global` package contains classes, exceptions and objects that are required across the whole app. 
-* The `ui` package contains the class that is responsible for sharing one `scanner` class across the whole app to prevent multiple IO streams
-* The `parser` package contains the class that handles user's app selection
+* The `ui` package contains the class which is responsible for sharing one `scanner` class across the whole app to prevent multiple IO streams
+* The `parser` package contains the class which handles user's app selection
 * The `storage` package handles loading and saving of user's data to a save file.
 * Packages for Available apps such as Academic Planner and CAP Calculator are stored within `apps` package
 
@@ -76,10 +80,10 @@ The ***Architecture Diagram*** given above explains the high-level design of Pla
 
 ### 3.3. Project Structure
 
-Each package in the PlanNUS as given above follows the following file structure where applicable:
+Each package in PlanNUS as given above follows the following file structure where applicable:
 
-* A functional class that acts as the entry point to that module
-* A parser class that parses user input into executable commands by PlanNUS
+* A functional class which acts as the entry point to that module
+* A parser class which parses user input into executable commands by PlanNUS
 
 * `commands`: A package that handles all executable commands given by parser
 * `commons`: A package with the utilities and shared classes across the parent package
@@ -116,13 +120,15 @@ The [*sequence diagram*](#sequence-diagram) below shows how different packages a
     <img src="./images/DeveloperGuide/Global_Diagram.png" alt="Storage architecture diagram of PlanNUS"/>
 </div>
 
-Classes used by multiple components part of the `global` component of PlanNUS. This includes classes such as `App`,`Command` and `LoggingTool`. The main object classes `PartialModule`, `FullModule` and `Person` are also within the global component.
+Classes used by multiple components are part of the `global` component of PlanNUS. This includes classes such as `App`,`Command` and `LoggingTool`. The main object classes `PartialModule`, `FullModule` and `Person` are also within the global component.
 
 **API** : `src.main.java.global`
 
 <br>
 
 #### 3.5.2. Storage Component
+
+<!-- @@author harryleecp -->
 
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/Storage_architecture.png" alt="Storage architecture diagram of PlanNUS"/>
@@ -137,6 +143,12 @@ The `Storage` component is responsible for the loading and saving of information
 
 #### 3.5.3. Parser Component
 
+<!-- @@author JuZihao -->
+
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/Parser_architecture.png" alt="Parser diagram for Ui"/>
+</div>
+
 For the architecture of PlanNUS, the `Parser` classes will belong under the application they will be parsing for. The role 
 of these parsers is to process the user's input and return the appropriate command with required parameters to initialise the command. The newly created objects will then be returned to the main command to be executed and thereafter, terminated. 
 
@@ -145,6 +157,8 @@ of these parsers is to process the user's input and return the appropriate comma
 <br>
 
 #### 3.5.4. Ui Component
+
+<!-- @@author jerroldlam -->
 
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/Ui_architecture.png" alt="Architecture diagram for Ui"/>
@@ -180,7 +194,7 @@ and `String`. Below is a table of what each parameter corresponds to in the stat
 |:---:|:---:|:---:|
 |`ModuleLoader`| Class representing all modules offered by NUS | `allModules` |
 |`Person`| Class representing current user's information | `currentPerson`|
-|`Ui`| Class representing java's default scanner class | `in`|
+|`Ui`| Class encapsulating java's default scanner class | `in`|
 |`String` | Class representing the module code to be added | `moduleCode`|
 
 <div style="text-align:center">
@@ -190,9 +204,9 @@ and `String`. Below is a table of what each parameter corresponds to in the stat
 __Step 2__ : `execute()` is called from the instance of `AddModuleCommand`. It can throw `AcademicException` 
 or `IOException`. `FileHandler` and `Logger` classes from the _java API_ are instantiated to handle logging for the remainder of the `execute()` method. 
 
-__Step 3__ : `in` then reads in the next two lines of input, which is the user's input for the desired semester for the `moduleCode` and `moduleCode`'s grades.
+__Step 3__ : `in` then reads in the line of input, which is the user's input for the desired semester for the `moduleCode`. This is then validated against `allModules`, while accounting for `isRetake` variable. 
 
-__Step 4__ : `validateInputs()` is called from `ModuleValidator` to validate the user entered data against `allModules`.
+__Step 4__ : The next line of input is read from `in`, which is the user's input for grade value, which is also validated by `ModuleValidator`.
 
 __Step 5__ : `AddUtils` is called upon to return module credit for `moduleCode` by `getModuleCreditForModule()`.
 
@@ -221,7 +235,7 @@ The following activity diagram summarizes what happens when the user executes a 
     <img src="./images/DeveloperGuide/addModuleCommand_activity.png" alt="Activity diagram for AddModuleCommand"/>
 </div>
 
-#### 4.1.2. Design consideration
+#### 4.1.2. Design considerations
 
 The following options were considered when implementing commands:
 
@@ -235,6 +249,8 @@ The following options were considered when implementing commands:
 <br>
 
 ### 4.2. Academic Calendar Planner: Edit Module Feature
+
+<!-- @@author harryleecp -->
 
 #### 4.2.1. Current implementation
 
@@ -325,6 +341,8 @@ The following diagram summarizes what happens when the user executes a `RemoveMo
 
 ### 4.4. Academic Calendar Planner: View Module Details Feature
 
+<!-- @@author Vanessa-Kang -->
+
 #### 4.4.1. Current implementation
 
 View module details command is executed by `AcademicPlannerParser`. It allows the user to view the full details of any module offered by NUS, by accessing the specified `FullModule` object that corresponds to the module code entered by the user, and printing its attributes.
@@ -376,6 +394,8 @@ The following diagram summarizes what happens when the user executes a `ModuleDe
 
 ### 4.5. CAP Calculator feature : Set S/U by semester feature
 
+<!-- @@author JuZihao -->
+
 #### 4.5.1. Current implementation
 
 `SetSuBySemesterCommand` is executed by `CapCalculatorApp`. It provides users with a suggestion on how they can S/U their modules added in `AcademicPlannerApp` by retrieving the `userModuleList` from  the `Person` object and filter the list according to the semester provided to get a `suList`.
@@ -423,6 +443,8 @@ The following diagram summarizes what happens when the user executes a `SetSuByS
 </div>    
 <br>
 
+<!-- @@author -->
+
 ## 5. Useful Links
 
 * [**About Us**](https://ay2021s1-cs2113t-f12-1.github.io/tp/AboutUs.html)
@@ -469,6 +491,8 @@ of their scores and receive information regarding the use of their Satisfactory 
 
 ### 6.3. Use cases
 
+<!-- @@author Vanessa-Kang -->
+
 <br>
 
 __Use case 1: Add a module to academic calendar__
@@ -494,12 +518,14 @@ __MSS__
 __Extensions__
 
 - 1a. User did not specify a module code while adding a module.
+
   - 1a1. PlanNUS shows a _missing parameter_ error message.
     
   
   Use case ends.
   
 - 1b. User enters a module code that is not offered by NUS.
+
   - 1b1. PlanNUS shows an _invalid module code_ error message.
     
   
@@ -526,10 +552,15 @@ __Extensions__
 __MSS__ 
 
 1. User chooses to edit a module currently in their academic calendar.
+
 2. PlanNUS prompts user to indicate the feature (semester/grade) that they would like to edit.
+
 3. User chooses feature to edit.
+
 4. PlanNUS prompts user to enter updated value for chosen feature.
+
 5. User enters updated value.
+
 6. PlanNUS edits the value accordingly, stores the updated value in the user's academic calendar, and displays a confirmation message.
 
 Use case ends.
@@ -537,6 +568,7 @@ Use case ends.
 __Extensions__
 
 - 1a. User did not specify a module code while editing a module.
+
   - 1a1. PlanNUS shows a _missing parameter_ error message.
     
   
@@ -547,16 +579,19 @@ __Extensions__
   - 1b1.  PlanNUS shows an _invalid module code_ error message.
     
     Use case ends.
+    
 - 1c. User enters a module code that is offered by NUS, but is not currently in the user's academic calendar.
   
   - 1c1. PlanNUS shows a _module not in calendar_ error message.
     
     Use case ends.
+    
 - 3a. User chooses a feature that is invalid.
   
   - 3a1. PlanNUS shows an _invalid feature_ error message.
     
     Use case ends.
+    
 - 5a. User enters an updated value that is invalid.
   
   - 5a1. PlanNUS shows an _invalid value_ error message.
@@ -571,7 +606,7 @@ __Extensions__
 
 __MSS__ 
 
-1. User chooses to remove a module currently in their academic calendar.
+1. User chooses to remove a module currently in his or her academic calendar.
 
 2. PlanNUS removes the corresponding module from the user's academic calendar, and displays a confirmation message.
 
@@ -590,6 +625,7 @@ __Extensions__
   - 1b1.  PlanNUS shows an _invalid module code_ error message.
     
     Use case ends.
+    
 - 1c. User enters a module code that is offered by NUS, but is not currently in the user's academic calendar.
   
   - 1c1. PlanNUS shows a _module not in calendar_ error message.
@@ -615,7 +651,6 @@ __Extensions__
 - 1a. User did not specify a module code while viewing details of a module.
   - 1a1. PlanNUS shows a _missing parameter_ error message.
     
-  
   Use case ends.
   
 - 1b. User enters a module code that is not offered by NUS.
@@ -652,9 +687,9 @@ __Extensions__
 
 __MSS__
 
-1. User chooses to view their current academic calendar.
+1. User chooses to view his or her current academic calendar.
 
-2. PlanNUS prompts user to indicate their desired viewing timeframe, i.e. 
+2. PlanNUS prompts user to indicate his or her desired viewing timeframe, i.e. 
 
    a) the full academic calendar, or 
 
@@ -669,14 +704,17 @@ __MSS__
 __Extensions__
 
 - 1a. User's academic calendar is currently empty.
+
   - 1a1. PlanNUS shows an _empty calendar_ error message.
     
     Use case ends.
 - 3a. User did not specify a valid timeframe.
+
   - 3a1. PlanNUS shows an _invalid timeframe_ error message.
     
     Use case ends.
 - 3b. User specifies a valid semester, but there are no modules added to that semester yet.
+
   - 3b1. PlanNUS shows an _empty semester_ error message.
     
     Use case ends.
@@ -685,27 +723,162 @@ __Extensions__
 
 **Use case 7: View list of available commands**
 
-**Preconditions: User is in the Academic Planner app.**
+**Preconditions: User is in the Academic Planner app or CAP Calculator app.**
 
 __MSS__
 
 1. User chooses to view the list of available commands in the Academic Planner app.
+
 2. PlanNUS displays the list of available commands.
 
 <br>
 
 **Use case 8: Exit back to PlanNUS**
 
-**Preconditions: User is in the Academic Planner app.**
+**Preconditions: User is in the Academic Planner app or CAP Calculator app.**
 
 __MSS__
 
 1. User chooses to exit from the Academic Planner app back to the PlanNUS main menu.
+
 2. PlanNUS exits back to the PlanNUS main menu.
 
 <br>
 
+<!-- @@author JuZihao -->
+**Use case 9: View current results in CAP Calculator**
+
+**Preconditions: User is in the CAP Calculator app.**
+
+__MSS__ 
+
+1. User chooses to view his or her current results.
+
+2. PlanNUS displays user's current results.
+
+Use case ends.
+
+<br>
+
+**Use case 10: Set target CAP in CAP Calculator**
+
+**Preconditions: User is in the CAP Calculator app.**
+
+__MSS__ 
+
+1. User chooses to set a target in CAP Calculator.
+
+2. PlanNUS prompts user for a target CAP.
+
+3. User enters a target CAP.
+
+4. PlanNus prompts user for number of graded MCs to achieve that target CAP.
+
+5. User enters a target graded MCs.
+
+6. PlanNus displays user with the results needed to achieve the target CAP.
+
+Use case ends.
+
+__Extensions__
+
+- 3a. User did not enter a valid target CAP.
+  - 3a1. PlanNUS shows an _invalid CAP_ error message.
+    
+    Use case ends.
+    
+- 5a. User provides a valid target CAP, but the target MCs is not valid.
+  - 5a1. PlanNUS shows an _invalid MCs_ error message.
+    
+    Use case ends.
+
+<br>
+
+**Use case 11a: Set S/U by semester in CAP Calculator**
+
+**Preconditions: User is in the CAP Calculator app.**
+
+__MSS__ 
+
+1. User chooses to set S/U in CAP Calculator.
+
+2. PlanNUS prompts user for his or her desired set S/U method.
+
+    a) Set S/U by semester, or
+    
+    b) Set S/U by modules
+
+3. User enters to set S/U by semester.
+
+4. PlanNus prompts user for the semester that he or she wishes to S/U.
+
+5. PlanNus displays user with the the best CAP possible and the modules.
+
+Use case ends.
+
+__Extensions__
+
+- 3a. User did not enter a valid semester.
+
+  - 3a1. PlanNUS shows an _invalid semester_ error message.
+    
+    Use case ends.
+
+<br>
+
+**Use case 11b: Set S/U by modules in CAP Calculator**
+
+**Preconditions: User is in the CAP Calculator app.**
+
+__MSS__ 
+
+1. User chooses to set S/U in CAP Calculator.
+
+2. PlanNUS prompts user for his or her desired set S/U method.
+
+    a) Set S/U by semester, or
+    
+    b) Set S/U by modules
+
+3. User enters to set S/U by modules.
+
+4. PlanNus prompts user for number of modules that he or she wishes to S/U.
+
+5. PlanNus prompts user for the module codes that he or she wishes to S/U.
+
+6. User enters to the module codes.
+
+7. PlanNus displays user with the the best CAP possible and the modules.
+
+Use case ends.
+
+__Extensions__
+
+- 3a. User did not enter an integer.
+
+  - 3a1. PlanNUS shows an _invalid number_ error message.
+  
+- 3b. User enters a number that is too large.
+
+  - 3b1. PlanNUS shows a _number out of bound_ error message.
+
+    Use case ends.
+    
+- 5a. User did not enter a valid module code.
+
+  - 5a1. PlanNUS shows an _invalid module_ error message.
+  
+- 5b. User enters a duplicated module code.
+
+  - 5b1. PlanNUS shows a _duplicate module_ error message.
+
+    Use case ends.
+
+<br>
+
 ### 6.4. Non-Functional Requirements
+
+<!-- @@author jerroldlam -->
 
 * General
     * Should work on any [mainstream OS](#mainstream-os) as long as it has Java `11` or above installed.
@@ -722,6 +895,8 @@ __MSS__
 
 ### 6.5. Glossary
 
+<!-- @@author JuZihao -->
+
 #### Mainstream OS
 Windows, Linux, Unix, OS-X
 
@@ -733,12 +908,12 @@ A UML diagram that captures the interactions between multiple objects for a give
 
 <br>
 
+<!-- @@author -->
+
 ## 7. Features Coming Soon (V3.0 and beyond)
 
 * Logging of program to separate folders
-* Support retaking of modules
 * Support max limit for the `Set SU` function in `capcalc`
-* Saving data after every command
 * Support discontinued modules from NUS
 * Support shortened commands for parsers
 * Support validation of requirements for modules
@@ -746,6 +921,8 @@ A UML diagram that captures the interactions between multiple objects for a give
 <br>
 
 ## 8. Appendix: Instructions for manual testing
+
+<!-- @@author Vanessa-Kang -->
 
 <br>
 

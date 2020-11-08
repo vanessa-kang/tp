@@ -32,9 +32,6 @@ public class SearchModulesCommand extends Command {
                 break;
             }
         }
-
         printUtils.printMatchModules(matchList, maxResults);
-
     }
-
 }

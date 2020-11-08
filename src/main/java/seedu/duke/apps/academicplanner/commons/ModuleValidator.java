@@ -1,8 +1,9 @@
 package seedu.duke.apps.academicplanner.commons;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.global.objects.Person;
-import java.util.HashMap;
 
 //@@author jerroldlam
 /**
@@ -13,7 +14,7 @@ public class ModuleValidator {
     private static final int FINAL_SEMESTER_INDEX = 10;
 
     private final ModuleLoader allModules;
-    private final HashMap<String, Integer> modulesAddedMap;
+    private final HashMap<String, ArrayList<Integer>> modulesAddedMap;
 
     /**
      * Default constructor for ModuleValidator.
@@ -33,6 +34,15 @@ public class ModuleValidator {
      */
     public ModuleValidator(ModuleLoader allModules) {
         this.allModules = allModules;
+        this.modulesAddedMap = null;
+    }
+
+    /**
+     * Overload constructor for SharedUtils.
+     *
+     */
+    public ModuleValidator() {
+        this.allModules = null;
         this.modulesAddedMap = null;
     }
 
@@ -121,6 +131,37 @@ public class ModuleValidator {
         case "EXE" :         //Exempted
             //Fallthrough
         case "NT":           //Not taken
+            return true;
+        default:
+            return false;
+        }
+    }
+
+    /**
+     * Returns true if grade is a valid retakeable grade,
+     * else returns false.
+     *
+     * @param grade grade to check
+     * @return boolean
+     */
+    public boolean isRetakeGrade(String grade) {
+        switch (grade.toUpperCase()) {
+        case "F":
+            //Fallthrough
+        case "CU" :
+            //Fallthrough
+        case "U":
+            //Fallthrough
+        case "W":
+            //Fallthrough
+        case "AUD":
+            //Fallthrough
+        case "WU":
+            //Fallthrough
+        case "EXE":
+            //Fallthrough
+        case "IC":
+            //Fallthrough
             return true;
         default:
             return false;

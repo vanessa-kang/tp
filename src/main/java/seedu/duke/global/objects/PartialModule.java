@@ -9,7 +9,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  */
 public class PartialModule implements Comparable<PartialModule> {
     private String moduleCode;
-    private int semesterIndex; // 1 to 8
+    private int semesterIndex;
     private String grade;
     private int moduleCredit;
     private double cap;
@@ -58,7 +58,8 @@ public class PartialModule implements Comparable<PartialModule> {
     //@@author JuZihao
     /**
      * Returns Academic points associated with letter grades.
-     * If grade is a special grading option, returns -1.00.
+     * If grade is a S or U grading options, returns -1.00 and -2.00 respectively.
+     * If grade is a special grading option, returns -3.00.
      *
      * @param grade user grade to check
      */
@@ -97,15 +98,16 @@ public class PartialModule implements Comparable<PartialModule> {
             break;
         case "CS":           //Completed Satisfactorily
             //Fallthrough
-        case "CU":           //Completed Unsatisfactorily
-            //Fallthrough
         case "S":            //Satisfactory
-            //Fallthrough
-        case "U":            //Unsatisfactory
-            //Fallthrough 
-        case "IP":           //In progress
             this.cap = -1.00;
             break;
+        case "CU":           //Completed Unsatisfactorily
+            //Fallthrough
+        case "U":            //Unsatisfactory
+            this.cap = -2.00;
+            break;
+        case "IP":           //In progress
+            //Fallthrough
         case "W":            //Withdrawn
             //Fallthrough
         case "IC":           //Incomplete
@@ -117,7 +119,7 @@ public class PartialModule implements Comparable<PartialModule> {
         case "EXE":         //Exempted
             //Fallthrough
         case "NT":           //Not taken
-            this.cap = -2.00;
+            this.cap = -3.00;
             break;
         default:
             this.cap = 0.00;

@@ -6,7 +6,9 @@ import seedu.duke.global.Command;
 import seedu.duke.global.LoggingTool;
 import seedu.duke.global.objects.Person;
 import seedu.duke.apps.capcalculator.commons.SetTargetUtils;
+import seedu.duke.ui.Ui;
 
+import java.io.File;
 import java.util.Scanner;
 import java.io.IOException;
 import java.util.logging.FileHandler;
@@ -19,15 +21,15 @@ import java.util.logging.Logger;
  */
 public class SetTargetCommand extends Command {
     private static final double MAXIMUM_CAP = 5.00;
-    private static final String LOG_FILE_NAME = "SetTargetCommand.log";
+    private static final String LOG_FILE_NAME = "logs/SetTargetCommand.log";
     private static final String LOGGER_NAME = "SetTargetCommand";
 
     private static Logger logger;
     private static FileHandler fh;
     private SetTargetUtils setTargetUtils;
 
-    public SetTargetCommand(Person currentPerson, Scanner in) {
-        this.setTargetUtils = new SetTargetUtils(currentPerson, in);
+    public SetTargetCommand(Person currentPerson, Ui ui) {
+        this.setTargetUtils = new SetTargetUtils(currentPerson, ui.getScanner());
     }
 
     /**
@@ -36,8 +38,11 @@ public class SetTargetCommand extends Command {
     @Override
     public void execute() {
         try {
+            File file = new File("logs");
+            file.mkdirs();
             fh = new FileHandler(LOG_FILE_NAME);
-            logger = new LoggingTool(LOGGER_NAME,fh).initialize();
+            logger = new LoggingTool(LOGGER_NAME, fh).initialize();
+
             logger.log(Level.INFO,"Executing set target command.");
             double targetCap = setTargetUtils.getTargetCap();
             int targetMCs = setTargetUtils.getTargetGradedMC();

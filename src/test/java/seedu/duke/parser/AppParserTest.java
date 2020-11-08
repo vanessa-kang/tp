@@ -7,11 +7,12 @@ import seedu.duke.apps.capcalculator.CapCalculatorApp;
 import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.global.App;
 import seedu.duke.global.objects.Person;
+import seedu.duke.storage.Storage;
 import seedu.duke.ui.Ui;
 
-import static org.junit.jupiter.api.Assertions.fail;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 //@@author jerroldlam
 class AppParserTest {
@@ -21,6 +22,7 @@ class AppParserTest {
     ModuleLoader allModules;
     Person currentPerson;
     Ui ui;
+    Storage storage;
 
     @BeforeEach
     void setup() {
@@ -28,6 +30,7 @@ class AppParserTest {
             allModules = new ModuleLoader();
             currentPerson = new Person("Bob");
             ui = new Ui();
+            storage = new Storage(allModules);
         } catch (Exception e) {
             fail();
         }
@@ -37,7 +40,7 @@ class AppParserTest {
     void parse_emptyInput_exceptionThrown() {
         try {
             final String emptyInput = "";
-            AppParser.parse(emptyInput,allModules,currentPerson,ui);
+            AppParser.parse(emptyInput,allModules,currentPerson,ui,storage);
         } catch (Exception e) {
             assertEquals(INVALID_COMMAND_MESSAGE, e.getMessage());
         }
@@ -47,7 +50,7 @@ class AppParserTest {
     void parse_randomInput_exceptionThrown() {
         try {
             final String randomInput = "i am a gummy bear";
-            AppParser.parse(randomInput,allModules,currentPerson,ui);
+            AppParser.parse(randomInput,allModules,currentPerson,ui,storage);
         } catch (Exception e) {
             assertEquals(INVALID_COMMAND_MESSAGE, e.getMessage());
         }
@@ -56,19 +59,20 @@ class AppParserTest {
     @Test
     void parse_acadplan_correct() {
         final String input = "acadplan";
-        parseAndAssertCommandType(input, AcademicPlannerApp.class,allModules,currentPerson,ui);
+        parseAndAssertCommandType(input, AcademicPlannerApp.class,allModules,currentPerson,ui,storage);
     }
 
     @Test
     void parse_capcalc_correct() {
         final String input = "capcalc";
-        parseAndAssertCommandType(input, CapCalculatorApp.class,allModules,currentPerson,ui);
+        parseAndAssertCommandType(input, CapCalculatorApp.class,allModules,currentPerson,ui,storage);
     }
 
     private <T extends App> void parseAndAssertCommandType(String input, Class<T> expectedCommandClass,
-                                                           ModuleLoader allModules, Person currentPerson, Ui ui) {
+                                                           ModuleLoader allModules, Person currentPerson, Ui ui,
+                                                           Storage storage) {
         try {
-            final App result = AppParser.parse(input, allModules, currentPerson, ui);
+            final App result = AppParser.parse(input, allModules, currentPerson, ui, storage);
             assertTrue(result.getClass().isAssignableFrom(expectedCommandClass));
         } catch (Exception e) {
             fail();

@@ -1,16 +1,19 @@
 package seedu.duke.apps.capcalculator.commands;
 
+import java.util.ArrayList;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import seedu.duke.apps.academicplanner.commons.AddUtils;
 import seedu.duke.apps.academicplanner.commons.EditUtils;
 import seedu.duke.apps.academicplanner.commons.RemoveUtils;
+import seedu.duke.apps.academicplanner.exceptions.AcademicException;
 import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.apps.moduleloader.exceptions.ModuleLoaderException;
 import seedu.duke.global.objects.Person;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import seedu.duke.ui.Ui;
 
 //@@author jerroldlam
 class CurrentCommandTest {
@@ -25,7 +28,7 @@ class CurrentCommandTest {
         currentPerson = new Person("Bob");
         allModules = new ModuleLoader();
         addUtils = new AddUtils(allModules,currentPerson);
-        removeUtils = new RemoveUtils(currentPerson);
+        removeUtils = new RemoveUtils(new Ui(), currentPerson);
         editUtils = new EditUtils(allModules, currentPerson);
     }
 
@@ -66,53 +69,71 @@ class CurrentCommandTest {
 
     @Test
     void execute_addOneRemoveOne_fail() {
-        addUtils.addModuleToUser("CS1010",1,"S",4);
-        removeUtils.removeModuleFromUserModuleList("CS1010");
-        CurrentCommand currentCommand = new CurrentCommand(currentPerson);
-        double currentCap = currentCommand.getCurrentCap();
-        boolean isNan = Double.isNaN(currentCap);
-        assertTrue(isNan);
+        try {
+            addUtils.addModuleToUser("CS1010", 1, "S", 4);
+            removeUtils.removeModuleFromUserModuleList("CS1010");
+            CurrentCommand currentCommand = new CurrentCommand(currentPerson);
+            double currentCap = currentCommand.getCurrentCap();
+            boolean isNan = Double.isNaN(currentCap);
+            assertTrue(isNan);
+        } catch (Exception e) {
+            fail();
+        }
     }
 
     @Test
     void execute_addTwoRemoveOne_result() {
-        addUtils.addModuleToUser("CS1010",1,"S",4);
-        addUtils.addModuleToUser("CS2040",1,"A",4);
-        removeUtils.removeModuleFromUserModuleList("CS1010");
-        CurrentCommand currentCommand = new CurrentCommand(currentPerson);
-        double currentCap = currentCommand.getCurrentCap();
-        assertEquals(5.0, currentCap);
+        try {
+            addUtils.addModuleToUser("CS1010", 1, "S", 4);
+            addUtils.addModuleToUser("CS2040", 1, "A", 4);
+            removeUtils.removeModuleFromUserModuleList("CS1010");
+            CurrentCommand currentCommand = new CurrentCommand(currentPerson);
+            double currentCap = currentCommand.getCurrentCap();
+            assertEquals(5.0, currentCap);
+        } catch (Exception e) {
+            fail();
+        }
     }
 
     @Test
     void execute_addTwoRemoveOne_fail() {
-        addUtils.addModuleToUser("CS1010",1,"A",4);
-        addUtils.addModuleToUser("CS2040",1,"S",4);
-        removeUtils.removeModuleFromUserModuleList("CS1010");
-        CurrentCommand currentCommand = new CurrentCommand(currentPerson);
-        double currentCap = currentCommand.getCurrentCap();
-        boolean isNan = Double.isNaN(currentCap);
-        assertTrue(isNan);
+        try {
+            addUtils.addModuleToUser("CS1010", 1, "A", 4);
+            addUtils.addModuleToUser("CS2040", 1, "S", 4);
+            removeUtils.removeModuleFromUserModuleList("CS1010");
+            CurrentCommand currentCommand = new CurrentCommand(currentPerson);
+            double currentCap = currentCommand.getCurrentCap();
+            boolean isNan = Double.isNaN(currentCap);
+            assertTrue(isNan);
+        } catch (Exception e) {
+            fail();
+        }
     }
 
     @Test
-    void execute_addOneEditOne_result() {
+    void execute_addOneEditOne_result() throws AcademicException {
+        ArrayList<Integer> testArr = new ArrayList<>();
+        testArr.add(0);
+
         addUtils.addModuleToUser("CS1010",1,"A",4);
         CurrentCommand currentCommand = new CurrentCommand(currentPerson);
         double currentCap = currentCommand.getCurrentCap();
         assertEquals(5, currentCap);
-        editUtils.updateModuleGrade("CS1010", "A-");
+        editUtils.updateModuleGrade("A-", 0, testArr);
         currentCap = currentCommand.getCurrentCap();
         assertEquals(4.5, currentCap);
     }
 
     @Test
-    void execute_addOneEditOne_fail() {
+    void execute_addOneEditOne_fail() throws AcademicException {
+        ArrayList<Integer> testArr = new ArrayList<>();
+        testArr.add(0);
+
         addUtils.addModuleToUser("CS1010",1,"A",4);
         CurrentCommand currentCommand = new CurrentCommand(currentPerson);
         double currentCap = currentCommand.getCurrentCap();
         assertEquals(5, currentCap);
-        editUtils.updateModuleGrade("CS1010", "S");
+        editUtils.updateModuleGrade("S", 0, testArr);
         currentCap = currentCommand.getCurrentCap();
         boolean isNan = Double.isNaN(currentCap);
         assertTrue(isNan);

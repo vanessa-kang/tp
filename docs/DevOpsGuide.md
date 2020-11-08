@@ -1,5 +1,7 @@
 # DevOps Guide for PlanNUS
 
+<!-- @@author Khenus -->
+
 <table><tr><td><div style="text-align:center">
     <img src="images/PlanNUSLogo.png" />
 </div></td></tr></table>
