@@ -204,7 +204,8 @@ and `String`. Below is a table of what each parameter corresponds to in the stat
 __Step 2__ : `execute()` is called from the instance of `AddModuleCommand`. It can throw `AcademicException` 
 or `IOException`. `FileHandler` and `Logger` classes from the _java API_ are instantiated to handle logging for the remainder of the `execute()` method. 
 
-__Step 3__ : `in` then reads in the line of input, which is the user's input for the desired semester for the `moduleCode`. This is then validated against `allModules`, while accounting for `isRetake` variable. 
+__Step 3__ : `in` then reads in the next line of input, which is the user's input for the desired semester for the `moduleCode`. This is then validated against `allModules`, while accounting for `isRetake` variable. `isRetake` is a flag varaible which indicates that
+the module newly entered by the user is a module that is going to be retaken.
 
 __Step 4__ : The next line of input is read from `in`, which is the user's input for grade value, which is also validated by `ModuleValidator`.
 
@@ -221,7 +222,7 @@ __Step 6__ :  `AddUtils` is called upon again to add the module's data to the us
     <img src="./images/DeveloperGuide/addModuleCommand_finalState.png" alt="Final state diagram for AddModuleCommand"/>
 </div>
 
-__Step 7__ : `FileHandler`, `Logger`, `PartialModule`, `ModuleValidator`, `AddUtils` and `AddModuleCommand` are terminated.
+__Step 7__ : `FileHandler`, `Logger`, `ModuleValidator`, `AddUtils` and `AddModuleCommand` are terminated. `PartialModule` is not terminated as it is now referenced by `userModuleList` and `userModuleMap` in `Person`.
 
 The following sequence diagram shows how the `AddModuleCommand` works:
 
