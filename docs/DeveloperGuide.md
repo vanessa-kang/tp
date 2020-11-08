@@ -741,6 +741,7 @@ __MSS__
 
 <br>
 
+<!-- @@author JuZihao -->
 **Use case 9: View current results in CAP Calculator**
 
 **Preconditions: User is in the CAP Calculator app.**
