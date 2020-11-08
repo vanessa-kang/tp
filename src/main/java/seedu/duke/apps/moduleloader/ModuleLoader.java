@@ -4,11 +4,11 @@ import com.google.gson.Gson;
 import seedu.duke.apps.moduleloader.exceptions.ModuleLoaderException;
 import seedu.duke.global.LoggingTool;
 import seedu.duke.global.objects.FullModule;
-
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.Reader;
 import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.FileHandler;
@@ -38,12 +38,11 @@ public class ModuleLoader {
      */
     public ModuleLoader() throws ModuleLoaderException {
         try {
+            File file = new File("logs");
+            file.mkdirs();
             fh = new FileHandler(LOG_FILE_NAME);
-            try {
-                logger = new LoggingTool(LOGGER_NAME, fh).initialize();
-            } catch (Exception e) {
-                System.out.println("Logger failed to initialize.");
-            }
+            logger = new LoggingTool(LOGGER_NAME, fh).initialize();
+
             moduleMap = new HashMap<>();
             Gson gson = new Gson();
 
@@ -67,7 +66,7 @@ public class ModuleLoader {
             fh.close();
             throw new ModuleLoaderException(MISSING_MODULE_DATA + NEW_LINE + TERMINATION);
         } catch (IOException e) {
-            throw new ModuleLoaderException("Logger failed to initialize: " + NEW_LINE + TERMINATION);
+            throw new ModuleLoaderException("Logger failed to initialize" + NEW_LINE + TERMINATION);
         }
     }
 

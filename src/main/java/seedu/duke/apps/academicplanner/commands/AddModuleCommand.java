@@ -13,6 +13,8 @@ import seedu.duke.global.objects.PartialModule;
 import seedu.duke.global.objects.Person;
 import seedu.duke.storage.Storage;
 import seedu.duke.ui.Ui;
+
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -134,12 +136,10 @@ public class AddModuleCommand extends Command {
      * @throws IOException when logger fails to initialise
      */
     private void initialiseLogger() throws IOException {
+        File file = new File("logs");
+        file.mkdirs();
         fh = new FileHandler(LOG_FILE_NAME);
-        try {
-            logger = new LoggingTool(LOGGER_NAME, fh).initialize();
-        } catch (Exception e) {
-            System.out.println("Logger failed to initialize.");
-        }
+        logger = new LoggingTool(LOGGER_NAME, fh).initialize();
     }
 
     /**

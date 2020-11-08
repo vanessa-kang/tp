@@ -8,6 +8,7 @@ import seedu.duke.global.objects.Person;
 import seedu.duke.apps.capcalculator.commons.SetTargetUtils;
 import seedu.duke.ui.Ui;
 
+import java.io.File;
 import java.util.Scanner;
 import java.io.IOException;
 import java.util.logging.FileHandler;
@@ -37,12 +38,11 @@ public class SetTargetCommand extends Command {
     @Override
     public void execute() {
         try {
+            File file = new File("logs");
+            file.mkdirs();
             fh = new FileHandler(LOG_FILE_NAME);
-            try {
-                logger = new LoggingTool(LOGGER_NAME, fh).initialize();
-            } catch (Exception e) {
-                System.out.println("Logger failed to initialize.");
-            }
+            logger = new LoggingTool(LOGGER_NAME, fh).initialize();
+
             logger.log(Level.INFO,"Executing set target command.");
             double targetCap = setTargetUtils.getTargetCap();
             int targetMCs = setTargetUtils.getTargetGradedMC();
