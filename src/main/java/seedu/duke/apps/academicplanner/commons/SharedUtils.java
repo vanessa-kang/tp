@@ -199,7 +199,7 @@ public class SharedUtils {
      * @return latestSemester
      */
     public static int getLatestSemester(ArrayList<PartialModule> modulesAddedList, ArrayList<Integer> indexArrayList) {
-        int latestSemester = modulesAddedList.get(0).getSemesterIndex();
+        int latestSemester = modulesAddedList.get(indexArrayList.get(0)).getSemesterIndex();
 
         for (int index = 0; index < indexArrayList.size(); index++) {
             Integer currentIndexForModule = indexArrayList.get(index);
@@ -211,6 +211,36 @@ public class SharedUtils {
         }
 
         return latestSemester;
+    }
+
+    /**
+     * Gets the module with the largest cap for the current person given a certain module code.
+     *
+     * @param currentPerson Person object
+     * @param moduleCode Module code to be checked
+     *
+     * @return Module with the largest cap
+     */
+    public static PartialModule getLargestCapForModule(Person currentPerson, String moduleCode) {
+        ArrayList<PartialModule> modulesAddedList = currentPerson.getModulesList();
+        ArrayList<Integer> indexArrayList = currentPerson.getModulesAddedMap().get(moduleCode);
+
+        PartialModule moduleWithLargestCap = null;
+
+        if (indexArrayList != null) {
+            moduleWithLargestCap = modulesAddedList.get(indexArrayList.get(0));
+
+            for (int index = 0; index < indexArrayList.size(); index++) {
+                Integer currentIndexForModule = indexArrayList.get(index);
+                PartialModule currentModule = modulesAddedList.get(currentIndexForModule);
+
+                if (currentModule.getCap() > moduleWithLargestCap.getCap()) {
+                    moduleWithLargestCap = currentModule;
+                }
+            }
+        }
+
+        return moduleWithLargestCap;
     }
 
     //@@author harryleecp
