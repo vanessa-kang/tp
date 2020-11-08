@@ -7,6 +7,8 @@ import seedu.duke.parser.AppParser;
 import seedu.duke.storage.Storage;
 import seedu.duke.ui.Ui;
 
+import java.io.File;
+
 import static seedu.duke.parser.AppParser.MENU_PAGE;
 
 //@@author Khenus
@@ -41,6 +43,9 @@ public class PlanNus {
      */
     public void run() {
         assert isExit : "Startup is unsuccessful";
+
+        File file = new File("logs");
+        file.mkdir();
 
         boolean isChangeApp = false;
         int currentApp = MENU_PAGE;

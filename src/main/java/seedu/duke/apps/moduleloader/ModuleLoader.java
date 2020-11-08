@@ -25,7 +25,7 @@ public class ModuleLoader {
     public static final String MISSING_MODULE_DATA = "Data for Modules not found!";
     public static final String TERMINATION = "Terminating program...";
     public static final String CORRUPTED_MODULE_DATA = "Data for Modules corrupted!";
-    public static final String LOG_FILE_NAME = "ModuleLoader.log";
+    public static final String LOG_FILE_NAME = "logs/ModuleLoader.log";
     public static final String LOGGER_NAME = "ModuleLoader";
 
     private Map<String, Integer> moduleMap;

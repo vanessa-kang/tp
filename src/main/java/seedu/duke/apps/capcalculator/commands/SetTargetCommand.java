@@ -20,7 +20,7 @@ import java.util.logging.Logger;
  */
 public class SetTargetCommand extends Command {
     private static final double MAXIMUM_CAP = 5.00;
-    private static final String LOG_FILE_NAME = "SetTargetCommand.log";
+    private static final String LOG_FILE_NAME = "logs/SetTargetCommand.log";
     private static final String LOGGER_NAME = "SetTargetCommand";
 
     private static Logger logger;
