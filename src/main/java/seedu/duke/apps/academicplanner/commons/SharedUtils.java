@@ -151,6 +151,15 @@ public class SharedUtils {
         }
     }
 
+    /**
+     * Returns true if semester is not allowed to be shifted forward,
+     * else returns flase.
+     *
+     * @param newSemester semester index to be shifted into
+     * @param moduleIndexList list of user's modules indexes
+     * @param userModuleList list of user's modules
+     * @return boolean
+     */
     public static boolean notAllowedSemesterUpdateForward(int newSemester,
             ArrayList<Integer> moduleIndexList, ArrayList<PartialModule> userModuleList) {
 
@@ -205,17 +214,24 @@ public class SharedUtils {
     }
 
     //@@author harryleecp
+
+    /**
+     * Update user's module map with information from user's module list.
+     *
+     * @param modulesList list of user's modules
+     * @param currentPerson current user
+     */
     public static void updateHashmap(ArrayList<PartialModule> modulesList, Person currentPerson) {
         HashMap<String, ArrayList<Integer>> newModuleAddedMap = new HashMap<>();
-        for (int i = 0; i < modulesList.size(); i++) {
-            String currentModuleCode = modulesList.get(i).getModuleCode();
+        for (int index = 0; index < modulesList.size(); index++) {
+            String currentModuleCode = modulesList.get(index).getModuleCode();
 
             if (newModuleAddedMap.containsKey(currentModuleCode)) {
-                newModuleAddedMap.get(currentModuleCode).add(i);
+                newModuleAddedMap.get(currentModuleCode).add(index);
             } else {
                 ArrayList<Integer> newIndexArray = new ArrayList<>();
-                newIndexArray.add(i);
-                newModuleAddedMap.put(modulesList.get(i).getModuleCode(), newIndexArray);
+                newIndexArray.add(index);
+                newModuleAddedMap.put(modulesList.get(index).getModuleCode(), newIndexArray);
             }
         }
         currentPerson.setModulesAddedMap(newModuleAddedMap);
