@@ -1,3 +1,4 @@
+Failed Creating logs Directory
 ____________________________________________________________
 Save file not found!
 It will be automatically created.
