@@ -13,6 +13,8 @@ import seedu.duke.global.objects.PartialModule;
 import seedu.duke.global.objects.Person;
 import seedu.duke.storage.Storage;
 import seedu.duke.ui.Ui;
+
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,7 +41,7 @@ public class AddModuleCommand extends Command {
     private static final String VALID_SEMESTERS = "\tValid semesters are integers from 1 to 10, inclusive";
     private static final String RETAKE_MOD = "This is a module that you are retaking!";
     private static final String WARNING = "Note that you cannot retake this module in any of the previous semester.\n";
-    private static final String LOG_FILE_NAME = "AddModuleCommand.log";
+    private static final String LOG_FILE_NAME = "logs/AddModuleCommand.log";
     private static final String LOGGER_NAME = "AddModuleCommand";
     private static final String INVALID_RETAKE_SEMESTER
             = "Cannot retake this module in any of the semester listed above!";
@@ -134,8 +136,10 @@ public class AddModuleCommand extends Command {
      * @throws IOException when logger fails to initialise
      */
     private void initialiseLogger() throws IOException {
+        File file = new File("logs");
+        file.mkdirs();
         fh = new FileHandler(LOG_FILE_NAME);
-        logger = new LoggingTool(LOGGER_NAME,fh).initialize();
+        logger = new LoggingTool(LOGGER_NAME, fh).initialize();
     }
 
     /**
@@ -286,9 +290,9 @@ public class AddModuleCommand extends Command {
      */
     private void checkValidityRetakeSemester(int semesterValue, ArrayList<PartialModule> modulesAddedList)
             throws AcademicException {
-        for (int i = 0; i < modulesAddedList.size(); i++) {
-            int currentSemester = modulesAddedList.get(i).getSemesterIndex();
-            String currentModule = modulesAddedList.get(i).getModuleCode();
+        for (int index = 0; index < modulesAddedList.size(); index++) {
+            int currentSemester = modulesAddedList.get(index).getSemesterIndex();
+            String currentModule = modulesAddedList.get(index).getModuleCode();
 
             if (currentSemester == semesterValue && currentModule.contains(moduleCode)) {
                 throw new AcademicException(INVALID_RETAKE_SEMESTER);
