@@ -46,11 +46,15 @@ public class EditUtils {
     private static final String PROMPT_NEW_GRADE = "Enter the new grade: ";
     private static final String ERROR_INVALID_SEMESTER_INDEX = "INVALID SEMESTER INDEX";
     private static final String ERROR_INVALID_GRADE = "INVALID GRADE VALUE";
+    private static final String ERROR_ILLEGAL_FORWARD = "This module cannot be shifted forwards!";
+    private static final String ERROR_ILLEGAL_BACKWARD = "This module cannot be shifted backwards!";
+    private static final String ERROR_NOT_LATEST_FAILED_MODULE
+            = "Sorry! You can only allowed to update the latest failed module!";
     private static final String VALID_GRADES = "Valid grades are:\n"
             + "\tLetter Grades: A+, A, A-, B+, B, B-, C+, C, D+, D, F\n"
             + "\tSpecial Grades: CS, CU, S, U, W, IC, IP, AUD, WU, EXE\n"
             + "\tIf you have yet to have a grade for the module: NT";
-    private static final String VALID_SEMESTERS = "Valid semesters are integers from 1 to 10, inclusive";
+    private static final String VALID_SEMESTERS = "Valid semesters are integers from 1 to 1" + "0, inclusive";
 
     /**
      * Changes the current grade of module to the input of the user.
@@ -93,7 +97,7 @@ public class EditUtils {
             if (module.getSemesterIndex() == latestSemester) {
                 updateCurrentModuleGrade(gradeValue, module);
             } else {
-                throw new AcademicException("Sorry! You can only allowed to update the latest failed module!");
+                throw new AcademicException(ERROR_NOT_LATEST_FAILED_MODULE);
             }
         } else {
             updateCurrentModuleGrade(gradeValue, module);
@@ -138,11 +142,11 @@ public class EditUtils {
 
         if (parseInt(newValue) > currentSemesterModule.getSemesterIndex()) {
             if (notAllowedSemesterUpdateForward(parseInt(newValue), moduleIndexList, modulesList)) {
-                throw new AcademicException("move forward not allow");
+                throw new AcademicException(ERROR_ILLEGAL_FORWARD);
             }
         } else {
             if (!modChecker.isRetakeGrade(currentSemesterModule.getGrade())) {
-                throw new AcademicException("move backward not allow");
+                throw new AcademicException(ERROR_ILLEGAL_BACKWARD);
             }
         }
 
