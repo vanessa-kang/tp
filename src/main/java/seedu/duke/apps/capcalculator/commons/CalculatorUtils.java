@@ -88,7 +88,7 @@ public class CalculatorUtils {
      * @return boolean
      */
     private boolean isGraded(double cap) {
-        return cap > -1.00;
+        return cap >= 0.00;
     }
 
     /**
@@ -99,7 +99,7 @@ public class CalculatorUtils {
      * @return boolean
      */
     private boolean isSu(double cap) {
-        return cap == -1.00;
+        return (cap == -1.00 || cap == -2.00);
     }
 
     /**
@@ -110,7 +110,7 @@ public class CalculatorUtils {
      * @return boolean
      */
     private boolean isNonGraded(double cap) {
-        return cap == -2.00;
+        return cap == -3.00;
     }
 
     /**

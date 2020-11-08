@@ -8,7 +8,6 @@ import seedu.duke.global.Command;
 import seedu.duke.global.objects.Person;
 import seedu.duke.storage.Storage;
 import seedu.duke.ui.Ui;
-
 import java.util.Scanner;
 
 //@@author harryleecp
