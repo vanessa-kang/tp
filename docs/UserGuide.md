@@ -1,5 +1,7 @@
 # User Guide for PlanNUS
 
+<!-- @@author jerroldlam -->
+
 <table><tr><td><div style="text-align:center">
     <img src="images/PlanNUSLogo.png" />
 </div></td></tr></table>
@@ -48,7 +50,7 @@ The sections below explain how PlanNUS should be used, and the common errors fac
     * Loading of Academic Calendar from text file
 
 <br>
-
+<!-- @@author Khenus -->
 ## 4. Quick Start
 
 1. Ensure that you have Java 11 or above installed.
@@ -131,6 +133,8 @@ Input format: `acadplan`  or `a`
 
 #### 6.1.1. Adding a module into the calendar: `add`
 
+<!-- @@author jerroldlam -->
+
 The following command is for you to add in a new module entry to your academic calendar.
 
 Input format: `add <module code>`
@@ -158,6 +162,8 @@ __<ins>Caution</ins>:__
 <br>
 
 #### 6.1.2. Editing an existing module in the calendar: `edit`
+
+<!-- @@author harryleecp -->
 
 This `edit` command is for you to edit an existing module entry.
 
@@ -213,6 +219,8 @@ __<ins>Caution:</ins>__
 <br>
 
 #### 6.1.4. Viewing the details of a module: `details`
+
+<!-- @@author Vanessa-Kang -->
 
 This command is for you to view information available for a particular module.
 
@@ -297,6 +305,8 @@ Input format: `help`
 
 #### 6.1.8. Switching to the _CAP Calculator_ app: `capcalc`
 
+<!-- @@author Khenus -->
+
 Note: You can choose to switch to the _CAP Calculator_ app from within the _Academic Planner_ app or the PlanNUS main menu.
 
 Input format: `capcalc`
@@ -324,6 +334,8 @@ Input format: `capcalc` or `c`
 
 
 #### 6.2.1. Printing current CAP and MCs taken: `current`
+
+<!-- @@author JuZihao -->
 
 This command shows you your current CAP, Current Graded MCs and Total number of MCs taken.
 
@@ -487,6 +499,8 @@ Last but not least, the expected output for exiting PlanNUS will be as such:
 
 ## 7. Loading and Saving 
 
+<!-- @@author Khenus -->
+
 Upon running PlanNUS in command prompt, the program automatically looks for a text file with the name _PlanNUS.txt_ within the same folder as _PlanNUS.jar_. 
 
 If the text file cannot be found, then the output will be as shown at the main page of PlanNUS after the list of commands.
@@ -513,6 +527,8 @@ Note that the image above is just an example because it depends on the number of
 <br>
 
 ## 8. FAQ
+
+<!-- @@author jerroldlam -->
 
 Question Type|Question|Answer
 :---:|---|---

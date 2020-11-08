@@ -3,6 +3,7 @@ package seedu.duke.apps.academicplanner.commands;
 import seedu.duke.apps.academicplanner.commons.AddUtils;
 import seedu.duke.apps.academicplanner.commons.ModuleValidator;
 import static seedu.duke.apps.academicplanner.commons.SharedUtils.getAllOccurrencesOfModule;
+import static seedu.duke.apps.academicplanner.commons.SharedUtils.getLatestSemester;
 import static seedu.duke.apps.academicplanner.commons.SharedUtils.printAllOccurrencesOfModule;
 import seedu.duke.apps.academicplanner.exceptions.AcademicException;
 import seedu.duke.apps.moduleloader.ModuleLoader;
@@ -266,7 +267,10 @@ public class AddModuleCommand extends Command {
      */
     private void validateRetakeParameters(int semesterValue) throws AcademicException {
         ArrayList<PartialModule> modulesAddedList = currentPerson.getModulesList();
-        int latestSemester = getLatestSemester(modulesAddedList);
+        ArrayList<Integer> indexArrayList = currentPerson.getModulesAddedMap().get(moduleCode);
+
+        int latestSemester = getLatestSemester(modulesAddedList, indexArrayList);
+
         if (semesterValue <= latestSemester) {
             throw new AcademicException(INVALID_RETAKE_SEMESTER_LESS + latestSemester + "!");
         }
@@ -290,25 +294,6 @@ public class AddModuleCommand extends Command {
                 throw new AcademicException(INVALID_RETAKE_SEMESTER);
             }
         }
-    }
-
-    /**
-     * Returns the latest semester taken for the module.
-     *
-     * @param modulesAddedList List of modules added
-     * @return lastestSemester
-     */
-    private int getLatestSemester(ArrayList<PartialModule> modulesAddedList) {
-        int latestSemester = modulesAddedList.get(0).getSemesterIndex();
-
-        for (int i = 0; i < modulesAddedList.size(); i++) {
-            int currentSemester = modulesAddedList.get(i).getSemesterIndex();
-
-            if (currentSemester > latestSemester) {
-                latestSemester = currentSemester;
-            }
-        }
-        return latestSemester;
     }
 
     /**

@@ -8,7 +8,6 @@ import seedu.duke.global.Command;
 import seedu.duke.global.objects.Person;
 import seedu.duke.storage.Storage;
 import seedu.duke.ui.Ui;
-
 import java.util.Scanner;
 
 //@@author harryleecp
@@ -18,7 +17,7 @@ import java.util.Scanner;
 public class EditModuleCommand extends Command {
     private static final String EDIT_SEMESTER = "1";
     private static final String EDIT_GRADE = "2";
-    private static final String ERROR_INVALID_MODULE = "The module you entered is not offered by NUS";
+    private static final String ERROR_INVALID_MODULE = "The module you entered is invalid";
     private static final String ERROR_NOT_ADDED = "You have not added this module into your list yet";
     private static final String ERROR_EDIT_OPTION = "Number entered does not correspond to any feature";
     public static final String PROMPT_EDIT_CHOICES = "Enter the number corresponding to the feature you wish to edit:\n"

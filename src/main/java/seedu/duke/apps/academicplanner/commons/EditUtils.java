@@ -4,9 +4,11 @@ import static java.lang.Integer.parseInt;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
+import static seedu.duke.apps.academicplanner.commons.SharedUtils.fromFailingToPass;
 import static seedu.duke.apps.academicplanner.commons.SharedUtils.getEntryToBeEdited;
+import static seedu.duke.apps.academicplanner.commons.SharedUtils.getLatestSemester;
+import static seedu.duke.apps.academicplanner.commons.SharedUtils.notAllowedSemesterUpdateForward;
 import static seedu.duke.apps.academicplanner.commons.SharedUtils.verifyRepeatedSemester;
-
 import seedu.duke.apps.academicplanner.exceptions.AcademicException;
 import seedu.duke.apps.capcalculator.commons.CalculatorUtils;
 import seedu.duke.apps.moduleloader.ModuleLoader;
@@ -44,11 +46,15 @@ public class EditUtils {
     private static final String PROMPT_NEW_GRADE = "Enter the new grade: ";
     private static final String ERROR_INVALID_SEMESTER_INDEX = "INVALID SEMESTER INDEX";
     private static final String ERROR_INVALID_GRADE = "INVALID GRADE VALUE";
+    private static final String ERROR_ILLEGAL_FORWARD = "This module cannot be shifted forwards!";
+    private static final String ERROR_ILLEGAL_BACKWARD = "This module cannot be shifted backwards!";
+    private static final String ERROR_NOT_LATEST_FAILED_MODULE
+            = "Sorry! You can only allowed to update the latest failed module!";
     private static final String VALID_GRADES = "Valid grades are:\n"
             + "\tLetter Grades: A+, A, A-, B+, B, B-, C+, C, D+, D, F\n"
             + "\tSpecial Grades: CS, CU, S, U, W, IC, IP, AUD, WU, EXE\n"
             + "\tIf you have yet to have a grade for the module: NT";
-    private static final String VALID_SEMESTERS = "Valid semesters are integers from 1 to 10, inclusive";
+    private static final String VALID_SEMESTERS = "Valid semesters are integers from 1 to 1" + "0, inclusive";
 
     /**
      * Changes the current grade of module to the input of the user.
@@ -70,7 +76,7 @@ public class EditUtils {
         }
 
         ArrayList<Integer> moduleIndexList = modulesAddedMap.get(moduleCode);
-        updateModuleGrade(gradeValue, moduleIndexList.get(indexToUpdate));
+        updateModuleGrade(gradeValue, moduleIndexList.get(indexToUpdate), moduleIndexList);
         System.out.println("Grade for " + moduleCode + " successfully updated!");
     }
 
@@ -79,10 +85,23 @@ public class EditUtils {
      *
      * @param indexToUpdate Index of Module List that needs to be updated
      * @param gradeValue grade to edit to
+     * @param moduleIndexList Array list containing all occurrences of module code
      */
-    public void updateModuleGrade(String gradeValue, int indexToUpdate) {
+    public void updateModuleGrade(String gradeValue, int indexToUpdate, ArrayList<Integer> moduleIndexList)
+            throws AcademicException {
         PartialModule module = modulesList.get(indexToUpdate);
-        updateCurrentModuleGrade(gradeValue, module);
+
+        if (fromFailingToPass(module.getGrade(), gradeValue)) {
+            int latestSemester = getLatestSemester(modulesList, moduleIndexList);
+
+            if (module.getSemesterIndex() == latestSemester) {
+                updateCurrentModuleGrade(gradeValue, module);
+            } else {
+                throw new AcademicException(ERROR_NOT_LATEST_FAILED_MODULE);
+            }
+        } else {
+            updateCurrentModuleGrade(gradeValue, module);
+        }
     }
 
     /**
@@ -117,9 +136,20 @@ public class EditUtils {
             throw new AcademicException(ERROR_INVALID_SEMESTER_INDEX);
         }
 
-        verifyRepeatedSemester(parseInt(newValue), currentPerson, moduleCode);
-
+        verifyRepeatedSemester(parseInt(newValue), currentPerson, moduleCode, modulesList);
         ArrayList<Integer> moduleIndexList = modulesAddedMap.get(moduleCode);
+        PartialModule currentSemesterModule = modulesList.get(moduleIndexList.get(indexToUpdate));
+
+        if (parseInt(newValue) > currentSemesterModule.getSemesterIndex()) {
+            if (notAllowedSemesterUpdateForward(parseInt(newValue), moduleIndexList, modulesList)) {
+                throw new AcademicException(ERROR_ILLEGAL_FORWARD);
+            }
+        } else {
+            if (!modChecker.isRetakeGrade(currentSemesterModule.getGrade())) {
+                throw new AcademicException(ERROR_ILLEGAL_BACKWARD);
+            }
+        }
+
         updateModuleSemester(newValue, moduleIndexList.get(indexToUpdate));
         System.out.println("Semester for " + moduleCode + " successfully updated!");
     }
