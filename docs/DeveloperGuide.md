@@ -55,11 +55,12 @@ The ***Architecture Diagram*** given above explains the high-level design of Pla
 
        * Loading previous save file into PlanNUS if available
 
-       * Creation of entry point to available apps in PlanNUS
+       * Unified of entry point to available apps in PlanNUS
 
   * While running
 
        * Continuously prompt user for app selection
+       * Save after every change in `AcadPlan`
 
   * At shut down
 
@@ -116,13 +117,17 @@ The [*sequence diagram*](#sequence-diagram) below shows how different packages a
 
 #### 3.5.1. Global Component
 
+Note that the diagram below only shows the connections to `PlanNus` class. It does not show connections between individual classes.
+
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/Global_Diagram.png" alt="Storage architecture diagram of PlanNUS"/>
 </div>
 
 Classes used by multiple components are part of the `global` component of PlanNUS. This includes classes such as `App`,`Command` and `LoggingTool`. The main object classes `PartialModule`, `FullModule` and `Person` are also within the global component.
 
-**API** : `src.main.java.global`
+note that the diagram below only shows the connections to plannus main class. It does not show connections between individual classes
+
+**API** : `src.main.java.seedu.duke.global`
 
 <br>
 
