@@ -661,7 +661,7 @@ __Extensions__
 - 1a. User did not specify a module code while viewing details of a module.
   - 1a1. PlanNUS shows a _missing parameter_ error message.
     
-  Use case ends.
+    Use case ends.
   
 - 1b. User enters a module code that is not offered by NUS.
   - 1b1.  PlanNUS shows an _invalid module code_ error message.
