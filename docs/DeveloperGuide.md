@@ -770,39 +770,45 @@ Given below are instructions to test the app manually.
 2. Shutdown
    1. Test case: `exit`
       
-      Expected: PlanNUS saves data from the current session, prints a goodbye message, and exits the app entirely.
+      Expected: PlanNUS saves data from the current session, prints a goodbye message, and exits the software entirely.
 
 <br>
 
-**Entering and exiting the various apps**
+**Entering and exiting apps**
 
-1. Entering the _Academic Planner_ app from the main menu
+1. Entering apps from the main menu
 
-   1. Test case: `acadplan` or `a`
+   1. Test case - entering the _Academic Planner_ app.
 
-      Expected: PlanNUS enters the _Academic Planner_ app.
-
-2. Entering the _CAP Calculator_ app from the main menu
-
-   1. Test case: `capcalc` or `c`
-
-      Expected: PlanNUS enters the _CAP Calculator_ app.
-
-3. Switching to the _CAP Calculator_ app while in the _Academic Planner_ app
-
-   1. Test case: `capcalc`
-
-      Expected: PlanNUS enters the _CAP Calculator_ app.
-
-4. Switching to the _Academic Planner_ app while in the _CAP Calculator_ app
-
-   1. Test case: `acadplan`
+      Input: `acadplan` or `a`
 
       Expected: PlanNUS enters the _Academic Planner_ app.
 
-5. Exiting to the main menu while in either the _Academic Planner_ or _CAP Calculator_ app
+   2. Test case - entering the _CAP Calculator_ app.
 
-   1. Test case: `exit`
+      Input: `capcalc` or `c`
+
+      Expected: PlanNUS enters the _CAP Calculator_ app.
+
+2. Switching between apps
+
+   1. Test case - switching to the _CAP Calculator_ app while in the _Academic Planner_ app.
+
+      Input: `capcalc`
+
+      Expected: PlanNUS enters the _CAP Calculator_ app.
+
+   2. Test case - Switching to the _Academic Planner_ app while in the _CAP Calculator_ app.
+
+      Input: `acadplan`
+
+      Expected: PlanNUS enters the _Academic Planner_ app.
+
+3. Exiting to the main menu from within an app.
+
+   1. Test case - exiting to the main menu.
+
+      Input: `exit`
 
       Expected: PlanNUS exits to the main menu.
 
@@ -826,7 +832,7 @@ Given below are instructions to test the app manually.
 
    Expected: PlanNUS adds the module, with the associated semester and grade information, to the user's academic calendar. Prints a _module added_ confirmation message.
 
-3. Test case - invalid module code
+3. Test case - invalid module code.
 
    Input: `add cs1111`
 
@@ -842,11 +848,11 @@ Given below are instructions to test the app manually.
 
 1. Prerequisites: User is currently in the _Academic Planner_ app, and the module being edited is currently in their academic calendar.
 
-2. Test case - all inputs are valid. 
+2. Test case - all inputs are valid. Feature being edited is semester.
 
    Input: `edit cs2113t`
 
-   Expected: PlanNUS prompts user to enter number corresponding to feature to be edited 
+   Expected: PlanNUS prompts user to enter number corresponding to feature to be edited.
 
    (1 - semester, 2 - grade).
 
@@ -858,7 +864,23 @@ Given below are instructions to test the app manually.
 
    Expected: PlanNUS edits semester accordingly, and prints a _update successful_ confirmation message.
 
-3. Other incorrect inputs to try: no module code, invalid module codes, valid module codes that are not in the user's academic calendar, invalid features, invalid semester indexes, invalid grades.
+3. Test case - all inputs are valid. Feature being edited is grade.
+
+   Input: `edit cs2113t`
+
+   Expected: PlanNUS prompts user to enter number corresponding to feature to be edited.
+
+   (1 - semester, 2 - grade).
+
+   Input: `2`
+
+   Expected: PlanNUS prompts user to enter new grade.
+
+   Input: `A+`
+
+   Expected: PlanNUS edits grade accordingly, and prints a _update successful_ confirmation message.
+
+4. Other incorrect inputs to try: no module code, invalid module codes, valid module codes that are not in the user's academic calendar, invalid features, invalid semester indexes, invalid grades.
 
    Expected: PlanNUS shows an error message, and exits back to the _Academic Planner_ app. No module features are edited.
 
@@ -920,7 +942,9 @@ Given below are instructions to test the app manually.
 
    Input: `view`
 
-   Expected: PlanNUS prompts user to choose a viewing timeframe - the full academic calendar, or a specific semester.
+   Expected: PlanNUS prompts user to choose a viewing timeframe.
+
+   (`full` - full academic calendar, `1-10` - specific semester)
 
    Input: `full`
 
@@ -1022,7 +1046,7 @@ Given below are instructions to test the app manually.
 
    Input: `help`
 
-   Expected: PlanNUS prints a list of available commands in the _Academic Planner_ or _CAP Calculator_ app.
+   Expected: PlanNUS prints a list of available commands in the app that the user is currently in.
 
 <br>
 
