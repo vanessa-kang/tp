@@ -1,5 +1,7 @@
 # Configuration Guide for PlanNUS
 
+<!-- @@author JuZihao -->
+
 <table><tr><td><div style="text-align:center">
     <img src="images/PlanNUSLogo.png" />
 </div></td></tr></table>

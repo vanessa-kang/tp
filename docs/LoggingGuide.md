@@ -1,5 +1,7 @@
 # Logging Guide for PlanNUS
 
+<!-- @@author jerroldlam -->
+
 <table><tr><td><div style="text-align:center">
     <img src="images/PlanNUSLogo.png" />
 </div></td></tr></table>
