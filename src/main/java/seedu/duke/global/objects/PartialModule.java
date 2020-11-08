@@ -9,7 +9,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  */
 public class PartialModule implements Comparable<PartialModule> {
     private String moduleCode;
-    private int semesterIndex; // 1 to 8
+    private int semesterIndex;
     private String grade;
     private int moduleCredit;
     private double cap;
