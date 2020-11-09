@@ -18,7 +18,7 @@ PlanNUS is a CLI-based project which aims to provide a centralised solution for 
 * **New Functionality:** Creation of `ModuleLoader` class
     * What it does: The `ModuleLoader` class allows for the creation of a POJO and HashMap from the formatted JSON file containing all NUS module information using GSON library from Google.
     * Justification: This class creates an ArrayList named `allModules` for fellow developers to access module information when needed.  It also creates a HashMap named `moduleMap` that stores the Module Code and the index of said module in `allModules`. This allows for efficient retrieval of module information from `allModules`.
-    * Highlights: This implementation allows for near $o(1)$ access of the huge `allModules` array with 12436 entries, preventing PlanNUS from feeling sluggish. 
+    * Highlights: This implementation allows for near *o(1)* access of the huge `allModules` array with 12436 entries, preventing PlanNUS from feeling sluggish. 
 * **New Functionality:** Creation of `AppParser` class
     * What it does: The `AppParser` class parses user input and starts the correct application for users. `AppParser` also handles the passing of user data between different application. 
     * Justification:  This class is created to allow for new applications to be added into PlanNUS easily. It also allows for formatting of user input before it is verified against the list of known command and acts as a centralised entry point for their individual applications.
@@ -28,7 +28,7 @@ PlanNUS is a CLI-based project which aims to provide a centralised solution for 
 * **New Functionality:**  Creation of `CalculatorUtils` class
     * What it does: This class updates user's CAP after each module operation such as `add`, `edit` and `remove`
     * Justification: This calculation is needed after each operation to ensure that the current CAP of the user is updated. It also prevents miscalculation of CAP due to Special Grades such as SU.
-    * Highlights: These operations improves overall efficiency of CAP Calculator as these operation execute within $o(1)$ time and allows `current` command in CAP Calculator to be $o(1)$.
+    * Highlights: These operations improves overall efficiency of CAP Calculator as these operation execute within *o(1)* time and allows `current` command in CAP Calculator to be *o(1)*.
 * **New Functionality:** Creation of `FieldValidator` class
     * What it does: `FieldValidator` is responsible for ensuring that each entry from the save file is valid. It also gives information regarding which specific field within that entry is corrupted.
     * Justification: This class is needed to ensure that corrupted entries within the save file can be handled by PlanNUS gracefully.
@@ -56,81 +56,81 @@ PlanNUS is a CLI-based project which aims to provide a centralised solution for 
 
 * **Contributions to the Developer Guide (Extract)** 
 
-  * ## 3. Design
+## 3. Design
 
-    ### 3.1. Architecture
+### 3.1. Architecture
 
-    <div style="text-align:center">
-        <img src="../images/DeveloperGuide/Architecture.png" alt="Architecture diagram of PlanNUS"/>
-    </div>
+<div style="text-align:center">
+    <img src="../images/DeveloperGuide/Architecture.png" alt="Architecture diagram of PlanNUS"/>
+</div>
 
 
-    The ***Architecture Diagram*** given above explains the high-level design of PlanNUS. Below is a quick overview of each component.
-    
-    <br>
-    
-    ### 3.2. Overview
-    
-    #### 3.2.1. PlanNus
-    
-    `PlanNus` class contains the `main` and `run` method, which is responsible for
-    
-      * At launch
-    
-        * Loading all modules for AY2020/21 into PlanNUS
-    
-        * Loading previous save file into PlanNUS if available
-    
-        * Creation of entry point to available apps in PlanNUS
-    
-      * While running
-    
-        * Continuously prompt user for app selection
-    
-      * At shut down
-    
-        * Saving of user data into save file
-        * Clean up methods where necessary
-    
-    <br>
-    
-    #### 3.2.2. Global, Ui, Parser, Storage, Apps
-    
-    * The `global` package contains classes, exceptions and objects that are required across the whole app. 
-    * The `ui` package contains the class that is responsible for sharing one `scanner` class across the whole app to prevent multiple IO streams
-    * The `parser` package contains the class that handles user's app selection
-    * The `storage` package handles loading and saving of user's data to a save file.
-    * Packages for Available apps such as Academic Planner and CAP Calculator are stored within `apps` package
-    
-    <br>
-    
-    ### 3.3. Project Structure
-    
-    Each package in the PlanNUS as given above follows the following file structure where applicable:
-    
-    * A functional class that acts as the entry point to that module
-    * A parser class that parses user input into executable commands by PlanNUS
-    
-    * `commands`: A package that handles all executable commands given by parser
-    * `commons`: A package with the utilities and shared classes across the parent package
-    * `exceptions`: A package to handle all exceptions thrown across the parent package
-    
-    The interaction within each package should ideally be as shown below.
-    
-    <div style="text-align:center">
-        <img src="../images/DeveloperGuide/Project_structure.png" alt="Architecture diagram for ideal project structure in PlanNUS"/>
-    </div>
-    
-    *Note that while this is the ideal case, packages such as* `global`, `parser` *and* `ui` *might not strictly follow this structure due to these package serving a different function altogether (Refer to the sections below for more details.)*
-    
-    <br>
-    
-    ### 3.4. Life cycle of PlanNUS
-    
-    The [*sequence diagram*](#sequence-diagram) below shows how different packages and classes interact with each other throughout the whole [life cycle](#life-cycle) of PlanNUS.
-    
-    <div style="text-align:center">
-        <img src="../images/DeveloperGuide/Packages_Interaction.png" alt="Sequence diagram for lifecycle of PlanNUS"/>
-    </div>
-    
-    <br>
+The ***Architecture Diagram*** given above explains the high-level design of PlanNUS. Below is a quick overview of each component.
+
+<br>
+
+### 3.2. Overview
+
+#### 3.2.1. PlanNus
+
+`PlanNus` class contains the `main` and `run` method, which is responsible for
+
+  * At launch
+
+    * Loading all modules for AY2020/21 into PlanNUS
+
+    * Loading previous save file into PlanNUS if available
+
+    * Creation of entry point to available apps in PlanNUS
+
+  * While running
+
+    * Continuously prompt user for app selection
+
+  * At shut down
+
+    * Saving of user data into save file
+    * Clean up methods where necessary
+
+<br>
+
+#### 3.2.2. Global, Ui, Parser, Storage, Apps
+
+* The `global` package contains classes, exceptions and objects that are required across the whole app. 
+* The `ui` package contains the class that is responsible for sharing one `scanner` class across the whole app to prevent multiple IO streams
+* The `parser` package contains the class that handles user's app selection
+* The `storage` package handles loading and saving of user's data to a save file.
+* Packages for Available apps such as Academic Planner and CAP Calculator are stored within `apps` package
+
+<br>
+
+### 3.3. Project Structure
+
+Each package in the PlanNUS as given above follows the following file structure where applicable:
+
+* A functional class that acts as the entry point to that module
+* A parser class that parses user input into executable commands by PlanNUS
+
+* `commands`: A package that handles all executable commands given by parser
+* `commons`: A package with the utilities and shared classes across the parent package
+* `exceptions`: A package to handle all exceptions thrown across the parent package
+
+The interaction within each package should ideally be as shown below.
+
+<div style="text-align:center">
+    <img src="../images/DeveloperGuide/Project_structure.png" alt="Architecture diagram for ideal project structure in PlanNUS"/>
+</div>
+
+*Note that while this is the ideal case, packages such as* `global`, `parser` *and* `ui` *might not strictly follow this structure due to these package serving a different function altogether (Refer to the sections below for more details.)*
+
+<br>
+
+### 3.4. Life cycle of PlanNUS
+
+The [*sequence diagram*](#sequence-diagram) below shows how different packages and classes interact with each other throughout the whole [life cycle](#life-cycle) of PlanNUS.
+
+<div style="text-align:center">
+    <img src="../images/DeveloperGuide/Packages_Interaction.png" alt="Sequence diagram for lifecycle of PlanNUS"/>
+</div>
+
+<br>
