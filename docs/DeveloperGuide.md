@@ -948,7 +948,6 @@ A UML diagram that captures the interactions between multiple objects for a give
 
 ## 7. Features Coming Soon (V3.0 and beyond)
 
-* Logging of program to separate folders
 * Support max limit for the `Set SU` function in `capcalc`
 * Support discontinued modules from NUS
 * Support shortened commands for parsers
