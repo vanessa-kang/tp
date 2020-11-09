@@ -99,12 +99,8 @@ public class FieldValidator {
             if (moduleWithLargestCap != null) {
                 ModuleValidator validator = new ModuleValidator();
 
-                if (!validator.isRetakeGrade(moduleWithLargestCap.getGrade())) {
-                    isAllFieldValid = false;
-                    details[INVALID_GRADE]++;
-                }
-
-                if (isAllFieldValid && moduleWithLargestCap.getCap() >= testModule.getCap()) {
+                if (!validator.isRetakeGrade(moduleWithLargestCap.getGrade())
+                        && moduleWithLargestCap.getCap() >= testModule.getCap()) {
                     isAllFieldValid = false;
                     details[INVALID_GRADE]++;
                 }
