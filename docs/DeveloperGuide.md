@@ -3,7 +3,7 @@
 <table><tr><td><div style="text-align:center">
     <img src="images/PlanNUSLogo.png" />
 </div></td></tr></table>
-Before reading this document, you are recommended to read through the [user guide](https://ay2021s1-cs2113t-f12-1.github.io/tp/UserGuide.html) first.
+Before reading this document, it is recommended to read through the [user guide](https://ay2021s1-cs2113t-f12-1.github.io/tp/UserGuide.html) first.
 
 <br>
 
@@ -17,7 +17,7 @@ Before reading this document, you are recommended to read through the [user guid
 
 <!-- @@author harryleecp -->
 
-First and foremost, the following steps are assuming that you already have a [GitHub](https://github.com) account set up beforehand. Once this has been done, proceed to __fork__ this [repo](https://github.com/AY2021S1-CS2113T-F12-1/tp), and __clone__ the fork into your computer using [Sourcetree](https://sourcetreeapp.com) or any other _Git GUI_.
+The following steps assume that you already have a [GitHub](https://github.com) account set up beforehand. Once this has been done, proceed to __fork__ this [repo](https://github.com/AY2021S1-CS2113T-F12-1/tp), and __clone__ the fork into your computer using [Sourcetree](https://sourcetreeapp.com) or any other _Git GUI_.
 
 The _IDE_ to be used should contain the latest version of _Java_ as this is the main programming language for this application. Thus you are highly recommended to use Intellij IDEA.
 
@@ -26,6 +26,8 @@ The following are remaining steps to be taken to finish the set up:
 1. Make sure that the version is configured as __JDK 11__.
 2. When prompted, __import__ the project as a __Gradle project__ (could take minutes to complete).
 3. Enter commands to ensure that PlanNUS functions as expected. You may refer to the _User Guide_ for valid commands.
+
+[Back to Table of Contents](#1-table-of-contents)
 
 <br>
 
@@ -38,8 +40,9 @@ The following are remaining steps to be taken to finish the set up:
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/Architecture.png" alt="Architecture diagram of PlanNUS"/>
 </div>
-
 The ***Architecture Diagram*** given above explains the high-level design of PlanNUS. Below is a quick overview of each component.
+
+[Back to Table of Contents](#1-table-of-contents)
 
 <br>
 
@@ -67,6 +70,8 @@ The ***Architecture Diagram*** given above explains the high-level design of Pla
        * Saving of user data into save file
        * Clean up methods where necessary
 
+[Back to Table of Contents](#1-table-of-contents)
+
 <br>
 
 #### 3.2.2. Global, Ui, Parser, Storage, Apps
@@ -76,6 +81,8 @@ The ***Architecture Diagram*** given above explains the high-level design of Pla
 * The `parser` package contains the class which handles user's app selection
 * The `storage` package handles loading and saving of user's data to a save file.
 * Packages for Available apps such as Academic Planner and CAP Calculator are stored within `apps` package
+
+[Back to Table of Contents](#1-table-of-contents)
 
 <br>
 
@@ -97,6 +104,8 @@ The interaction within each package should ideally be as shown below.
 </div>
 *Note that while this is the ideal case, packages such as* `global`, `parser` *and* `ui` *might not strictly follow this structure due to these package serving a different function altogether (Refer to the sections below for more details.)*
 
+[Back to Table of Contents](#1-table-of-contents)
+
 <br>
 
 ### 3.4. Life cycle of PlanNUS
@@ -106,6 +115,10 @@ The [*sequence diagram*](#sequence-diagram) below shows how different packages a
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/Packages_Interaction.png" alt="Sequence diagram for lifecycle of PlanNUS"/>
 </div>
+
+
+[Back to Table of Contents](#1-table-of-contents)
+
 <br>
 
 ### 3.5. Details
@@ -114,6 +127,8 @@ The [*sequence diagram*](#sequence-diagram) below shows how different packages a
     <img src="./images/DeveloperGuide/Details_architecture.png" alt="Details architecture diagram of PlanNUS"/>
 </div>
 Note that the above diagram is only intended for showing the connections to PlanNus main class rather than between individual classes.
+
+[Back to Table of Contents](#1-table-of-contents)
 
 <br>
 
@@ -131,6 +146,8 @@ note that the diagram below only shows the connections to plannus main class. It
 
 **API** : `src.main.java.seedu.duke.global`
 
+[Back to Table of Contents](#1-table-of-contents)
+
 <br>
 
 #### 3.5.2. Storage Component
@@ -145,6 +162,8 @@ note that the diagram below only shows the connections to plannus main class. It
 The `Storage` component is responsible for the loading and saving of information from text files which can happen in two types of scenarios. The first type would be through the use of commands specified in the diagram which can be found in the _Academic Planner_ app. Alternatively, the user may also exit from the program using the commands within the application itself. This is to prevent loss of data when the user terminates the program by closing the command prompt or using the _ctrl-c_ command.
 
 **API** : `src.main.java.seedu.duke.storage`
+
+[Back to Table of Contents](#1-table-of-contents)
 
 <br>
 
@@ -161,6 +180,8 @@ of these parsers is to process the user's input and return the appropriate comma
 
 **API** : `src.main.java.seedu.duke.parser.AppParser`, `src.main.java.seedu.duke.apps.academicplanner.AcademicPlannerParser`, `src.main.java.seedu.duke.apps.capcalculator.CapCalculatorParser` and `src.main.java.seedu.duke.apps.capcalculator.SetSuParser`
 
+[Back to Table of Contents](#1-table-of-contents)
+
 <br>
 
 #### 3.5.4. Ui Component
@@ -176,6 +197,8 @@ Note: XYZ stand for any class. For example, `XYZParser` refers to `AppParser`,`A
 In PlanNUS, the `Ui` component is integral in initialising a `Scanner` class and passing it to methods where they require them. `Ui` also provides functions to output formatted lines to console to improve readability for the user.
 
 **API** : `src.main.java.seedu.duke.ui.Ui`
+
+[Back to Table of Contents](#1-table-of-contents)
 
 <br>
 
@@ -256,6 +279,8 @@ The following options were considered when implementing commands:
     * Pros: Easier to implement
     * Cons: Class needs to be instantiated and increases coupling, reducing testability. This method also decreases SLAP.
 
+[Back to Table of Contents](#1-table-of-contents)
+
 <br>
 
 ### 4.2. Academic Calendar Planner: Edit Module Feature
@@ -303,6 +328,8 @@ The following diagram summarizes what happens when the user executes a `EditModu
 </div>
 
 
+[Back to Table of Contents](#1-table-of-contents)
+
 <br>
 
 ### 4.3. Academic Calendar Planner: Remove Module Feature
@@ -349,11 +376,13 @@ The following diagram summarizes what happens when the user executes a `RemoveMo
 </div>
 
 
+[Back to Table of Contents](#1-table-of-contents)
+
 <br>
 
 ### 4.4. Academic Calendar Planner: View Module Details Feature
 
-<!-- @@author Vanessa-Kang -->
+<!-- @@author vanessa-kang -->
 
 #### 4.4.1. Current implementation
 
@@ -402,6 +431,10 @@ The following diagram summarizes what happens when the user executes a `ModuleDe
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/moduleDetailsCommand_activity.png" alt="Activity diagram for View Module Details Command"/>
 </div>
+
+
+[Back to Table of Contents](#1-table-of-contents)
+
 <br>
 
 <!-- @@author JuZihao -->
@@ -428,6 +461,10 @@ The following sequence diagram shows how `CurrentCommand` works.
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/currentCommand_sequence.png"/>
 </div>
+
+
+[Back to Table of Contents](#1-table-of-contents)
+
 
 ### 4.6. CAP Calculator feature : Set S/U by semester feature
 
@@ -476,6 +513,10 @@ The following diagram summarizes what happens when the user executes a `SetSuByS
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/setSuBySemesterCommand_activity.png"/>
 </div>    
+
+
+[Back to Table of Contents](#1-table-of-contents)
+
 <br>
 
 <!-- @@author -->
@@ -489,6 +530,8 @@ The following diagram summarizes what happens when the user executes a `SetSuByS
 * [**Logging guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/LoggingGuide.html)
 * [**Testing guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/TestingGuide.html)
 * [**User guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/UserGuide.html)
+
+[Back to Table of Contents](#1-table-of-contents)
 
 <br>
 
@@ -507,6 +550,8 @@ __Value proposition:__
 Provides NUS undergraduates with a platform to keep track of their academic progress and explore other possibilities with the plethora of modules available. In addition, provides NUS undergraduates with an avenue to have an automatic calculation
 of their scores and receive information regarding the use of their Satisfactory / Unsatisfactory options. 
 
+[Back to Table of Contents](#1-table-of-contents)
+
 <br>
 
 ### 6.2. User stories
@@ -522,11 +567,13 @@ of their scores and receive information regarding the use of their Satisfactory 
 | V2.0    | user of PlanNUS                                           | search modules by their partial keys                                      | view more modules with similar subject codes                                          |
 | V2.0    | undergraduate with at least 1 semester of study completed | have suggestions on which modules to mark as S/U                          | make an informed decision on which modules to S/U                                     |
 
+[Back to Table of Contents](#1-table-of-contents)
+
 <br>
 
 ### 6.3. Use cases
 
-<!-- @@author Vanessa-Kang -->
+<!-- @@author vanessa-kang -->
 
 <br>
 
@@ -688,7 +735,6 @@ __Extensions__
     
     Use case ends.
 
-  
 - 1b. User enters a module code that is not offered by NUS.
   - 1b1.  PlanNUS shows an _invalid module code_ error message.
     
@@ -910,6 +956,8 @@ __Extensions__
 
     Use case ends.
 
+[Back to Table of Contents](#1-table-of-contents)
+
 <br>
 
 ### 6.4. Non-Functional Requirements
@@ -927,6 +975,8 @@ __Extensions__
 * CAP Calculator
     * Data should be shared between applications in order to reduce redundant typing from the user
 
+[Back to Table of Contents](#1-table-of-contents)
+
 <br>
 
 ### 6.5. Glossary
@@ -942,6 +992,8 @@ The duration in which the object is running and alive.
 #### Sequence Diagram
 A UML diagram that captures the interactions between multiple objects for a given scenario.
 
+[Back to Table of Contents](#1-table-of-contents)
+
 <br>
 
 <!-- @@author -->
@@ -953,11 +1005,13 @@ A UML diagram that captures the interactions between multiple objects for a give
 * Support shortened commands for parsers
 * Support validation of requirements for modules
 
+[Back to Table of Contents](#1-table-of-contents)
+
 <br>
 
 ## 8. Appendix: Instructions for manual testing
 
-<!-- @@author Vanessa-Kang -->
+<!-- @@author vanessa-kang -->
 
 <br>
 
@@ -1261,4 +1315,8 @@ Given below are instructions to test the app manually.
    Expected: PlanNUS prints a list of available commands in the app that the user is currently in.
 
 <br>
+
+[Back to Table of Contents](#1-table-of-contents)
+
+#### *End of Developer Guide*
 
