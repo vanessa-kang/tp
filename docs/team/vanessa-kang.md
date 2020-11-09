@@ -10,7 +10,7 @@ The _CAP Calculator_ then makes use of this existing data to calculate students'
 
 Given below are my contributions to the project.
 
-<br>
+<hr>
 
 - **Code contributed:** [RepoSense Link](https://nus-cs2113-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=vanessa&sort=groupTitle&sortWithin=title&since=2020-09-27&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other&tabOpen=true&tabType=authorship&zFR=false&tabAuthor=vanessa-kang&tabRepo=AY2021S1-CS2113T-F12-1%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code~other)
 - **New Feature:** Added the ability to view all modules in the user's academic calendar.
@@ -46,87 +46,88 @@ Given below are my contributions to the project.
   - General bug fixes ([#238](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/238))
   - Alerted teammates to bugs that needed fixing (e.g. [#103](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/103), [#288](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/288), [#307](https://github.com/AY2021S1-CS2113T-F12-1/tp/issues/307))
 - **Review contributions:**
+  
   - PRs reviewed (with non-trivial review comments): 
     - iP: [#15](https://github.com/nus-cs2113-AY2021S1/ip/pull/15), [#154](https://github.com/nus-cs2113-AY2021S1/ip/pull/154)
     - tP: [#26](https://github.com/nus-cs2113-AY2021S1/tp/pull/26), [#68](https://github.com/nus-cs2113-AY2021S1/tp/pull/68), [PE dry run](https://github.com/vanessa-kang/ped/issues)
 
-<br>
+<hr>
 
 - **Contributions to the User Guide (Extracts):**
 
-#### 6.1.4. Viewing the details of a module: `details`
+  #### 6.1.4. Viewing the details of a module: `details`
 
-<!-- @@author vanessa-kang -->
+  <!-- @@author vanessa-kang -->
 
-This command is for you to view the detailed information of a particular module.
+  This command is for you to view the detailed information of a particular module.
 
-Input format: `details <module code>`
+  Input format: `details <module code>`
 
-Example of usage:
+  Example of usage:
 
-* `details CS2101`
-* `DETAILS cs2113t`
+  - `details CS2101`
+  - `DETAILS cs2113t`
 
-<table><tr><td><div style="text-align:center">
-    <img src="../images/UserGuide/acadplan_details.png" />
-</div></td></tr></table>
+  <table><tr><td><div style="text-align:center">
+      <img src="../images/UserGuide/acadplan_details.png" />
+  </div></td></tr></table>
 
-As shown in the image, you can input the module that they wish to view further details about.
+  As shown in the image, you can input the module that they wish to view further details about.
 
-__<ins>Caution:</ins>__ 
+  __<ins>Caution:</ins>__ 
 
-* No information will be printed if the module is not offered by NUS.
+  - No information will be printed if the module is not offered by NUS.
 
-<br>
+  <br>
 
-#### 6.1.5. Searching for module codes containing a keyword: `search`
+  #### 6.1.5. Searching for module codes containing a keyword: `search`
 
-This command is for when you are unsure of the full module code.
+  This command is for when you are unsure of the full module code.
 
-Input format: `search <module code key>`
+  Input format: `search <module code key>`
 
-Example of usage:
+  Example of usage:
 
-* `search CS21`
-* `SEARCH cg4002`
+  - `search CS21`
+  - `SEARCH cg4002`
 
-<table><tr><td><div style="text-align:center">
-    <img src="../images/UserGuide/acadplan_search_part.png" />
-</div></td></tr></table>
+  <table><tr><td><div style="text-align:center">
+      <img src="../images/UserGuide/acadplan_search_part.png" />
+  </div></td></tr></table>
 
-<table><tr><td><div style="text-align:center">
-    <img src="../images/UserGuide/acadplan_search_full.png"/>
-</div></td></tr></table>
+  <table><tr><td><div style="text-align:center">
+      <img src="../images/UserGuide/acadplan_search_full.png"/>
+  </div></td></tr></table>
 
-As shown above, you can enter a search key that contains either part of, or the whole module code.
+  As shown above, you can enter a search key that contains either part of, or the whole module code.
 
-__<ins>Caution:</ins>__ 
+  __<ins>Caution:</ins>__ 
 
-* This feature currently only supports searching by module code.
-* Only up to the first 10 results are displayed.  
+  - This feature currently only supports searching by module code.
+  - Only up to the first 10 results are displayed.  
 
-<br>
+<hr>
 
 - **Contributions to the Developer Guide (Extracts):**
 
-### 4.4. Academic Calendar Planner: View Module Details Feature
+  ### 4.4. Academic Calendar Planner: View Module Details Feature
 
-<!-- @@author vanessa-kang -->
+  <!-- @@author vanessa-kang -->
 
-#### 4.4.1. Current implementation
+  #### 4.4.1. Current implementation
 
-View module details command is executed by `AcademicPlannerParser`. It allows the user to view the full details of any module offered by NUS, by accessing the specified `FullModule` object that corresponds to the module code entered by the user, and printing its attributes.
+  View module details command is executed by `AcademicPlannerParser`. It allows the user to view the full details of any module offered by NUS, by accessing the specified `FullModule` object that corresponds to the module code entered by the user, and printing its attributes.
 
-Additionally, the view module details command extends the `Command` class and overrides its `execute()` command. An external class, `ModuleValidator` is called upon to validate the module code that the user has entered, as only the details of valid NUS modules can be displayed.
+  Additionally, the view module details command extends the `Command` class and overrides its `execute()` command. An external class, `ModuleValidator` is called upon to validate the module code that the user has entered, as only the details of valid NUS modules can be displayed.
 
-Given below is an example usage scenario and how view module command behaves at each step.
+  Given below is an example usage scenario and how view module command behaves at each step.
 
-<div style="text-align:center">
-    <img src="../images/DeveloperGuide/moduleDetailsCommand_initialState.png" alt="Initial state diagram for Module Details Command"/>
-</div>
+  <div style="text-align:center">
+      <img src="../images/DeveloperGuide/moduleDetailsCommand_initialState.png" alt="Initial state diagram for Module Details Command"/>
+  </div>
 
 
-__Step 1:__ The user calls the view module details command from the `AcademicPlannerParser`, which will initialise a `ModuleDetailsCommand`. `ModuleDetailsCommand`'s constructor takes in parameters of  `ModuleLoader` and `String`. Below is a table of what each parameter corresponds to in the state diagram of the program.
+  __Step 1:__ The user calls the view module details command from the `AcademicPlannerParser`, which will initialise a `ModuleDetailsCommand`. `ModuleDetailsCommand`'s constructor takes in parameters of  `ModuleLoader` and `String`. Below is a table of what each parameter corresponds to in the state diagram of the program.
 
 | Parameter<br />(Class Name) |        Corresponds to<br />(Function of Class)         | Referred to as<br />(Variable Name) |
 | :-------------------------: | :----------------------------------------------------: | :---------------------------------: |
