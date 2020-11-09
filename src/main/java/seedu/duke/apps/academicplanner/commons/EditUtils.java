@@ -157,7 +157,8 @@ public class EditUtils {
                 throw new AcademicException(ERROR_ILLEGAL_FORWARD);
             }
         } else if (moduleIndexList.size() > 1) {
-            if (notAllowedSemesterUpdateBackward(parseInt(newValue), modulesList, moduleCode) && !modChecker.isRetakeGrade(currentSemesterModule.getGrade())) {
+            if (notAllowedSemesterUpdateBackward(parseInt(newValue), modulesList, moduleCode)
+                    && !modChecker.isRetakeGrade(currentSemesterModule.getGrade())) {
                 throw new AcademicException(ERROR_ILLEGAL_BACKWARD);
             }
         }
