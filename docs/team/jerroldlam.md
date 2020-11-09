@@ -58,7 +58,7 @@ It aims to assist students in NUS by providing them an avenue to easily plan the
     * Resolved coding standard violations
     * Made numerous bug fixes for the code and found bugs to be resolved
         * [#43](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/43), [#59](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/59), [#72](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/72), [#103](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/103), [#111](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/111), [#115](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/115), [#127](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/127), [#147](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/147), \
-        [#170](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/170), [#220](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/220), [#222](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/222),  [#255](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/255)
+        [#170](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/170), [#220](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/220), [#222](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/222), [#255](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/255), [#314](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/314)
 * **Contributions to the User Guide (Extracts without pictures)**
     * Semester Naming Conventions
         * For the purpose of this planning software, we have decided to limit the maximum number of semesters an undergraduate can take to 10, which is equivalent to 5 academic years. Each semester is indexed by an integer between 1 and 10. For a fresh undergraduate, they will begin at semester index of 1. For a year 3 student who is currently in semester 1, the semester index will be 5. Below is a table which illustrates the corresponding semester indexes for undergraduates.
@@ -106,7 +106,7 @@ It aims to assist students in NUS by providing them an avenue to easily plan the
           PlanNUS also has saving and loading features which would reduce the hassle of entering the full academic calendar for each use.
           
           The sections below explain how PlanNUS should be used, and the common errors faced by users. Sections can be easily navigated to by clicking on the hyperlinks in the table of contents.
-* Contributions to the Developer Guide (Extracts without pictures)
+* **Contributions to the Developer Guide (Extracts without pictures)**
     * Implementation for `AddModuleCommand`
         * Add module command is executed by `AcademicPlannerParser`. It allows users to add modules into their Academic Planner by instantiating a new `PartialModule` object and adding it into the `userModuleList` and `userModuleMap`. Both the list and hashmap are the _java API_, which are used by importing them. The `Person` object is used to encapsulate both `userModuleList` and `userModuleMap`.
           
