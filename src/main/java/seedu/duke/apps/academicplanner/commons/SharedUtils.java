@@ -183,7 +183,7 @@ public class SharedUtils {
             String moduleCode) {
         int latestFailSemester = getLatestFailSemester(userModuleList, moduleCode);
 
-        if (newSemester < latestFailSemester && latestFailSemester != 11) {
+        if (newSemester < latestFailSemester && latestFailSemester != 0) {
             return true;
         }
         return false;
