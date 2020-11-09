@@ -46,8 +46,12 @@ public class EditUtils {
     private static final String PROMPT_NEW_GRADE = "Enter the new grade: ";
     private static final String ERROR_INVALID_SEMESTER_INDEX = "INVALID SEMESTER INDEX";
     private static final String ERROR_INVALID_GRADE = "INVALID GRADE VALUE";
-    private static final String ERROR_ILLEGAL_FORWARD = "This module cannot be shifted forwards!";
-    private static final String ERROR_ILLEGAL_BACKWARD = "This module cannot be shifted backwards!";
+    private static final String ERROR_ILLEGAL_FORWARD
+            = "This module cannot be shifted to a later semester as "
+            + "it will be after the same module with a passing grade!";
+    private static final String ERROR_ILLEGAL_BACKWARD
+            = "This module cannot be shifted to an earlier as "
+            + "it will be before the same module with a failing grade!";
     private static final String ERROR_NOT_LATEST_FAILED_MODULE
             = "Sorry! You can only allowed to update the latest failed module!";
     private static final String VALID_GRADES = "Valid grades are:\n"
