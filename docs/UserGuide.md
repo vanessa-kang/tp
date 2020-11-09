@@ -120,6 +120,8 @@ For each of these commands, there are more specific functions for the configurat
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/Main_Page_Features.png" />  
 </div></td></tr></table>
+
+
 [Back to Table of Contents](#2.-table-of-contents)
 
 <br>
@@ -135,6 +137,8 @@ Input format: `acadplan`  or `a`
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/acadplan_features.png" />
 </div></td></tr></table>
+
+
 [Back to Table of Contents](#2.-table-of-contents)
 
 <br>
@@ -300,6 +304,8 @@ Expected output when you wish to print a specific semester:
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/acadplan_viewsem.png" />
 </div></td></tr></table>
+
+
 [Back to Table of Contents](#2.-table-of-contents)
 
 <br>
@@ -313,6 +319,8 @@ Input format: `help`
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/acadplan_help.png" />
 </div></td></tr></table>
+
+
 [Back to Table of Contents](#2.-table-of-contents)
 
 <br>
@@ -328,6 +336,8 @@ Input format: `capcalc`
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/acadplan_capcalcswitch.png" />
 </div></td></tr></table>
+
+
 [Back to Table of Contents](#2.-table-of-contents)
 
 <br>
@@ -342,6 +352,8 @@ Input format: `capcalc` or `c`
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_features.png"  />
 </div></td></tr></table>
+
+
 [Back to Table of Contents](#2.-table-of-contents)
 
 <br>
@@ -519,6 +531,8 @@ Last but not least, the expected output for exiting PlanNUS will be as such:
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/exit_PlanNUS.png" />
 </div></td></tr></table> 
+
+
 [Back to Table of Contents](#2.-table-of-contents)
 
 ## 7. Loading and Saving 
