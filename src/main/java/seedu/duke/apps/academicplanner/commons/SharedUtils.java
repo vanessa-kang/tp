@@ -152,25 +152,40 @@ public class SharedUtils {
     }
 
     /**
-     * Returns true if semester is not allowed to be shifted forward,
-     * else returns flase.
+     * Returns true if module is not allowed to be shifted forward,
+     * else returns false.
      *
-     * @param newSemester semester index to be shifted into
-     * @param moduleIndexList list of user's modules indexes
-     * @param userModuleList list of user's modules
+     * @param newSemester semester to shift to
+     * @param userModuleList user's module list
+     * @param moduleCode module code
      * @return boolean
      */
-    public static boolean notAllowedSemesterUpdateForward(int newSemester,
-            ArrayList<Integer> moduleIndexList, ArrayList<PartialModule> userModuleList) {
+    public static boolean notAllowedSemesterUpdateForward(int newSemester, ArrayList<PartialModule> userModuleList,
+            String moduleCode) {
+        int latestPassSemester = getLatestPassSemester(userModuleList, moduleCode);
 
-        ModuleValidator validator = new ModuleValidator();
-        int latestSemester = getLatestSemester(userModuleList, moduleIndexList);
-        PartialModule latestSemesterModule = userModuleList.get(moduleIndexList.get(latestSemester - 1));
-
-        if (newSemester > latestSemester && !validator.isRetakeGrade(latestSemesterModule.getGrade())) {
+        if (newSemester > latestPassSemester) {
             return true;
         }
+        return false;
+    }
 
+    /**
+     * Returns true if module is not allowed to be shifted backward,
+     * else returns false.
+     *
+     * @param newSemester semester to shift to
+     * @param userModuleList user's module list
+     * @param moduleCode module code
+     * @return boolean
+     */
+    public static boolean notAllowedSemesterUpdateBackward(int newSemester, ArrayList<PartialModule> userModuleList,
+            String moduleCode) {
+        int latestFailSemester = getLatestFailSemester(userModuleList, moduleCode);
+
+        if (newSemester < latestFailSemester) {
+            return true;
+        }
         return false;
     }
 
@@ -209,8 +224,45 @@ public class SharedUtils {
                 latestSemester = currentSemester;
             }
         }
-
         return latestSemester;
+    }
+
+    /**
+     * Returns semester index of latest failed module.
+     *
+     * @param modulesAddedList user list of module
+     * @param moduleCode module code
+     * @return latest fail semester
+     */
+    public static int getLatestFailSemester(ArrayList<PartialModule> modulesAddedList, String moduleCode) {
+        ModuleValidator validator = new ModuleValidator();
+        int latestFailSemester = 1;
+        for (PartialModule m : modulesAddedList) {
+            if (m.getModuleCode().equalsIgnoreCase(moduleCode) && validator.isRetakeGrade(m.getGrade())
+                    && m.getSemesterIndex() > latestFailSemester) {
+                latestFailSemester = m.getSemesterIndex();
+            }
+        }
+        return latestFailSemester;
+    }
+
+    /**
+     * Returns semester index of latest pass module.
+     *
+     * @param modulesAddedList user list of module
+     * @param moduleCode module code
+     * @return latest pass semester
+     */
+    public static int getLatestPassSemester(ArrayList<PartialModule> modulesAddedList, String moduleCode) {
+        ModuleValidator validator = new ModuleValidator();
+        int latestPassSemester = 1;
+        for (PartialModule m : modulesAddedList) {
+            if (m.getModuleCode().equalsIgnoreCase(moduleCode) && !validator.isRetakeGrade(m.getGrade())
+                    && m.getSemesterIndex() > latestPassSemester) {
+                latestPassSemester = m.getSemesterIndex();
+            }
+        }
+        return latestPassSemester;
     }
 
     /**
