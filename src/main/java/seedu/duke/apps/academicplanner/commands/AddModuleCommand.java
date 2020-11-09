@@ -2,9 +2,6 @@ package seedu.duke.apps.academicplanner.commands;
 
 import seedu.duke.apps.academicplanner.commons.AddUtils;
 import seedu.duke.apps.academicplanner.commons.ModuleValidator;
-import static seedu.duke.apps.academicplanner.commons.SharedUtils.getAllOccurrencesOfModule;
-import static seedu.duke.apps.academicplanner.commons.SharedUtils.getLatestSemester;
-import static seedu.duke.apps.academicplanner.commons.SharedUtils.printAllOccurrencesOfModule;
 import seedu.duke.apps.academicplanner.exceptions.AcademicException;
 import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.global.Command;
@@ -23,6 +20,10 @@ import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static seedu.duke.apps.academicplanner.commons.SharedUtils.getAllOccurrencesOfModule;
+import static seedu.duke.apps.academicplanner.commons.SharedUtils.getLatestSemesterModule;
+import static seedu.duke.apps.academicplanner.commons.SharedUtils.printAllOccurrencesOfModule;
+
 //@@author jerroldlam
 /**
  * Class representing an add module command from the academic planner.
@@ -32,6 +33,8 @@ public class AddModuleCommand extends Command {
     private static final String ERROR_INVALID_SEMESTER_INDEX = "INVALID SEMESTER INDEX";
     private static final String ERROR_INVALID_GRADE = "INVALID GRADE VALUE";
     private static final String ERROR_NOT_OFFERED = " IS NOT OFFERED BY NUS";
+    private static final String INVALID_RETAKE_GRADE
+            = "Entered grade must be a fail grade as selected semester is not the latest semester!";
     private static final String ERROR_DUPLICATE_MOD
             = "You already have this mod on your calendar and you cannot retake!";
     private static final String VALID_GRADES = "Valid grades are:\n"
@@ -89,7 +92,7 @@ public class AddModuleCommand extends Command {
         boolean isRetake = validateModuleCode();
 
         int semesterValue = getSemesterValue(isRetake);
-        String gradeValue = getGradeValue();
+        String gradeValue = getGradeValue(isRetake);
         int moduleCredit = addUtils.getModuleCreditForModule(moduleCode);
 
         assertInputs(semesterValue, moduleCredit);
@@ -108,10 +111,15 @@ public class AddModuleCommand extends Command {
      * @return Valid Grade value
      * @throws AcademicException when invalid grade value is given
      */
-    private String getGradeValue() throws AcademicException {
+    private String getGradeValue(boolean isRetake) throws AcademicException {
         promptUserToEnterGrade();
         String gradeValue = in.nextLine().trim().toUpperCase();
         validateInputGrade(gradeValue);
+
+        if (isRetake && !moduleValidator.isRetakeGrade(gradeValue)) {
+            throw new AcademicException(INVALID_RETAKE_GRADE);
+        }
+
         return gradeValue;
     }
 
@@ -273,11 +281,13 @@ public class AddModuleCommand extends Command {
         ArrayList<PartialModule> modulesAddedList = currentPerson.getModulesList();
         ArrayList<Integer> indexArrayList = currentPerson.getModulesAddedMap().get(moduleCode);
 
-        int latestSemester = getLatestSemester(modulesAddedList, indexArrayList);
+        PartialModule latestSemesterModule = getLatestSemesterModule(modulesAddedList, indexArrayList);
 
-        if (semesterValue <= latestSemester) {
+        boolean isLatestRetake = moduleValidator.isRetakeGrade(latestSemesterModule.getGrade());
+
+        if (!isLatestRetake && semesterValue <= latestSemesterModule.getSemesterIndex()) {
             fh.close();
-            throw new AcademicException(INVALID_RETAKE_SEMESTER_LESS + latestSemester + "!");
+            throw new AcademicException(INVALID_RETAKE_SEMESTER_LESS + latestSemesterModule.getSemesterIndex() + "!");
         }
         checkValidityRetakeSemester(semesterValue, modulesAddedList);
     }

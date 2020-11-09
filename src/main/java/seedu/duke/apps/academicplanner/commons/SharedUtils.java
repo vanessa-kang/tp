@@ -1,12 +1,14 @@
 package seedu.duke.apps.academicplanner.commons;
 
-import static java.lang.Integer.parseInt;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
 import seedu.duke.apps.academicplanner.exceptions.AcademicException;
 import seedu.duke.global.objects.PartialModule;
 import seedu.duke.global.objects.Person;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Scanner;
+
+import static java.lang.Integer.parseInt;
 
 //@@author Khenus
 
@@ -211,7 +213,9 @@ public class SharedUtils {
      * Returns the latest semester taken for the module.
      *
      * @param modulesAddedList List of modules added
-     * @return latestSemester
+     * @param indexArrayList List of indexes for all occurrences of current module
+     *
+     * @return latestSemester the latest semester
      */
     public static int getLatestSemester(ArrayList<PartialModule> modulesAddedList, ArrayList<Integer> indexArrayList) {
         int latestSemester = modulesAddedList.get(indexArrayList.get(0)).getSemesterIndex();
@@ -225,6 +229,29 @@ public class SharedUtils {
             }
         }
         return latestSemester;
+    }
+
+    /**
+     * Returns the occurrence of the module taken in the latest semester.
+     *
+     * @param modulesAddedList List of modules added
+     * @param indexArrayList List of indexes for all occurrences of current module
+     *
+     * @return latestSemester the occurrence of the module taken in the latest semester
+     */
+    public static PartialModule getLatestSemesterModule(ArrayList<PartialModule> modulesAddedList,
+            ArrayList<Integer> indexArrayList) {
+        PartialModule latestSemesterModule = modulesAddedList.get(indexArrayList.get(0));
+
+        for (int index = 0; index < indexArrayList.size(); index++) {
+            Integer currentIndexForModule = indexArrayList.get(index);
+            PartialModule currentSemesterModule = modulesAddedList.get(currentIndexForModule);
+
+            if (currentSemesterModule.getSemesterIndex() > latestSemesterModule.getSemesterIndex()) {
+                latestSemesterModule = currentSemesterModule;
+            }
+        }
+        return latestSemesterModule;
     }
 
     /**

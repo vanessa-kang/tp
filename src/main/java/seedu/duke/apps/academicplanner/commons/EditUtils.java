@@ -1,17 +1,5 @@
 package seedu.duke.apps.academicplanner.commons;
 
-import static java.lang.Integer.parseInt;
-import static seedu.duke.apps.academicplanner.commons.SharedUtils.fromFailingToPass;
-import static seedu.duke.apps.academicplanner.commons.SharedUtils.getEntryToBeEdited;
-import static seedu.duke.apps.academicplanner.commons.SharedUtils.getLatestSemester;
-import static seedu.duke.apps.academicplanner.commons.SharedUtils.notAllowedSemesterUpdateBackward;
-import static seedu.duke.apps.academicplanner.commons.SharedUtils.notAllowedSemesterUpdateForward;
-import static seedu.duke.apps.academicplanner.commons.SharedUtils.verifyRepeatedSemester;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
-
 import seedu.duke.apps.academicplanner.exceptions.AcademicException;
 import seedu.duke.apps.capcalculator.commons.CalculatorUtils;
 import seedu.duke.apps.moduleloader.ModuleLoader;
@@ -21,6 +9,15 @@ import seedu.duke.global.objects.Person;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
+
+import static java.lang.Integer.parseInt;
+import static seedu.duke.apps.academicplanner.commons.SharedUtils.fromFailingToPass;
+import static seedu.duke.apps.academicplanner.commons.SharedUtils.getEntryToBeEdited;
+import static seedu.duke.apps.academicplanner.commons.SharedUtils.getLatestSemester;
+import static seedu.duke.apps.academicplanner.commons.SharedUtils.notAllowedSemesterUpdateBackward;
+import static seedu.duke.apps.academicplanner.commons.SharedUtils.notAllowedSemesterUpdateForward;
+import static seedu.duke.apps.academicplanner.commons.SharedUtils.verifyRepeatedSemester;
+
 
 //@@author harryleecp
 /**
@@ -53,6 +50,7 @@ public class EditUtils {
     private static final String PROMPT_NEW_GRADE = "Enter the new grade: ";
     private static final String ERROR_INVALID_SEMESTER_INDEX = "INVALID SEMESTER INDEX";
     private static final String ERROR_INVALID_GRADE = "INVALID GRADE VALUE";
+    private static final String ERROR_SEMESTER_NOT_A_NUMBER = "Semester entered must be a number!";
     private static final String ERROR_ILLEGAL_FORWARD
             = "This module cannot be shifted to a later semester as "
             + "you are not allowed to retake a module that you have passed!";
@@ -143,21 +141,28 @@ public class EditUtils {
         System.out.println(VALID_SEMESTERS);
         String newValue = in.nextLine().trim();
 
-        if (!ModuleValidator.isValidSemester(parseInt(newValue))) {
+        Integer newSemester;
+        try {
+            newSemester = parseInt(newValue);
+        } catch (Exception e) {
+            throw new AcademicException(ERROR_SEMESTER_NOT_A_NUMBER);
+        }
+
+        if (!ModuleValidator.isValidSemester(newSemester)) {
             throw new AcademicException(ERROR_INVALID_SEMESTER_INDEX);
         }
 
-        verifyRepeatedSemester(parseInt(newValue), currentPerson, moduleCode, modulesList);
+        verifyRepeatedSemester(newSemester, currentPerson, moduleCode, modulesList);
         ArrayList<Integer> moduleIndexList = modulesAddedMap.get(moduleCode);
         PartialModule currentSemesterModule = modulesList.get(moduleIndexList.get(indexToUpdate));
 
-        if (parseInt(newValue) > currentSemesterModule.getSemesterIndex() && moduleIndexList.size() > 1) {
-            if (notAllowedSemesterUpdateForward(parseInt(newValue), modulesList, moduleCode)
+        if (newSemester > currentSemesterModule.getSemesterIndex() && moduleIndexList.size() > 1) {
+            if (notAllowedSemesterUpdateForward(newSemester, modulesList, moduleCode)
                     && modChecker.isRetakeGrade(currentSemesterModule.getGrade())) {
                 throw new AcademicException(ERROR_ILLEGAL_FORWARD);
             }
         } else if (moduleIndexList.size() > 1) {
-            if (notAllowedSemesterUpdateBackward(parseInt(newValue), modulesList, moduleCode)
+            if (notAllowedSemesterUpdateBackward(newSemester, modulesList, moduleCode)
                     && !modChecker.isRetakeGrade(currentSemesterModule.getGrade())) {
                 throw new AcademicException(ERROR_ILLEGAL_BACKWARD);
             }
