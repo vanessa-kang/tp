@@ -106,7 +106,7 @@ It aims to assist students in NUS by providing them an avenue to easily plan the
           PlanNUS also has saving and loading features which would reduce the hassle of entering the full academic calendar for each use.
           
           The sections below explain how PlanNUS should be used, and the common errors faced by users. Sections can be easily navigated to by clicking on the hyperlinks in the table of contents.
-* Contributions to the Developer Guide (Extracts without pictures)
+* **Contributions to the Developer Guide (Extracts without pictures)**
     * Implementation for `AddModuleCommand`
         * Add module command is executed by `AcademicPlannerParser`. It allows users to add modules into their Academic Planner by instantiating a new `PartialModule` object and adding it into the `userModuleList` and `userModuleMap`. Both the list and hashmap are the _java API_, which are used by importing them. The `Person` object is used to encapsulate both `userModuleList` and `userModuleMap`.
           
