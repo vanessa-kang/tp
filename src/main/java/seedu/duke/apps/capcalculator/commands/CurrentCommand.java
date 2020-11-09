@@ -22,9 +22,9 @@ public class CurrentCommand extends Command {
     @Override
     public void execute() {
         double currentCap = getCurrentCap();
-        System.out.println("Your current CAP is: " + formatCapToString(currentCap));
-        System.out.println("Number of graded MCs taken is: " + currentPerson.getCurrentMcAfterSU());
-        System.out.println("Total number of MCs taken is: " + currentPerson.getCurrentMc());
+        displayCurrentCap(currentCap);
+        displayCurrentMcAfterSU(currentPerson.getCurrentMcAfterSU());
+        displayCurrentMc(currentPerson.getCurrentMc());
     }
 
     /**
@@ -34,5 +34,32 @@ public class CurrentCommand extends Command {
      */
     public double getCurrentCap() {
         return currentPerson.getCurrentTotalMcxGrade() / (double) currentPerson.getCurrentMcAfterSU();
+    }
+
+    /**
+     * Displays user's current CAP.
+     *
+     * @param currentCap user's current CAP
+     */
+    public void displayCurrentCap(double currentCap) {
+        System.out.println("Your current CAP is: " + formatCapToString(currentCap));
+    }
+
+    /**
+     * Displays user's graded MCs.
+     *
+     * @param currentMcAfterSU user's graded MCs
+     */
+    public void displayCurrentMcAfterSU(int currentMcAfterSU) {
+        System.out.println("Number of graded MCs taken is: " + currentMcAfterSU);
+    }
+
+    /**
+     * Displays user's total MCs.
+     *
+     * @param currentMc user's total MCs
+     */
+    public void displayCurrentMc(int currentMc) {
+        System.out.println("Total number of MCs taken is: " + currentMc);
     }
 }

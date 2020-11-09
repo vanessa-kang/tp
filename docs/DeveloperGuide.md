@@ -266,7 +266,7 @@ The following options were considered when implementing commands:
 
 Similar to the add module command, the edit module command is also executed by `AcademicPlannerParser`. It allows the user to edit the existing modules added to their `Academic Planner` by accessing the specified `PartialModule` object within the `userModuleList`and `userModuleMap`. 
 
-Given below is an example usage scenario and how add module command behaves at each step.
+Given below is an example usage scenario and how edit module command behaves at each step.
 
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/editModuleCommand_initialState.png" alt="Initial state diagram for Edit Module Command"/>
@@ -361,7 +361,7 @@ View module details command is executed by `AcademicPlannerParser`. It allows th
 
 Additionally, the view module details command extends the `Command` class and overrides its `execute()` command. An external class, `ModuleValidator` is called upon to validate the module code that the user has entered, as only the details of valid NUS modules can be displayed.
 
-Given below is an example usage scenario and how add module command behaves at each step.
+Given below is an example usage scenario and how view module command behaves at each step.
 
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/moduleDetailsCommand_initialState.png" alt="Initial state diagram for Module Details Command"/>
@@ -404,11 +404,34 @@ The following diagram summarizes what happens when the user executes a `ModuleDe
 </div>
 <br>
 
-### 4.5. CAP Calculator feature : Set S/U by semester feature
-
 <!-- @@author JuZihao -->
+### 4.5. CAP Calculator feature : Show current results feature
 
 #### 4.5.1. Current implementation
+
+`CurrentCommand` is executed by `CapCalculatorApp`. It displays user's current CAP, graded MCs and total MCs. These parameters depend on the modules added in `AcademicPlannerApp` and is retrieved from  the `Person` object. These data are obtained by calling the methods `getCurrentTotalMcxGrade()`, `getCurrentMcAfterSU()` and `getCurrentMc()`.
+
+Given below is an example usage scenario and how edit module command behaves at each step.
+
+__Step 1:__ The user calls the `CurrentCommand` from the `CapCalculatorParser` and the parameter `currentPerson` will be parsed into `CurrentCommand` and a new instance of `CurrentCommand` is created.
+
+__Step 2:__ The `execute()` method is called from the instance of `CurrentCommand`.
+
+__Step 3:__ The `getCurrentCap()` method is then called to get the current CAP of user.
+
+__Step 4:__  The methods `displayCurrentCap()`, `displayCurrentMcAfterSU()` and `displayCurrentMc()` is then called to display the corresponding results to user.
+
+__Step 5:__  `CurrentCommmand` is then terminated.
+
+The following sequence diagram shows how `CurrentCommand` works.
+
+<div style="text-align:center">
+    <img src="./images/DeveloperGuide/currentCommand_sequence.png"/>
+</div>
+
+### 4.6. CAP Calculator feature : Set S/U by semester feature
+
+#### 4.6.1. Current implementation
 
 `SetSuBySemesterCommand` is executed by `CapCalculatorApp`. It provides users with a suggestion on how they can S/U their modules added in `AcademicPlannerApp` by retrieving the `userModuleList` from  the `Person` object and filter the list according to the semester provided to get a `suList`.
 
@@ -420,9 +443,9 @@ The following diagram summarizes what happens when the user executes a `ModuleDe
     <img src="./images/DeveloperGuide/setSuBySemesterCommand_initialState.png"/>
 </div>    
 
-__Step 1:__ The user calls the set S/U command from the `CapCalculatorParser` and the parameters `currentPerson` and `in` will be parsed into `SetSuParser`. `SetSuParser` will then ask for a set S/U method to be parsed. 
+__Step 1:__ The user calls the set S/U command from the `CapCalculatorParser` and the parameters `choice`, `currentPerson` and `ui` will be parsed into `SetSuParser`. 
 
-__Step 2:__ `in` will read in the next line of input, which decides either `SetSuBySemesterCommand` or `SetSuByModulesCommand` to be parsed into `CapCalculatorApp`. Taking that the user decides to parse the `SetSuBySemesterCommand` by entering _1_.
+__Step 2:__ Depending on the parameter `choice`, `SetSuParser` decides either `SetSuBySemesterCommand` or `SetSuByModulesCommand` to be parsed into `CapCalculatorApp`. Taking that the user decides to parse the `SetSuBySemesterCommand` by entering _1_.
 
 __Step 3:__ The `execute()` method is called from the instance of `SetSuBySemesterCommand` which only throws `CapCalculatorException` if applicable.
 
