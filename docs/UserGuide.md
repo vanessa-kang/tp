@@ -92,7 +92,11 @@ Commands within the Academic Planner:
 | Switching to the _CAP Calculator_ app       | `capcalc`                                                    |
 | Exiting the Academic Planner                | `exit`                                                       |
 
-**Note:** `acadplan` can be called from both the `PlanNUS` main menu, and from within the _CAP Calculator_ app.
+* **Note:** `acadplan` can be called from both the `PlanNUS` main menu, and from within the _CAP Calculator_ app.
+* **Caution:** Once you have achieved a passing grade for a module, you will be unable to add the same module into your calendar again.
+* **Caution:** If you have multiple failing grades from the same module, you will only be able to edit the grade of the latest module to a passing grade.
+* **Caution** Failed modules cannot be shifted ahead of the same module with a passing grade, and vice versa. 
+* **Caution:** Grades cannot be edited such that a module with a failing grade will be ahead of the same module with a passing grade.
 
 [Back to Table of Contents](#2-table-of-contents)
 
