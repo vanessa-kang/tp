@@ -594,7 +594,6 @@ As per NUS [Grade Policy](http://www.nus.edu.sg/registrar/academic-information-p
 
 ## 11. Features Coming Soon (V3.0 and beyond)
 
-* Logging of program to separate folders
 * Support max limit for the `Set SU` function in `capcalc`
 * Support discontinued modules from NUS
 * Support shortened commands for parsers
