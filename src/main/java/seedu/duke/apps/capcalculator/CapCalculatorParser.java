@@ -38,8 +38,7 @@ public class CapCalculatorParser {
     private static final String SWITCH_APP_ERROR = "Sorry, you are already in CAP calculator!";
     private static final String ERROR_HAS_PARAMETER = " NO PARAMETER ALLOWED AFTER COMMAND";
     private static final String MISSING_SET_PARAMETER = "OOPS!!! Looks like you did not specify a set command type!";
-    private static final String EXITING_CURRENT_COMMAND = "Exiting current command back to Academic Planner Main Menu.";
-
+    private static final String EXITING_CURRENT_COMMAND = "Exiting current command back to CAP Calculator Main Menu.";
 
     /**
      * Processes user input command and returns command to be executed.

@@ -21,7 +21,7 @@ class CapCalculatorAppParserTest {
     private static final String ERROR_HAS_PARAMETER = " NO PARAMETER ALLOWED AFTER COMMAND";
     private static final String MISSING_SET_PARAMETER = "OOPS!!! Looks like you did not specify a set command type!";
     private static final String NEW_LINE = "\n";
-    private static final String EXITING_CURRENT_COMMAND = "Exiting current command back to Academic Planner Main Menu.";
+    private static final String EXITING_CURRENT_COMMAND = "Exiting current command back to CAP Calculator Main Menu.";
 
     private Person currentPerson;
     private Ui ui;
