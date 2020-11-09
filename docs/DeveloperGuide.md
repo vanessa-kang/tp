@@ -213,7 +213,7 @@ and `String`. Below is a table of what each parameter corresponds to in the stat
 __Step 2__ : `execute()` is called from the instance of `AddModuleCommand`. It can throw `AcademicException` 
 or `IOException`. `FileHandler` and `Logger` classes from the _java API_ are instantiated to handle logging for the remainder of the `execute()` method. 
 
-__Step 3__ : `in` then reads in the next line of input, which is the user's input for the desired semester for the `moduleCode`. This is then validated against `allModules`, while accounting for `isRetake` variable. `isRetake` is a flag varaible which indicates that
+__Step 3__ : `in` then reads in the next line of input, which is the user's input for the desired semester for the `moduleCode`. This is then validated against `allModules`, while accounting for `isRetake` variable. `isRetake` is a flag variable which indicates that
 the module newly entered by the user is a module that is going to be retaken.
 
 __Step 4__ : The next line of input is read from `in`, which is the user's input for grade value, which is also validated by `ModuleValidator`.
@@ -277,16 +277,18 @@ __Step 2:__ The `execute()` method is called from the instance of `EditModuleCom
 
 __Step 3:__ Method `isModTakenByUser()` of the `ModuleValidator` is called to check if the `moduleCode` entered by the user exists within the `userModuleList` and `userModuleMap`.
 
-__Step 4:__ `in` reads the next line of input for user's choice of modifying either the semester or grade of the selected `moduleCode`.
+__Step 4:__ If there are multiple occurrences of the specified `moduleCode` which are retaken, the user will be prompted to select the desired index of the module to be modified. 
 
-__Step 5:__ `isValidSemester()` or `isValidGrade()` is called to validate the semester or grade entered by the user.
+__Step 5:__ `in` reads the next line of input for user's choice of modifying either the semester or grade of the selected `moduleCode`.
 
-__Step 6:__ `updateModuleSemester()` or `updateModuleGrade()` is then called to conduct necessary changes to the information by accessing the module from `userModuleMap` and `userModuleList`.
+__Step 6:__ `isValidSemester()` or `isValidGrade()` is called to validate the semester or grade entered by the user.
+
+__Step 7:__ `updateModuleSemester()` or `updateModuleGrade()` is then called to conduct necessary changes to the information by accessing the module from `userModuleMap` and `userModuleList`.
 
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/editModuleCommand_finalState.png" alt="Final state diagram for Edit Module Command"/>
 </div>
-__Step 7:__ `EditModuleCommand`, `EditUtils` and `ModuleValidator` are terminated.
+__Step 8:__ `EditModuleCommand`, `EditUtils` and `ModuleValidator` are terminated.
 
 The following sequence diagram shows how `EditModuleCommand` works.
 
@@ -661,6 +663,7 @@ __Extensions__
 - 1a. User did not specify a module code while viewing details of a module.
   - 1a1. PlanNUS shows a _missing parameter_ error message.
     
+  
   Use case ends.
   
 - 1b. User enters a module code that is not offered by NUS.
