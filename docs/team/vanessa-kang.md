@@ -12,7 +12,7 @@ Given below are my contributions to the project.
 
 <hr>
 
-- **Code contributed:** [RepoSense Link](https://nus-cs2113-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=vanessa&sort=groupTitle&sortWithin=title&since=2020-09-27&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other&tabOpen=true&tabType=authorship&zFR=false&tabAuthor=vanessa-kang&tabRepo=AY2021S1-CS2113T-F12-1%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code~other)
+- **Code contributed:** [RepoSense Link](https://nus-cs2113-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=vanessa-kang&sort=groupTitle&sortWithin=title&since=2020-09-27&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other)
 - **New Feature:** Added the ability to view all modules in the user's academic calendar.
   - What it does: Allows users to view all the modules - together with their associated grades, and sorted by semester - that are currently in their academic calendar.
   - Justification: This feature gives users a clear overview of all the modules that they have taken (or plan to take), which will aid users greatly when planning their academic journey.
