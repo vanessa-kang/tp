@@ -1,19 +1,17 @@
 package seedu.duke.apps.academicplanner.commons;
 
-import static java.lang.Integer.parseInt;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
-import static seedu.duke.apps.academicplanner.commons.SharedUtils.fromFailingToPass;
-import static seedu.duke.apps.academicplanner.commons.SharedUtils.getEntryToBeEdited;
-import static seedu.duke.apps.academicplanner.commons.SharedUtils.getLatestSemester;
-import static seedu.duke.apps.academicplanner.commons.SharedUtils.notAllowedSemesterUpdateForward;
-import static seedu.duke.apps.academicplanner.commons.SharedUtils.verifyRepeatedSemester;
 import seedu.duke.apps.academicplanner.exceptions.AcademicException;
 import seedu.duke.apps.capcalculator.commons.CalculatorUtils;
 import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.global.objects.PartialModule;
 import seedu.duke.global.objects.Person;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Scanner;
+
+import static java.lang.Integer.parseInt;
+import static seedu.duke.apps.academicplanner.commons.SharedUtils.*;
 
 //@@author harryleecp
 /**
@@ -48,12 +46,12 @@ public class EditUtils {
     private static final String ERROR_INVALID_GRADE = "INVALID GRADE VALUE";
     private static final String ERROR_ILLEGAL_FORWARD
             = "This module cannot be shifted to a later semester as "
-            + "it will be after the same module with a passing grade!";
+            + "you are not allowed to retake a module that you have passed!";
     private static final String ERROR_ILLEGAL_BACKWARD
-            = "This module cannot be shifted to an earlier as "
-            + "it will be before the same module with a failing grade!";
+            = "This module cannot be shifted to an earlier semester as "
+            + "you are not allowed to retake a module that you have passed!";
     private static final String ERROR_NOT_LATEST_FAILED_MODULE
-            = "Sorry! You can only allowed to update the latest failed module!";
+            = "Sorry! You are only allowed to update the latest failed module!";
     private static final String VALID_GRADES = "Valid grades are:\n"
             + "\tLetter Grades: A+, A, A-, B+, B, B-, C+, C, D+, D, F\n"
             + "\tSpecial Grades: CS, CU, S, U, W, IC, IP, AUD, WU, EXE\n"
