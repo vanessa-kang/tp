@@ -157,11 +157,13 @@ public class EditUtils {
         PartialModule currentSemesterModule = modulesList.get(moduleIndexList.get(indexToUpdate));
 
         if (newSemester > currentSemesterModule.getSemesterIndex() && moduleIndexList.size() > 1) {
-            if (notAllowedSemesterUpdateForward(newSemester, modulesList, moduleCode)) {
+            if (notAllowedSemesterUpdateForward(newSemester, modulesList, moduleCode)
+                    && modChecker.isRetakeGrade(currentSemesterModule.getGrade())) {
                 throw new AcademicException(ERROR_ILLEGAL_FORWARD);
             }
         } else if (moduleIndexList.size() > 1) {
-            if (notAllowedSemesterUpdateBackward(newSemester, modulesList, moduleCode)) {
+            if (notAllowedSemesterUpdateBackward(newSemester, modulesList, moduleCode)
+                    && !modChecker.isRetakeGrade(currentSemesterModule.getGrade())) {
                 throw new AcademicException(ERROR_ILLEGAL_BACKWARD);
             }
         }

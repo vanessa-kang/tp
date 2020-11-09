@@ -166,7 +166,7 @@ public class SharedUtils {
             String moduleCode) {
         int latestPassSemester = getLatestPassSemester(userModuleList, moduleCode);
 
-        if (newSemester > latestPassSemester) {
+        if (newSemester > latestPassSemester && latestPassSemester != 0) {
             return true;
         }
         return false;
@@ -185,7 +185,7 @@ public class SharedUtils {
             String moduleCode) {
         int latestFailSemester = getLatestFailSemester(userModuleList, moduleCode);
 
-        if (newSemester < latestFailSemester) {
+        if (newSemester < latestFailSemester && latestFailSemester != 0) {
             return true;
         }
         return false;
@@ -263,7 +263,7 @@ public class SharedUtils {
      */
     public static int getLatestFailSemester(ArrayList<PartialModule> modulesAddedList, String moduleCode) {
         ModuleValidator validator = new ModuleValidator();
-        int latestFailSemester = 1;
+        int latestFailSemester = 0;
         for (PartialModule m : modulesAddedList) {
             if (m.getModuleCode().equalsIgnoreCase(moduleCode) && validator.isRetakeGrade(m.getGrade())
                     && m.getSemesterIndex() > latestFailSemester) {
@@ -282,7 +282,7 @@ public class SharedUtils {
      */
     public static int getLatestPassSemester(ArrayList<PartialModule> modulesAddedList, String moduleCode) {
         ModuleValidator validator = new ModuleValidator();
-        int latestPassSemester = 1;
+        int latestPassSemester = 0;
         for (PartialModule m : modulesAddedList) {
             if (m.getModuleCode().equalsIgnoreCase(moduleCode) && !validator.isRetakeGrade(m.getGrade())
                     && m.getSemesterIndex() > latestPassSemester) {
