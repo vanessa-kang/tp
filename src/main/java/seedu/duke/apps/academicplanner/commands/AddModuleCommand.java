@@ -276,6 +276,7 @@ public class AddModuleCommand extends Command {
         int latestSemester = getLatestSemester(modulesAddedList, indexArrayList);
 
         if (semesterValue <= latestSemester) {
+            fh.close();
             throw new AcademicException(INVALID_RETAKE_SEMESTER_LESS + latestSemester + "!");
         }
         checkValidityRetakeSemester(semesterValue, modulesAddedList);
@@ -295,6 +296,7 @@ public class AddModuleCommand extends Command {
             String currentModule = modulesAddedList.get(index).getModuleCode();
 
             if (currentSemester == semesterValue && currentModule.contains(moduleCode)) {
+                fh.close();
                 throw new AcademicException(INVALID_RETAKE_SEMESTER);
             }
         }
