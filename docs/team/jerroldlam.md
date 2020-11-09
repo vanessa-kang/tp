@@ -33,22 +33,32 @@ It aims to assist students in NUS by providing them an avenue to easily plan the
     * What it does: Easy initialisation of `Logger` to assist in logging the runtime execution of PlanNUS.
     * Justification: Logging will be widely used in PlanNUS to assist in tracking its events, hence by creating this class, developers can easily initialise a standardised logger which will output `.log` files for the developer to understand what is going on in the program. 
     * Highlights: Following careful consideration of how logging will be used, the parameters are set up to allow different codes to easily log without requiring a huge chunk of code to initialise it.
+* **New Functionality:** Support retaking of modules.
+    * [#253](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/253)
 * **Documentation**
     * User Guide
-        * Added documentation for `AddModuleCommand` [#37](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/37)
-        * Added Overview and introduction to user guide [#137](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/152)
-        * Wrote appendix for relevant information regarding NUS modules and semester indexes [#57](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/57)
+        * Added documentation for `AddModuleCommand` 
+            * [#37](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/37)
+        * Added Overview and introduction to user guide 
+            * [#137](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/152)
+        * Wrote appendix for relevant information regarding NUS modules and semester indexes 
+            * [#57](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/57)
     * Developer Guide
-        * Added documentation for `AddModuleCommand` and its flow in the program [#114](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/114)
-        * Added details of the `Ui` class [#172](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/172), [#175](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/175)
-        * Added Logging guide [#130](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/130)
+        * Added documentation for `AddModuleCommand` and its flow in the program 
+            * [#114](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/114)
+        * Added details of the `Ui` class 
+            * [#172](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/172), [#175](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/175)
+        * Added Logging guide 
+            * [#130](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/130)
 * **Team-Based Tasks**
+    * Set up Team Organisation and Team Repository
     * Maintained issue tracker on the team's repository
-    * Made necessary code quality enhancements [#36](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/59) ,[#65](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/65), [#100](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/100), [#101](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/101)
+    * Made necessary code quality enhancements 
+        * [#36](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/59) ,[#65](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/65), [#100](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/100), [#101](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/101), [#262](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/262), [#275](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/275)
     * Resolved coding standard violations
     * Made numerous bug fixes for the code and found bugs to be resolved
         * [#43](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/43), [#59](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/59), [#72](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/72), [#103](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/103), [#111](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/111), [#115](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/115), [#127](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/127), [#147](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/147), \
-        [#170](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/170), [#220](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/220), [#222](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/222)
+        [#170](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/170), [#220](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/220), [#222](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/222),  [#255](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/255)
 * **Contributions to the User Guide (Extracts without pictures)**
     * Semester Naming Conventions
         * For the purpose of this planning software, we have decided to limit the maximum number of semesters an undergraduate can take to 10, which is equivalent to 5 academic years. Each semester is indexed by an integer between 1 and 10. For a fresh undergraduate, they will begin at semester index of 1. For a year 3 student who is currently in semester 1, the semester index will be 5. Below is a table which illustrates the corresponding semester indexes for undergraduates.
