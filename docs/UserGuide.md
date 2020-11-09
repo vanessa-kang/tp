@@ -5,20 +5,18 @@
 <table><tr><td><div style="text-align:center">
     <img src="images/PlanNUSLogo.png" />
 </div></td></tr></table>
-Hello user of PlanNUS! Welcome to our user guide for our software. In this user guide, you can find information regarding how to use PlanNUS and the common questions asked with regards to the usage of PlanNUS. We hope you find this software
+Hello user of PlanNUS! Welcome to the user guide for our software. In this guide, you can find information regarding how to use PlanNUS and the common questions asked with regards to the usage of PlanNUS. We hope you find this software
 useful and we wish you all the best for your academic journey in NUS.
 
 <br>
 
 ## 1. Overview
 
-PlanNUS is a __desktop application for planning academic journey__ with modules offered by National University of Singapore (NUS). The __Command Line Interface (CLI)__ will be required for the program to work.
+PlanNUS is a __desktop application for undergraduates who wish to plan their academic journey__, with modules offered by National University of Singapore (NUS). The __Command Line Interface (CLI)__ will be required for the program to work.
 
-PlanNUS aims to patch the gap for students in NUS by providing an avenue for students to plan their full academic journey in NUS. 
+PlanNUS aims to address the gap of undergraduate academic planning in NUS, by providing an avenue for NUS students to plan their full academic journey. PlanNUS can also generate CAP statistics and even suggest which modules to mark as satisfactory/unsatisfactory (S/U), in order to achieve the highest CAP possible. 
 
-PlanNUS can also generate CAP statistics and even suggest to you which modules to mark as satisfactory/unsatisfactory(S/U) to have the highest CAP possible. 
-
-PlanNUS also has saving and loading features which would reduce the hassle of entering the full academic calendar for each use.
+In addition, PlanNUS has saving and loading features, which reduces the hassle of re-entering the full academic calendar during each use.
 
 The sections below explain how PlanNUS should be used, and the common errors faced by users. Sections can be easily navigated to by clicking on the hyperlinks in the table of contents.
 
@@ -49,8 +47,11 @@ The sections below explain how PlanNUS should be used, and the common errors fac
     * Saving of Academic Calendar into text file
     * Loading of Academic Calendar from text file
 
+[Back to Table of Contents](#2.-table-of-contents)
+
 <br>
 <!-- @@author Khenus -->
+
 ## 4. Quick Start
 
 1. Ensure that you have Java 11 or above installed.
@@ -60,6 +61,8 @@ The sections below explain how PlanNUS should be used, and the common errors fac
 1. Go to the directory where the jar file is saved.
 1. Enter the following command `java -jar PlanNus.jar`
 
+[Back to Table of Contents](#2.-table-of-contents)
+
 <br>
 
 ## 5. Command Summary
@@ -68,7 +71,7 @@ Note: All commands are **case-insensitive**.
 
 <br>
 
-* Initiate the __Academic Calendar Planner__: `acadplan`
+Initiate the __Academic Calendar Planner__: `acadplan`
 
 | __Action__                                  | __Command__                                                  |
 | ------------------------------------------- | ------------------------------------------------------------ |
@@ -84,9 +87,11 @@ Note: All commands are **case-insensitive**.
 
 **Note:** `acadplan` can be called from both the `PlanNUS` main menu, and from within the _CAP Calculator_ app.
 
+[Back to Table of Contents](#2.-table-of-contents)
+
 <br>
 
-* Initiate the __CAP Calculator__: `capcalc`
+Initiate the __CAP Calculator__: `capcalc`
 
 | __Action__                              | __Command__  |
 | --------------------------------------- | :----------- |
@@ -98,6 +103,8 @@ Note: All commands are **case-insensitive**.
 | Exiting the CAP Calculator              | `exit`       |
 
 **Note:** `capcalc` can be called from both the `PlanNUS` main menu, and from within the _Academic Planner_ app.
+
+[Back to Table of Contents](#2.-table-of-contents)
 
 <br>
 
@@ -113,6 +120,7 @@ For each of these commands, there are more specific functions for the configurat
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/Main_Page_Features.png" />  
 </div></td></tr></table>
+[Back to Table of Contents](#2.-table-of-contents)
 
 <br>
 
@@ -127,7 +135,7 @@ Input format: `acadplan`  or `a`
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/acadplan_features.png" />
 </div></td></tr></table>
-
+[Back to Table of Contents](#2.-table-of-contents)
 
 <br>
 
@@ -149,8 +157,6 @@ Upon entering the add command with the module code, you will be prompted to ente
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/add_module.png" />
 </div></td></tr></table>
-
-
 __<ins>Caution</ins>:__ 
 
 * Invalid module codes (i.e. Modules not offered by NUS) cannot be added into the calendar.
@@ -158,6 +164,8 @@ __<ins>Caution</ins>:__
 * Invalid semester indexes will be rejected by PlanNUS. For more information, visit [Appendix](#101-naming-convention-for-semester-indexes) for a list of valid semester indexes.
 * Invalid grade values will be rejected by PlanNUS. For more information, visit [Appendix](#102-grade-values) for a list of valid grade values.
 * When an invalid command is entered, you will be brought back to the main page of the academic planner, where you can re-enter the command with the correct information again.   
+
+[Back to Table of Contents](#2.-table-of-contents)
 
 <br>
 
@@ -192,6 +200,8 @@ __<ins>Caution:</ins>__
 
 * Only modules that have been added into the calendar can be edited
 
+[Back to Table of Contents](#2.-table-of-contents)
+
 <br>
 
 #### 6.1.3. Removing an existing module in the calendar: `remove`
@@ -213,11 +223,13 @@ __<ins>Caution:</ins>__
 * Only modules that have been added into the calendar can be removed
   
 
+[Back to Table of Contents](#2.-table-of-contents)
+
 <br>
 
 #### 6.1.4. Viewing the details of a module: `details`
 
-<!-- @@author Vanessa-Kang -->
+<!-- @@author vanessa-kang -->
 
 This command is for you to view information available for a particular module.
 
@@ -236,6 +248,8 @@ As shown in the image, you can input the module that they wish to view further d
 __<ins>Caution:</ins>__ 
 
 * No information will be printed if the module is not offered by NUS.
+
+[Back to Table of Contents](#2.-table-of-contents)
 
 <br>
 
@@ -263,6 +277,8 @@ __<ins>Caution:</ins>__
 * This feature currently only supports searching by module code.
 * Only up to the first 10 results are displayed.  
 
+[Back to Table of Contents](#2.-table-of-contents)
+
 <br>
 
 #### 6.1.6. Printing the academic calendar: `view`
@@ -284,6 +300,7 @@ Expected output when you wish to print a specific semester:
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/acadplan_viewsem.png" />
 </div></td></tr></table>
+[Back to Table of Contents](#2.-table-of-contents)
 
 <br>
 
@@ -296,7 +313,7 @@ Input format: `help`
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/acadplan_help.png" />
 </div></td></tr></table>
-
+[Back to Table of Contents](#2.-table-of-contents)
 
 <br>
 
@@ -311,7 +328,7 @@ Input format: `capcalc`
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/acadplan_capcalcswitch.png" />
 </div></td></tr></table>
-
+[Back to Table of Contents](#2.-table-of-contents)
 
 <br>
 
@@ -325,7 +342,7 @@ Input format: `capcalc` or `c`
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_features.png"  />
 </div></td></tr></table>
-
+[Back to Table of Contents](#2.-table-of-contents)
 
 <br>
 
@@ -347,6 +364,8 @@ __<ins>Caution:</ins>__
 * The value of CAP depends entirely on the modules and with corresponding grades added by you in the Academic Calendar Planner.
 * If there are no modules added, the current CAP and graded MCs are set to 0.
 
+[Back to Table of Contents](#2.-table-of-contents)
+
 <br>
 
 #### 6.2.2. Set target CAP: `set target`
@@ -364,6 +383,8 @@ __<ins>Caution:</ins>__
 * CAP should be between 0.00 to 5.00 inclusive.
 * MC should be between than 1 to 180 inclusive.
 
+[Back to Table of Contents](#2.-table-of-contents)
+
 <br>
 
 #### 6.2.3. Set S/U modules: `set su`
@@ -377,7 +398,7 @@ This command is for you to set modules that you wishes to S/U.
 As shown in the image, you can choose to S/U by either a _Semester_ or some selected _Modules_. (__Note:__ Enter either `1` or `2` instead of the component's name)
 
 
-##### Set S/U by semester
+##### 6.2.3.1. Set S/U by semester
 
 Below shows the expected output when you wish to S/U by _Semester_.
 
@@ -405,10 +426,13 @@ You will also be shown the highest Cap possible that you can obtain.
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_set_su_semester_output3.png" />
 </div></td></tr></table> 
-
 Lastly, you will be shown the modules that you should S/U in order to obtain the highest CAP possible.
 
-##### Set S/U by modules
+[Back to Table of Contents](#2.-table-of-contents)
+
+<br>
+
+##### 6.2.3.2. Set S/U by modules
 
 Below shows the expected output when you wish to S/U by _Modules_.
 
@@ -429,8 +453,6 @@ __<ins>Caution:</ins>__
  <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_set_su_modules_output2.png" />
 </div></td></tr></table>
-
-
 Modules will be S/Ued starting from the lowest grade will be displayed with the corresponding updated CAP to you.
 You will also be shown with the highest CAP possible that you can obtain.
 
@@ -439,6 +461,8 @@ You will also be shown with the highest CAP possible that you can obtain.
 </div></td></tr></table>
 
 Lastly, you will be shown the modules that you should S/U in order to obtain the highest CAP possible.
+
+[Back to Table of Contents](#2.-table-of-contents)
 
 <br>
 
@@ -451,7 +475,7 @@ Input format: `help`
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_help.png" />
 </div></td></tr></table>
-
+[Back to Table of Contents](#2.-table-of-contents)
 
 <br>
 
@@ -466,7 +490,7 @@ You can choose to switch to the _Academic Planner_ app from within the _CAP Calc
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_acadplanswitch.png" />
 </div></td></tr></table>
-
+[Back to Table of Contents](#2.-table-of-contents)
 
 <br>
 
@@ -492,34 +516,34 @@ Last but not least, the expected output for exiting PlanNUS will be as such:
     <img src="images/UserGuide/exit_PlanNUS.png" />
 </div></td></tr></table> 
 
-​    
+[Back to Table of Contents](#2.-table-of-contents)
 
 ## 7. Loading and Saving 
 
 <!-- @@author Khenus -->
 
-Upon running PlanNUS in command prompt, the program automatically looks for a text file with the name _PlanNUS.txt_ within the same folder as _PlanNUS.jar_. 
+Upon running PlanNUS in the command prompt, the program automatically looks for a text file with the name _PlanNUS.txt_ within the same folder as _PlanNUS.jar_. 
 
-If the text file cannot be found, then the output will be as shown at the main page of PlanNUS after the list of commands.
+If the text file cannot be found, then the following output will be shown on the main page of PlanNUS, before the list of commands.
 
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/file_not_found.png" />
 </div></td></tr></table> 
 
-If an empty save file exist, the following output will be displayed instead.
+If an empty save file exists, the following output will be displayed instead.
 
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/file_is_empty.png" />
 </div></td></tr></table> 
 
-All the modules selected will be saved into _PlanNUS.txt_ after you exit from the program. The next time you run the program again, it will load the configurations that were saved previously which will generate the below output.
+All the added modules will be saved into _PlanNUS.txt_ after you exit from the program. The next time the program is run again, it will load the previously saved configurations, and will generate the following output.
 
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/module_loaded.png" />
 </div></td></tr></table> 
+Note that the image above is just an example because it depends on the number of modules saved in the text file.
 
-
-Note that the image above is just an example because it depends on the number of modules saved in your text file.
+[Back to Table of Contents](#2.-table-of-contents)
 
 <br>
 
@@ -531,8 +555,10 @@ Question Type|Question|Answer
 :---:|---|---
 General | How do I check which modules are offered by NUS? | For more info on which modules are offered by NUS, visit [here](https://nusmods.com/modules?sem[0]=1&sem[1]=2&sem[2]=3&sem[3]=4 "NUSMODS").
 General | What is a valid semester index? | For the purpose of this planning software, we have come to a decision to limit the maximum number of semesters an undergraduate can take to 10, which is 5 academic years. The notation they are represented by is by an integer of value 1 to 10. For a fresh undergraduate, they will begin at semester index of 1. For a year 3 student who is currently in semester 1, the semester index will be 5. Please refer to the appendix for more information.
-General | What is a valid grade? | **Letter Grades**: A+, A, B+, B, B-, C+, C, D+, D, F , **Special Grades**: CS, CU, S, U, W, IC, IP, AUD, WU, EXE, **If you have yet to have a grade for the module**: NT
+General | What is a valid grade? | **Letter Grades**: A+, A, B+, B, B-, C+, C, D+, D, F , **Special Grades**: CS, CU, S, U, W, IC, IP, AUD, WU, EXE, **If you have yet to obtain a grade for the module**: NT 
 General | What is the name of the saved file? | The name of the saved file is `PlanNUS.txt` and can be found at the base of the folder, in the same location as your PlanNUS.jar. 
+
+[Back to Table of Contents](#2.-table-of-contents)
 
 <br>
 
@@ -545,6 +571,8 @@ General | What is the name of the saved file? | The name of the saved file is `P
 * [**Documentation guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DocumentationGuide.html)
 * [**Logging guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/LoggingGuide.html)
 * [**Testing guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/TestingGuide.html)
+
+[Back to Table of Contents](#2.-table-of-contents)
 
 <br>
 
@@ -567,7 +595,9 @@ For the purpose of this planning software, _PlanNUS_ limits the maximum number o
 |       5       |               1                |       9        |
 |       5       |               2                |       10       |
 
+[Back to Table of Contents](#2.-table-of-contents)
 
+<br>
 
 ### 10.2. Grade values
 
@@ -590,6 +620,8 @@ As per NUS [Grade Policy](http://www.nus.edu.sg/registrar/academic-information-p
 
 *Additional Grading options include S,U,CS,CU,IC,IP,AUD,EXE,W,WU. They hold no Academic Point Value.
 
+[Back to Table of Contents](#2.-table-of-contents)
+
 <br>
 
 ## 11. Features Coming Soon (V3.0 and beyond)
@@ -600,6 +632,8 @@ As per NUS [Grade Policy](http://www.nus.edu.sg/registrar/academic-information-p
 * Support shortened commands for parsers
 * Support validation of requirements for modules
 
+[Back to Table of Contents](#2.-table-of-contents)
+
 <br>
 
-# End of user guide
+#### *End of user guide*
