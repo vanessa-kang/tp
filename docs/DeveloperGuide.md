@@ -113,6 +113,8 @@ The [*sequence diagram*](#sequence-diagram) below shows how different packages a
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/Details_architecture.png" alt="Details architecture diagram of PlanNUS"/>
 </div>
+Note that the above diagram is only intended for showing the connections to PlanNus main class rather than between individual classes.
+
 <br>
 
 #### 3.5.1. Global Component
@@ -140,7 +142,7 @@ note that the diagram below only shows the connections to plannus main class. It
 </div>
 
 
-The `Storage` component is responsible for the loading and saving of information from text files.
+The `Storage` component is responsible for the loading and saving of information from text files which can happen in two types of scenarios. The first type would be through the use of commands specified in the diagram which can be found in the _Academic Planner_ app. Alternatively, the user may also exit from the program using the commands within the application itself. This is to prevent loss of data when the user terminates the program by closing the command prompt or using the _ctrl-c_ command.
 
 **API** : `src.main.java.seedu.duke.storage`
 
@@ -168,6 +170,8 @@ of these parsers is to process the user's input and return the appropriate comma
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/Ui_architecture.png" alt="Architecture diagram for Ui"/>
 </div>
+
+Note: XYZ stand for any class. For example, `XYZParser` refers to `AppParser`,`AcademicPlannerParser` etc.
 
 In PlanNUS, the `Ui` component is integral in initialising a `Scanner` class and passing it to methods where they require them. `Ui` also provides functions to output formatted lines to console to improve readability for the user.
 
@@ -209,7 +213,7 @@ and `String`. Below is a table of what each parameter corresponds to in the stat
 __Step 2__ : `execute()` is called from the instance of `AddModuleCommand`. It can throw `AcademicException` 
 or `IOException`. `FileHandler` and `Logger` classes from the _java API_ are instantiated to handle logging for the remainder of the `execute()` method. 
 
-__Step 3__ : `in` then reads in the next line of input, which is the user's input for the desired semester for the `moduleCode`. This is then validated against `allModules`, while accounting for `isRetake` variable. `isRetake` is a flag varaible which indicates that
+__Step 3__ : `in` then reads in the next line of input, which is the user's input for the desired semester for the `moduleCode`. This is then validated against `allModules`, while accounting for `isRetake` variable. `isRetake` is a flag variable which indicates that
 the module newly entered by the user is a module that is going to be retaken.
 
 __Step 4__ : The next line of input is read from `in`, which is the user's input for grade value, which is also validated by `ModuleValidator`.
@@ -273,16 +277,18 @@ __Step 2:__ The `execute()` method is called from the instance of `EditModuleCom
 
 __Step 3:__ Method `isModTakenByUser()` of the `ModuleValidator` is called to check if the `moduleCode` entered by the user exists within the `userModuleList` and `userModuleMap`.
 
-__Step 4:__ `in` reads the next line of input for user's choice of modifying either the semester or grade of the selected `moduleCode`.
+__Step 4:__ If there are multiple occurrences of the specified `moduleCode` which are retaken, the user will be prompted to select the desired index of the module to be modified. 
 
-__Step 5:__ `isValidSemester()` or `isValidGrade()` is called to validate the semester or grade entered by the user.
+__Step 5:__ `in` reads the next line of input for user's choice of modifying either the semester or grade of the selected `moduleCode`.
 
-__Step 6:__ `updateModuleSemester()` or `updateModuleGrade()` is then called to conduct necessary changes to the information by accessing the module from `userModuleMap` and `userModuleList`.
+__Step 6:__ `isValidSemester()` or `isValidGrade()` is called to validate the semester or grade entered by the user.
+
+__Step 7:__ `updateModuleSemester()` or `updateModuleGrade()` is then called to conduct necessary changes to the information by accessing the module from `userModuleMap` and `userModuleList`.
 
 <div style="text-align:center">
     <img src="./images/DeveloperGuide/editModuleCommand_finalState.png" alt="Final state diagram for Edit Module Command"/>
 </div>
-__Step 7:__ `EditModuleCommand`, `EditUtils` and `ModuleValidator` are terminated.
+__Step 8:__ `EditModuleCommand`, `EditUtils` and `ModuleValidator` are terminated.
 
 The following sequence diagram shows how `EditModuleCommand` works.
 
@@ -608,19 +614,19 @@ __Extensions__
   - 1b1.  PlanNUS shows an _invalid module code_ error message.
     
     Use case ends.
-    
+  
 - 1c. User enters a module code that is offered by NUS, but is not currently in the user's academic calendar.
   
   - 1c1. PlanNUS shows a _module not in calendar_ error message.
     
     Use case ends.
-    
+  
 - 3a. User chooses a feature that is invalid.
   
   - 3a1. PlanNUS shows an _invalid feature_ error message.
     
     Use case ends.
-    
+  
 - 5a. User enters an updated value that is invalid.
   
   - 5a1. PlanNUS shows an _invalid value_ error message.
@@ -654,7 +660,7 @@ __Extensions__
   - 1b1.  PlanNUS shows an _invalid module code_ error message.
     
     Use case ends.
-    
+  
 - 1c. User enters a module code that is offered by NUS, but is not currently in the user's academic calendar.
   
   - 1c1. PlanNUS shows a _module not in calendar_ error message.
@@ -680,7 +686,8 @@ __Extensions__
 - 1a. User did not specify a module code while viewing details of a module.
   - 1a1. PlanNUS shows a _missing parameter_ error message.
     
-  Use case ends.
+    Use case ends.
+
   
 - 1b. User enters a module code that is not offered by NUS.
   - 1b1.  PlanNUS shows an _invalid module code_ error message.
@@ -815,7 +822,7 @@ __Extensions__
   - 3a1. PlanNUS shows an _invalid CAP_ error message.
     
     Use case ends.
-    
+  
 - 5a. User provides a valid target CAP, but the target MCs is not valid.
   - 5a1. PlanNUS shows an _invalid MCs_ error message.
     
@@ -892,7 +899,7 @@ __Extensions__
   - 3b1. PlanNUS shows a _number out of bound_ error message.
 
     Use case ends.
-    
+  
 - 5a. User did not enter a valid module code.
 
   - 5a1. PlanNUS shows an _invalid module_ error message.
@@ -941,7 +948,6 @@ A UML diagram that captures the interactions between multiple objects for a give
 
 ## 7. Features Coming Soon (V3.0 and beyond)
 
-* Logging of program to separate folders
 * Support max limit for the `Set SU` function in `capcalc`
 * Support discontinued modules from NUS
 * Support shortened commands for parsers

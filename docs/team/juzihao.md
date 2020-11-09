@@ -30,9 +30,12 @@ With PlanNus, we aim to provide an one-stop solution to some of the most common 
     * User Guide
       * Added documentation for features `set target` and `set su`. [#16](https://github.com/AY2021S1-CS2113T-F12-1/tp/issues/16)
     * Developer Guide
-      * Added documentation for `set su` and its flow. [#89](https://github.com/AY2021S1-CS2113T-F12-1/tp/issues/89)
+      * Added documentation for `set su` commands and its flow. [#89](https://github.com/AY2021S1-CS2113T-F12-1/tp/issues/89)
+      * Added documentation for `CurrentCommand` and its flow. [#296](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/296)
       * Added documentation for Glossary. [#177](https://github.com/AY2021S1-CS2113T-F12-1/tp/issues/171)
       * Added documentation for Configuration Guide.
+      * Added use cases for  CAP Calculator commands. [#273](https://github.com/AY2021S1-CS2113T-F12-1/tp/pull/273)
+
       
 * **Team-Based Tasks**
   * Made bug fixes to the code and bugs to be resolved.
