@@ -394,8 +394,9 @@ This command is for you to set modules that you wishes to S/U.
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_set_su_module.png" />
 </div></td></tr></table>
-
 As shown in the image, you can choose to S/U by either a _Semester_ or some selected _Modules_. (__Note:__ Enter either `1` or `2` instead of the component's name)
+
+<br>
 
 
 ##### 6.2.3.1. Set S/U by semester
@@ -459,7 +460,6 @@ You will also be shown with the highest CAP possible that you can obtain.
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_set_su_modules_output3.png" />
 </div></td></tr></table>
-
 Lastly, you will be shown the modules that you should S/U in order to obtain the highest CAP possible.
 
 [Back to Table of Contents](#2.-table-of-contents)
@@ -475,6 +475,8 @@ Input format: `help`
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_help.png" />
 </div></td></tr></table>
+
+
 [Back to Table of Contents](#2.-table-of-contents)
 
 <br>
@@ -490,6 +492,8 @@ You can choose to switch to the _Academic Planner_ app from within the _CAP Calc
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_acadplanswitch.png" />
 </div></td></tr></table>
+
+
 [Back to Table of Contents](#2.-table-of-contents)
 
 <br>
@@ -515,7 +519,6 @@ Last but not least, the expected output for exiting PlanNUS will be as such:
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/exit_PlanNUS.png" />
 </div></td></tr></table> 
-
 [Back to Table of Contents](#2.-table-of-contents)
 
 ## 7. Loading and Saving 
