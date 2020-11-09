@@ -119,10 +119,10 @@ Commands within the CAP calculator:
 
 ## 6. Features 
 
-PlanNUS has two separate commands at the main page where you can either choose to:
+From the PlanNUS main page, you can choose to enter two separate apps:
 
-1. Have outlook of your potential academic journey
-1. Calculate your CAP
+1. _Academic Calendar Planner_ - have an outlook of your potential academic journey.
+1. _CAP Calculator_ - calculate and forecast your CAP.
 
 For each of these commands, there are more specific functions for the configuration of your desired choices.
 
@@ -138,7 +138,7 @@ For each of these commands, there are more specific functions for the configurat
 
 ### 6.1. Academic Calendar Planner: `acadplan` or `a`
 
-Directs you to the academic planner page where you can plan a personalized academic journey in NUS by using `add`, `remove`, `view` or `edit` features as shown below.
+Directs you to the _Academic Planner_ app, where you can plan a personalized academic journey in NUS by using `add`, `remove`, `view` or `edit` features as shown below.
 Note: You can choose to switch to the _Academic Planner_ app from within the _CAP Calculator_ app or the PlanNUS main menu.
 
 Input format: `acadplan`  or `a`
@@ -165,7 +165,7 @@ Input format: `add <module code>`
 * `add CS2113T`
 * `ADD cs2101`
 
-Upon entering the add command with the module code, you will be prompted to enter the semester you wish to take the module and the corresponding grade attained.
+Upon entering the add command with the module code, you will be prompted to enter two additional fields of information: the semester you wish to take the module, and the corresponding grade attained.
 
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/add_module.png" />
@@ -244,7 +244,7 @@ __<ins>Caution:</ins>__
 
 <!-- @@author vanessa-kang -->
 
-This command is for you to view information available for a particular module.
+This command is for you to view the detailed information of a particular module.
 
 Input format: `details <module code>`
 
@@ -321,7 +321,7 @@ Expected output when you wish to print a specific semester:
 
 #### 6.1.7. Printing help for academic calendar: `help`
 
-This command is for you when you are unsure of what commands are available in `acadplan`.
+This command is for when you are unsure of what commands are available in `acadplan`.
 
 Input format: `help`
 
@@ -338,9 +338,11 @@ Input format: `help`
 
 <!-- @@author Khenus -->
 
-Note: You can choose to switch to the _CAP Calculator_ app from within the _Academic Planner_ app or the PlanNUS main menu.
+This command is for you to switch to the _CAP Calculator_ app.
 
 Input format: `capcalc`
+
+Note: You can also choose to switch to the CAP Calculator_ app from the PlanNUS main menu.
 
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/acadplan_capcalcswitch.png" />
@@ -354,7 +356,7 @@ Input format: `capcalc`
 
 ### 6.2. Cap Calculator: `capcalc`
 
-Directs you to the page where he/she can view the `current` CAP or even `set target` CAP to be met in the upcoming semester(s) from **Main Menu**. 
+Directs you to the _CAP Calculator_ app where he/she can view the `current` CAP or even `set target` CAP to be met in the upcoming semester(s) from **Main Menu**. 
 
 Input format: `capcalc` or `c`
 
@@ -382,7 +384,7 @@ Input format: `current`
 
 __<ins>Caution:</ins>__
 
-* The value of CAP depends entirely on the modules and with corresponding grades added by you in the Academic Calendar Planner.
+* The value of CAP depends entirely on the modules and their corresponding grades that you have added into the Academic Calendar Planner.
 * If there are no modules added, the current CAP and graded MCs are set to 0.
 
 [Back to Table of Contents](#2-table-of-contents)
@@ -410,7 +412,7 @@ __<ins>Caution:</ins>__
 
 #### 6.2.3. Set S/U modules: `set su`
 
-This command is for you to set modules that you wishes to S/U.
+This command is for you to set modules that you wish to S/U.
 
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_set_su_module.png" />
@@ -441,9 +443,8 @@ __<ins>Caution:</ins>__
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_set_su_semester_output2.png" />
 </div></td></tr></table> 
-
-Modules will be S/Ued starting from the lowest grade and will be displayed with the corresponding updated CAP to you.
-You will also be shown the highest Cap possible that you can obtain.
+Modules will be S/Ued starting from the lowest grade and will be displayed with the corresponding updated CAP.
+You will also be shown the highest possible CAP that you can obtain.
 
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_set_su_semester_output3.png" />
@@ -470,13 +471,13 @@ You will be shown the *S/U list* which consists of a sorted list of valid module
 __<ins>Caution:</ins>__ 
 
 * Duplicate modules are not allowed.
-* Number of modules to be S/Ued should not be greater than number of modules taken by you.
+* Number of modules to be S/Ued should not be greater than number of modules that you have taken.
 
  <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_set_su_modules_output2.png" />
 </div></td></tr></table>
-Modules will be S/Ued starting from the lowest grade will be displayed with the corresponding updated CAP to you.
-You will also be shown with the highest CAP possible that you can obtain.
+Modules will be S/Ued starting from the lowest grade and will be displayed with the corresponding updated CAP.
+You will also be shown the highest possible CAP that you can obtain.
 
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_set_su_modules_output3.png" />
@@ -489,7 +490,7 @@ Lastly, you will be shown the modules that you should S/U in order to obtain the
 
 #### 6.2.4. Printing help for CAP Calculator: `help`
 
-This command is for you when you are unsure of what commands are available in `capcalc`.
+This command is for when you are unsure of what commands are available in `capcalc`.
 
 Input format: `help`
 
@@ -504,11 +505,11 @@ Input format: `help`
 
 #### 6.2.5. Switching to the _Academic Planner_ app: `acadplan`
 
-This command is for you to switch to `acadplan`.
+This command is for you to switch to the _Academic Planner_ app.
 
 Input format: `acadplan`
 
-You can choose to switch to the _Academic Planner_ app from within the _CAP Calculator_ app.
+Note: You can also choose to switch to the _Academic Planner_ app from the PlanNUS main menu.
 
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/capcalc_acadplanswitch.png" />
@@ -521,21 +522,21 @@ You can choose to switch to the _Academic Planner_ app from within the _CAP Calc
 
 ### 6.3. Exiting from a feature or PlanNUS: `exit`
 
-This command directs you back to the main page of PlanNUS after they are done using a feature or exits from the entire application itself.
+This command directs you back to the main page of PlanNUS after you are done using a feature, or wish to exit from the entire software itself.
 
 Input format: `exit`
 
-When you exit from the Academic Planner, expected output is as shown:
+When you exit from the _Academic Planner_, expected output is as follows:
 
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/exit_acadplan.png" />
 </div></td></tr></table> 
-When you exit from the CAP calculator, expected output will be as follows:
+When you exit from the _CAP calculator_, expected output is as follows:
 
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/exit_capcalc.png" />
 </div></td></tr></table> 
-Last but not least, the expected output for exiting PlanNUS will be as such:
+Last but not least, the expected output when you exit from PlanNUS is as follows:
 
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/exit_PlanNUS.png" />
@@ -567,7 +568,7 @@ All the added modules will be saved into _PlanNUS.txt_ after you exit from the p
 <table><tr><td><div style="text-align:center">
     <img src="images/UserGuide/module_loaded.png" />
 </div></td></tr></table> 
-Note that the image above is just an example because it depends on the number of modules saved in the text file.
+Note that the image above is merely an example, since the exact output depends on the number of modules saved in the text file.
 
 [Back to Table of Contents](#2-table-of-contents)
 
