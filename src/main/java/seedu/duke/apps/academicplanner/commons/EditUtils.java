@@ -1,5 +1,11 @@
 package seedu.duke.apps.academicplanner.commons;
 
+import static java.lang.Integer.parseInt;
+import static seedu.duke.apps.academicplanner.commons.SharedUtils.fromFailingToPass;
+import static seedu.duke.apps.academicplanner.commons.SharedUtils.getEntryToBeEdited;
+import static seedu.duke.apps.academicplanner.commons.SharedUtils.getLatestSemester;
+import static seedu.duke.apps.academicplanner.commons.SharedUtils.notAllowedSemesterUpdateForward;
+import static seedu.duke.apps.academicplanner.commons.SharedUtils.verifyRepeatedSemester;
 import seedu.duke.apps.academicplanner.exceptions.AcademicException;
 import seedu.duke.apps.capcalculator.commons.CalculatorUtils;
 import seedu.duke.apps.moduleloader.ModuleLoader;
@@ -9,9 +15,6 @@ import seedu.duke.global.objects.Person;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
-
-import static java.lang.Integer.parseInt;
-import static seedu.duke.apps.academicplanner.commons.SharedUtils.*;
 
 //@@author harryleecp
 /**
